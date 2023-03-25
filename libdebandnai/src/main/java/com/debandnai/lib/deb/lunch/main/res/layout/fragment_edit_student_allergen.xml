@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="ie.healthylunch.app.data.viewModel.EditStudentAllergenViewModel" />
+
+        <variable
+            name="context"
+            type="ie.healthylunch.app.fragment.students.EditStudentAllergenFragment" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background_all">
+
+
+        <RelativeLayout
+            android:id="@+id/rl_allergen_student"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/background_left_right_margin"
+            android:layout_marginTop="@dimen/rl_margin_top_allergen_5dp"
+            android:layout_marginRight="@dimen/background_left_right_margin">
+
+            <RelativeLayout
+                android:id="@+id/rl_top_new"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_margin="@dimen/add_child_welcome_margin"
+                android:onClick="@{(v)->viewModel.back(v)}">
+
+                <ImageView
+                    android:id="@+id/iv_arrow"
+                    android:layout_width="@dimen/iv_top_left_arrow_30dp"
+                    android:layout_height="@dimen/iv_top_left_arrow_30dp"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/wiz_skip_left_arrow_active"
+                    tools:ignore="ContentDescription" />
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/student_name_allergen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rl_top_new"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="-30dp"
+                android:gravity="start"
+                android:text="@{@string/does_any_of_the_following_apply_to+ ` `+viewModel.studentName+` ?`}"
+                android:textColor="@color/light_black"
+                android:textSize="@dimen/profile_textSize" />
+            <!--android:text="@{viewModel.message}"
+            android:text="@string/does_any_of_the_following_apply_to_luke"-->
+        </RelativeLayout>
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/rl_allergen_student"
+            android:layout_above="@+id/edit_student_allergen"
+            android:scrollbars="none">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            android:orientation="vertical">
+        <!--Cultural Consideration-->
+        <RelativeLayout
+            android:id="@+id/rl_cultural_consideration"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/background_left_right_margin"
+            android:layout_marginTop="@dimen/margin_buttom_rl_allergen_10dp"
+            android:layout_marginRight="@dimen/background_left_right_margin"
+            android:visibility="gone"
+            android:background="@drawable/custom_calender_background_shadow_new">
+
+            <TextView
+                android:id="@+id/tv_cultural_consideration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/quicksand_medium"
+
+                android:text="@string/cultural_consideration"
+                android:textColor="@color/red"
+                android:textSize="@dimen/add_children_its_time_to_textSize" />
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_cultural_consideration"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_below="@+id/tv_cultural_consideration"
+                android:layout_marginLeft="@dimen/editText_marginLeft"
+                android:layout_marginRight="@dimen/editText_marginLeft"
+                android:layout_marginBottom="@dimen/rv_student_allergen_marginBottom"
+                android:scrollbars="vertical"
+                android:nestedScrollingEnabled="false"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:spanCount="2"
+                tools:listitem="@layout/allergy_item" />
+        </RelativeLayout>
+
+        <!--Nutritional Consideration-->
+        <RelativeLayout
+            android:id="@+id/rl_nutritional_consideration"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/background_left_right_margin"
+            android:layout_marginRight="@dimen/background_left_right_margin"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:visibility="gone"
+            android:background="@drawable/custom_calender_background_shadow_new">
+
+            <TextView
+                android:id="@+id/tv_nutritional_consideration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/quicksand_medium"
+
+                android:text="@string/nutritional_consideration"
+                android:textColor="@color/red"
+                android:textSize="@dimen/add_children_its_time_to_textSize" />
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_nutritional_consideration"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_nutritional_consideration"
+                android:layout_marginLeft="@dimen/editText_marginLeft"
+                android:layout_marginRight="@dimen/editText_marginLeft"
+                android:layout_marginBottom="@dimen/rv_student_allergen_marginBottom"
+                android:scrollbars="vertical"
+                android:nestedScrollingEnabled="false"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:spanCount="2"
+                app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
+
+                tools:listitem="@layout/allergy_item" />
+        </RelativeLayout>
+
+        <!--All allergens-->
+        <RelativeLayout
+            android:id="@+id/rl_allergens"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/background_left_right_margin"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginRight="@dimen/background_left_right_margin"
+            android:layout_marginBottom="@dimen/margin_buttom_rl_allergen_10dp"
+            android:visibility="gone"
+            android:background="@drawable/custom_calender_background_shadow_new">
+
+            <TextView
+                android:id="@+id/tv_add_children_know_allergies"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/quicksand_medium"
+                android:padding="@dimen/its_time_to_padding"
+                android:text="@string/allergen_related_products_will_be_removed_from_your_menu"
+                android:textColor="@color/red"
+                android:textSize="@dimen/add_children_its_time_to_textSize" />
+            <!--@string/allergens-->
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_student_allergen"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="@dimen/editText_marginLeft"
+                android:layout_marginRight="@dimen/editText_marginLeft"
+                android:layout_marginBottom="@dimen/rv_student_allergen_marginBottom"
+                android:scrollbars="vertical"
+                android:layout_below="@+id/tv_add_children_know_allergies"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+
+                app:spanCount="2"
+                tools:listitem="@layout/allergy_item" />
+
+
+
+
+        </RelativeLayout>
+        </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+        <RelativeLayout
+            android:id="@+id/edit_student_allergen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="@dimen/ed_name_left_right_margin"
+            android:layout_marginTop="@dimen/edit_student_allergen_margintop"
+            android:layout_marginRight="@dimen/ed_name_left_right_margin"
+            android:layout_marginBottom="@dimen/rl_margin_buttom_student_allergen_25dp"
+            android:background="@drawable/background_textview_green"
+            app:setEnabledView="@{viewModel.isSubmitEnabled}">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="@dimen/submit_margin_top1"
+                android:layout_marginBottom="@dimen/Submit_margin_top"
+                android:paddingTop="@dimen/Submit_paddingTopBottom"
+                android:paddingBottom="@dimen/Submit_paddingTopBottom"
+                android:text="@string/save_"
+                android:textColor="@color/white"
+                android:textSize="@dimen/SubmitTextSize" />
+
+        </RelativeLayout>
+    </RelativeLayout>
+</layout>

@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="ie.healthylunch.app.data.viewModel.AddStudentSuccessViewModel" />
+
+        <variable
+            name="context"
+            type="ie.healthylunch.app.fragment.registration.AddStudentSuccessFragment" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/place_order_bg">
+
+            <RelativeLayout
+                android:id="@+id/rl_top"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/add_child_welcome_margin"
+                android:layout_marginTop="@dimen/margin_top_student_name_50dp"
+                android:layout_marginRight="@dimen/add_child_welcome_margin"
+                android:layout_marginBottom="@dimen/add_child_welcome_margin">
+
+                <TextView
+                    android:id="@+id/tv_student_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="@dimen/welcome_to_marginBottom"
+                    android:fontFamily="@font/quicksand_medium"
+                    android:text=""
+                    android:textColor="@color/red"
+                    android:textSize="@dimen/tv_size_student_name_added_25sp" />
+
+                <TextView
+                    android:id="@+id/tv_childName_is_added"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_student_name"
+                    android:layout_centerHorizontal="true"
+                    android:fontFamily="@font/quicksand_medium"
+                    android:text="@{viewModel.studentName}"
+                    android:textColor="@color/red"
+                    android:textSize="@dimen/tv_size_student_name_added_25sp"
+                    tools:text="to your account!" />
+
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/rl_bottom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="@dimen/add_child_rl_bottom_marginLeft"
+                android:layout_marginTop="100dp"
+                android:layout_marginRight="@dimen/add_child_rl_bottom_marginLeft"
+                android:layout_marginBottom="30dp">
+
+                <RelativeLayout
+                    android:id="@+id/rl_add_children_want_to_add_more"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/add_children_its_time_to_background"
+                    android:padding="@dimen/its_time_to_padding"
+                    android:visibility="invisible">
+
+                    <TextView
+                        android:id="@+id/tv_add_children_want_to_add_more"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:fontFamily="@font/quicksand_medium"
+                        android:text="@string/want_to_add_more"
+                        android:textColor="@color/add_children_its_time_to_textColor"
+                        android:textSize="@dimen/add_children_its_time_to_textSize" />
+                </RelativeLayout>
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/rl_add_children_want_to_add_more"
+                    android:layout_marginTop="@dimen/scroll_marginTop">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/editText_marginLeft"
+                        android:layout_marginRight="@dimen/editText_marginLeft">
+
+                        <ImageView
+                            android:id="@+id/iv_wiz_student"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:visibility="invisible"
+                            tools:ignore="ContentDescription" />
+
+                        <RelativeLayout
+                            android:id="@+id/rl_button_add_child_more"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/iv_wiz_student"
+                            android:layout_marginLeft="@dimen/editText_marginLeft"
+                            android:layout_marginTop="@dimen/margin_top_place_order_rl_25dp"
+                            android:layout_marginRight="@dimen/editText_marginLeft"
+                            android:layout_marginBottom="@dimen/add_children_button_marginBottom"
+                            android:background="@drawable/background_textview_green"
+                            android:onClick="@{(v)->viewModel.addAnotherStudentClick(context.requireActivity())}">
+
+                            <TextView
+                                android:id="@+id/bt_add_child_more"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:layout_marginTop="@dimen/add_children_buttonText_marginTop"
+                                android:layout_marginBottom="@dimen/add_children_buttonText_marginTop"
+                                android:fontFamily="@font/quicksand_bold"
+                                android:paddingLeft="@dimen/add_children_buttonText_paddingLeft"
+                                android:paddingTop="@dimen/add_children_buttonText_paddingBottom"
+                                android:paddingRight="@dimen/add_children_buttonText_paddingLeft"
+                                android:paddingBottom="@dimen/add_children_buttonText_paddingBottom"
+                                android:text="@string/add_another_student"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/SubmitTextSize" />
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:id="@+id/rl_placeOrder"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/rl_button_add_child_more"
+                            android:layout_marginLeft="@dimen/editText_marginLeft"
+                            android:layout_marginTop="@dimen/margin_top_place_order_rl_25dp"
+                            android:layout_marginRight="@dimen/editText_marginLeft"
+                            android:layout_marginBottom="@dimen/add_children_button_marginBottom"
+                            android:background="@drawable/background_textview_green"
+                            android:onClick="@{(v)->viewModel.placeOrderClick(v)}">
+
+                            <TextView
+                                android:id="@+id/tv_placeOrder"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:layout_marginTop="@dimen/add_children_buttonText_marginTop"
+                                android:layout_marginBottom="@dimen/add_children_buttonText_marginTop"
+                                android:fontFamily="@font/quicksand_bold"
+                                android:paddingLeft="@dimen/add_children_buttonText_paddingLeft"
+                                android:paddingTop="@dimen/add_children_buttonText_paddingBottom"
+                                android:paddingRight="@dimen/add_children_buttonText_paddingLeft"
+                                android:paddingBottom="@dimen/add_children_buttonText_paddingBottom"
+                                android:text="@string/place_order"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/SubmitTextSize" />
+
+                        </RelativeLayout>
+                    </RelativeLayout>
+                </ScrollView>
+            </RelativeLayout>
+        </RelativeLayout>
+
+    </RelativeLayout>
+</layout>

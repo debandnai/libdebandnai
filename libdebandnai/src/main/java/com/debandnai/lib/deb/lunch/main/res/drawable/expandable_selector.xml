@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/menu_up_arrow" android:state_empty="true"/>
+    <item android:drawable="@drawable/menu_down_arrow" android:state_expanded="true"/>
+</selector>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="activity"
+            type="android.app.Activity" />
+
+        <variable
+            name="commonClass"
+            type="ie.healthylunch.app.data.CommonClass" />
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/topBar_menu_back_paddingRight"
+            android:paddingTop="@dimen/topBar_menu_back_paddingTop"
+            android:paddingRight="@dimen/topBar_menu_back_paddingRight"
+            android:paddingBottom="@dimen/topBar_menu_back_paddingTop"
+            tools:ignore="UselessParent">
+
+            <ImageView
+                android:id="@+id/iv_back"
+                android:layout_width="@dimen/iv_top_left_arrow_30dp"
+                android:layout_height="@dimen/iv_top_left_arrow_30dp"
+                android:layout_centerVertical="true"
+                android:onClick="@{()->activity.onBackPressed()}"
+                android:src="@drawable/wiz_skip_left_arrow_active"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/tv_menu_topBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:textColor="@color/add_children_colorBlack"
+                android:textSize="@dimen/topBar_select_menu_textSize"
+                tools:ignore="RelativeOverlap" />
+
+            <ImageView
+                android:id="@+id/iv_home"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:onClick="@{(v)->commonClass.homeButtonClick(v)}"
+                android:padding="@dimen/padding_left_arrow_notification_list_10dp"
+                android:src="@drawable/dashboard_black"
+                tools:ignore="ContentDescription,RtlHardcoded" />
+        </RelativeLayout>
+
+    </RelativeLayout>
+</layout>

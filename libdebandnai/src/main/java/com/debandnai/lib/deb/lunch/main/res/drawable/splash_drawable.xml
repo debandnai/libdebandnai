@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <bitmap android:src="@drawable/splash_new"/>
+    </item>
+    <item android:bottom="@dimen/_200sdp">
+        <bitmap android:src="@drawable/small_lunchbag_logo"
+            android:gravity="center" />
+    </item>
+</layer-list>

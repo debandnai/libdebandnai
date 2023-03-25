@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/light_dark"
+        android:gravity="center"
+        android:paddingStart="@dimen/_30sdp"
+        android:paddingEnd="@dimen/_30sdp">
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            app:cardBackgroundColor="@color/first_dayorder_item_yes_no_dialog_background"
+            app:cardCornerRadius="@dimen/_30sdp"
+            app:cardElevation="0dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tv_popupTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:fontFamily="@font/quicksand_bold"
+                    android:text="@string/oops"
+                    android:textColor="@color/first_dayorder_item_yes_no_dialog_red"
+                    android:textSize="@dimen/_22ssp" />
+
+                <ImageView
+                    android:id="@+id/image1"
+                    android:layout_width="@dimen/_100sdp"
+                    android:layout_height="@dimen/_90sdp"
+                    android:src="@drawable/select_next_img"
+                    android:layout_below="@+id/tv_popupTitle"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    tools:ignore="ContentDescription" />
+
+                <TextView
+                    android:id="@+id/tv_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/image1"
+                    android:layout_marginStart="@dimen/_20sdp"
+                    android:layout_marginEnd="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:textColor="@color/order_status_dialog_black2"
+                    android:textSize="@dimen/_15ssp"
+                    android:gravity="center"
+                    android:text="@string/please_choose_an_item"
+                    android:visibility="visible"
+                    android:fontFamily="@font/quicksand_bold" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:layout_below="@+id/tv_description"
+                    android:id="@+id/btn_ok"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:layout_marginBottom="@dimen/_20sdp"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/green_button_bg"
+                    android:fontFamily="@font/quicksand_bold"
+                    android:text="@string/ok"
+                    android:paddingTop="@dimen/_4sdp"
+                    android:paddingBottom="@dimen/_6sdp"
+                    android:paddingStart="@dimen/_40sdp"
+                    android:paddingEnd="@dimen/_40sdp"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_14ssp" />
+            </RelativeLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+    </RelativeLayout>
+</layout>

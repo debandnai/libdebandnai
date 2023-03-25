@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data android:layout_width="wrap_content">
+
+        <variable
+            name="viewModel"
+            type="com.merkaaz.app.data.viewModel.ProductDetailsViewModel" />
+
+        <variable
+            name="activity"
+            type="com.merkaaz.app.ui.activity.ProductDetailsActivity" />
+
+    </data>
+
+    <LinearLayout
+        android:id="@+id/qnt_lay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/white_bg_round_corner"
+        android:fontFamily="@font/russo_one"
+        android:orientation="horizontal"
+        android:textColor="@color/white">
+
+        <ImageView
+            android:id="@+id/iv_remove"
+            android:layout_width="@dimen/_35sdp"
+            android:layout_height="match_parent"
+            android:adjustViewBounds="true"
+            android:background="@drawable/view_btn_left_bg"
+            android:minWidth="@dimen/_24sdp"
+            android:padding="@dimen/_10sdp"
+            android:scaleType="centerInside"
+            android:src="@drawable/remove"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/tv_quantity"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/teal_007_border_white_bg"
+            android:gravity="center"
+            android:minWidth="@dimen/_24sdp"
+            android:paddingStart="@dimen/_3sdp"
+            android:paddingEnd="@dimen/_3sdp"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_11ssp"
+            android:textStyle="bold"
+            tools:text="12" />
+
+        <ImageView
+            android:id="@+id/iv_add"
+            android:layout_width="@dimen/_35sdp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:adjustViewBounds="true"
+            android:background="@drawable/view_btn_right_bg"
+            android:padding="@dimen/_10sdp"
+            android:src="@drawable/ic_add"
+            tools:ignore="ContentDescription" />
+    </LinearLayout>
+</layout>

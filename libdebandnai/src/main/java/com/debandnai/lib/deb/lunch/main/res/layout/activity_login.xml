@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="ie.healthylunch.app.data.viewModel.LoginViewModel" />
+
+        <variable
+            name="activity"
+            type="ie.healthylunch.app.ui.LoginActivity" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background_all"
+        app:hideKeyboardByClickingOutside="@{activity}"
+        tools:context=".ui.LoginActivity">
+
+        <ImageView
+            android:id="@+id/backIv"
+            android:layout_width="@dimen/iv_top_left_arrow_30dp"
+            android:layout_height="@dimen/iv_top_left_arrow_30dp"
+            android:layout_marginStart="@dimen/add_child_welcome_margin"
+            android:layout_marginTop="@dimen/add_child_welcome_margin"
+            android:layout_marginEnd="@dimen/add_child_welcome_margin"
+            android:layout_marginBottom="@dimen/add_child_welcome_margin"
+            android:onClick="@{()->activity.onBackPressed()}"
+            android:src="@drawable/wiz_skip_left_arrow_active"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/backIv"
+            android:layout_marginStart="@dimen/details_marginLeft"
+            android:layout_marginBottom="5dp"
+            android:fontFamily="@font/quicksand_bold"
+            android:gravity="center"
+            android:text="@string/log_in_details"
+            android:textColor="@color/light_black"
+            android:textSize="@dimen/tv_size_registration_step_one_22sp" />
+
+        <RelativeLayout
+            android:id="@+id/scroll_registration_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/details"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/scroll_registration_2_marginBottom"
+            android:fitsSystemWindows="true">
+
+
+            <RelativeLayout
+                android:id="@+id/rl_registration_background"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_395sdp"
+                android:layout_alignParentBottom="true"
+                android:layout_gravity="bottom"
+                android:layout_marginLeft="@dimen/background_left_right_margin"
+                android:layout_marginRight="@dimen/background_left_right_margin"
+                android:layout_marginBottom="@dimen/scroll_registration_2_marginBottom"
+                android:background="@drawable/custom_calender_background_shadow_new"
+                android:fitsSystemWindows="true"
+                tools:ignore="UselessParent">
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/healthylunch"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="@dimen/healthylunch_margintop"
+                            android:visibility="gone"
+                            tools:ignore="ContentDescription" />
+
+                        <TextView
+                            android:id="@+id/forgotPassword"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/healthylunch"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginBottom="@dimen/tv_login_margintop"
+                            android:fontFamily="@font/quicksand_bold"
+                            android:text="@string/login"
+                            android:textColor="@color/light_black"
+                            android:textSize="@dimen/heading_text_size"
+                            android:visibility="invisible" />
+
+                        <EditText
+                            android:id="@+id/edtUserName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/forgotPassword"
+                            android:layout_marginLeft="@dimen/ed_name_left_right_margin"
+                            android:layout_marginRight="@dimen/ed_name_left_right_margin"
+                            android:background="@drawable/background_textview"
+                            android:elevation="1.5dp"
+                            android:fontFamily="@font/quicksand_medium"
+                            android:gravity="center"
+                            android:hint="@string/username_email"
+                            android:importantForAutofill="no"
+                            android:inputType="textEmailAddress"
+                            android:paddingLeft="@dimen/add_child_editText_paddingLeft"
+                            android:paddingTop="@dimen/first_name_paddingTopBottom"
+                            android:paddingRight="@dimen/add_child_editText_paddingLeft"
+                            android:paddingBottom="@dimen/first_name_paddingTopBottom"
+                            android:singleLine="true"
+                            android:text="@={viewModel.userName}"
+                            android:textColor="@color/text_color_transaction_history_light_black"
+                            android:textColorHint="@color/text_font_color"
+                            android:textSize="@dimen/tv_1_text_size"
+                            app:addTextChangeListener="@{viewModel}"
+                            app:requestFocus="@{viewModel.userNameErrorVisible}" />
+
+                        <TextView
+                            android:id="@+id/userName_error"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/edtUserName"
+                            android:layout_marginLeft="@dimen/ed_name_left_right_margin"
+                            android:layout_marginTop="2dp"
+                            android:layout_marginRight="@dimen/ed_name_left_right_margin"
+                            android:fontFamily="@font/quicksand_medium"
+                            android:gravity="center"
+                            android:text="@{viewModel.usernameError}"
+                            android:textColor="@color/font_red"
+                            android:textSize="@dimen/error_textSize"
+                            android:visibility="invisible"
+                            app:hideErrorTextView="@{viewModel.userNameErrorVisible}"
+                            tools:text="Error Message" />
+
+                        <EditText
+                            android:id="@+id/password"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/userName_error"
+                            android:layout_marginLeft="@dimen/ed_name_left_right_margin"
+                            android:layout_marginTop="@dimen/edit_text_margintop"
+                            android:layout_marginRight="@dimen/ed_name_left_right_margin"
+                            android:background="@drawable/background_textview"
+                            android:elevation="1.5dp"
+                            android:fontFamily="@font/quicksand_medium"
+                            android:gravity="center"
+                            android:hint="@string/password"
+                            android:importantForAutofill="no"
+                            android:inputType="textPassword"
+                            android:paddingLeft="@dimen/add_child_editText_paddingLeft"
+                            android:paddingTop="@dimen/first_name_paddingTopBottom"
+                            android:paddingRight="@dimen/add_child_editText_paddingLeft"
+                            android:paddingBottom="@dimen/first_name_paddingTopBottom"
+                            android:singleLine="true"
+                            android:text="@={viewModel.password}"
+                            android:textColor="@color/text_color_transaction_history_light_black"
+                            android:textColorHint="@color/text_font_color"
+                            android:textSize="@dimen/tv_1_text_size"
+                            app:addTextChangeListener="@{viewModel}"
+                            app:requestFocus="@{viewModel.passwordErrorVisible}" />
+
+                        <TextView
+                            android:id="@+id/password_error"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/password"
+                            android:layout_marginLeft="@dimen/ed_name_left_right_margin"
+                            android:layout_marginTop="2dp"
+                            android:layout_marginRight="@dimen/ed_name_left_right_margin"
+                            android:fontFamily="@font/quicksand_medium"
+                            android:gravity="center"
+                            android:text="@{viewModel.passwordError}"
+                            android:textColor="@color/font_red"
+                            android:textSize="@dimen/error_textSize"
+                            android:visibility="invisible"
+                            app:hideErrorTextView="@{viewModel.passwordErrorVisible}"
+                            tools:text="Error Message" />
+
+                        <RelativeLayout
+                            android:id="@+id/login"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/password_error"
+                            android:layout_marginLeft="@dimen/ed_name_left_right_margin"
+                            android:layout_marginTop="@dimen/edit_text_margintop"
+                            android:layout_marginRight="@dimen/ed_name_left_right_margin"
+                            android:layout_marginBottom="@dimen/_20sdp"
+                            android:background="@drawable/background_textview_green"
+                            android:onClick="@{(v)->viewModel.login(activity,v)}">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginStart="@dimen/submit_text_margin_left"
+                                android:layout_marginTop="@dimen/submit_margin_top1"
+                                android:layout_marginBottom="@dimen/Submit_margin_top"
+                                android:fontFamily="@font/quicksand_bold"
+                                android:paddingStart="20dp"
+                                android:paddingTop="@dimen/Submit_paddingTopBottom"
+                                android:paddingBottom="@dimen/Submit_paddingTopBottom"
+                                android:text="@string/login"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/SubmitTextSize"
+                                tools:ignore="RtlSymmetry" />
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:layout_centerVertical="true"
+                                android:paddingEnd="@dimen/reg_submit_right_arrow_marginright"
+                                android:src="@drawable/reg_submit_right_arrow"
+                                android:visibility="gone"
+                                tools:ignore="ContentDescription,RtlSymmetry" />
+                        </RelativeLayout>
+
+                        <TextView
+                            android:id="@+id/tv_forgot_password"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/login"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginBottom="@dimen/_15sdp"
+                            android:fontFamily="@font/quicksand_medium"
+                            android:gravity="center"
+                            android:onClick="@{(v)->viewModel.forgotPassword(v)}"
+                            android:paddingTop="@dimen/_5sdp"
+                            android:paddingBottom="@dimen/_5sdp"
+                            android:text="@string/forgot_password_"
+                            android:textColor="@color/red"
+                            android:textSize="@dimen/forgot_password_textSize" />
+
+                        <TextView
+                            android:id="@+id/tv_optional"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/tv_forgot_password"
+                            android:layout_marginLeft="@dimen/ed_name_left_right_margin"
+                            android:layout_marginRight="@dimen/ed_name_left_right_margin"
+                            android:fontFamily="@font/quicksand_medium"
+                            android:gravity="center"
+                            android:paddingLeft="@dimen/add_child_editText_paddingLeft"
+                            android:paddingRight="@dimen/add_child_editText_paddingLeft"
+                            android:text="@string/or_using"
+                            android:textColor="@color/text_font_color"
+                            android:textSize="@dimen/tv_1_text_size"
+                            android:visibility="gone" />
+
+                        <RelativeLayout
+                            android:id="@+id/rl_social_login"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/tv_optional"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginLeft="@dimen/ed_name_left_right_margin"
+                            android:layout_marginRight="@dimen/ed_name_left_right_margin"
+                            android:visibility="gone">
+
+                            <RelativeLayout
+                                android:id="@+id/rl_social_google"
+                                android:layout_width="@dimen/rl_height_width_google_50dp"
+                                android:layout_height="@dimen/rl_height_width_google_50dp"
+                                android:layout_marginTop="@dimen/rl_margin_top_back_to_home_20dp"
+                                android:background="@drawable/social_login_bg">
+
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_centerVertical="true"
+                                    android:src="@drawable/ic_google"
+                                    tools:ignore="ContentDescription" />
+
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:id="@+id/rl_social_facebook"
+                                android:layout_width="@dimen/rl_height_width_google_50dp"
+                                android:layout_height="@dimen/rl_height_width_google_50dp"
+                                android:layout_marginStart="10dp"
+                                android:layout_marginTop="@dimen/rl_margin_top_back_to_home_20dp"
+                                android:layout_toEndOf="@+id/rl_social_google"
+                                android:background="@drawable/social_login_bg">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_centerVertical="true"
+                                    android:src="@drawable/ic_facebook"
+                                    tools:ignore="ContentDescription" />
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:id="@+id/rl_social_apple"
+                                android:layout_width="@dimen/rl_height_width_google_50dp"
+                                android:layout_height="@dimen/rl_height_width_google_50dp"
+                                android:layout_marginStart="10dp"
+                                android:layout_marginTop="@dimen/rl_margin_top_back_to_home_20dp"
+                                android:layout_toEndOf="@+id/rl_social_facebook"
+                                android:background="@drawable/social_login_bg">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_centerVertical="true"
+                                    android:src="@drawable/ic_apple"
+                                    tools:ignore="ContentDescription" />
+
+                            </RelativeLayout>
+
+
+                        </RelativeLayout>
+
+                    </RelativeLayout>
+
+                </ScrollView>
+
+
+                <RelativeLayout
+                    android:id="@+id/tv_already_login"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:background="@drawable/background_registration_step1_bottom"
+                    android:gravity="center"
+                    android:onClick="@{(v)->viewModel.registration(v)}">
+
+                    <TextView
+                        android:id="@+id/not_member"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginTop="2dp"
+                        android:fontFamily="@font/quicksand_bold"
+                        android:gravity="center"
+                        android:paddingTop="@dimen/paddintop_bottom_bottom_text"
+                        android:paddingBottom="@dimen/paddintop_bottom_bottom_text"
+                        android:text="@string/not_a_member_yet"
+                        android:textColor="@color/text_font_color"
+                        android:textSize="@dimen/layout_bottom_textSize" />
+
+                    <ImageView
+                        android:id="@+id/left_arrow_member"
+                        android:layout_width="@dimen/iv_width_60dp"
+                        android:layout_height="@dimen/iv_height_40dp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginTop="@dimen/margin_top_lin_left_15dp"
+                        android:padding="@dimen/padding_left_arrow_notification_list_10dp"
+                        android:paddingStart="@dimen/back_img_left_margin"
+                        android:src="@drawable/ic_back_bttn"
+                        tools:ignore="ContentDescription,RtlSymmetry" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/not_member"
+                        android:layout_marginLeft="@dimen/ed_name_left_right_margin"
+                        android:layout_marginTop="@dimen/login_reg_bt_marginTop"
+                        android:layout_marginRight="@dimen/ed_name_left_right_margin"
+                        android:layout_marginBottom="@dimen/login_reg_bt_marginTop"
+                        android:background="@drawable/background_textview_red"
+                        android:visibility="gone">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="@dimen/submit_text_margin_left"
+                            android:layout_marginTop="@dimen/submit_margin_top1"
+                            android:layout_marginBottom="@dimen/Submit_margin_top"
+                            android:fontFamily="@font/quicksand_bold"
+                            android:paddingStart="20dp"
+                            android:paddingTop="@dimen/Submit_paddingTopBottom"
+                            android:paddingBottom="@dimen/Submit_paddingTopBottom"
+                            android:text="@string/registration"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/SubmitTextSize"
+                            tools:ignore="RelativeOverlap,RtlSymmetry" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:paddingEnd="@dimen/reg_submit_right_arrow_marginright"
+                            android:src="@drawable/reg_submit_right_arrow"
+                            tools:ignore="ContentDescription,RtlSymmetry" />
+                    </RelativeLayout>
+
+
+                </RelativeLayout>
+            </RelativeLayout>
+        </RelativeLayout>
+
+    </RelativeLayout>
+</layout>

@@ -1,0 +1,316 @@
+<resources>
+    <string name="app_name">Merkaaz</string>
+    <string name="a_b2b_commerce_solution_for_retail_shops"><i aria-hidden="true" class="fa fa-map-marker" />A One-Stop Solution for Shop Owners</string>
+    <string name="an_integrated_commerce_solution_that_allows_small_retail_canteens_with_low_purchasing_power_to_obtain_bulk_discounted_prices">An integrated commerce platform that allows shop owners to source all their products from one place with next day delivery</string>
+    <string name="get_started">Get Started</string>
+    <string name="buy_better">Buy Better</string>
+    <string name="prompt_email">Email</string>
+    <string name="login">Login</string>
+    <string name="underlined_login"><u>Login</u></string>
+    <string name="already_a_merkaaz_customer_login_to_place_your_order_amp_access_our_services">Already a MERKAAZ customer? Login to place your order &amp; access our services</string>
+    <string name="send_otp">Send Verification Code</string>
+    <string name="don_t_have_a_merkaaz_account">Don’t have a MERKAAZ account?</string>
+    <string name="sign_up"><u>Sign Up</u></string>
+    <string name="select_language"><u>Select Language</u></string>
+    <string name="portuguese">Portuguese</string>
+    <string name="english">English</string>
+    <string name="enter_one_time_password">ENTER VERIFICATION CODE</string>
+
+    <string name="pending_approval">Pending Approval</string>
+    <string name="search_here">What are you looking for?</string>
+    <string name="home">Home</string>
+    <string name="products">Products</string>
+    <string name="orders">Orders</string>
+    <string name="my_cart">My Cart</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="featured_products">Featured Products</string>
+    <string name="view_more">View More</string>
+
+    <string name="set_shop_location">Shop location</string>
+    <string name="already_have_a_merkaaz_account">Already have a MERKAAZ account?</string>
+    <string name="create_my_account">Create my account</string>
+    <string name="represents_all_mandatory_fields_to_be_filled_out">* Represents all mandatory fields to be filled out.</string>
+    <string name="you_are_few_steps_away_from_activating_your_account">You are few steps away from activating your account!</string>
+
+
+    <string name="confirm_location">Confirm Location</string>
+    <string name="resend_otp">Resend Verification Code </string>
+    <string name="a_one_time_password_has_been_sent_to_244_1238329147">A one time verification code has been sent to (+244)</string>
+    <string name="sign_up_with_out_underline">Sign Up</string>
+    <string name="shop_name"><font color='#08151E'>Shop Name</font><font color='#FF0101'>*</font></string>
+    <string name="press_here_to_set_shop_address"><font color='#03989E'>Press here to set shop address</font><font color='#FF0101'>*</font></string>
+
+
+    <string name="name"><font color='#08151E'>Name</font><font color='#FF0101'>*</font></string>
+    <string name="phone_number"><font color='#08151E'>Phone Number</font><font color='#FF0101'>*</font></string>
+    <string name="email_address">Email Address</string>
+    <string name="tax_id">Tax ID</string>
+    <string name="congratulations">Congratulations!</string>
+    <string name="thank_you_for_working_with_us">Thank you for choosing us</string>
+    <string name="your_digital_store_has_been_created">Your account has been created</string>
+
+    <string name="confirm_shop_location">Confirm Shop Location</string>
+
+    <string name="have_any_questions_contact_our_customer_support_team_at">Have any questions? Contact our customer support team at</string>
+    <string name="add">Add</string>
+    <string name="from_discounted_prices">Competitive Prices</string>
+
+    <string name="retail_ncanteens_nbenefit">Retail\nShops\nget access to</string>
+    <string name="shop_now">Shop Now</string>
+    <string name="snacks_amp_branded_food"><![CDATA[Snacks & Branded Food]]></string>
+    <string name="pack_sizes">Pack Sizes</string>
+    <string name="selected_or_not_selected">Selected or not selected</string>
+    <string name="add_to_cart">Add to Cart</string>
+    <string name="basket">Cart</string>
+    <string name="similar_products">Related Products </string>
+    <string name="out_of_stock">Out of stock</string>
+    <string name="filters">FILTERS</string>
+    <string name="order_type">Order Type</string>
+    <string name="sort_by">Sort By</string>
+    <string name="order_amount">Order Amount</string>
+    <string name="last_updateed_date">Last Updateed Date</string>
+    <string name="order_date">Order date</string>
+    <string name="new_">New</string>
+    <string name="under_process">Under Process</string>
+    <string name="shipped">Shipped</string>
+    <string name="returned">Returned</string>
+    <string name="cancelled">Cancelled</string>
+    <string name="delivered">Delivered</string>
+    <string name="reset">Reset</string>
+    <string name="done">DONE</string>
+    <string name="logo">Logo</string>
+    <string name="watermark_logo">Water mark logo</string>
+    <string name="contact_ph_no">+244 900 000 000</string>
+    <string name="your_name"><font color='#08151E'>Your Name</font><font color='#FF0101'>*</font></string>
+    <string name="edit"><u>Edit</u></string>
+
+    <string name="customer_service">Customer Support </string>
+    <string name="contact_our_customer_support_team">Contact our customer support team</string>
+    <string name="have_any_nquestions">Have any\nquestions?</string>
+    <string name="street_1"><font color='#08151E'>Street Address 1 </font><font color='#FF0101'>*</font></string>
+    <string name="street_2">Street Address 2 </string>
+    <string name="_244">+244</string>
+    <string name="zip">Zip</string>
+    <string name="city">City</string>
+    <string name="state">State</string>
+    <string name="locate">Locate</string>
+    <string name="street1_required">Street required</string>
+    <string name="postal_required">Zip Code Required</string>
+    <string name="required">Required</string>
+    <string name="luanda">Luanda</string>
+    <string name="angola">Angola</string>
+    <string name="lan">English</string>
+    <string name="notifications">Notifications</string>
+    <string name="delete_all">Delete All</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="ok">OK</string>
+    <string name="_2022_all_right_reserved_merkaaz">© 2022 All Right Reserved. MERKAAZ.</string>
+    <string name="edit_without_underline">Edit</string>
+    <string name="your_shop_location">Your Shop location</string>
+    <string name="my_order">My Order</string>
+    <string name="notification">Notification</string>
+    <string name="my_delivery_address">My Delivery Address</string>
+    <string name="sign_out">Sign out</string>
+    <string name="pref_locale">en</string>
+    <string name="no_internet">NO INTERNET CONNECTION</string>
+    <string name="no_connection_found">No internet connection found. \nPlease check you connection</string>
+    <string name="try_again">Try again</string>
+    <string name="location_not_found">"Location not found "</string>
+
+    <string name="manage_profit_loss">Manage Profit Loss</string>
+    <string name="shop_by_category">Shop by Category</string>
+    <string name="best_sellers">Best Sellers</string>
+    <string name="terms_and_conditions">Terms and Conditions</string>
+    <string name="choose_a_pack_sizes">Choose a Pack Sizes</string>
+    <string name="terms_of_use">Terms of Use</string>
+    <string name="about_this_product">About this product</string>
+
+    <string name="network_error_msg">Network error. Please check your network.</string>
+    <string name="server_error_msg">Server error. Please try after sometimes.</string>
+
+    <string name="off">Discount</string>
+    <string name="no_more_item_to_add">No more item to add</string>
+    <string name="staples">Staples</string>
+    <string name="close">Close</string>
+    <string name="cancel">Cancel</string>
+    <string name="best_seller">BEST SELLER</string>
+    <string name="product_category">Product Category</string>
+    <string name="auth_error_msg">Authentication failed. Please login again.</string>
+    <string name="logout">Logout</string>
+    <string name="are_you_sure_want_to_log_out_">Are you sure want to log out?</string>
+    <string name="please_enter_shop_name">Please enter shop name</string>
+    <string name="please_pick_address_up_from_map">Please pick address up from map</string>
+    <string name="please_enter_your_name">Please enter your name</string>
+    <string name="please_phone_number">Please phone number</string>
+    <string name="seesion_expired_msg">"Your session has expired. Please login. "</string>
+    <string name="retry">Retry</string>
+    <string name="customer_support_team">Customer Support Team</string>
+    <string name="country">Country</string>
+
+    <string name="update_profile">Update Profile</string>
+    <string name="save_changes">Save Changes</string>
+    <string name="only">Only </string>
+    <string name="left_stock">Only %1$s item available  in stock</string>
+    <string name="left_stocks">Only %1$s items available  in stock</string>
+    <string name="no_item_available">No item available</string>
+    <string name="select_profile_img">Select profile image</string>
+    <string name="update_profile_success">Your Profile has been updated successfully</string>
+    <string name="update_location_success">Your Location has been updated successfully</string>
+    <string name="delivery_options">Delivery Options</string>
+    <string name="pick_up_from">Pick up from:</string>
+    <string name="no_charge">No Charge</string>
+
+    <string name="guaranteed_delivery">Guaranteed Delivery</string>
+    <string name="within">Within</string>
+    <string name="hours">Hours</string>
+    <string name="deliver_to">Deliver to:</string>
+    <string name="proceed_to_pay">Proceed to pay</string>
+    <string name="total">Total</string>
+    <string name="finalize">Finalize</string>
+    <string name="total_items">Total Items</string>
+    <string name="delivery_charge">Delivery Charge</string>
+    <string name="grand_total">Grand Total</string>
+    <string name="payment">Payment</string>
+    <string name="select_payment_method">Select Payment Method</string>
+    <string name="online_payment">Online Payment</string>
+    <string name="pay_by_card_machine">Pay by Card Machine</string>
+    <string name="success">Success</string>
+    <string name="your_order_has_been_placed">Your Order has been Placed!</string>
+    <string name="view_orders">View orders</string>
+    <string name="continue_shopping">Continue Shopping</string>
+    <string name="product_list">Product List</string>
+    <!--    <string name="items">%1$s items</string>-->
+    <plurals name="items">
+        <item quantity="one">%d item</item>
+        <item quantity="other">%d items</item>
+    </plurals>
+    <string-array name="gm_values">
+        <item>500 gm</item>
+        <item>750 gm</item>
+    </string-array>
+
+    <string-array name="weight">
+        <item>"500gm"</item>
+        <item>"1kg"</item>
+        <item>"5kg"</item>
+        <item>"10kg"</item>
+    </string-array>
+    <string name="review_basket">Review Basket</string>
+    <string name="delete">Delete</string>
+    <string name="checkout">Checkout</string>
+    <string name="please_select_delivery_options">Please Select Delivery Options</string>
+    <string name="pay_by_Card_machine">Please Pay by Card Machine</string>
+    <string name="your_basket_is_empty">Your basket is empty</string>
+    <string name="your_favourite_items_are_just_a_click_away">Your favourite items are just a click away</string>
+    <string name="filter">Filter</string>
+    <string name="you_are_not_an_approved_user">You are not an approved user</string>
+    <string name="minimumorder_of">Minimum Order of</string>
+    <string name="phone_number_limit_msg">Your phone number must be of 9 digit</string>
+    <string name="reference_point">Reference Point</string>
+    <string name="order_status">Order Status</string>
+    <string name="in_progress">In Progress</string>
+    <string name="last_updated">Last Updated</string>
+    <string name="order_value">Order Value</string>
+    <string name="view_details">View Details</string>
+    <string name="manage_p_l">Manage P/L</string>
+    <string name="my_order_details">My order Details</string>
+    <string name="order_details">Order Details</string>
+    <string name="waiting_for_pickup">Waiting for Pickup</string>
+    <string name="order_id">Order ID</string>
+    <string name="total_amount">Total Amount</string>
+    <string name="product_name">Product Name</string>
+    <string name="price">Price</string>
+    <string name="qty">Qty.</string>
+    <string name="delivery_address">Delivery Address</string>
+    <string name="payment_status">Payment Status</string>
+    <string name="reorder">Reorder</string>
+    <string name="loading_msg">Please wait…</string>
+    <string name="product_not_found">Product not found</string>
+    <string name="account_deactivate">Your account is deactivated. Please contact admin</string>
+    <string name="filter_by">Filter By</string>
+    <string name="discount">Discount</string>
+    <string name="name_sort">Name</string>
+    <string name="sort_order">Sort Order</string>
+    <string name="ascending">Ascending</string>
+    <string name="descending">Descending</string>
+    <string name="brand">Brand</string>
+
+    <string name="do_you_want_to_delete_all_notifications_">Do you want to delete all notifications?</string>
+    <string name="do_you_want_to_delete_this_notification_">Do you want to delete this notification?</string>
+    <string name="no_notifications_yet">No Notifications yet</string>
+    <string name="when_you_get_notifications_they_ll_show_up_here">When you get notifications, they\'ll show up here</string>
+    <string name="go_to_dashboard">Go to Dashboard</string>
+    <string name="items_more">items more</string>
+    <string name="item_details">Item Details</string>
+    <string name="total_price">Total Price</string>
+    <string name="qty_with_colon">Qty:</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="pickup_address">Pickup Address</string>
+    <string name="products_unavialable">Products are unavailable. Please modify your items in the cart.</string>
+    <string name="amount_changed">Price changed</string>
+    <string name="cart_amount_chng_msg">Your cart amount has been changed from </string>
+    <string name="to">"  to   "</string>
+    <string name="proceed_msg">. Do you want to proceed with the updated amount?</string>
+    <string name="proceed">Proceed</string>
+    <string name="check_cart">Check cart</string>
+    <string name="min_order_msg">"Your order amount is below minimum order amount  "</string>
+    <string name="add_more_msg">. Please add more products to cart</string>
+    <string name="no_of_items">No. of Items</string>
+    <string name="cost_price">Cost Price</string>
+    <string name="profit">Profit</string>
+    <string name="gross_profit">Gross Profit</string>
+    <string name="order_not_found">Order Not Found</string>
+    <string name="no_data_found">No Data Found</string>
+    <string name="delivery_fee">Delivery Fee \n</string>
+    <string name="price_change_1">Your total price has been changed from </string>
+    <string name="price_change_2">. Do you want to proceed or modify the cart?</string>
+    <string name="select_payment_options">Please select payment options</string>
+    <string name="aoa">AOA</string>
+    <string name="net_profit">Net Profit</string>
+    <string name="calculate_now">Calculate Now</string>
+    <string name="sell_price">Sell Price</string>
+    <string name="calculate_amp_update"><![CDATA[Calculate & Update]]></string>
+    <string name="percent_text">%</string>
+    <string name="new_record">New Record</string>
+    <string name="show_search">Search field cannot be blank</string>
+    <string name="search">Search</string>
+    <string name="no_product">No product found</string>
+    <string name="please_enter_profit_percentage">Please enter profit percentage</string>
+    <string name="no_orders_yet">No Orders Yet</string>
+    <string name="start_shopping">Start Shopping</string>
+    <string name="add_something_from_the_menu">Add something from the menu</string>
+
+    <string name="no_product_avialable">No Products Available</string>
+    <string name="no_items_avialable"> No items</string>
+    <string name="unapproved">Unapproved</string>
+    <string name="no_product_to_show">There is no product to show.</string>
+    <string name="selling_price_is_less_than_cost_price">selling price is less than cost price</string>
+    <string name="you_can_t_proceed_this_order_for_the_following_reasons">You can\'t proceed this order for the following reasons :</string>
+    <string name="current_cart_price_is">Current cart price is :</string>
+    <string name="old_cart_price_is">Old cart price is : </string>
+    <string name="current_cart_price_is_less_than_actual_product_price">Current cart price is less than actual product price.</string>
+    <string name="is_unavailable_and_your_minimum_order_value_should_be">Product  unavailable and your minimum order value must be</string>
+    <string name="sell_price_or_profit_percentage_can_t_be_blank_or_0">Sell price or profit percentage can\'t be blank or 0</string>
+    <string name="no_result_found">No result found</string>
+    <string name="default_notification_channel_id">1</string>
+    <string name="_0_00">0.00</string>
+    <string name="please_enter_valid_mobile_no">Please enter valid mobile no</string>
+    <string name="please_wait">Please wait...</string>
+    <string name="please_enter_a_valid_value">Please enter a valid value for Sell price or Profit</string>
+    <string name="no">No</string>
+    <string name="yes">Yes</string>
+    <string name="please_enter_valid_oyp">Please enter valid OTP</string>
+    <string name="profit_percentage_can_t_be_greater_than_10000">Profit percentage  can\'t be greater than 10000 %</string>
+    <string name="please_select_sort_by_and_sort_order">Please select \"Sort By\" and \"Sort Order\"</string>
+    <string name="stock_not_available">Stock not available!</string>
+    <string name="pay_by_cash">Pay by Cash</string>
+
+    <plurals name="total_products">
+        <item quantity="one">%d Product Available</item>
+        <item quantity="other">%d Products Available</item>
+    </plurals>
+</resources>
+
+
+
+

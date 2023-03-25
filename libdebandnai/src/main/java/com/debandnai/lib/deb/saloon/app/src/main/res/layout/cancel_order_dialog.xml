@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="20dp"
+    android:background="@drawable/error_button_bg"
+    android:paddingStart="10dp"
+    android:paddingTop="30dp"
+    android:paddingEnd="10dp"
+    android:paddingBottom="30dp">
+
+    <TextView
+
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp"
+        android:text="@string/cancel_order"
+        android:textColor="@color/brand_color"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvDesc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvTitle"
+        android:layout_centerInParent="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp"
+        android:text="@string/do_you_want_to_cancel_this_order_question"
+        android:textColor="#36454F"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btConfirm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvDesc"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_gray_bg"
+        android:paddingLeft="70dp"
+        android:paddingTop="10dp"
+        android:paddingRight="70dp"
+        android:paddingBottom="10dp"
+        android:textAllCaps="false"
+        android:text="@string/yes_i_confirm"
+        android:textColor="@color/default_text_color"
+        android:textSize="18sp"
+        />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btDoNotCancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btConfirm"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="26dp"
+        android:background="@drawable/button_red_bg"
+        android:paddingLeft="70dp"
+        android:paddingTop="10dp"
+        android:paddingRight="70dp"
+        android:paddingBottom="10dp"
+        android:text="@string/don_t_cancel"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textAllCaps="false"
+        />
+
+
+</RelativeLayout>

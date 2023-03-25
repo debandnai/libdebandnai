@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.merkaaz.app.data.viewModel.DeliveryOptionsViewModel" />
+
+        <variable
+            name="activity"
+            type="com.merkaaz.app.ui.activity.DeliveryOptionsActivity" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.activity.DeliveryOptionsActivity">
+
+        <LinearLayout
+            android:id="@+id/ll_header"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_50sdp"
+            android:background="@color/teal_700"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:adjustViewBounds="true"
+                android:onClick="@{()->activity.onBackPressed()}"
+                android:padding="@dimen/_8sdp"
+                android:src="@drawable/ic_back_white"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:fontFamily="@font/russo_one"
+                android:padding="@dimen/_8sdp"
+                android:text="@string/delivery_options"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_16ssp" />
+            <ImageView
+                android:id="@+id/img_help"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:adjustViewBounds="true"
+                android:padding="@dimen/_8sdp"
+                android:src="@drawable/ic_help"
+                tools:ignore="ContentDescription" />
+
+        </LinearLayout>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_view_pickup_location"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_12sdp"
+            android:background="@drawable/card_edge"
+            android:elevation="@dimen/_4sdp"
+            app:cardCornerRadius="@dimen/_4sdp"
+            app:cardPreventCornerOverlap="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ll_header">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_pickup_location"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingStart="@dimen/_8sdp"
+                android:paddingTop="@dimen/_8sdp"
+                android:paddingEnd="@dimen/_8sdp"
+                android:paddingBottom="@dimen/_20sdp">
+
+                <TextView
+                    android:id="@+id/tv_pickup_address_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="@dimen/_4sdp"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:text="@string/pick_up_from"
+                    android:textColor="@drawable/delivery_address_text_selection"
+                    android:textSize="@dimen/_12ssp"
+                    app:drawableStartCompat="@drawable/text_drawable_location"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_pickup_address"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/open_sans_regular"
+                    android:paddingStart="@dimen/_12sdp"
+                    android:paddingEnd="@dimen/_18sdp"
+                    android:paddingBottom="@dimen/_18ssp"
+                    android:text="@{viewModel.delivery_options.pickupAddress}"
+                    android:textColor="@color/address_unselect_color"
+                    android:textSize="@dimen/_12ssp"
+                    app:layout_constraintBottom_toTopOf="@+id/img_time_icon_1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.52"
+                    app:layout_constraintStart_toStartOf="@+id/tv_pickup_address_title"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_pickup_address_title"
+                    tools:text="test" />
+
+                <ImageView
+                    android:id="@+id/img_pickup_circle"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:adjustViewBounds="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="ContentDescription" />
+
+                <ImageView
+                    android:id="@+id/img_time_icon_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_no_charge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_22sdp"
+                    android:background="@drawable/teal_button_bg"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:paddingStart="@dimen/_8sdp"
+                    android:paddingEnd="@dimen/_8sdp"
+
+                    android:text="@string/no_charge"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_12ssp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView_delivery_to"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_marginTop="@dimen/_24sdp"
+            android:layout_marginEnd="@dimen/_12sdp"
+            android:layout_marginBottom="@dimen/_12sdp"
+            android:elevation="@dimen/_4sdp"
+            app:cardCornerRadius="@dimen/_4sdp"
+            app:cardPreventCornerOverlap="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/card_view_pickup_location">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_deliver_location"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingStart="@dimen/_8sdp"
+                android:paddingTop="@dimen/_8sdp"
+                android:paddingEnd="@dimen/_8sdp"
+                android:paddingBottom="@dimen/_9sdp">
+
+                <TextView
+                    android:id="@+id/tv_delivery_address_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="@dimen/_4sdp"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:text="@string/deliver_to"
+                    android:textColor="@drawable/delivery_address_text_selection"
+                    android:textSize="@dimen/_12ssp"
+                    app:drawableStartCompat="@drawable/text_drawable_location"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_delivery_address"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/open_sans_regular"
+                    android:paddingStart="@dimen/_12sdp"
+                    android:paddingEnd="@dimen/_18sdp"
+                    android:paddingBottom="@dimen/_18ssp"
+                    android:text="@{viewModel.delivery_options.deliveryAddress}"
+                    android:textColor="@color/address_unselect_color"
+                    android:textSize="@dimen/_12ssp"
+                    app:layout_constraintBottom_toTopOf="@+id/rltv_img"
+                    app:layout_constraintEnd_toStartOf="@+id/img_deliver_circle"
+                    app:layout_constraintStart_toStartOf="@+id/tv_delivery_address_title"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_delivery_address_title"
+                    tools:text="Test" />
+
+                <ImageView
+                    android:id="@+id/img_deliver_circle"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:adjustViewBounds="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <LinearLayout
+                    android:id="@+id/rltv_img"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/tv_delivery_address"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_delivery_address">
+
+                    <ImageView
+                        android:id="@+id/img_delivery_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:adjustViewBounds="true"
+                        tools:src="@drawable/ic_delivery_msg_icon_pt" />
+
+
+                    <TextView
+                        android:id="@+id/tv_delivery_fee"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_2sdp"
+                        android:background="@drawable/orange_btn_bg"
+                        android:fontFamily="@font/open_sans_bold"
+                        android:gravity="center"
+                        android:layout_gravity="center_vertical"
+                        android:paddingTop="@dimen/_5sdp"
+                        android:paddingBottom="@dimen/_5sdp"
+                        android:paddingEnd="@dimen/_3sdp"
+                        android:paddingStart="@dimen/_3sdp"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_11ssp"
+                        app:autoSizeMaxTextSize="@dimen/_11ssp"
+                        app:autoSizeMinTextSize="@dimen/_7ssp"
+                        app:autoSizeStepGranularity="@dimen/_2ssp"
+                        app:autoSizeTextType="uniform"
+                        tools:text="500000:00" />
+                </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_60sdp"
+            android:background="@color/white"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/_4sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_5sdp"
+                android:background="@drawable/top_shadow_gradient" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_proceed_to_pay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="@dimen/_4sdp"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:layout_marginBottom="@dimen/_4sdp"
+                android:background="@drawable/teal_button_bg"
+                android:fontFamily="@font/russo_one"
+                android:paddingStart="@dimen/_10sdp"
+                android:paddingTop="@dimen/_4sdp"
+                android:paddingEnd="@dimen/_10sdp"
+                android:paddingBottom="@dimen/_4sdp"
+                android:text="@string/proceed_to_pay"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_12ssp"
+                tools:ignore="RelativeOverlap" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/tv_total_amt"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:fontFamily="@font/open_sans_regular"
+                android:text="@string/total"
+                android:textColor="@color/address_unselect_color"
+                android:textSize="@dimen/_16ssp" />
+
+            <TextView
+                android:id="@+id/tv_total_amt"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_toStartOf="@+id/btn_proceed_to_pay"
+                android:fontFamily="@font/open_sans_bold"
+                android:padding="0dp"
+                android:text="@{viewModel.grandTotal}"
+                android:textColor="@color/address_unselect_color"
+                android:textSize="@dimen/_16ssp"
+                app:autoSizeMaxTextSize="@dimen/_16ssp"
+                app:autoSizeMinTextSize="@dimen/_10ssp"
+                app:autoSizeStepGranularity="@dimen/_2ssp"
+                app:autoSizeTextType="uniform"
+                tools:text="12,345.50 AOA" />
+
+        </RelativeLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

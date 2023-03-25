@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/margin_20_unit"
+    android:background="@drawable/custom_pop_up_bg">
+
+    <RelativeLayout
+        android:id="@+id/upper"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/margin_10_unit"
+        android:layout_marginBottom="10dp">
+
+        <TextView
+            android:id="@+id/popupTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:gravity="center_horizontal"
+            android:text="@string/app_name"
+            android:textColor="@color/light_black"
+            android:textSize="@dimen/text_size_popup_dialog_18sp"
+            android:textStyle="bold"
+            android:typeface="sans"
+            android:visibility="visible" />
+
+        <TextView
+            android:visibility="visible"
+            android:id="@+id/contentTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:gravity="center_horizontal"
+            android:layout_centerVertical="true"
+            android:textSize="@dimen/tv_text_size_asking_question_14sp"
+            android:textColor="@color/light_black"
+            android:layout_below="@+id/popupTitle" />
+
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/err_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="2dp"
+            android:gravity="center_horizontal"
+            android:text="Please choose an event for checking"
+            android:layout_centerVertical="true"
+            android:textSize="16sp"
+            android:textColor="@color/add_children_colorWhite"
+            android:layout_below="@+id/text" />
+
+        <EditText
+            android:visibility="gone"
+            android:layout_below="@+id/text"
+            android:padding="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:lines="4"
+            android:background="@drawable/order_menu_sub_menu_deselected_bg"
+            android:layout_margin="10dp"
+            android:gravity="left|top"
+            android:id="@+id/edit_txt" />
+
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:id="@+id/lower"
+        android:layout_width="fill_parent"
+        android:layout_height="45dp"
+        android:orientation="horizontal"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:weightSum="2"
+        android:layout_below="@+id/upper">
+
+        <TextView
+            android:id="@+id/orderTv"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:gravity="center"
+            android:text="Order"
+            android:textStyle="normal"
+            android:typeface="sans"
+            android:layout_weight="1"
+            android:background="@drawable/background_textview_green"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_dialog_ok_16sp"/>
+
+        <View
+            android:id="@+id/tvEventDetails"
+            android:layout_width="25px"
+            android:layout_height="match_parent"
+            android:visibility="visible"/>
+
+        <TextView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="1dp"
+            android:text="Cancel"
+            android:gravity="center"
+            android:background="@drawable/background_textview_red"
+            android:textColor="@color/white"
+            android:id="@+id/cancelTv"
+            android:textStyle="normal"
+            android:typeface="sans"
+            android:textSize="@dimen/text_size_dialog_ok_16sp"/>
+    </LinearLayout>
+
+</RelativeLayout>

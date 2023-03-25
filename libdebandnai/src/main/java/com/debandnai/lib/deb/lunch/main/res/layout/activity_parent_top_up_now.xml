@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="ie.healthylunch.app.data.viewModel.ParentTopUpNowViewModel" />
+
+        <variable
+            name="activity"
+            type="ie.healthylunch.app.ui.ParentTopUpNowActivity" />
+
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/rl_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background_all">
+
+        <RelativeLayout
+            android:id="@+id/rl_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_margin="@dimen/add_child_welcome_margin"
+            android:visibility="invisible">
+
+            <ImageView
+                android:id="@+id/iv_skip_wizard"
+                android:layout_width="@dimen/iv_top_left_arrow_30dp"
+                android:layout_height="@dimen/iv_top_left_arrow_30dp"
+                android:layout_centerVertical="true"
+                android:onClick="@{()->activity.onBackPressed()}"
+                android:src="@drawable/wiz_skip_left_arrow_active"
+                tools:ignore="ContentDescription" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_about_your_card"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rl_top"
+            android:layout_marginTop="-10dp"
+            android:fontFamily="@font/quicksand_bold"
+            android:paddingStart="@dimen/padding_left_keep_my_card_35dp"
+            android:text="@string/please_top_up_nmy_wallet_now"
+            android:textColor="@color/light_black"
+            android:textSize="@dimen/tv_size_add_voucher_code_22sp"
+            tools:ignore="RtlSymmetry" />
+
+        <RelativeLayout
+            android:id="@+id/rl_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_about_your_card"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="20dp">
+
+            <RelativeLayout
+                android:id="@+id/rl_button_wallet_card"
+                android:layout_width="339dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/editText_marginLeft"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="@dimen/editText_marginLeft"
+                android:layout_marginBottom="0dp"
+                android:background="@drawable/wizard_card_added_success_bg">
+
+
+                <TextView
+                    android:id="@+id/tv_card_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginTop="@dimen/margin_top_bottom_card_number_5dp"
+                    android:layout_marginBottom="@dimen/margin_top_bottom_card_number_5dp"
+                    android:fontFamily="@font/quicksand_medium"
+                    android:paddingStart="10dp"
+                    android:paddingTop="@dimen/padding_bottom_card_number_5dp"
+                    android:paddingEnd="@dimen/tv_card_number_20dp"
+                    android:paddingBottom="@dimen/padding_bottom_card_number_5dp"
+                    android:text="@{viewModel.cardNumber}"
+                    android:textAllCaps="false"
+                    android:textColor="@color/text_color_transaction_history_light_black"
+                    android:textSize="@dimen/tv_size_card_nos_13sp"
+                    tools:text="xxxx xxxx xxxx 6924" />
+
+                <ImageView
+                    android:id="@+id/card_brand_img"
+                    android:layout_width="@dimen/iv_width_card_brand_25dp"
+                    android:layout_height="@dimen/iv_height_card_brand_20dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="-10dp"
+                    android:layout_toEndOf="@+id/tv_card_number"
+                    app:brandName="@{viewModel.brandName}"
+                    app:isCardAdded="@{true}"
+                    tools:ignore="ContentDescription" />
+
+                <ImageView
+                    android:id="@+id/iv_red_cross"
+                    android:layout_width="@dimen/iv_cross_height_width_in_wallet_27dp"
+                    android:layout_height="@dimen/iv_cross_height_width_in_wallet_27dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:onClick="@{()->viewModel.deleteCardClick(activity)}"
+                    android:paddingEnd="@dimen/padding_right_imageView_red_cross_20dp"
+                    android:src="@drawable/wiz_close_icon"
+                    tools:ignore="ContentDescription,RtlSymmetry" />
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/rl_top_up_voucher_continue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rl_button_wallet_card"
+                android:layout_marginLeft="@dimen/ed_name_left_right_margin"
+                android:layout_marginTop="30dp"
+                android:layout_marginRight="@dimen/ed_name_left_right_margin"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/background_textview_green"
+                android:onClick="@{()->viewModel.okClick()}"
+                app:setEnabled="@{viewModel.okButtonEnabled}">
+
+                <TextView
+                    android:id="@+id/tv_top_up_voucher"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginTop="@dimen/add_children_buttonText_marginTop"
+                    android:layout_marginBottom="@dimen/add_children_buttonText_marginTop"
+                    android:fontFamily="@font/quicksand_bold"
+                    android:paddingLeft="@dimen/add_children_buttonText_paddingLeft"
+                    android:paddingTop="5dp"
+                    android:paddingRight="@dimen/add_children_buttonText_paddingLeft"
+                    android:paddingBottom="5dp"
+                    android:text="@string/ok"
+                    android:textAllCaps="false"
+                    android:textColor="@color/add_children_colorWhite"
+                    android:textSize="@dimen/tv_size_view_transaction_17sp" />
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tv_first_message"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rl_top_up_voucher_continue"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="@dimen/add_children_buttonText_marginTop"
+                android:fontFamily="@font/quicksand_bold"
+                android:paddingLeft="@dimen/add_children_buttonText_paddingLeft"
+                android:paddingTop="@dimen/add_children_buttonText_paddingBottom"
+                android:paddingRight="@dimen/add_children_buttonText_paddingLeft"
+                android:paddingBottom="@dimen/add_children_buttonText_paddingBottom"
+                android:text="@string/this_will_deduct_your__pre_selected_amount__from_your_card_now"
+                android:textAllCaps="false"
+                android:textColor="#8CC343"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/tv_second_message"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_first_message"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="@dimen/add_children_buttonText_marginTop"
+                android:layout_marginBottom="@dimen/add_children_buttonText_marginTop"
+                android:fontFamily="@font/quicksand_bold"
+                android:paddingLeft="@dimen/add_children_buttonText_paddingLeft"
+                android:paddingTop="@dimen/add_children_buttonText_paddingBottom"
+                android:paddingRight="@dimen/add_children_buttonText_paddingLeft"
+                android:paddingBottom="@dimen/add_children_buttonText_paddingBottom"
+                android:text="@string/please_note_auto_top_nup_will_happen_when__funds_are_too_low"
+                android:textAllCaps="false"
+                android:textColor="#8CC343"
+                android:textSize="17sp" />
+
+
+            <RelativeLayout
+                android:id="@+id/rl_top_up_cancel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_second_message"
+                android:layout_marginLeft="@dimen/ed_name_left_right_margin"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="@dimen/ed_name_left_right_margin"
+                android:background="@drawable/background_textview_red_new"
+                android:onClick="@{()->viewModel.cancelClick(activity)}"
+                app:setEnabled="@{viewModel.okButtonEnabled}">
+
+                <TextView
+                    android:id="@+id/tv_top_up_cancel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginTop="@dimen/add_children_buttonText_marginTop"
+                    android:layout_marginBottom="@dimen/add_children_buttonText_marginTop"
+                    android:fontFamily="@font/quicksand_bold"
+                    android:paddingLeft="@dimen/add_children_buttonText_paddingLeft"
+                    android:paddingTop="5dp"
+                    android:paddingRight="@dimen/add_children_buttonText_paddingLeft"
+                    android:paddingBottom="5dp"
+                    android:text="@string/cancel"
+                    android:textAllCaps="false"
+                    android:textColor="@color/add_children_colorWhite"
+                    android:textSize="@dimen/tv_size_view_transaction_17sp" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+</layout>

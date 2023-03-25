@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="activity"
+            type="com.merkaaz.app.ui.activity.CustomerServiceActivity" />
+
+        <variable
+            name="constants"
+            type="com.merkaaz.app.utils.Constants" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".ui.activity.CustomerServiceActivity">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/toolbar_height"
+            android:background="@color/teal_700"
+            android:gravity="center_vertical"
+            tools:ignore="UselessParent">
+
+            <ImageView
+                android:id="@+id/iv_back"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:onClick="@{()->activity.onBackPressed()}"
+                android:padding="@dimen/_12sdp"
+                app:srcCompat="@drawable/ic_left_arrow"
+                app:tint="@color/white"
+                tools:ignore="ContentDescription" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/russo_one"
+                android:text="@string/customer_service"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_14ssp" />
+        </LinearLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:scrollbars="none">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/light_sky_blue"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/ic_gradient_top_bg"
+                    tools:ignore="ContentDescription" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_18sdp"
+                    android:layout_marginEnd="@dimen/_12sdp"
+                    android:layout_marginBottom="@dimen/_5sdp"
+                    android:background="@drawable/white_btn_bg"
+                    android:elevation="@dimen/_3sdp"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_40sdp"
+                        android:fontFamily="@font/russo_one"
+                        android:text="@string/have_any_nquestions"
+                        android:textAlignment="center"
+                        android:textAllCaps="true"
+                        android:textColor="@color/dark_blue"
+                        android:textSize="@dimen/_19ssp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:fontFamily="@font/open_sans_light"
+                        android:text="@string/contact_our_customer_support_team"
+                        android:textColor="@color/dark_blue"
+                        android:textSize="@dimen/_11ssp" />
+
+                    <com.airbnb.lottie.LottieAnimationView
+                        android:id="@+id/anim_call"
+                        android:layout_width="@dimen/_130sdp"
+                        android:layout_height="@dimen/_130sdp"
+                        app:lottie_autoPlay="true"
+                        app:lottie_loop="true"
+                        app:lottie_rawRes="@raw/call_animation"
+                        app:openCallDialerOnClick="@{constants.CUSTOMER_SERVICE_NUMBER}"
+                        tools:ignore="MissingConstraints" />
+
+
+                    <TextView
+                        android:id="@+id/tv_ph_no"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="1dp"
+                        android:layout_marginBottom="@dimen/_40sdp"
+                        android:drawablePadding="@dimen/_4sdp"
+                        android:layout_marginTop="@dimen/_4sdp"
+                        android:fontFamily="@font/open_sans_bold"
+                        android:text="@string/contact_ph_no"
+                        android:textColor="@color/teal_700"
+                        android:textSize="@dimen/_18ssp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_have_any_ques"
+                        app:openCallDialerOnClick="@{constants.CUSTOMER_SERVICE_NUMBER}" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+        </androidx.core.widget.NestedScrollView>
+
+
+    </LinearLayout>
+</layout>

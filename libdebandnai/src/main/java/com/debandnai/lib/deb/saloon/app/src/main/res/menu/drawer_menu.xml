@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single"
+        android:id="@+id/groupMain"
+        >
+        <item
+            android:id="@+id/homeFragment"
+            android:title="@string/dashboard"
+            android:icon="@drawable/home_icon"
+            android:checked="false"
+            />
+        <item
+            android:id="@+id/menuProfile"
+            android:title="@string/profile"
+            android:icon="@drawable/profile_icon"
+            android:checked="false"
+            />
+        <item
+            android:id="@+id/categoriseFragment"
+            android:title="@string/book_salon_services"
+            android:icon="@drawable/services_icon"
+            android:checked="false"
+            />
+        <item
+            android:id="@+id/orderFragment"
+            android:title="@string/orders"
+            android:icon="@drawable/orders_icon"
+            android:checked="false"
+            />
+        <item
+            android:id="@+id/termsAndConditionsFragment"
+            android:title="@string/terms_and_conditions"
+            android:icon="@drawable/terms_and_conditions_icon"
+            android:checked="false"
+            />
+
+        <item
+            android:id="@+id/privacyPolicyFragment"
+            android:title="@string/privacy_policy"
+            android:icon="@drawable/privacy_policy_icon"
+            android:checked="false"
+            />
+    </group>
+
+    <group android:checkableBehavior="none"
+        android:visible="false"
+        android:id="@+id/groupProfile">
+        <item
+            android:id="@+id/myProfileFragment"
+            android:title="@string/my_profile"
+            android:icon="@drawable/profile_icon"
+            android:checked="false"
+            />
+        <item
+            android:id="@+id/changePasswordFragment"
+            android:title="@string/change_password"
+            android:icon="@drawable/change_password_icon"
+            android:checked="false"
+            />
+
+    </group>
+
+</menu>

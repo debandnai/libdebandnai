@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="bg_color">#FFFFFF</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF03DAC5</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#03989E</color>
+    <color name="light_teal_700">#3903989E</color>
+    <color name="teal_500">#0AAAB0</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="dark_blue">#08151E</color>
+    <color name="underline_color">#D0D3D5</color>
+    <color name="address_unselect_color">#171A2C</color>
+    <color name="bg_dialog">#08151E</color>
+    <color name="orange_color">#FF7F22</color>
+    <color name="notification_dot_color">#FF3300</color>
+    <color name="out_of_stock_button_bg_color">#FF0000</color>
+    <color name="light_green">#14FF8E</color>
+    <color name="dim_foreground_disabled_material_dark">#80bebebe</color>
+    <color name="dim_foreground_disabled_material_light">#80323232</color>
+    <color name="transparent">#00000000</color>
+    <color name="inactive_tab_color">#6B7378</color>
+    <color name="active_tab_color">#03989E</color>
+    <color name="pink">#FFD5E5</color>
+    <color name="pink_2">#FF4C97</color>
+    <color name="light_sky_blue">#F2FFFF</color>
+    <color name="light_sky_blue2">#CCF1F2</color>
+    <color name="white_bg">#F4F4F4</color>
+    <color name="white_bg_002">#F9F8F5</color>
+    <color name="selected_tab_text_color">#80919C</color>
+    <color name="gray">#94938F</color>
+    <color name="light_gray">#EEEEEE</color>
+    <color name="light_slate_color">#7A868E</color>
+    <color name="red">#FF0000</color>
+    <color name="dark_red">#FF0101</color>
+    <color name="product_bg_color">#A3EFEF</color>
+    <color name="gray_button_bg_color">#CCD0D3</color>
+    <color name="resend_otp_color">#08151E</color>
+    <color name="gray_bg">#EEEEEE</color>
+    <color name="gray_bg_2">#E4E4E4</color>
+    <color name="gray_bg_3">#E5E5E5</color>
+    <color name="gray_bg_4">#D3D4D7</color>
+    <color name="gray_bg_5">#D3D3D3</color>
+    <color name="gray_bg_6">#EDEDED</color>
+    <color name="sell_price_text_color">#6E757B</color>
+    <color name="img_chng">#36454F</color>
+    <color name="red_2">#FA6164</color>
+    <color name="red_3">#FF0005</color>
+    <color name="red_4">#DD3333</color>
+    <color name="white_green">#F0FEFF</color>
+    <color name="unselected_color">#CBD0D3</color>
+    <color name="slate_gray">#848a8f</color>
+
+</resources>

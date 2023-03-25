@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "280039663810",
+    "project_id": "salon-ef486",
+    "storage_bucket": "salon-ef486.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:280039663810:android:184165a1842b014f64335b",
+        "android_client_info": {
+          "package_name": "com.salonsolution.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "280039663810-gcr7k2fp1c6c61o0dbhifihh7svd180h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBitCEXxz1SIfBM74gUUF5b6PFVcXy8K6c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "280039663810-gcr7k2fp1c6c61o0dbhifihh7svd180h.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "280039663810-8voesog84rtc1onqhlg8mur68erumib8.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.salonsolution.app"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

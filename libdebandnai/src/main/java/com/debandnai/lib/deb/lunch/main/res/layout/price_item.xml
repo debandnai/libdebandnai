@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="dataItem"
+            type="ie.healthylunch.app.utils.PriceItem" />
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.cardview.widget.CardView xmlns:card_view="https://schemas.android.com/apk/res-auto"
+            android:id="@+id/card_view_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="1dp"
+            card_view:cardBackgroundColor="#ffffff"
+            card_view:cardElevation="5dp"
+            app:setPriceLayoutBackground="@{dataItem.isChecked}"
+            card_view:cardUseCompatPadding="true">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/img_height_40dp"
+                tools:ignore="RtlHardcoded">
+
+                <TextView
+                    android:id="@+id/price_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin_10_unit"
+                    tools:text="€10"
+                    android:text="@{dataItem.priceText}"
+                    android:textColor="@color/light_black"
+                    android:textSize="@dimen/tv_text_size_transaction_history_15sp"
+                    android:textStyle="bold"
+                    />
+
+
+            </RelativeLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+
+    </RelativeLayout>
+</layout>

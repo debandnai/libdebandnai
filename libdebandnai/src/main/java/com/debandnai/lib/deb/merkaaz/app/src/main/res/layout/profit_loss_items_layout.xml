@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <import type="android.view.View" />
+        <variable
+            name="profitLossList"
+            type="com.merkaaz.app.data.model.ProfitLossList" />
+
+    </data>
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_12sdp"
+        app:cardCornerRadius="@dimen/_5sdp"
+        android:id="@+id/cardView_items">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/card_edge_dark_blue"
+            android:paddingBottom="@dimen/_12sdp">
+
+            <!--android:text="@{profitLossList.orderDate == `` ? profitLossList.orderDate: @string/new_record}"-->
+            <TextView
+                android:id="@+id/tv_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="12 Apr, 2022"
+                android:text="@{profitLossList.orderDate}"
+                android:gravity="center"
+                android:layout_marginStart="@dimen/_12sdp"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:textSize="@dimen/_16ssp"
+                android:textColor="@color/teal_700"
+                android:fontFamily="@font/open_sans_bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_no_of_items"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_12sdp"
+                android:background="@drawable/ic_items_background"
+                android:fontFamily="@font/open_sans_semi_bold"
+                android:gravity="center"
+                tools:text="20"
+                android:text="@{profitLossList.noOfItems.toString()}"
+                android:textColor="@color/dark_blue"
+                android:textSize="@dimen/_12ssp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_date"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toEndOf="@+id/tv_date"
+                app:layout_constraintTop_toTopOf="@+id/tv_date" />
+
+            <TextView
+                android:id="@+id/tv_no_of_items_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/open_sans_regular"
+                android:gravity="center"
+                android:layout_marginEnd="@dimen/_12sdp"
+                android:text="@string/no_of_items"
+                android:textColor="@color/dark_blue"
+                android:textSize="@dimen/_12ssp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_date"
+                app:layout_constraintEnd_toStartOf="@+id/tv_no_of_items"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toEndOf="@+id/tv_date"
+                app:layout_constraintTop_toTopOf="@+id/tv_date" />
+            <View
+                android:id="@+id/view3"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_1sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:background="@color/dark_blue"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_date" />
+            <TextView
+                android:id="@+id/tv_cost"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/open_sans_semi_bold"
+                android:gravity="center"
+                tools:text="1,000,000.00 AOA"
+                android:text="@{profitLossList.costPrice}"
+                android:textColor="@color/dark_blue"
+                android:textSize="@dimen/_15ssp"
+                app:layout_constraintBottom_toBottomOf="@+id/textView11"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.07"
+                app:layout_constraintStart_toEndOf="@+id/textView11"
+                app:layout_constraintTop_toTopOf="@+id/textView11" />
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/open_sans_regular"
+                android:gravity="center"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:text="@string/cost_price"
+                android:textColor="@color/dark_blue"
+                android:textSize="@dimen/_11ssp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/tv_date"
+                app:layout_constraintTop_toBottomOf="@+id/view3" />
+
+            <View
+                android:id="@+id/view4"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_50sdp"
+                android:layout_marginStart="@dimen/_2sdp"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:layout_marginEnd="@dimen/_2sdp"
+                android:background="@color/teal_700"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView11" />
+
+            <TextView
+                android:id="@+id/tv_profit_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_12sdp"
+                android:fontFamily="@font/open_sans_semi_bold"
+                android:text="@string/profit"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_11ssp"
+                app:layout_constraintBottom_toBottomOf="@+id/view4"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/view4"
+                app:layout_constraintVertical_bias="0.26999998" />
+
+            <TextView
+                android:id="@+id/tv_gross_profit_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/open_sans_semi_bold"
+                android:text="@string/gross_profit"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_11ssp"
+                app:layout_constraintBottom_toTopOf="@+id/tv_profit"
+                app:layout_constraintEnd_toEndOf="@+id/tv_gross_profit"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="@+id/tv_gross_profit"
+                app:layout_constraintTop_toTopOf="@+id/tv_profit_title"
+                app:layout_constraintVertical_bias="0.23000002" />
+
+            <TextView
+                android:id="@+id/tv_profit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_12sdp"
+                android:layout_marginTop="1dp"
+                android:fontFamily="@font/open_sans_bold"
+                tools:text="20%"
+
+                android:text="@{profitLossList.profitPercent.toString()+`%`}"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_11ssp"
+                app:autoSizeMaxTextSize="@dimen/_11ssp"
+                app:autoSizeMinTextSize="@dimen/_7ssp"
+                app:autoSizeStepGranularity="@dimen/_2ssp"
+                app:autoSizeTextType="uniform"
+                app:layout_constraintBottom_toBottomOf="@+id/view4"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_profit_title"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/tv_gross_profit"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:layout_marginEnd="@dimen/_12sdp"
+                android:fontFamily="@font/open_sans_bold"
+                tools:text="40,000.00 AOA"
+                android:gravity="end"
+                android:text="@{profitLossList.grossProfit}"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_11ssp"
+                app:autoSizeMaxTextSize="@dimen/_11ssp"
+                app:autoSizeMinTextSize="@dimen/_7ssp"
+                app:autoSizeStepGranularity="@dimen/_2ssp"
+                app:autoSizeTextType="uniform"
+                app:layout_constraintBottom_toBottomOf="@+id/view4"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toEndOf="@+id/tv_profit"
+                app:layout_constraintTop_toBottomOf="@+id/tv_profit_title"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/tv_view_details"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_30sdp"
+                android:fontFamily="@font/russo_one"
+                android:text="@string/view_details"
+                android:paddingStart="@dimen/_22sdp"
+                android:paddingEnd="@dimen/_22sdp"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_15ssp"
+                android:gravity="center"
+                android:background="@drawable/teal_button_bg"
+                android:layout_marginTop="@dimen/_12sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view4" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
+</layout>

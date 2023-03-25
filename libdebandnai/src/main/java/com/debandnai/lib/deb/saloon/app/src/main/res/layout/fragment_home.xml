@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+
+    <ScrollView
+        android:id="@+id/scrollViewMain"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/gradient_bg"
+        tools:context=".ui.fragment.HomeFragment">
+
+        <LinearLayout
+            android:id="@+id/topLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/ordersLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:background="@drawable/top_rounded_shape"
+                android:orientation="vertical"
+                android:paddingTop="@dimen/_12sdp"
+                android:paddingBottom="@dimen/_10sdp">
+
+                <LinearLayout
+                    android:id="@+id/topBarOrders"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingStart="@dimen/_20sdp"
+                    android:paddingEnd="@dimen/_10sdp"
+                    android:weightSum="2">
+
+                    <TextView
+                        android:id="@+id/tvUpcomingOrders"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/ebgaramond_semibold_600"
+                        android:text="@string/upcoming_orders"
+                        android:textColor="@color/brand_color"
+                        android:textSize="@dimen/_16ssp"
+
+                        />
+
+                    <TextView
+                        android:id="@+id/tvRecentOrders"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/ebgaramond_semibold_600"
+                        android:text="@string/recent_orders"
+                        android:textColor="@color/recent_text_color"
+                        android:textSize="@dimen/_16ssp"
+                        tools:ignore="TextContrastCheck" />
+
+
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvOrdersList"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clipToPadding="false"
+                    android:orientation="horizontal"
+                    android:paddingStart="@dimen/_10sdp"
+                    android:paddingEnd="@dimen/_10sdp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:itemCount="5"
+                    tools:listitem="@layout/upcoming_orders_list_item" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/serviceLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:paddingTop="@dimen/_12sdp"
+                android:paddingBottom="@dimen/_10sdp">
+
+                <LinearLayout
+                    android:id="@+id/topBarService"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingStart="@dimen/_20sdp"
+                    android:paddingEnd="@dimen/_10sdp"
+                    android:weightSum="2">
+
+                    <TextView
+                        android:id="@+id/tvBookService"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/ebgaramond_semibold_600"
+                        android:text="@string/book_salon_services"
+                        android:textColor="@color/brand_color"
+                        android:textSize="@dimen/_16ssp"
+
+                        />
+
+                    <TextView
+                        android:id="@+id/tvRecentService"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/ebgaramond_semibold_600"
+                        android:text="@string/recent_services"
+                        android:textColor="@color/recent_text_color"
+                        android:textSize="@dimen/_16ssp"
+
+                        />
+
+
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvServiceList"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clipToPadding="true"
+                    android:orientation="horizontal"
+                    android:paddingStart="@dimen/_10sdp"
+                    android:paddingEnd="@dimen/_10sdp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:itemCount="5"
+                    tools:listitem="@layout/recent_services_list_item" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/popularLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:paddingTop="@dimen/_12sdp"
+                android:paddingBottom="@dimen/_10sdp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/ebgaramond_semibold_600"
+                    android:paddingStart="@dimen/_20sdp"
+                    android:paddingEnd="@dimen/_10sdp"
+                    android:text="@string/popular_services"
+                    android:textColor="@color/brand_color"
+                    android:textSize="@dimen/_16ssp"
+
+                    />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvPopularList"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clipToPadding="true"
+                    android:orientation="horizontal"
+                    android:paddingStart="@dimen/_10sdp"
+                    android:paddingEnd="@dimen/_10sdp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:itemCount="5"
+                    tools:listitem="@layout/recent_services_list_item" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/reviewLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:paddingTop="@dimen/_12sdp"
+                android:paddingBottom="@dimen/_10sdp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/ebgaramond_semibold_600"
+                    android:paddingStart="@dimen/_20sdp"
+                    android:paddingEnd="@dimen/_10sdp"
+                    android:text="@string/latest_review_for_service"
+                    android:textColor="@color/brand_color"
+                    android:textSize="@dimen/_16ssp"
+
+                    />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvReviewList"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:clipToPadding="true"
+                    android:orientation="horizontal"
+                    android:paddingStart="@dimen/_10sdp"
+                    android:paddingEnd="@dimen/_10sdp"
+                    tools:itemCount="2"
+                    tools:listitem="@layout/latest_review_list_item"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </ScrollView>
+</layout>

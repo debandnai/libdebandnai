@@ -1,0 +1,435 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.merkaaz.app.data.viewModel.SignUpViewModel" />
+
+        <variable
+            name="constants"
+            type="com.merkaaz.app.utils.Constants" />
+
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/bg_color"
+
+            tools:context=".ui.SignUpActivity">
+            <!--            app:hideKeyboardByClickingOutside="@{activity}"-->
+
+            <LinearLayout
+                android:id="@+id/ll_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.26"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.06000002"
+                tools:ignore="UseCompoundDrawables">
+
+                <ImageView
+                    android:layout_width="@dimen/_40sdp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:adjustViewBounds="true"
+                    app:srcCompat="@drawable/ic_logo"
+                    tools:ignore="ContentDescription" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:fontFamily="@font/russo_one"
+                    android:text="@string/sign_up_with_out_underline"
+                    android:textAllCaps="true"
+                    android:textColor="@color/dark_blue"
+                    android:textSize="@dimen/_23ssp" />
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/tv_header"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_60sdp"
+                android:layout_marginTop="@dimen/_14sdp"
+                android:layout_marginEnd="@dimen/_60sdp"
+                android:fontFamily="@font/open_sans_regular"
+                android:gravity="center"
+                android:text="@string/you_are_few_steps_away_from_activating_your_account"
+                android:textColor="@color/inactive_tab_color"
+                android:textSize="@dimen/_12ssp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ll_header" />
+
+            <EditText
+                android:id="@+id/edt_shop_name"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/edit_text_height"
+                android:layout_marginStart="@dimen/_24sdp"
+                android:layout_marginEnd="@dimen/_24sdp"
+                android:background="@drawable/textview_shape"
+                android:elevation="@dimen/_5sdp"
+                android:ems="10"
+                android:fontFamily="@font/open_sans_regular"
+                android:hint="@string/shop_name"
+                android:importantForAutofill="no"
+                android:inputType="textPersonName"
+                android:paddingStart="@dimen/_12sdp"
+                android:paddingTop="@dimen/_4sdp"
+                android:paddingEnd="@dimen/_12sdp"
+                android:paddingBottom="@dimen/_4sdp"
+                android:text="@={viewModel.shopName}"
+                android:textColor="@color/bg_dialog"
+                android:textColorHint="@color/bg_dialog"
+                android:textSize="@dimen/_12ssp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_header"
+                app:layout_constraintVertical_bias="0.050000012"
+                tools:ignore="LabelFor,RtlSymmetry" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/rl_map"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_140sdp"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:layout_marginStart="@dimen/_24sdp"
+                android:layout_marginEnd="@dimen/_24sdp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="12dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edt_shop_name"
+                app:layout_constraintVertical_bias="0.04000002">
+
+                <androidx.fragment.app.FragmentContainerView
+                    android:id="@+id/fcv_map"
+                    android:name="com.google.android.gms.maps.SupportMapFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:liteMode="true"
+                    app:mapType="normal" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:background="@color/teal_700"
+                    android:padding="@dimen/_10sdp">
+
+                    <TextView
+                        android:id="@+id/tv_address"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:fontFamily="@font/open_sans_bold"
+                        android:gravity="bottom"
+                        android:maxLines="2"
+                        android:textSize="@dimen/_12ssp"
+                        app:drawableTint="@color/white"
+                        app:setAddressInTextView="@{viewModel.address}"
+                        tools:text="@string/press_here_to_set_shop_address" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+
+            <EditText
+                android:id="@+id/edt_name"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/edit_text_height"
+                android:layout_marginStart="@dimen/_24sdp"
+                android:layout_marginEnd="@dimen/_24sdp"
+                android:background="@drawable/textview_shape"
+                android:elevation="@dimen/_5sdp"
+                android:ems="10"
+                android:fontFamily="@font/open_sans_regular"
+                android:hint="@string/your_name"
+                android:importantForAutofill="no"
+                android:inputType="textPersonName"
+                android:paddingStart="@dimen/_12sdp"
+                android:paddingTop="@dimen/_4sdp"
+                android:paddingEnd="@dimen/_12sdp"
+                android:paddingBottom="@dimen/_4sdp"
+                android:text="@={viewModel.vendorName}"
+                android:textColor="@color/bg_dialog"
+                android:textColorHint="@color/bg_dialog"
+                android:textSize="@dimen/_12ssp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rl_map"
+                app:layout_constraintVertical_bias="0.050000012"
+                tools:ignore="LabelFor,RtlSymmetry" />
+
+            <TextView
+                android:id="@+id/rv_countryCodeContainer"
+                android:layout_width="@dimen/_80sdp"
+                android:layout_height="@dimen/edit_text_height"
+                android:layout_marginStart="@dimen/_24sdp"
+                android:layout_marginEnd="@dimen/_24sdp"
+                android:background="@drawable/textview_shape"
+                android:elevation="@dimen/_5sdp"
+                android:fontFamily="@font/open_sans_semi_bold"
+                android:gravity="center"
+                android:paddingStart="@dimen/_12sdp"
+                android:text="@string/_244"
+                android:textColor="@color/dark_blue"
+                android:textSize="@dimen/_12ssp"
+                app:drawableLeftCompat="@drawable/flag_icon_portuguese"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edt_name"
+                app:layout_constraintVertical_bias="0.05000002" />
+            <!--<androidx.appcompat.widget.AppCompatSpinner
+                android:id="@+id/rv_countryCodeContainer"
+                android:layout_width="@dimen/_80sdp"
+                android:layout_height="@dimen/edit_text_height"
+                android:layout_marginStart="@dimen/_24sdp"
+                android:layout_marginEnd="@dimen/_24sdp"
+                android:background="@drawable/textview_shape"
+                android:elevation="@dimen/_5sdp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edt_name"
+                app:layout_constraintVertical_bias="0.05000002"
+                app:spinnerAdapter="@{viewModel.countryArrayList}" />-->
+
+            <EditText
+                android:id="@+id/edt_ph_no"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/edit_text_height"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_24sdp"
+                android:background="@drawable/textview_shape"
+                android:elevation="@dimen/_5sdp"
+                android:ems="9"
+                android:fontFamily="@font/open_sans_regular"
+                android:hint="@string/phone_number"
+                android:inputType="phone"
+                android:paddingStart="@dimen/_12sdp"
+                android:paddingTop="@dimen/_4sdp"
+                android:paddingEnd="@dimen/_10sdp"
+                android:paddingBottom="@dimen/_4sdp"
+                android:text="@={viewModel.phoneNo}"
+                android:textSize="@dimen/_12ssp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/rv_countryCodeContainer"
+                app:layout_constraintTop_toBottomOf="@+id/edt_name"
+                app:layout_constraintVertical_bias="0.05000002"
+                tools:ignore="Autofill,RtlSymmetry" />
+
+            <EditText
+                android:id="@+id/edt_email"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/edit_text_height"
+                android:layout_marginStart="@dimen/_24sdp"
+                android:layout_marginEnd="@dimen/_24sdp"
+                android:background="@drawable/textview_shape"
+                android:elevation="@dimen/_5sdp"
+                android:ems="10"
+                android:fontFamily="@font/open_sans_regular"
+                android:hint="@string/email_address"
+                android:importantForAutofill="no"
+                android:inputType="textWebEmailAddress"
+                android:paddingStart="@dimen/_12sdp"
+                android:paddingTop="@dimen/_4sdp"
+                android:paddingEnd="@dimen/_12sdp"
+                android:paddingBottom="@dimen/_4sdp"
+                android:text="@={viewModel.emailId}"
+                android:textColor="@color/bg_dialog"
+                android:textColorHint="@color/bg_dialog"
+                android:textSize="@dimen/_12ssp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edt_ph_no"
+                app:layout_constraintVertical_bias="0.05000002"
+                tools:ignore="LabelFor,RtlSymmetry" />
+
+            <EditText
+                android:id="@+id/edt_tax_id"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/edit_text_height"
+                android:layout_marginStart="@dimen/_24sdp"
+                android:layout_marginEnd="@dimen/_24sdp"
+                android:background="@drawable/textview_shape"
+                android:elevation="@dimen/_5sdp"
+                android:ems="10"
+
+                android:fontFamily="@font/open_sans_regular"
+                android:hint="@string/tax_id"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                android:paddingStart="@dimen/_12sdp"
+                android:paddingTop="@dimen/_4sdp"
+                android:paddingEnd="@dimen/_12sdp"
+                android:paddingBottom="@dimen/_4sdp"
+                android:text="@={viewModel.taxId}"
+                android:textColor="@color/bg_dialog"
+                android:textColorHint="@color/bg_dialog"
+                android:textSize="@dimen/_12ssp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/edt_email"
+                app:layout_constraintVertical_bias="0.05000002"
+                tools:ignore="LabelFor,RtlSymmetry" />
+
+            <!-- <TextView
+                 android:id="@+id/tv_address"
+                 android:layout_width="0dp"
+                 android:layout_height="wrap_content"
+                 android:layout_marginTop="@dimen/_8sdp"
+                 android:gravity="bottom"
+                 android:textSize="@dimen/_12ssp"
+                 android:fontFamily="@font/open_sans_bold"
+                 app:drawableTint="@color/active_tab_color"
+                 app:layout_constraintEnd_toEndOf="@+id/rl_map"
+                 app:layout_constraintHorizontal_bias="0.0"
+                 app:layout_constraintStart_toStartOf="@+id/rl_map"
+                 app:layout_constraintTop_toBottomOf="@+id/rl_map"
+                 app:setAddressInTextView="@{viewModel.address}"
+                 tools:text="@string/press_here_to_set_shop_address" />-->
+
+            <TextView
+                android:id="@+id/textView13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:gravity="center"
+                android:text="@string/represents_all_mandatory_fields_to_be_filled_out"
+                android:textColor="@color/dark_red"
+                android:textSize="@dimen/_9ssp"
+                app:layout_constraintEnd_toEndOf="@+id/edt_tax_id"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/edt_tax_id"
+                app:layout_constraintTop_toBottomOf="@+id/edt_tax_id" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_confirm_location"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/button_height"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:background="@drawable/botton_shape_till_color"
+                android:fontFamily="@font/russo_one"
+                android:lines="1"
+                android:maxLines="1"
+                android:onClick="@{(v)->viewModel.signUpClick(v)}"
+                android:text="@string/create_my_account"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_14ssp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/edt_tax_id"
+                app:layout_constraintStart_toStartOf="@+id/edt_tax_id"
+                app:layout_constraintTop_toBottomOf="@+id/textView13"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8ssp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="@+id/btn_confirm_location"
+                app:layout_constraintStart_toStartOf="@+id/btn_confirm_location"
+                app:layout_constraintTop_toBottomOf="@+id/btn_confirm_location">
+
+                <TextView
+                    android:id="@+id/tv_dont_have_acc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:fontFamily="@font/open_sans_regular"
+                    android:text="@string/already_have_a_merkaaz_account"
+                    android:textColor="@color/dark_blue"
+                    android:textSize="@dimen/_12ssp" />
+
+                <TextView
+                    android:id="@+id/tv_login"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:onClick="@{(v)->viewModel.login(v)}"
+                    android:paddingTop="@dimen/_4sdp"
+                    android:paddingBottom="@dimen/_4sdp"
+                    android:text="@string/underlined_login"
+                    android:textColor="@color/teal_700"
+                    android:textSize="@dimen/_12ssp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_have_any_ques"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:fontFamily="@font/open_sans_regular"
+                android:gravity="center"
+                android:text="@string/customer_support_team"
+                android:textColor="@color/dark_blue"
+                android:textSize="@dimen/_12ssp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+
+                app:layout_constraintTop_toBottomOf="@+id/tv_service_no" />
+
+            <TextView
+                android:id="@+id/tv_service_no"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:drawablePadding="@dimen/_4sdp"
+                android:fontFamily="@font/open_sans_bold"
+                android:text="@{constants.CUSTOMER_SERVICE_NUMBER}"
+                android:textColor="@color/teal_700"
+                android:textSize="@dimen/_16ssp"
+                app:drawableStartCompat="@drawable/ic_mobile_icon"
+                app:layout_constraintEnd_toEndOf="@+id/linearLayout"
+                app:layout_constraintStart_toStartOf="@+id/btn_confirm_location"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+                app:openCallDialerOnClick="@{constants.CUSTOMER_SERVICE_NUMBER}"
+                tools:text="@string/contact_ph_no" />
+
+            <ImageView
+                android:id="@+id/imageView6"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_120sdp"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginEnd="@dimen/_15sdp"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/watermark_logo"
+                android:src="@drawable/ic_merkaaz_watermark_2"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+
+</layout>

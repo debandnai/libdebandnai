@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.salonsolution.app.data.viewModel.OtpVerificationViewModel" />
+        <variable
+            name="utils"
+            type="com.salonsolution.app.utils.UtilsCommon" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        tools:context=".ui.fragment.OtpVerificationFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_260sdp"
+                android:scaleType="fitXY"
+                android:src="@drawable/login_signup_bg_top"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:id="@+id/ivLogo"
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="@dimen/_41sdp"
+                android:layout_marginTop="@dimen/_80sdp"
+                android:src="@drawable/logo"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_80sdp"
+                android:scaleType="fitXY"
+                android:src="@drawable/login_signup_bg_bottom"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:ignore="ContentDescription,ImageContrastCheck" />
+
+            <include
+                android:id="@+id/language"
+                layout="@layout/language_inflater" />
+
+            <TextView
+                android:id="@+id/tvSignUp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_45sdp"
+                android:fontFamily="@font/montserrat_medium_500"
+                android:text="@string/sign_up"
+                android:textAlignment="center"
+                android:textColor="@color/default_text_color"
+                android:textSize="14sp"
+                android:visibility="@{viewModel.isRegister? View.VISIBLE : View.INVISIBLE}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ivLogo" />
+
+            <TextView
+                android:id="@+id/tvEnterOtp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_14sdp"
+                android:fontFamily="@font/ebgaramond_regular_400"
+                android:text="@string/enter_otp"
+                android:textAlignment="center"
+                android:textColor="@color/brand_color"
+                android:textSize="46sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvSignUp" />
+
+            <TextView
+                android:id="@+id/tvWeHaveSent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:fontFamily="@font/montserrat_regular_400"
+                android:text="@string/we_just_sent_a_verification_code_to"
+                android:textAlignment="center"
+                android:textColor="@color/default_text_color"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvEnterOtp" />
+
+            <TextView
+                android:id="@+id/tvEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:fontFamily="@font/montserrat_regular_400"
+                android:textAlignment="center"
+                android:textColor="@color/default_text_color"
+                android:textSize="14sp"
+                android:text="@{viewModel.email}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvWeHaveSent"
+                tools:text="lirasoares@com" />
+
+
+            <com.chaos.view.PinView
+                style="@style/PinWidget.PinView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginEnd="@dimen/_20sdp"
+                android:cursorVisible="false"
+                android:inputType="number"
+                android:layout_marginTop="@dimen/_36sdp"
+                android:itemBackground="@color/pin_view_background"
+                android:textColor="@color/default_text_color"
+                android:textSize="@dimen/_14ssp"
+                android:textStyle="bold"
+                android:text="@={viewModel.otp}"
+                app:hideKeyBoard="@{viewModel.otp}"
+                app:cursorColor="@color/default_text_color"
+                app:cursorWidth="@dimen/_2sdp"
+                app:elevation="@dimen/_8sdp"
+                app:hideLineWhenFilled="false"
+                app:itemCount="4"
+                android:fontFamily="@font/ebgaramond_regular_400"
+                app:itemHeight="@dimen/_45sdp"
+                app:itemRadius="@dimen/_10sdp"
+                app:itemSpacing="@dimen/_12sdp"
+                app:itemWidth="@dimen/_56sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvEmail"
+                app:lineColor="@{viewModel.otpError.component1()? @color/pin_view_border_error : @color/pin_view_border_normal}"
+                tools:lineColor="@color/pin_view_border_normal"
+                android:id="@+id/pvOtp"
+                app:lineWidth="@dimen/_2sdp"
+                app:viewType="rectangle" />
+
+            <TextView
+                android:id="@+id/tvOtpError"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_medium_500"
+                android:textColor="@color/brand_color"
+                android:textSize="11sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="@dimen/_12sdp"
+                app:layout_goneMarginTop="@dimen/_24sdp"
+                app:layout_constraintTop_toBottomOf="@id/pvOtp"
+                tools:text="@string/please_enter_password"
+                android:text="@{viewModel.otpError.component2()}"
+                android:visibility="@{viewModel.otpError.component1()? View.VISIBLE : View.GONE }"
+                tools:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/tvResendOtp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_medium_500"
+                    android:textColor="@color/default_text_color"
+                    android:textSize="13sp"
+                    android:layout_marginTop="@dimen/_18sdp"
+                    app:layout_goneMarginTop="@dimen/_24sdp"
+                    app:layout_constraintTop_toBottomOf="@id/tvOtpError"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:text="@{viewModel.isTimerRunning? String.format(@string/resend_otp_time, viewModel.counter) : @string/resend_otp}"
+                    android:onClick="@{(v)->viewModel.resendOtp(v)}"
+                    android:enabled="@{!viewModel.isTimerRunning}"
+                    tools:text="@string/resend_otp_time"
+                    android:textAllCaps="true"
+                    tools:visibility="visible" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btSignIn"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_30sdp"
+                android:layout_marginEnd="@dimen/_20sdp"
+                android:background="@drawable/login_button_bg"
+                android:fontFamily="@font/montserrat_semibold_600"
+                android:onClick="@{(v)-> viewModel.submitButtonClick(v)}"
+                android:text="@{viewModel.isRegister? @string/submit : @string/continue_string}"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvResendOtp" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

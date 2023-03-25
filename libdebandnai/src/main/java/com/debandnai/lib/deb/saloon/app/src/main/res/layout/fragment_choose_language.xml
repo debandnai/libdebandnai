@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        tools:context=".ui.fragment.ChooseLanguageFragment">
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_270sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:scaleType="fitXY"
+            android:src="@drawable/choose_language_bg_top"
+            tools:ignore="ContentDescription" />
+
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_80sdp"
+            android:scaleType="fitXY"
+            android:src="@drawable/choose_language_bg_bottom"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="ContentDescription,ImageContrastCheck" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/choose_your"
+            android:fontFamily="@font/montserrat_regular_400"
+            android:textSize="22sp"
+            android:textAlignment="center"
+            android:id="@+id/tv_choose"
+            android:layout_marginTop="@dimen/_160sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/Language"
+            android:fontFamily="@font/ebgaramond_regular_400"
+            android:textColor="@color/brand_color"
+            android:textSize="46sp"
+            android:textAlignment="center"
+            android:id="@+id/tv_language"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_choose"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/choose_language_description"
+            android:fontFamily="@font/montserrat_regular_400"
+            android:textSize="14sp"
+            android:textAlignment="center"
+            android:id="@+id/tv_lorem"
+            android:layout_marginTop="@dimen/_10sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_language"
+            />
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:gravity="center"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_lorem"
+            android:layout_marginTop="@dimen/_60sdp"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:id="@+id/rl_english_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginBottom="@dimen/_20sdp">
+
+                <RelativeLayout
+                    android:id="@+id/rl_english_language"
+                    android:layout_width="@dimen/_80sdp"
+                    android:layout_height="@dimen/_77sdp"
+                    android:background="@drawable/language_selector_bg">
+
+                    <ImageView
+                        android:layout_width="@dimen/_40sdp"
+                        android:layout_height="@dimen/_25sdp"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/english_flag"
+                        tools:ignore="ContentDescription" />
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/tv_english"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/rl_english_language"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/_18sdp"
+                    android:fontFamily="@font/montserrat"
+                    android:text="@string/english"
+                    android:textAllCaps="true"
+                    android:textColor="@color/default_text_color"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    tools:ignore="TextContrastCheck" />
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_portuguese_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_26sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginBottom="@dimen/_20sdp"
+                android:layout_toEndOf="@id/rl_english_layout">
+
+                <RelativeLayout
+                    android:id="@+id/rl_portuguese_language"
+                    android:layout_width="@dimen/_80sdp"
+                    android:layout_height="@dimen/_77sdp"
+                    android:background="@drawable/language_selector_bg">
+
+                    <ImageView
+                        android:layout_width="@dimen/_40sdp"
+                        android:layout_height="@dimen/_25sdp"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/portuguese_flag"
+                        tools:ignore="ContentDescription,ImageContrastCheck" />
+
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/tv_portuguese"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/rl_portuguese_language"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/_18sdp"
+                    android:fontFamily="@font/montserrat"
+                    android:text="@string/portuguese"
+                    android:textAllCaps="true"
+                    android:textColor="@color/default_text_color"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    tools:ignore="TextContrastCheck" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

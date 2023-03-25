@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="dataItem"
+            type="ie.healthylunch.app.data.model.productListByMenuTemplateModel.ProductItem" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/itemLayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_122sdp"
+        android:layout_marginTop="@dimen/_6sdp"
+        android:layout_marginEnd="@dimen/_18sdp"
+        android:layout_marginBottom="@dimen/_6sdp"
+
+        android:background="@drawable/rect_right_round_corner_white_bg"
+        android:elevation="@dimen/_3sdp"
+        android:paddingEnd="@dimen/_6sdp"
+        tools:ignore="RtlSymmetry">
+        <!--app:setIsOrderBackground="@{dataItem.isOrdered}"-->
+        <View
+            android:id="@+id/view_green_bar"
+            android:layout_width="@dimen/_15sdp"
+            android:layout_height="match_parent"
+            android:background="@color/light_green_color"
+            android:visibility="@{dataItem.isOrdered== 1? View.VISIBLE:View.INVISIBLE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/iv_green_tick"
+            android:layout_width="@dimen/_16sdp"
+            android:layout_height="@dimen/_16sdp"
+            android:layout_marginStart="@dimen/_18sdp"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:src="@drawable/ic_green_tick_2"
+            android:visibility="@{dataItem.isOrdered== 1? View.VISIBLE:View.INVISIBLE}"
+            app:layout_constraintStart_toStartOf="@+id/view_green_bar"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription" />
+
+        <ImageView
+            android:id="@+id/productIv"
+            android:layout_width="@dimen/_84sdp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:layout_marginBottom="@dimen/_16sdp"
+            android:src="@drawable/menu_placeholder_img"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/iv_green_tick"
+            app:layout_constraintTop_toTopOf="parent"
+            app:setFoodImage="@{dataItem.fileName}"
+            tools:ignore="ContentDescription" />
+
+        <LinearLayout
+            android:id="@+id/ll_xp_point"
+            android:layout_width="@dimen/_28sdp"
+            android:layout_height="@dimen/_28sdp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="@dimen/_6sdp"
+            android:layout_marginEnd="@dimen/_2sdp"
+            android:background="@drawable/ic_xp_points_bg"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="@{dataItem.isXpLayoutVisible? View.VISIBLE: View.INVISIBLE}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_12sdp"
+                android:fontFamily="@font/quicksand_bold"
+                android:gravity="center"
+                android:text="@{dataItem.xpPoints.toString()}"
+                android:textColor="@color/brown_color"
+                android:textSize="@dimen/_8ssp"
+                app:autoSizeMaxTextSize="@dimen/_10ssp"
+                app:autoSizeMinTextSize="@dimen/_6ssp"
+                app:autoSizeStepGranularity="@dimen/_2ssp"
+                app:autoSizeTextType="uniform"
+                tools:text="100" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/quicksand_bold"
+                android:gravity="center"
+                android:singleLine="true"
+                android:text="@string/xp_points"
+                android:textColor="@color/brown_color"
+                android:textSize="@dimen/_3ssp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_tempName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_14sdp"
+            android:fontFamily="@font/quicksand_bold"
+            android:paddingEnd="@dimen/_4sdp"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:text="@{dataItem.productName}"
+            android:textColor="@color/slate_color"
+            android:textSize="@dimen/_13ssp"
+            app:layout_constraintEnd_toStartOf="@+id/ll_xp_point"
+            app:layout_constraintStart_toEndOf="@+id/productIv"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Wholewheat\nWholewheat" />
+
+        <TextView
+            android:id="@+id/productDescTv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:ellipsize="end"
+            android:fontFamily="@font/quicksand_semi_bold"
+            android:maxLines="3"
+            android:text="@{dataItem.productSubHeading??``}"
+            android:textColor="@color/light_gray2"
+            android:textSize="@dimen/_10ssp"
+            app:layout_constraintEnd_toEndOf="@+id/ll_xp_point"
+            app:layout_constraintStart_toStartOf="@+id/tv_tempName"
+            app:layout_constraintTop_toBottomOf="@+id/tv_tempName"
+            tools:text="Items Priced Individually\nItems Priced Individually\nItems Priced Individually" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_12sdp"
+            android:gravity="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/productDescTv">
+
+            <TextView
+                android:id="@+id/priceTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_4sdp"
+                android:ellipsize="end"
+                android:fontFamily="@font/quicksand_bold"
+                android:text="@{`€`+dataItem.additionalPrice}"
+                android:textColor="@color/slate_color"
+                android:textSize="@dimen/_12ssp"
+                tools:text="€2.50" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/promotedStarIv"
+                android:layout_width="@dimen/_13sdp"
+                android:layout_height="@dimen/_13sdp"
+                android:src="@drawable/star_green"
+                android:visibility="@{dataItem.isPromoted==1 ? View.VISIBLE : View.GONE}" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/recycleIv"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_marginEnd="@dimen/_3sdp"
+            android:layout_marginBottom="@dimen/_3sdp"
+            android:adjustViewBounds="true"
+            android:paddingTop="@dimen/_4sdp"
+            android:paddingBottom="@dimen/_4sdp"
+            android:src="@drawable/ic_recycle"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/infoIv"
+            app:setPackingTypeIcon="@{dataItem.packagingType}"
+            tools:ignore="ContentDescription" />
+
+        <ImageView
+            android:id="@+id/infoIv"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_marginBottom="@dimen/_3sdp"
+            android:adjustViewBounds="true"
+            android:paddingTop="@dimen/_4sdp"
+            android:paddingBottom="@dimen/_4sdp"
+            android:src="@drawable/ic_i_icon"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:ignore="ContentDescription" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

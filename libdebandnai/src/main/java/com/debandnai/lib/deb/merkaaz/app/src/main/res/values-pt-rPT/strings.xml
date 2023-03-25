@@ -1,0 +1,316 @@
+<resources>
+    <string name="app_name">Merkaaz</string>
+    <string name="a_b2b_commerce_solution_for_retail_shops"><i aria-hidden="true" class="fa fa-map-marker" />Uma solução completa para lojas de comércio</string>
+    <string name="an_integrated_commerce_solution_that_allows_small_retail_canteens_with_low_purchasing_power_to_obtain_bulk_discounted_prices">Uma plataforma integrada que permite os comerciantes adquirir todos os seus produtos a preços competitivos com servico de entrega em 24–48 horas</string>
+    <string name="get_started">Iniciar</string>
+    <string name="buy_better">Compre Melhor</string>
+
+    <string name="prompt_email">E-mail</string>
+
+    <string name="login">Entrar</string>
+    <string name="underlined_login"><u>Entrar</u></string>
+    <string name="already_a_merkaaz_customer_login_to_place_your_order_amp_access_our_services">Ja é cliente da MERKAAZ? Entre já para fazer o seu pedido e aceder aos nos serviços</string>
+    <string name="send_otp">Enviar Codigo de Verificação</string>
+    <string name="don_t_have_a_merkaaz_account">Nāo tem uma conta MERKAAZ?</string>
+    <string name="sign_up"><u>Inscrever-se</u></string>
+    <string name="select_language"><u>Seleccionar Idioma</u></string>
+    <string name="portuguese">Português</string>
+    <string name="english">Inglês</string>
+    <string name="enter_one_time_password">COLOQUE CODIGO \nDE VERIFICAÇÃO</string>
+
+    <string name="pending_approval">Aprovação Pendente</string>
+    <string name="search_here">O que procura?</string>
+    <string name="home">Início</string>
+    <string name="products">Produtos</string>
+    <string name="orders">Pedidos</string>
+    <string name="my_cart">Carrinho</string>
+    <!-- TODO: Remove or change this placeholder text -->
+
+    <string name="featured_products">Produtos em Destaque</string>
+    <string name="view_more">Ver Mais</string>
+
+    <string name="set_shop_location">Definir Localização da Loja</string>
+    <string name="already_have_a_merkaaz_account">Já tem uma conta MERKAAZ? </string>
+    <string name="create_my_account">Criar Conta</string>
+    <string name="represents_all_mandatory_fields_to_be_filled_out">* Representa todos os campos obrigatorios a serem preenchidos </string>
+    <string name="you_are_few_steps_away_from_activating_your_account">Você está a poucos passos de ativar a sua conta! </string>
+
+
+    <string name="confirm_location">CONFIRMAR LOCALIZAÇÃO </string>
+    <string name="resend_otp">Reénviar Codigo de Verificação </string>
+    <string name="a_one_time_password_has_been_sent_to_244_1238329147">Um código de verificação único foi enviado para (+244)  </string>
+    <string name="sign_up_with_out_underline">Inscrever-se</string>
+    <string name="shop_name"><font color='#08151E'>Nome da Loja </font><font color='#FF0101'>*</font></string>
+    <string name="press_here_to_set_shop_address"><font color='#03989E'>Pressione aqui para definir o endereço da loja</font><font color='#FF0101'>*</font></string>
+
+
+    <string name="name"><font color='#08151E'>Nome</font><font color='#FF0101'>*</font></string>
+    <string name="phone_number"><font color='#08151E'>Número de Telefone </font><font color='#FF0101'>*</font></string>
+    <string name="email_address">Endereço de Email</string>
+    <string name="tax_id">NIF</string>
+    <string name="congratulations">Parabens!</string>
+    <string name="thank_you_for_working_with_us">Obrigado por nos escolher</string>
+    <string name="your_digital_store_has_been_created">A sua conta já foi criada!</string>
+
+    <string name="confirm_shop_location">Confirm Shop Location</string>
+
+    <string name="have_any_questions_contact_our_customer_support_team_at">Tem alguma pergunta? Contacte a nossa equipa de apoio ao cliente :</string>
+
+    <string name="add">Adicionar</string>
+    <string name="from_discounted_prices">A Preços Competitivos </string>
+
+    <string name="retail_ncanteens_nbenefit">Lojas\nComércio\nTem Acesso</string>
+    <string name="shop_now">Compre Agora </string>
+    <string name="snacks_amp_branded_food"><![CDATA[Snacks & Branded Food]]></string>
+    <string name="pack_sizes">Tamanho de Embalagens </string>
+    <string name="selected_or_not_selected">Selecionado ou Não Selecionado</string>
+    <string name="add_to_cart">Adicionar</string>
+    <string name="basket">Carrinho</string>
+    <string name="similar_products">Produtos Relacionados</string>
+    <string name="out_of_stock">Esgotado</string>
+    <string name="filters">Filtros</string>
+    <string name="order_type">Tipo de Pedido </string>
+    <string name="sort_by">Classificar Por </string>
+    <string name="order_amount">Valor da Encomenda </string>
+    <string name="last_updateed_date">Data da última atualização </string>
+    <string name="order_date">Data da Encomenda</string>
+    <string name="new_">Novo</string>
+    <string name="under_process">Em processamento</string>
+    <string name="shipped">Enviado</string>
+    <string name="returned">Retornou</string>
+    <string name="cancelled">Cancelado</string>
+    <string name="delivered">Entregue</string>
+    <string name="reset">Redefinir </string>
+    <string name="done">Concluído</string>
+    <string name="logo">Logotipo</string>
+    <string name="watermark_logo">Logotipo </string>
+    <string name="contact_ph_no">+244 900 000 000</string>
+    <string name="your_name"><font color='#08151E'>O Seu Nome</font><font color='#FF0101'>*</font></string>
+    <string name="edit"><u>Editar</u></string>
+
+    <string name="customer_service">Apoio ao Cliente</string>
+    <string name="contact_our_customer_support_team">Contacte a nossa equipa de apoio ao cliente  </string>
+    <string name="have_any_nquestions">Tem Alguma\nPergunta?</string>
+    <string name="street_1"><font color='#08151E'>Endereço da Rua 1</font><font color='#FF0101'>*</font></string>
+    <string name="street_2">Endereço da Rua 2</string>
+    <string name="_244">+244</string>
+    <string name="zip">Zip</string>
+    <string name="city">Cidade</string>
+    <string name="state">State</string>
+    <string name="locate">Localizar</string>
+    <string name="street1_required">Endereco obrigatorio </string>
+    <string name="postal_required">Zip Code Required</string>
+    <string name="required">Required</string>
+    <string name="luanda">Luanda</string>
+    <string name="angola">Angola</string>
+    <string name="lan">Inglés</string>
+    <string name="notifications">Notificações</string>
+    <string name="delete_all">Apagar Tudo</string>
+    <string name="privacy_policy">Pólitica de Privacidade </string>
+    <string name="ok">OK</string>
+    <string name="_2022_all_right_reserved_merkaaz">© 2022 Todos os Direitos Reservados. MERKAAZ.</string>
+    <string name="edit_without_underline">Editar</string>
+    <string name="your_shop_location">Localização da Sua Loja</string>
+    <string name="my_order">Os Meus Pedidos</string>
+    <string name="notification">Notificação</string>
+    <string name="my_delivery_address">Meu Endereço de Entrega</string>
+    <string name="sign_out">Terminar Sessāo</string>
+    <string name="pref_locale">en</string>
+    <string name="no_internet">Sem Ligação à Internet</string>
+    <string name="no_connection_found">Ligação de internet não encontrada. \nVerifique a sua ligação </string>
+    <string name="try_again">Tentar novamente</string>
+    <string name="location_not_found">Localização não encontrada</string>
+    <string name="manage_profit_loss">Gestão de Negocio</string>
+    <string name="shop_by_category">Pesquise por Categoria</string>
+    <string name="best_sellers">Mais Vendidos</string>
+    <string name="terms_and_conditions">Termos e Condições</string>
+    <string name="choose_a_pack_sizes">Escolher Tamnho </string>
+    <string name="terms_of_use">Termos de Uso</string>
+    <string name="about_this_product">Sobre o Produto</string>
+
+    <string name="network_error_msg">Erro de Rede. Por favor verifique a sua rede.</string>
+    <string name="server_error_msg">Erro de Servidor. Por favor tente novamente</string>
+
+    <string name="off">Desconto</string>
+    <string name="no_more_item_to_add">Não há mais itens para adicionar</string>
+    <string name="staples">Cesta Basica</string>
+    <string name="close">Fechar</string>
+    <string name="cancel">Cancelar</string>
+    <string name="best_seller">Mais Vendidos</string>
+    <string name="product_category">Categoria de Produto </string>
+    <string name="auth_error_msg">Falha na autenticação. Por favor tente novamente.</string>
+    <string name="logout">Terminar sessão</string>
+    <string name="are_you_sure_want_to_log_out_">Pretende sair da sua conta?</string>
+    <string name="please_enter_shop_name">Por favor insira o nome da loja </string>
+    <string name="please_pick_address_up_from_map">Por favor selecione o endereço no mapa </string>
+    <string name="please_enter_your_name">Por favor, insira o seu nome</string>
+    <string name="please_phone_number">Por favor número de telefone</string>
+    <string name="seesion_expired_msg">A sua sessão expirou. Por favor entre na sua conta novamente.</string>
+    <string name="retry">Tentar novamente </string>
+
+    <string name="update_profile">Atualizar perfil</string>
+    <string name="save_changes">Salvar Alterações</string>
+    <string name="customer_support_team">Contacte a nossa equipa de apoio ao cliente </string>
+    <string name="country">País</string>
+    <string name="only">Apenas</string>
+    <string name="left_stock">Apenas %1$s disponíveis em stock </string>
+    <string name="left_stocks">Apenas %1$s disponíveis em stock </string>
+    <string name="no_item_available">Nenhum item disponível</string>
+    <string name="select_profile_img">Selecionar imagem de perfil </string>
+    <string name="update_profile_success">O seu perfil foi atualizado com sucesso</string>
+    <string name="update_location_success">A sua localização foi atualizada com sucesso</string>
+    <string name="delivery_options">Forma de Entrega </string>
+    <string name="pick_up_from">Recolher de: </string>
+    <string name="no_charge">Sem custo </string>
+
+    <string name="guaranteed_delivery">Entrega garantida</string>
+    <string name="within">Dentro de</string>
+    <string name="hours">Horas</string>
+    <string name="deliver_to">Entregar para:</string>
+    <string name="proceed_to_pay">Fazer Pagamento</string>
+    <string name="total">Total</string>
+    <string name="finalize">Finalizar</string>
+    <string name="total_items">Total da Encomenda </string>
+    <string name="delivery_charge">Taxa de Entrega</string>
+    <string name="grand_total">Total do Pedido</string>
+    <string name="payment">Pagamento</string>
+    <string name="select_payment_method">Selecionar forma de pagamento </string>
+    <string name="pay_by_card_machine">Pagar por TPA</string>
+    <string name="success">Sucesso</string>
+    <string name="your_order_has_been_placed">A sua encomenda foi efectuada!</string>
+    <string name="view_orders">Ver Encomendas</string>
+    <string name="continue_shopping">Continuar a Pesquisar</string>
+    <string name="product_list">Lista de Produtos</string>
+    <string name="online_payment">Pagamento Online </string>
+    <plurals name="items">
+        <item quantity="one">%d Iten </item>
+        <item quantity="other">%d Itens </item>
+    </plurals>
+
+    <string-array name="gm_values">
+        <item>500 gm</item>
+        <item>750 gm</item>
+    </string-array>
+
+    <string-array name="weight">
+        <item>"500gm"</item>
+        <item>"1kg"</item>
+        <item>"5kg"</item>
+        <item>"10kg"</item>
+    </string-array>
+    <string name="review_basket">Rever Carrinho</string>
+    <string name="delete">Deletar</string>
+    <string name="checkout">Concluir</string>
+    <string name="please_select_delivery_options">Por favor selecione a opção de entrega desejada</string>
+    <string name="pay_by_Card_machine">Por favor pague com TPA </string>
+    <string name="your_basket_is_empty">O seu carrinho está vazio</string>
+    <string name="your_favourite_items_are_just_a_click_away">Os seus produtos favoritos estão a apenas um clique de distância</string>
+    <string name="filter">Filtro</string>
+    <string name="you_are_not_an_approved_user">Ainda não está aprovado para efetuar compras</string>
+    <string name="minimumorder_of">Valor minimo de pedido </string>
+    <string name="phone_number_limit_msg">O seu número de telefone deve ser de 9 dígitos</string>
+    <string name="reference_point">Ponto de referência</string>
+    <string name="order_status">Status de Pagamento</string>
+    <string name="in_progress">Em processo</string>
+    <string name="last_updated">Valor da Encomenda</string>
+    <string name="order_value">Total da Encomenda</string>
+    <string name="view_details">Ver Detalhes</string>
+    <string name="manage_p_l">GERIR PREÇOS</string>
+    <string name="my_order_details">Detalhes da minha encomenda </string>
+    <string name="order_details">Detalhes da Encomenda</string>
+    <string name="waiting_for_pickup">A espera de recolha</string>
+    <string name="order_id">ID de Encomenda</string>
+    <string name="total_amount">Valor Total</string>
+    <string name="product_name">Nome do Produto</string>
+    <string name="price">Preço</string>
+    <string name="qty">Qtd.</string>
+    <string name="delivery_address">Endereço de entrega</string>
+    <string name="payment_status">Status de Pagamento</string>
+    <string name="reorder">Pedir Novamente</string>
+    <string name="loading_msg">Por favor aguarde.......</string>
+    <string name="product_not_found">Produto não encontrado</string>
+    <string name="account_deactivate">Sua conta está desativada. Entre em contato com o administrador</string>
+    <string name="do_you_want_to_delete_all_notifications_">Do you want to delete all notifications?</string>
+    <string name="do_you_want_to_delete_this_notification_">Deseja deletar esta notificação?</string>
+    <string name="no_notifications_yet">Nenhuma notificação </string>
+    <string name="when_you_get_notifications_they_ll_show_up_here">Quando você receber notificações, elas aparecerão aqui</string>
+    <string name="go_to_dashboard">Visão Veral</string>
+    <string name="items_more">Mais Items </string>
+    <string name="item_details">Detalhes do Produto </string>
+    <string name="total_price">Preço total</string>
+    <string name="qty_with_colon">Qtd.</string>
+    <string name="pickup_address">Endereço de recolha</string>
+
+
+    <string name="filter_by">Filtrar por</string>
+    <string name="discount">Desconto</string>
+    <string name="name_sort">Nome</string>
+    <string name="sort_order">Ordem de filtrar</string>
+    <string name="ascending">Ascendente</string>
+    <string name="descending">Descendente</string>
+    <string name="brand">Marca</string>
+    <string name="products_unavialable">Os produtos estão indisponíveis. Por favor, modifique seus itens no carrinho.</string>
+    <string name="amount_changed">Preço alterado</string>
+    <string name="cart_amount_chng_msg">O valor do seu carrinho foi alterado de </string>
+    <string name="to">"  para   "</string>
+    <string name="proceed_msg">. Deseja prosseguir com o valor atualizado?</string>
+    <string name="proceed">Continuar</string>
+    <string name="check_cart">Verificar carrinho</string>
+    <string name="min_order_msg">O valor do seu pedido está abaixo do valor mínimo por encomenda </string>
+    <string name="add_more_msg">. Por favor, adicione mais produtos ao carrinho</string>
+    <string name="no_of_items">Nº de itens</string>
+    <string name="cost_price">Preço de custo</string>
+    <string name="profit">Percentagem Lucro</string>
+    <string name="gross_profit">Total Lucro Bruto</string>
+    <string name="order_not_found">Pedido não encontrado</string>
+    <string name="no_data_found">Nenhum dado encontrado</string>
+    <string name="delivery_fee">Taxa de Entrega  \n</string>
+    <string name="price_change_1">O seu preço total foi alterado de </string>
+    <string name="price_change_2">. Deseja prosseguir ou modificar o carrinho?</string>
+    <string name="select_payment_options">Por favor, selecione as opções de pagamento</string>
+    <string name="aoa">AOA</string>
+    <string name="net_profit">Lucro líquido</string>
+    <string name="calculate_now">Calcular agora</string>
+    <string name="sell_price">Preço de venda</string>
+    <string name="calculate_amp_update"><![CDATA[Calcular e atualizar]]></string>
+    <string name="percent_text">%</string>
+    <string name="new_record">Nova Pesquisa </string>
+    <string name="show_search">O campo de pesquisa não pode ficar em branco</string>
+    <string name="search">Procurar</string>
+    <string name="no_product">Nenhum produto encontrado</string>
+    <string name="please_enter_profit_percentage">Insira a porcentagem de lucro</string>
+    <string name="no_orders_yet">Ainda não há pedidos</string>
+    <string name="start_shopping">Comece a comprar</string>
+    <string name="add_something_from_the_menu">Adicione algo do menu</string>
+
+    <string name="unapproved">Nao Aprovado</string>
+    <string name="no_product_to_show">Não há nenhum produto para mostrar.</string>
+    <string name="no_items_avialable"> Nenhum item</string>
+    <string name="no_product_avialable">Nenhum produto disponível</string>
+    <string name="selling_price_is_less_than_cost_price">o preço de venda é menor que o preço de custo</string>
+    <string name="you_can_t_proceed_this_order_for_the_following_reasons">Você não pode prosseguir com este pedido pelos seguintes motivos: </string>
+    <string name="current_cart_price_is">O preço atual do carrinho é:</string>
+    <string name="old_cart_price_is">O preço do carrinho antigo é: </string>
+    <string name="current_cart_price_is_less_than_actual_product_price">O preço atual do carrinho é menor que o preço real do produto</string>
+    <string name="is_unavailable_and_your_minimum_order_value_should_be">Produto indisponível e seu valor mínimo de pedido deve ser</string>
+    <string name="sell_price_or_profit_percentage_can_t_be_blank_or_0">O preço de venda ou a porcentagem de lucro não podem ficar em branco ou 0</string>
+    <string name="no_result_found">nenhum resultado encontrado</string>
+    <string name="default_notification_channel_id">1</string>
+    <string name="_0_00">0.00</string>
+    <string name="please_enter_valid_mobile_no">Por favor, insira um número de telefone válido</string>
+    <string name="please_wait">Por Favor Aguarde…</string>
+    <string name="please_enter_a_valid_value">Insira um valor válido para Preço de venda ou Lucro</string>
+    <string name="no">Não</string>
+    <string name="yes">Sim</string>
+    <string name="please_enter_valid_oyp">Insira um OTP válido</string>
+    <string name="profit_percentage_can_t_be_greater_than_10000">A porcentagem de lucro não pode ser maior que 10.000%</string>
+    <string name="please_select_sort_by_and_sort_order">Selecione \"Classificar por\" e \"Ordem de filtrar\"</string>
+    <string name="stock_not_available">Estoque não disponível!</string>
+    <string name="pay_by_cash">Pagamento em Numerario</string>
+
+    <plurals name="total_products">
+        <item quantity="one">%d Produto Disponivel</item>
+        <item quantity="other">%d Produtos Disponivels</item>
+    </plurals>
+</resources>
+

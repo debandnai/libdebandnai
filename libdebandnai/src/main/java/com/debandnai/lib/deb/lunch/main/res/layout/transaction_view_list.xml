@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="transactionList"
+            type="ie.healthylunch.app.data.model.transactionListPagingModel.TransactionList" />
+
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/rl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:id="@+id/rl_transaction_page"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/rl_transaction_page_list_margin_left_right_10dp"
+            android:layout_marginRight="@dimen/rl_transaction_page_list_margin_left_right_10dp"
+            android:paddingTop="@dimen/padding_top_bottom_rl_transaction_page_5dp"
+            android:paddingBottom="@dimen/padding_top_bottom_rl_transaction_page_5dp">
+
+            <TextView
+                android:id="@+id/transaction_history"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/quicksand_bold"
+                android:paddingLeft="@dimen/tv_padding_left_transaction_history_8dp"
+                android:textColor="@color/text_color_transaction_history_light_black"
+                android:textSize="@dimen/tv_text_size_transaction_history_15sp"
+                app:studentFirstName="@{transactionList.studentFirstname}"
+                app:studentLastName="@{transactionList.studentLastname}"
+                app:transactionFor="@{transactionList.transactionFor}"
+                app:transactionType="@{transactionList.transactionType}"
+                tools:ignore="RtlHardcoded,RtlSymmetry"
+                tools:text="@string/money_debited_from_wallet" />
+
+            <ImageView
+                android:id="@+id/iv_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/transaction_history"
+                android:paddingLeft="@dimen/padding_left_info_icon_10dp"
+                app:studentFirstName="@{transactionList.studentFirstname}"
+                app:studentLastName="@{transactionList.studentLastname}"
+                app:transactionFor="@{transactionList.transactionFor}"
+                app:transactionType="@{transactionList.transactionType}"
+                tools:ignore="ContentDescription,RtlHardcoded,RtlSymmetry" />
+
+
+            <TextView
+                android:id="@+id/tv_transaction_amount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:fontFamily="@font/quicksand_semi_bold"
+                android:paddingEnd="@dimen/tv_padding_left_transaction_history_8dp"
+                android:text="@{transactionList.transactionAmount}"
+                android:textColor="@color/add_children_button_color"
+                android:textSize="@dimen/tv_text_size_transaction_amount_18sp"
+                app:studentFirstName="@{transactionList.studentFirstname}"
+                app:studentLastName="@{transactionList.studentLastname}"
+                app:transactionFor="@{transactionList.transactionFor}"
+                app:transactionType="@{transactionList.transactionType}"
+                tools:ignore="RelativeOverlap,RtlHardcoded,RtlSymmetry"
+                tools:text="-€ 20.00" />
+
+
+            <TextView
+                android:id="@+id/transaction_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_transaction_amount"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="@dimen/tv_margin_top_transaction_time_8dp"
+                android:layout_marginEnd="@dimen/tv_margin_end_transaction_date_12dp"
+                android:layout_marginRight="@dimen/tv_margin_end_transaction_date_12dp"
+                android:gravity="center"
+                android:textColor="@color/gray"
+                android:textSize="@dimen/tv_text_size_transaction_date_12sp"
+                app:setFormattedTransactionDate="@{transactionList.transactionTime}"
+                tools:ignore="RtlHardcoded"
+                tools:text="10 Sep, 2018" />
+
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/dot_dot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rl_transaction_page"
+            android:layout_marginLeft="@dimen/tv_margin_left_right_transaction_doted_8dp"
+            android:layout_marginRight="@dimen/tv_margin_left_right_transaction_doted_8dp"
+            android:gravity="center"
+            android:paddingStart="@dimen/tv_padding_left_doted_10dp"
+            android:singleLine="true"
+            android:text="@string/dot"
+            android:textColor="@color/gray"
+            android:textSize="@dimen/tv_text_size_doted_line_20sp"
+            tools:ignore="RtlSymmetry" />
+
+    </RelativeLayout>
+</layout>

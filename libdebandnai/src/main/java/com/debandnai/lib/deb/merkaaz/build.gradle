@@ -1,0 +1,37 @@
+buildscript {
+    ext.kotlin_version = '1.6.10'
+    repositories {
+        google()
+        mavenCentral()
+        maven { url 'https://jitpack.io' }
+
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:7.3.0'
+
+        classpath('androidx.navigation:navigation-safe-args-gradle-plugin:2.5.2')
+
+        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.7.10'
+        classpath 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin:secrets-gradle-plugin:2.0.1'
+        classpath 'com.google.dagger:hilt-android-gradle-plugin:2.42'
+        classpath 'com.google.firebase:firebase-crashlytics-gradle:2.9.2'
+        classpath 'com.google.gms:google-services:4.3.14'
+
+    }
+}
+
+//https://stackoverflow.com/questions/61544046/android-java-lang-unsatisfiedlinkerror-couldnt-find-dso-to-load
+/*
+Issue:
+SoLoader.java line 405
+com.facebook.soloader.SoLoader$1.load
+ */
+configurations.all {
+    resolutionStrategy {
+        force "com.facebook.soloader:soloader:0.8.2"
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

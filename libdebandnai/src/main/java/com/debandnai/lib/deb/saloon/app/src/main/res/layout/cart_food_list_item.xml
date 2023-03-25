@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_12sdp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/ivFood"
+            android:layout_width="@dimen/_54sdp"
+            android:layout_height="@dimen/_54sdp"
+            android:elevation="@dimen/_3sdp"
+            android:padding="@dimen/_4sdp"
+            android:src="@drawable/food"
+            app:civ_border_color="@color/gray"
+            app:civ_border_width="1dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="@dimen/_133sdp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_medium_500"
+            android:textSize="@dimen/_13ssp"
+            android:textColor="@color/default_text_color"
+            tools:text="Cheese Sandwich"
+            android:maxLines="2"
+            android:ellipsize="end"
+            app:layout_constraintStart_toEndOf="@id/ivFood"
+            app:layout_constraintTop_toTopOf="@id/ivFood"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:id="@+id/tvName" />
+
+
+        <TextView
+            android:id="@+id/tvPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_bold_700"
+            android:textColor="@color/brand_color"
+            android:textSize="@dimen/_13ssp"
+            android:layout_marginTop="@dimen/_8sdp"
+            app:layout_constraintStart_toStartOf="@+id/tvName"
+            app:layout_constraintTop_toBottomOf="@+id/tvName"
+            tools:text="$200" />
+
+        <ImageButton
+            android:id="@+id/ivFoodDelete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:padding="@dimen/_6sdp"
+            android:src="@drawable/delete_icon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/tvName"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck,ImageContrastCheck" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:background="@color/white"
+            android:elevation="@dimen/_4sdp"
+            android:orientation="horizontal"
+            android:layout_marginEnd="@dimen/_4sdp"
+            android:layout_marginBottom="@dimen/_4sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/ivFoodDelete"
+            app:layout_constraintTop_toBottomOf="@id/ivFoodDelete">
+
+            <ImageButton
+                android:id="@+id/iv_remove"
+                android:layout_width="@dimen/_24sdp"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"
+                android:minWidth="@dimen/_24sdp"
+                android:padding="@dimen/_3sdp"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_baseline_remove"
+                app:tint="@color/brand_color"
+                tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+            <TextView
+                android:id="@+id/tv_quantity"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/white"
+                android:elevation="@dimen/_4sdp"
+                android:gravity="center"
+                android:minWidth="@dimen/_24sdp"
+                android:paddingStart="@dimen/_3sdp"
+                android:paddingEnd="@dimen/_3sdp"
+                android:textColor="@color/default_text_color"
+                android:textSize="@dimen/_10ssp"
+                android:textStyle="bold"
+                tools:text="12" />
+
+            <ImageButton
+                android:id="@+id/iv_add"
+                android:layout_width="@dimen/_24sdp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:adjustViewBounds="true"
+                android:background="@android:color/transparent"
+                android:padding="@dimen/_3sdp"
+                android:src="@drawable/ic_baseline_add"
+                app:tint="@color/brand_color"
+                tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+        </LinearLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

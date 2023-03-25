@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="dataItem"
+            type="ie.healthylunch.app.data.model.notificationSettingsModel.DataItem" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:id="@+id/rl_notification_page"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_4sdp"
+            android:layout_marginEnd="@dimen/_4sdp"
+            android:layout_marginTop="@dimen/_30sdp"
+            android:layout_marginBottom="@dimen/_30sdp"
+            tools:ignore="UselessParent">
+
+            <TextView
+                android:id="@+id/notification_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="0dp"
+                android:layout_marginRight="1dp"
+                android:layout_toLeftOf="@+id/rl_on_off"
+                android:paddingLeft="@dimen/notification_date_padding_left"
+                android:paddingRight="30dp"
+                android:lineSpacingExtra="@dimen/_minus2sdp"
+                android:fontFamily="@font/quicksand_bold"
+                android:text="@{dataItem.name}"
+                android:textColor="@color/light_black"
+                android:textSize="@dimen/_11ssp"
+                tools:ignore="HardcodedText,RtlHardcoded"
+                tools:text="10 am remainder to order" />
+
+            <RelativeLayout
+                android:id="@+id/rl_on_off"
+                android:layout_width="@dimen/_80sdp"
+                android:layout_height="@dimen/_28sdp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/alert_switch_bg"
+                android:animateLayoutChanges="true"
+                >
+                <!--app:setNotificationSettingLayoutBackGround="@{dataItem.status}"-->
+                <!--tools:background="@drawable/background_relative_green"-->
+
+                <TextView
+                    android:id="@+id/tv_off"
+                    android:layout_width="@dimen/_39sdp"
+                    android:layout_height="@dimen/_28sdp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="@dimen/_1sdp"
+                    android:layout_marginTop="@dimen/_1sdp"
+                    android:layout_marginEnd="@dimen/_1sdp"
+                    android:layout_marginBottom="@dimen/_1sdp"
+                    android:background="@{(dataItem.status==0 || dataItem.status==-1) ? @drawable/red_switch_bg : @drawable/white_switch_bg}"
+                    android:fontFamily="@font/quicksand_bold"
+                    android:textSize="@dimen/_12ssp"
+                    android:gravity="center"
+                    android:paddingTop="@dimen/_4sdp"
+                    android:paddingBottom="@dimen/_4sdp"
+                    android:text="@string/off"
+                    android:textAllCaps="true"
+                    android:textColor="@{(dataItem.status==0 || dataItem.status==-1) ? @color/white : @color/light_black}"
+                    android:visibility="visible" />
+                <!--app:hideTextViewStatusWise="@{dataItem.status}"-->
+
+                <TextView
+                    android:id="@+id/tv_on"
+                    android:layout_width="@dimen/_39sdp"
+                    android:layout_height="@dimen/_28sdp"
+                    android:layout_marginStart="@dimen/_1sdp"
+                    android:layout_marginTop="@dimen/_1sdp"
+                    android:layout_marginEnd="@dimen/_1sdp"
+                    android:layout_marginBottom="@dimen/_1sdp"
+                    android:background="@{dataItem.status==1 ? @drawable/green_switch_bg : @drawable/white_switch_bg}"
+                    android:fontFamily="@font/quicksand_bold"
+                    android:textSize="@dimen/_12ssp"
+                    android:gravity="center"
+                    android:paddingTop="@dimen/_4sdp"
+                    android:paddingBottom="@dimen/_4sdp"
+                    android:text="@string/on"
+                    android:textAllCaps="true"
+                    android:textColor="@{dataItem.status==1 ? @color/white:@color/light_black}"
+                    android:visibility="visible" />
+                <!--app:hideTextViewStatusWise="@{dataItem.status}"-->
+            </RelativeLayout>
+
+            <View
+                android:layout_width="@dimen/_80sdp"
+                android:layout_height="@dimen/_28sdp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/alert_switch_disabled_bg"
+                android:visibility="@{dataItem.status==-1 ? View.VISIBLE : View.GONE, default=gone}"/>
+
+            <ImageView
+                android:id="@+id/notification_clear_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:paddingLeft="@dimen/notification_clear_img_padding_5_unit"
+                android:paddingTop="@dimen/tv_notification_left_right_padding"
+                android:paddingRight="@dimen/notification_date_padding_left"
+                android:paddingBottom="@dimen/notification_clear_img_padding_5_unit"
+                android:src="@drawable/notification_close_icon"
+                android:visibility="gone"
+                tools:ignore="ContentDescription,RtlHardcoded" />
+
+            <TextView
+                android:id="@+id/tv_notification"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/notification_date"
+                android:layout_marginTop="@dimen/tv_notification_margintop"
+                android:paddingLeft="@dimen/tv_notification_left_right_padding"
+                android:paddingRight="@dimen/tv_notification_left_right_padding"
+                android:paddingBottom="@dimen/tv_notification_left_right_padding"
+                android:text="uhygsdsbd"
+                android:textColor="@color/light_black"
+                android:textSize="@dimen/tv_size_notification_12sp"
+                android:visibility="gone"
+                tools:ignore="HardcodedText" />
+
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+</layout>

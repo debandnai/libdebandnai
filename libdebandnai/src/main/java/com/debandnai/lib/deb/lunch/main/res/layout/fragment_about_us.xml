@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="ie.healthylunch.app.data.viewModel.AboutViewModel" />
+
+
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background_all"
+        tools:context=".fragment.about.AboutFragment">
+
+        <RelativeLayout
+            android:id="@+id/rl_top_new"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_margin="@dimen/add_child_welcome_margin"
+            >
+
+            <ImageView
+                android:id="@+id/iv_arrow"
+                android:layout_width="@dimen/iv_top_left_arrow_30dp"
+                android:layout_height="@dimen/iv_top_left_arrow_30dp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/wiz_skip_left_arrow_active"
+                android:visibility="gone"
+                tools:ignore="ContentDescription" />
+
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/iv_empower"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/iv_height_margin_about_75dp"
+            android:src="@drawable/ic_empower"
+            tools:ignore="ContentDescription" />
+
+        <RelativeLayout
+            android:id="@+id/rl_about_main"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/rl_content"
+            android:layout_below="@+id/iv_empower"
+            android:layout_marginLeft="@dimen/margin_left_right_terms_condition_15dp"
+            android:layout_marginTop="@dimen/tv_about_marginTop"
+            android:layout_marginRight="@dimen/margin_left_right_terms_condition_15dp"
+            android:layout_marginBottom="@dimen/tv_about_marginTop"
+            android:background="@drawable/custom_calender_background_shadow_new"
+            android:visibility="visible">
+
+            <ScrollView
+                android:id="@+id/scroll_view_about"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
+                android:scrollbars="none"
+                tools:ignore="UselessParent">
+
+                <TextView
+                    android:id="@+id/note_privacy"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/tv_margin_about_10dp"
+                    android:layout_marginTop="@dimen/tv_margin_about_10dp"
+                    android:layout_marginEnd="@dimen/tv_margin_about_10dp"
+                    android:layout_marginBottom="@dimen/tv_margin_about_10dp"
+                    android:padding="10dp"
+                    android:textColor="@color/light_black"
+                     />
+            </ScrollView>
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/rl_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/tv_bottom_copyright"
+            android:layout_marginBottom="@dimen/margin_bottom_rl_privacy_policy_20dp">
+
+            <TextView
+                android:id="@+id/tv_terms_of_use"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:padding="@dimen/about_policy_text_padding"
+                android:text="Cookie Policy"
+                android:textColor="@color/light_black"
+                android:textSize="@dimen/tv_privacy_policy_textSize"
+                tools:ignore="HardcodedText" />
+
+            <View
+                android:id="@+id/view_show"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/tv_terms_of_use"
+                android:layout_marginLeft="@dimen/view_show_marginLeftRight"
+                android:layout_marginTop="0dp"
+                android:layout_marginRight="@dimen/view_show_marginLeftRight"
+                android:layout_marginBottom="0dp"
+                android:background="@color/progress_bar_background" />
+
+            <TextView
+                android:id="@+id/tv_privacy_policy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/view_show"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:padding="@dimen/about_policy_text_padding"
+                android:text="Privacy Policy"
+                android:textColor="@color/light_black"
+                android:textSize="@dimen/tv_privacy_policy_textSize"
+                tools:ignore="HardcodedText" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_bottom_copyright"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@color/select_menu_for_child_colorGreen"
+            android:gravity="center"
+            android:paddingTop="@dimen/tv_bottom_copyright_PaddingTOPBOTTOM"
+            android:paddingBottom="@dimen/tv_bottom_copyright_PaddingTOPBOTTOM"
+            android:text="&#169; Copyright www.thelunchbag.ie. All Right Reserved."
+            android:textColor="@color/light_black"
+            android:textSize="@dimen/copyrightTextSize"
+            tools:ignore="HardcodedText" />
+    </RelativeLayout>
+</layout>

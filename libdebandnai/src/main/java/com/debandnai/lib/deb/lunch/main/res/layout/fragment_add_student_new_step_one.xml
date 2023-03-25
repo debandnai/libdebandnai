@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="ie.healthylunch.app.data.viewModel.AddNewStudentStepOneViewModel" />
+
+        <variable
+            name="context"
+            type="ie.healthylunch.app.fragment.registration.AddStudentNewStepOneFragment" />
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/rl_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background_all"
+        app:hideKeyboardByClickingOutside="@{context.requireActivity()}"
+        tools:context="fragment.registration.AddStudentNewStepOneFragment">
+
+        <TextView
+            android:id="@+id/space"
+            android:layout_width="@dimen/_8sdp"
+            android:layout_height="@dimen/iv_top_left_arrow_30dp" />
+
+        <ImageView
+            android:id="@+id/backIv"
+            android:layout_width="@dimen/iv_top_left_arrow_30dp"
+            android:layout_height="@dimen/iv_top_left_arrow_30dp"
+            android:layout_marginStart="@dimen/add_child_welcome_margin"
+            android:layout_marginTop="@dimen/add_child_welcome_margin"
+            android:layout_marginEnd="@dimen/add_child_welcome_margin"
+            android:layout_marginBottom="@dimen/add_child_welcome_margin"
+            android:layout_toEndOf="@+id/space"
+            android:onClick="@{(v)->viewModel.back(context.requireActivity(),v)}"
+            android:src="@drawable/wiz_skip_left_arrow_active"
+            tools:ignore="ContentDescription" />
+
+
+        <RelativeLayout
+            android:id="@+id/rl_main_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_top_find_school_text_65dp">
+
+            <TextView
+                android:id="@+id/details"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/details_marginLeft"
+                android:fontFamily="@font/quicksand_bold"
+                android:gravity="center"
+                android:text="@string/find_your_school"
+                android:textColor="@color/light_black"
+                android:textSize="@dimen/tv_size_registration_step_one_22sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/rl_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rl_main_layout"
+            android:layout_marginLeft="@dimen/add_child_rl_bottom_marginLeft"
+            android:layout_marginTop="@dimen/margin_top_add_school_layout_20dp"
+            android:layout_marginRight="@dimen/add_child_rl_bottom_marginLeft"
+            android:layout_marginBottom="@dimen/add_child_rl_bottom_marginBottom"
+            android:background="@drawable/add_children_background">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:ignore="UselessParent">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/editText_marginLeft"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="@dimen/editText_marginLeft">
+
+
+                    <TextView
+                        android:id="@+id/error_dob"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_marginBottom="@dimen/add_child_error_marginBottom"
+                        android:fontFamily="@font/quicksand_medium"
+                        android:textColor="@color/add_children_color_error"
+                        android:textSize="@dimen/error_textSize"
+                        android:visibility="invisible"
+                        tools:text="Error Message" />
+
+                    <RelativeLayout
+                        android:id="@+id/rl_county"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/error_dob"
+                        android:layout_marginTop="@dimen/add_children_its_time_to_marginTop"
+                        android:background="@drawable/capsule_shaped_add_children_edittext_bg_light_green"
+                        android:onClick="@{()->viewModel.countyOnClick()}"
+                        android:paddingLeft="@dimen/add_child_editText_paddingLeft"
+                        android:paddingTop="@dimen/add_child_editText_paddingTop"
+                        android:paddingRight="@dimen/add_child_editText_paddingLeft"
+                        android:paddingBottom="@dimen/add_child_editText_paddingTop">
+
+                        <TextView
+                            android:id="@+id/countyTv"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_toStartOf="@+id/iv_class_dropdown"
+                            android:fontFamily="@font/quicksand_medium"
+                            android:gravity="center"
+                            android:paddingStart="@dimen/add_child_dropdownSize"
+                            android:singleLine="true"
+                            android:text="@{viewModel.county}"
+                            android:textColor="@color/add_children_editText_textColor"
+                            android:textColorHint="@color/add_children_editText_textColor"
+                            android:textSize="@dimen/add_child_editTextSize"
+                            tools:ignore="RtlSymmetry"
+                            tools:text="@string/county" />
+
+                        <ImageView
+                            android:id="@+id/iv_class_dropdown"
+                            android:layout_width="@dimen/add_child_dropdownSize"
+                            android:layout_height="@dimen/add_child_dropdownSize"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/wiz_select_down"
+                            tools:ignore="ContentDescription" />
+
+                    </RelativeLayout>
+
+                    <TextView
+                        android:id="@+id/error_countyCode"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/rl_county"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginBottom="@dimen/add_child_error_marginBottom"
+                        android:fontFamily="@font/quicksand_medium"
+                        android:text="@{viewModel.errorCountyName}"
+                        android:textColor="@color/add_children_color_error"
+                        android:textSize="@dimen/error_textSize"
+                        android:visibility="invisible"
+                        app:hideErrorTextView="@{viewModel.errorVisibleCountyName}" />
+
+                    <RelativeLayout
+                        android:id="@+id/rl_school_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/error_countyCode"
+                        android:layout_marginTop="@dimen/add_children_its_time_to_marginTop"
+                        android:background="@drawable/capsule_shaped_add_children_edittext_bg_light_gray"
+                        android:onClick="@{()->viewModel.schoolOnClick()}"
+                        android:paddingLeft="@dimen/add_child_editText_paddingLeft"
+                        android:paddingTop="@dimen/add_child_editText_paddingTop"
+                        android:paddingRight="@dimen/add_child_editText_paddingLeft"
+                        android:paddingBottom="@dimen/add_child_editText_paddingTop">
+
+                        <TextView
+                            android:id="@+id/schoolNameTv"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_toStartOf="@+id/iv_school_dropdown"
+                            android:fontFamily="@font/quicksand_medium"
+                            android:gravity="center"
+                            android:paddingStart="@dimen/add_child_dropdownSize"
+                            android:paddingEnd="@dimen/_2sdp"
+                            android:singleLine="true"
+                            android:text="@{viewModel.schoolName}"
+                            android:textColor="@color/add_children_editText_textColor"
+                            android:textSize="@dimen/add_child_editTextSize"
+                            tools:text="@string/school" />
+
+                        <ImageView
+                            android:id="@+id/iv_school_dropdown"
+                            android:layout_width="@dimen/add_child_dropdownSize"
+                            android:layout_height="@dimen/add_child_dropdownSize"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/wiz_select_down"
+                            tools:ignore="ContentDescription" />
+
+                    </RelativeLayout>
+
+                    <TextView
+                        android:id="@+id/error_school_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/rl_school_name"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginBottom="@dimen/add_child_error_marginBottom"
+                        android:fontFamily="@font/quicksand_medium"
+                        android:text="@{viewModel.errorSchoolName}"
+                        android:textColor="@color/add_children_color_error"
+                        android:textSize="@dimen/error_textSize"
+                        android:visibility="invisible"
+                        app:hideErrorTextView="@{viewModel.errorVisibleSchoolName}"
+                        tools:text="Error Message" />
+
+
+                    <RelativeLayout
+                        android:id="@+id/rl_dont_have_coupon_link"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/error_school_name"
+                        android:layout_marginTop="@dimen/margin_top_phone_add_stu_40dp">
+
+
+                        <TextView
+                            android:id="@+id/tv_coupon_link"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:fontFamily="@font/quicksand_medium"
+                            android:gravity="center"
+                            android:text="@string/if_you_are_having_any_problems"
+                            android:textColor="@color/add_children_color_error"
+                            android:textSize="@dimen/child_no_coupon_textSize" />
+
+
+                        <RelativeLayout
+                            android:id="@+id/relative1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/tv_coupon_link"
+                            android:layout_centerHorizontal="true">
+
+
+                            <TextView
+                                android:id="@+id/tv_call"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:fontFamily="@font/quicksand_medium"
+                                android:text="@string/call_with_colon"
+                                android:textColor="@color/select_menu_textColor"
+                                android:textSize="@dimen/text_size_coupon_code_link_16sp" />
+
+                            <TextView
+                                android:id="@+id/tv_phn_number"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_toEndOf="@+id/tv_call"
+                                android:fontFamily="@font/quicksand_medium"
+                                android:gravity="center"
+                                android:text="@string/lunch_box_ph_number"
+                                android:textColor="@color/add_children_color_error"
+                                android:textSize="@dimen/text_size_coupon_code_link_16sp" />
+
+
+                        </RelativeLayout>
+
+
+                        <TextView
+                            android:id="@+id/tv_or"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/relative1"
+                            android:layout_centerHorizontal="true"
+                            android:fontFamily="@font/quicksand_medium"
+                            android:text="@string/or"
+                            android:textColor="@color/select_menu_textColor"
+                            android:textSize="@dimen/text_size_coupon_code_link_16sp" />
+
+
+                        <RelativeLayout
+                            android:id="@+id/relative2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/tv_or"
+                            android:layout_centerHorizontal="true">
+
+
+                            <TextView
+                                android:id="@+id/tv_email_from"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="10dp"
+                                android:fontFamily="@font/quicksand_medium"
+                                android:gravity="center"
+                                android:text="@string/email_with_colon"
+                                android:textColor="@color/select_menu_textColor"
+                                android:textSize="@dimen/text_size_coupon_code_link_16sp" />
+
+
+                            <TextView
+                                android:id="@+id/tv_coupon_email"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="10dp"
+                                android:layout_toEndOf="@+id/tv_email_from"
+                                android:fontFamily="@font/quicksand_medium"
+                                android:gravity="center"
+                                android:text="@string/lunch_box_email"
+                                android:textColor="@color/add_children_color_error"
+                                android:textSize="@dimen/text_size_coupon_code_link_16sp" />
+
+
+                        </RelativeLayout>
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/rl_button_add_child_two"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/rl_dont_have_coupon_link"
+                        android:layout_marginLeft="@dimen/editText_marginLeft"
+                        android:layout_marginTop="@dimen/margin_top_get_started_add_student_40dp"
+                        android:layout_marginRight="@dimen/editText_marginLeft"
+                        android:layout_marginBottom="@dimen/add_children_button_marginBottom"
+                        android:alpha="0.9"
+                        android:background="@drawable/background_textview_green"
+                        android:onClick="@{(v)->viewModel.getStarted(context.requireActivity(),v)}"
+                        app:setEnabledView="@{viewModel.isSubmitEnabled}">
+
+                        <TextView
+                            android:id="@+id/bt_add_child_two"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:layout_marginTop="@dimen/add_children_buttonText_marginTop"
+                            android:layout_marginBottom="@dimen/add_children_buttonText_marginTop"
+                            android:fontFamily="@font/quicksand_bold"
+                            android:paddingLeft="@dimen/add_children_buttonText_paddingLeft"
+                            android:paddingTop="@dimen/add_children_buttonText_paddingBottom"
+                            android:paddingRight="@dimen/add_children_buttonText_paddingLeft"
+                            android:paddingBottom="@dimen/add_children_buttonText_paddingBottom"
+                            android:text="@string/get_started"
+                            android:textAllCaps="false"
+                            android:textColor="@color/add_children_colorWhite"
+                            android:textSize="@dimen/add_children_buttonTextSize" />
+                    </RelativeLayout>
+                </RelativeLayout>
+            </ScrollView>
+        </RelativeLayout>
+    </RelativeLayout>
+</layout>

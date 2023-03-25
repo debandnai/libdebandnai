@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.salonsolution.app.data.viewModel.StaffDetailsViewModel" />
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.fragment.StaffDetailsFragment">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/bottomCard"
+            android:background="@drawable/gradient_bg"
+            android:fillViewport="true">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="@dimen/_86sdp"
+                    android:background="@drawable/shadow_bg"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cardView"
+                    android:layout_width="@dimen/_180sdp"
+                    android:layout_height="@dimen/_180sdp"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    app:cardCornerRadius="@dimen/_10sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    >
+
+                    <androidx.viewpager2.widget.ViewPager2
+                        android:id="@+id/viewPagerImage"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/toolbar_bg_color"
+                        android:orientation="horizontal" />
+
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/tabIndicator"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="@+id/cardView"
+                    app:layout_constraintStart_toStartOf="@+id/cardView"
+                    app:layout_constraintTop_toBottomOf="@id/cardView"
+                    app:tabBackground="@drawable/tab_selector"
+                    app:tabGravity="fill"
+                    app:tabIndicatorHeight="0dp"
+                    tools:ignore="SpeakableTextPresentCheck" />
+
+                <TextView
+                    android:id="@+id/tvAbout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_regular_400"
+                    android:textAlignment="center"
+                    android:textColor="@color/default_text_color"
+                    android:textSize="@dimen/_11ssp"
+                    app:layout_constraintEnd_toEndOf="@+id/cardView"
+                    app:layout_constraintStart_toStartOf="@+id/cardView"
+                    app:layout_constraintTop_toBottomOf="@id/tabIndicator"
+                    tools:text="Hair Color -Roots Only Application" />
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="0dp"
+                    android:id="@+id/cardRating"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvAbout"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    app:cardElevation="@dimen/_6sdp"
+                    >
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="@dimen/_16sdp"
+                        android:paddingTop="@dimen/_10sdp"
+                        android:paddingEnd="@dimen/_16sdp"
+                        android:paddingBottom="@dimen/_10sdp">
+
+                        <TextView
+                            android:id="@+id/tvTotalRating"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/montserrat_bold_700"
+                            android:textColor="@color/default_text_color"
+                            android:textSize="@dimen/_26sdp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:text="4" />
+
+                        <com.fuzzproductions.ratingbar.RatingBar
+                            android:id="@+id/ratingBar"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:layout_marginStart="@dimen/_8sdp"
+                            app:emptyDrawable="@drawable/star_empty"
+                            app:filledDrawable="@drawable/star_fill"
+                            app:isIndicator="true"
+                            app:layout_constraintBottom_toBottomOf="@+id/tvTotalRating"
+                            app:layout_constraintStart_toEndOf="@+id/tvTotalRating"
+                            app:layout_constraintTop_toTopOf="@+id/tvTotalRating"
+                            app:minAllowedStars="1"
+                            app:numStars="5"
+                            app:rating="3.4"
+                            app:starMargin="10dp"
+                            app:starSpacing="@dimen/_2sdp"
+                            app:starSize="@dimen/_16sdp"
+                            app:stepSize="0.1" />
+
+
+                        <TextView
+                            android:id="@+id/tvNoOfReview"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/montserrat_regular_400"
+                            android:textColor="@color/default_text_color"
+                            android:textSize="@dimen/_11sdp"
+                            app:layout_constraintStart_toStartOf="@+id/tvTotalRating"
+                            app:layout_constraintTop_toBottomOf="@id/tvTotalRating"
+                            tools:text="(26 Review)" />
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/_1sdp"
+                            android:background="@color/gray"
+                            app:layout_constraintStart_toStartOf="@id/lpFiveStar"
+                            app:layout_constraintEnd_toEndOf="@id/lpFiveStar"
+                            app:layout_constraintTop_toTopOf="@id/lpFiveStar"
+                            app:layout_constraintBottom_toBottomOf="@id/lpFiveStar"
+                            />
+
+                        <ProgressBar
+                            android:id="@+id/lpFiveStar"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/_2sdp"
+                            android:layout_marginStart="@dimen/_20sdp"
+                            android:progress="80"
+                            android:progressDrawable="@drawable/custom_rating_progress"
+                            app:layout_constraintBottom_toTopOf="@+id/lpFourStar"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="1.0"
+                            app:layout_constraintStart_toEndOf="@+id/ratingBar"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_chainStyle="packed" />
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/_1sdp"
+                            android:background="@color/gray"
+                            app:layout_constraintStart_toStartOf="@id/lpFourStar"
+                            app:layout_constraintEnd_toEndOf="@id/lpFourStar"
+                            app:layout_constraintTop_toTopOf="@id/lpFourStar"
+                            app:layout_constraintBottom_toBottomOf="@id/lpFourStar"
+                            />
+
+
+                        <ProgressBar
+                            android:id="@+id/lpFourStar"
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/_2sdp"
+                            android:layout_marginTop="@dimen/_4sdp"
+                            android:progress="50"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:progressDrawable="@drawable/custom_rating_progress"
+                            app:layout_constraintBottom_toTopOf="@+id/lpThreeStar"
+                            app:layout_constraintEnd_toEndOf="@id/lpFiveStar"
+                            app:layout_constraintHorizontal_bias="0.5"
+                            app:layout_constraintStart_toStartOf="@+id/lpFiveStar"
+                            app:layout_constraintTop_toBottomOf="@+id/lpFiveStar" />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/_1sdp"
+                            android:background="@color/gray"
+                            app:layout_constraintStart_toStartOf="@id/lpThreeStar"
+                            app:layout_constraintEnd_toEndOf="@id/lpThreeStar"
+                            app:layout_constraintTop_toTopOf="@id/lpThreeStar"
+                            app:layout_constraintBottom_toBottomOf="@id/lpThreeStar"
+                            />
+
+                        <ProgressBar
+                            android:id="@+id/lpThreeStar"
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/_2sdp"
+                            android:layout_marginTop="@dimen/_4sdp"
+                            android:progress="30"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:progressDrawable="@drawable/custom_rating_progress"
+                            app:layout_constraintBottom_toTopOf="@+id/lpTwoStar"
+                            app:layout_constraintEnd_toEndOf="@id/lpFourStar"
+                            app:layout_constraintHorizontal_bias="0.5"
+                            app:layout_constraintStart_toStartOf="@+id/lpFourStar"
+                            app:layout_constraintTop_toBottomOf="@+id/lpFourStar" />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/_1sdp"
+                            android:background="@color/gray"
+                            app:layout_constraintStart_toStartOf="@id/lpTwoStar"
+                            app:layout_constraintEnd_toEndOf="@id/lpTwoStar"
+                            app:layout_constraintTop_toTopOf="@id/lpTwoStar"
+                            app:layout_constraintBottom_toBottomOf="@id/lpTwoStar"
+                            />
+
+                        <ProgressBar
+                            android:id="@+id/lpTwoStar"
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/_2sdp"
+                            android:layout_marginTop="@dimen/_4sdp"
+                            android:progress="20"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:progressDrawable="@drawable/custom_rating_progress"
+                            app:layout_constraintBottom_toTopOf="@+id/lpOneStar"
+                            app:layout_constraintEnd_toEndOf="@id/lpThreeStar"
+                            app:layout_constraintHorizontal_bias="0.5"
+                            app:layout_constraintStart_toStartOf="@+id/lpThreeStar"
+                            app:layout_constraintTop_toBottomOf="@+id/lpThreeStar" />
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/_1sdp"
+                            android:background="@color/gray"
+                            app:layout_constraintStart_toStartOf="@id/lpOneStar"
+                            app:layout_constraintEnd_toEndOf="@id/lpOneStar"
+                            app:layout_constraintTop_toTopOf="@id/lpOneStar"
+                            app:layout_constraintBottom_toBottomOf="@id/lpOneStar"
+                            />
+
+                        <ProgressBar
+                            android:id="@+id/lpOneStar"
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/_2sdp"
+                            android:layout_marginTop="@dimen/_4sdp"
+                            android:progress="0"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:progressDrawable="@drawable/custom_rating_progress"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="@id/lpTwoStar"
+                            app:layout_constraintHorizontal_bias="0.5"
+                            app:layout_constraintStart_toStartOf="@+id/lpTwoStar"
+                            app:layout_constraintTop_toBottomOf="@+id/lpTwoStar" />
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvReviewList"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_5sdp"
+                    android:paddingStart="@dimen/_8sdp"
+                    android:paddingTop="@dimen/_8sdp"
+                    android:paddingEnd="@dimen/_3sdp"
+                    android:paddingBottom="@dimen/_8sdp"
+                    android:scrollbarSize="4dp"
+                    android:nestedScrollingEnabled="true"
+                    android:scrollbarStyle="outsideInset"
+                    android:scrollbarThumbVertical="@color/brand_color"
+                    android:scrollbars="vertical"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:itemCount="5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/cardRating"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    tools:listitem="@layout/review_list_item" />
+
+                <ProgressBar
+                    android:id="@+id/pbReview"
+                    android:visibility="gone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/cardRating"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.core.widget.NestedScrollView>
+
+
+        <RelativeLayout
+            android:id="@+id/bottomCard"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_80sdp"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/shadow_bg"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btBookSchedule"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="@dimen/_12sdp"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:layout_marginEnd="@dimen/_12sdp"
+                android:layout_marginBottom="@dimen/_12sdp"
+                android:background="@drawable/red_button_bg"
+                android:fontFamily="@font/montserrat_semibold_600"
+                android:padding="@dimen/_14sdp"
+                android:text="@string/book_schedule"
+                android:textAllCaps="false"
+                android:textColor="@color/white" />
+
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</layout>

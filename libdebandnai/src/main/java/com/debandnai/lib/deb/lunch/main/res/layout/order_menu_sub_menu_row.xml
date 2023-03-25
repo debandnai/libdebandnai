@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    <variable
+        name="menuTemplateDetailsItem"
+        type="ie.healthylunch.app.data.model.productListByMenuTemplateModel.MenuTemplateDetailsItem" />
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/order_menu_main_menu_rl_main_marginRight"
+            android:layout_marginRight="@dimen/order_menu_main_menu_rl_main_marginRight"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingStart="@dimen/margin_5unit"
+            android:paddingEnd="@dimen/margin_5unit"
+            android:paddingBottom="@dimen/order_menu_main_menu_rl_main_padding"
+            android:paddingTop="@dimen/order_menu_main_menu_rl_main_padding">
+
+            <TextView
+                android:id="@+id/productGroup_Tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/quicksand_semi_bold"
+                android:textColor="@color/select_menu_get_started_bg_color"
+                android:textSize="@dimen/order_menu_main_menu_tv_mainFoodName_textSize"
+                tools:text="@{menuTemplateDetailsItem.menuTemplateName}" />
+
+            <TextView
+                android:id="@+id/selectedProductNumTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/order_menu_main_menu_rl_main_marginRight"
+                android:fontFamily="@font/quicksand_bold"
+                android:textColor="@color/order_menu_food_category_bg_color"
+                android:textSize="@dimen/order_menu_main_menu_tv_mainFoodName_textSize"
+                tools:text="1" />
+
+            <ImageView
+                android:id="@+id/expandedIv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:ignore="ContentDescription"
+                tools:src="@drawable/menu_up_arrow" />
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/productChildRv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:nestedScrollingEnabled="false"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+             />
+
+    </LinearLayout>
+
+</layout>

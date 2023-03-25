@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/itemLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/calenderLl"
+        android:layout_width="@dimen/_230sdp"
+        android:layout_height="@dimen/_108sdp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/calender_background"
+        android:orientation="vertical"
+        tools:ignore="UselessParent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_6sdp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:fontFamily="@font/quicksand_bold"
+                android:gravity="center"
+                android:text="@string/mon"
+                android:textAllCaps="true"
+                android:textColor="@color/dark_gray_3"
+                android:textSize="@dimen/_11ssp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:fontFamily="@font/quicksand_bold"
+                android:gravity="center"
+                android:text="@string/tue"
+                android:textAllCaps="true"
+                android:textColor="@color/dark_gray_3"
+                android:textSize="@dimen/_11ssp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:fontFamily="@font/quicksand_bold"
+                android:gravity="center"
+                android:text="@string/wed"
+                android:textAllCaps="true"
+                android:textColor="@color/dark_gray_3"
+                android:textSize="@dimen/_11ssp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:fontFamily="@font/quicksand_bold"
+                android:gravity="center"
+                android:text="@string/thu"
+                android:textAllCaps="true"
+                android:textColor="@color/dark_gray_3"
+                android:textSize="@dimen/_11ssp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:fontFamily="@font/quicksand_bold"
+                android:gravity="center"
+                android:text="@string/fri"
+                android:textAllCaps="true"
+                android:textColor="@color/dark_gray_3"
+                android:textSize="@dimen/_11ssp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/topCalendarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" />
+
+        <LinearLayout
+            android:id="@+id/belowCalendarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="@string/orders_must_be_placed_within_this_10_day_window_n_pending_orders_will_change_to_ordered_after_12_30pm"
+            android:textColor="@color/green_2"
+            android:textSize="@dimen/_8ssp" />
+
+    </LinearLayout>
+
+</RelativeLayout>

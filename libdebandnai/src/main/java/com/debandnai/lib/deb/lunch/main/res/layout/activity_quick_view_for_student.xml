@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="ie.healthylunch.app.data.viewModel.QuickViewForStudentViewModel" />
+
+        <variable
+            name="activity"
+            type="ie.healthylunch.app.ui.QuickViewForStudentActivity" />
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:background="@drawable/quick_view_bg2">
+
+            <RelativeLayout
+                android:id="@+id/rl_day_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp">
+
+                <TextView
+                    android:id="@+id/dayName_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:fontFamily="@font/quicksand_bold"
+                    android:gravity="center"
+                    android:text="@{viewModel.dayName+` `+viewModel}"
+                    android:textColor="@color/slate_color"
+                    android:textSize="@dimen/_18ssp"
+                    tools:text="@{viewModel.dayName}" />
+
+                <TextView
+                    android:id="@+id/tv_quickView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/dayName_text"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/_minus2sdp"
+                    android:fontFamily="@font/quicksand_bold"
+                    android:gravity="center"
+                    android:text="@string/quick_view"
+                    android:textColor="@color/quick_view_text_color"
+                    android:textSize="@dimen/_13ssp" />
+                <!--
+                <androidx.viewpager.widget.ViewPager
+                    android:id="@+id/viewpager"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/view_pager_height_quickView_60dp" />
+    -->
+                <ImageView
+                    android:id="@+id/iv_arrow_left"
+                    android:layout_width="@dimen/_32sdp"
+                    android:layout_height="@dimen/_28sdp"
+                    android:layout_marginStart="@dimen/_14sdp"
+                    android:layout_marginTop="@dimen/_6sdp"
+                    android:padding="@dimen/_4sdp"
+                    android:rotation="180"
+                    android:src="@drawable/arrow_right2"
+                    android:tag="previous"
+                    app:imageview="@{viewModel}"
+                    tools:ignore="ContentDescription" />
+
+                <ImageView
+                    android:id="@+id/iv_arrow_right"
+                    android:layout_width="@dimen/_32sdp"
+                    android:layout_height="@dimen/_28sdp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="@dimen/_6sdp"
+                    android:layout_marginEnd="@dimen/_14sdp"
+                    android:padding="@dimen/_4sdp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/arrow_right2"
+                    android:tag="next"
+                    app:imageview="@{viewModel}"
+                    tools:ignore="ContentDescription" />
+
+            </RelativeLayout>
+
+            <!--        <com.google.android.material.card.MaterialCardView-->
+            <!--            android:id="@+id/cardText"-->
+            <!--            android:layout_width="wrap_content"-->
+            <!--            android:layout_height="wrap_content"-->
+            <!--            android:layout_below="@+id/rl_day_name"-->
+            <!--            android:layout_centerHorizontal="true"-->
+            <!--            android:layout_marginTop="@dimen/_20sdp"-->
+            <!--            app:cardElevation="0dp"-->
+            <!--            app:cardCornerRadius="@dimen/_14sdp"-->
+            <!--            app:cardBackgroundColor="@android:color/transparent"-->
+            <!--            android:outlineSpotShadowColor="#40000000"-->
+            <!--            app:contentPadding="@dimen/_6sdp"-->
+            <!--            tools:ignore="UnusedAttribute">-->
+
+            <!--            <androidx.constraintlayout.widget.ConstraintLayout-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content">-->
+
+            <!--                <ImageView-->
+            <!--                    android:id="@+id/imageView2"-->
+            <!--                    android:layout_width="@dimen/_12sdp"-->
+            <!--                    android:layout_height="@dimen/_12sdp"-->
+            <!--                    android:src="@drawable/right_tick_ioc"-->
+            <!--                    android:layout_marginStart="@dimen/_8sdp"-->
+            <!--                    app:layout_constraintBottom_toBottomOf="parent"-->
+            <!--                    app:layout_constraintEnd_toStartOf="@+id/textView3"-->
+            <!--                    app:layout_constraintStart_toStartOf="parent"-->
+            <!--                    app:layout_constraintTop_toTopOf="parent"-->
+            <!--                    tools:ignore="ContentDescription"-->
+            <!--                    app:tint="@color/order_status_dialog_green" />-->
+
+            <!--                <TextView-->
+            <!--                    android:id="@+id/textView3"-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:text="@string/ordered_lunches"-->
+            <!--                    android:layout_marginStart="@dimen/_4sdp"-->
+            <!--                    android:layout_marginEnd="@dimen/_8sdp"-->
+            <!--                    android:fontFamily="@font/quicksand_bold"-->
+            <!--                    android:textAllCaps="true"-->
+            <!--                    android:textColor="@color/order_status_dialog_green"-->
+            <!--                    android:paddingBottom="@dimen/_2sdp"-->
+            <!--                    android:textSize="@dimen/_11sdp"-->
+            <!--                    app:layout_constraintBottom_toBottomOf="parent"-->
+            <!--                    app:layout_constraintEnd_toEndOf="parent"-->
+            <!--                    app:layout_constraintStart_toEndOf="@+id/imageView2"-->
+            <!--                    app:layout_constraintTop_toTopOf="parent" />-->
+            <!--            </androidx.constraintlayout.widget.ConstraintLayout>-->
+            <!--        </com.google.android.material.card.MaterialCardView>-->
+
+            <!--<TextView
+                android:id="@+id/tv_order_lunch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rl_day_name"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/margin_top_order_lunch_20dp"
+                android:fontFamily="@font/quicksand_bold"
+                android:text="@string/ordered_lunches"
+                android:textColor="@color/light_black"
+                android:textSize="@dimen/tv_order_lunch_being_made_20sp" />
+
+            <TextView
+                android:id="@+id/tv_are_being_made"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_order_lunch"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/quicksand_bold"
+                android:text="@string/are_being_made"
+                android:textColor="@color/light_black"
+                android:textSize="@dimen/tv_order_lunch_being_made_20sp" />-->
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/studentListRv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/dashboard"
+                android:layout_below="@+id/rl_day_name"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginRight="10dp"
+                app:activity="@{activity}"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:setRecyclerView="@{viewModel}"
+                tools:listitem="@layout/quick_view_list" />
+
+            <RelativeLayout
+                android:id="@+id/dashboard"
+                android:layout_width="@dimen/_200sdp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_22sdp"
+                android:background="@drawable/calendar_complete_btn_bg">
+
+                <TextView
+                    android:id="@+id/bt_add_new_card"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="@dimen/_30sdp"
+                    android:layout_marginTop="@dimen/_6sdp"
+                    android:layout_marginEnd="@dimen/_30sdp"
+                    android:layout_marginBottom="@dimen/_6sdp"
+                    android:fontFamily="@font/quicksand_bold"
+                    android:gravity="center"
+                    android:paddingBottom="@dimen/_3sdp"
+                    android:text="@string/dashboard"
+                    android:textAllCaps="true"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_12ssp"
+                    tools:ignore="RelativeOverlap" />
+
+                <ImageView
+                    android:id="@+id/img_back"
+                    android:layout_width="@dimen/iv_height_width_iv_back_quickView_45dp"
+                    android:layout_height="@dimen/iv_height_width_iv_back_quickView_45dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="@dimen/margin_right_tv_back_quickView_10dp"
+                    android:padding="@dimen/padding_left_arrow_notification_list_10dp"
+                    android:src="@drawable/wiz_skip_right_arrow_active"
+                    app:tint="@color/white"
+                    tools:ignore="ContentDescription" />
+
+            </RelativeLayout>
+
+
+        </RelativeLayout>
+    </RelativeLayout>
+</layout>

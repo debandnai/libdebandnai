@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+
+    <color name="white">#FFFFFFFF</color>
+
+
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="app_color">#de5c0e</color>
+    <color name="topbar_bg_color">#D0E9E9</color>
+    <color name="app_color_new">#E1F1F1</color>
+    <color name="app_color_new1">#DEF0F0</color>
+
+    <color name="white_green">#F3F9ED</color>
+    <color name="font_green">#448A42</color>
+    <color name="gray">#BBBBBB</color>
+    <color name="font_red">#DC3D1F</color>
+    <color name="red_background">#E83E1B</color>
+    <color name="add_children_its_time_to_textColor">#4c8449</color>
+    <color name="add_children_its_time_to_backgroundColor">#f3f9ed</color>
+    <color name="wallet_backgroundColor">#E8F3D5</color>
+    <color name="green_background_parent_wallet">#478942</color>
+    <color name="add_children_colorWhite">#ffffff</color>
+    <color name="add_children_editText_stroke_color">#bababa</color>
+    <color name="add_children_editText_textColor">#646464</color>
+    <color name="add_children_color_error">#e53d1d</color>
+    <color name="add_children_button_color">#e83e1b</color>
+    <color name="clear_order_button_color">#FAD5CD</color>
+    <color name="add_children_colorRed">#e3462a</color>
+    <color name="transparent">#00000000</color>
+    <color name="black">#151515</color>
+    <color name="font_gray">#9A9A9A</color>
+    <color name="add_children_colorBlack">#000000</color>
+    <color name="silver_font">#797979</color>
+    <color name="add_card_wallet_valueColor">#e53f1d</color>
+    <color name="amount_text_color_green">#4E804A</color>
+    <color name="select_menu_for_child_colorGreen">#8ac544</color>
+    <color name="menu_bg_color">#f4f4f4</color>
+    <color name="dashboard_menu_bg">#FDBC59</color>
+    <color name="menu_bg_black">#000000</color>
+    <color name="select_menu_get_started_bg_color">#e93d1c</color>
+    <color name="select_menu_textColor">#6c6a6c</color>
+    <color name="light_green_background">#DDEDC6</color>
+    <color name="text_font_color">#979597</color>
+    <color name="order_menu_calorie_row_bg_shadow_color">#e8e6e8</color>
+    <color name="order_menu_food_category_bg_color">#478b42</color>
+    <color name="progress_bar_background">#d8d8d8</color>
+    <color name="order_menu_calorie_sugar_countColor">#808080</color>
+    <color name="text_view_color_black_add_card">#000000</color>
+    <color name="text_view_wizard_add_note_light_red">#E33F19</color>
+    <color name="tv_color_white_current_balance">#FDFAF6</color>
+    <color name="text_color_transaction_history_light_black">#232123</color>
+    <color name="tv_color_light_black_expiry_date">#403E40</color>
+    <color name="bck_textview_button_color_deep_red">#E83E1B</color>
+    <color name="bck_text_view_button_light_red">#E83E1B</color>
+    <color name="bottomsheet_background_transparent">#646464</color>
+    <color name="bottomsheet_seperate_line_color">#CED3D7</color>
+    <color name="order_menu_dropdown_bg_stroke">#CDCDCD</color>
+    <color name="bullet_color">#0ea3ff</color>
+    <color name="orange">#F7911D</color>
+
+    <color name="red">#f00</color>
+    <color name="red_brown">#D1613B</color>
+    <color name="blue">#009de0</color>
+    <color name="off_white">#f1f5f7</color>
+    <color name="blue_selector">#00aeea</color>
+    <color name="red_negative_progress">#ff3333</color>
+    <color name="bg_color">#e3ebee</color>
+    <color name="color_grey">#2a2d30</color>
+    <color name="background">#E0E0E0</color>
+    <color name="grey">#757575</color>
+    <color name="light_gray_username">#F1F2F7</color>
+    <color name="calendar_menu_on_off_textColor">#4e4e4e</color>
+    <color name="alpha_black">#60000000</color>
+    <color name="dashboard_backgroung_color">#F5F5F5</color>
+    <color name="popup_yes_no_color">#007AFF</color>
+    <color name="cal_add_std_color">#434343</color>
+
+    <color name="color_is_promoted">#FFD100</color>
+    <color name="color_deep_yellow">#FBAE17</color>
+    <color name="selected_date_color">#488A43</color>
+
+
+
+    <color name="day_disabled_background_color">#F1F5F8</color>
+    <color name="day_disabled_text_color">#DEDEDE</color>
+    <color name="selected_day_background">#03A7E9</color>
+    <color name="current_day_of_month">#03A7E9</color>
+
+    <color name="deselected_date_color">#E73d17</color>
+    <color name="school_class_kitchen_holiday_date_color">#B91C1C</color>
+    <color name="calendar_top_bg_color">#e93d1c</color>
+    <color name="red_color_1">#E54360</color>
+    <color name="red_3">#BA1C1C</color>
+
+    <color name="kitchen_holiday_color">#B70002</color>
+    <color name="calendar_past_days_color">#C8C7CC</color>
+
+    <color name="deep_green">#80BC02</color>
+    <color name="green_color_bg">#D2EA8E</color>
+    <color name="green_color2">#719617</color>
+    <color name="student_holiday_red">#FCA0C9</color>
+</resources>

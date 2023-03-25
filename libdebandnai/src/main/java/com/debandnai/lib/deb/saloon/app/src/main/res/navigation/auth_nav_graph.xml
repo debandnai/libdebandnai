@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/auth_nav_graph"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        tools:layout="@layout/fragment_login"
+        android:name="com.salonsolution.app.ui.fragment.LoginFragment"
+        android:label="LoginFragment" >
+        <action
+            android:id="@+id/action_loginFragment_to_signupFragment"
+            app:destination="@id/signupFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_forgotPasswordFragment"
+            app:destination="@id/forgotPasswordFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_otpVerificationFragment"
+            app:destination="@id/otpVerificationFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/otpVerificationFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/signupFragment"
+        tools:layout="@layout/fragment_signup"
+        android:name="com.salonsolution.app.ui.fragment.SignupFragment"
+        android:label="SignupFragment" >
+        <action
+            android:id="@+id/action_signupFragment_to_otpVerificationFragment"
+            app:destination="@id/otpVerificationFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/otpVerificationFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_signupFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/forgotPasswordFragment"
+        tools:layout="@layout/fragment_forgot_password"
+        android:name="com.salonsolution.app.ui.fragment.ForgotPasswordFragment"
+        android:label="ForgotPasswordFragment" >
+        <action
+            android:id="@+id/action_forgotPasswordFragment_to_otpVerificationFragment"
+            app:destination="@id/otpVerificationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/otpVerificationFragment"
+        tools:layout="@layout/fragment_otp_verification"
+        android:name="com.salonsolution.app.ui.fragment.OtpVerificationFragment"
+        android:label="OtpVerificationFragment" >
+        <action
+            android:id="@+id/action_otpVerificationFragment_to_resetPasswordFragment"
+            app:destination="@id/resetPasswordFragment" />
+        <action
+            android:id="@+id/action_otpVerificationFragment_to_signupSuccessFragment"
+            app:destination="@id/signupSuccessFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="email"
+            app:argType="string" />
+        <argument
+            android:name="isRegister"
+            app:argType="boolean"
+            android:defaultValue="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/resetPasswordFragment"
+        tools:layout="@layout/fragment_reset_password"
+        android:name="com.salonsolution.app.ui.fragment.ResetPasswordFragment"
+        android:label="ResetPasswordFragment" >
+        <action
+            android:id="@+id/action_resetPasswordFragment_to_passwordResetSuccessFragment"
+            app:destination="@id/passwordResetSuccessFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/passwordResetSuccessFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_resetPasswordFragment_to_signupFragment"
+            app:destination="@id/signupFragment"
+            app:launchSingleTop="false"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="false" />
+        <argument
+            android:name="email"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/passwordResetSuccessFragment"
+        tools:layout="@layout/fragment_password_reset_success"
+        android:name="com.salonsolution.app.ui.fragment.PasswordResetSuccessFragment"
+        android:label="PasswordResetSuccessFragment" >
+        <action
+            android:id="@+id/action_passwordResetSuccessFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/signupSuccessFragment"
+        tools:layout="@layout/fragment_signup_success"
+        android:name="com.salonsolution.app.ui.fragment.SignupSuccessFragment"
+        android:label="SignupSuccessFragment" >
+        <action
+            android:id="@+id/action_signupSuccessFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/chooseLanguageFragment"
+        tools:layout="@layout/fragment_choose_language"
+        android:name="com.salonsolution.app.ui.fragment.ChooseLanguageFragment"
+        android:label="ChooseLanguageFragment" >
+        <action
+            android:id="@+id/action_chooseLanguageFragment_to_preLoginFragment"
+            app:destination="@id/preLoginFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/preLoginFragment"
+        tools:layout="@layout/fragment_pre_loging"
+        android:name="com.salonsolution.app.ui.fragment.PreLoginFragment"
+        android:label="PreLoginFragment" >
+        <action
+            android:id="@+id/action_preLoginFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_preLoginFragment_to_signupFragment"
+            app:destination="@id/signupFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <action
+        android:id="@+id/action_global_chooseLanguageFragment"
+        app:destination="@id/chooseLanguageFragment"
+        app:launchSingleTop="true"
+        app:popUpTo="@id/chooseLanguageFragment"
+        app:popUpToInclusive="true" />
+    <dialog
+        android:id="@+id/languageChangeFragment"
+        tools:layout="@layout/fragment_language_change"
+        android:name="com.salonsolution.app.ui.fragment.LanguageChangeDialogFragment"
+        android:label="LanguageChangeFragment" />
+    <action android:id="@+id/action_global_languageChangeFragment" app:destination="@id/languageChangeFragment" />
+</navigation>

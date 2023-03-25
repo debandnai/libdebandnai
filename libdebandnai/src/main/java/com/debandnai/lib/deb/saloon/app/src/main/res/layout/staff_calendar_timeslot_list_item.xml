@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+    <!-- we set width margin by calculating from top layout.
+    to adjust checkbox alignment with top set margin end to the llTimeSlot LinearLayout -->
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+       <RelativeLayout
+           android:layout_width="@dimen/_43sdp"
+           android:layout_height="wrap_content"
+           android:layout_gravity="center"
+           >
+
+           <TextView
+               android:id="@+id/tvTime"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_centerInParent="true"
+               android:fontFamily="@font/montserrat_semibold_600"
+               android:textSize="@dimen/_8ssp"
+               tools:text="08:00AM" />
+       </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/llTimeSlot"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginEnd="@dimen/_26sdp"
+            android:orientation="horizontal"
+            />
+
+    </LinearLayout>
+</layout>

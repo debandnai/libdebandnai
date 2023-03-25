@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item >
+        <shape xmlns:android="http://schemas.android.com/apk/res/android"
+            android:shape="rectangle">
+            <corners android:radius="@dimen/bck_rectangle_red_button_radius_30dp"></corners>
+            <stroke
+                android:color="@color/bck_textview_button_color_deep_red" />
+            <solid android:color="@color/bck_text_view_button_light_red"></solid>
+        </shape>
+    </item>
+
+</layer-list>
+
+<!--#B1BCBE-->

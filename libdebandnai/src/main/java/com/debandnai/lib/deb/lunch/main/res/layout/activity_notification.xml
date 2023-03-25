@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="ie.healthylunch.app.data.viewModel.NotificationViewModel" />
+
+        <variable
+            name="activity"
+            type="ie.healthylunch.app.ui.NotificationActivity" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:background="@drawable/dashboard_new_bg"
+            tools:context=".ui.NotificationActivity">
+
+            <RelativeLayout
+                android:id="@+id/rl_edit_profile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_6sdp">
+
+                <ImageView
+                    android:id="@+id/img_back"
+                    android:layout_width="@dimen/_40sdp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_centerVertical="true"
+                    android:onClick="@{()->activity.onBackPressed()}"
+                    android:paddingStart="@dimen/_12sdp"
+                    android:paddingTop="@dimen/_12sdp"
+                    android:paddingEnd="@dimen/_2sdp"
+                    android:paddingBottom="@dimen/_12sdp"
+                    android:src="@drawable/wiz_skip_left_arrow_active"
+                    app:tint="@color/red_color_1"
+                    tools:ignore="ContentDescription,RtlSymmetry" />
+
+
+                <TextView
+                    android:id="@+id/profile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:fontFamily="@font/quicksand_bold"
+                    android:gravity="center"
+                    android:text="@string/notifications"
+                    android:textColor="@color/silver"
+                    android:textSize="@dimen/_16ssp" />
+
+                <TextView
+                    android:id="@+id/clearAllTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerInParent="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_marginEnd="@dimen/_11sdp"
+                    android:background="@drawable/red_button_bg2"
+                    android:paddingStart="@dimen/_11sdp"
+                    android:paddingTop="@dimen/_3sdp"
+                    android:paddingEnd="@dimen/_10sdp"
+                    android:paddingBottom="@dimen/_4sdp"
+                    android:text="@string/clear_all"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_12ssp"
+                    android:visibility="gone"
+                    app:hideView="@{viewModel.clearAllTextViewVisible}" />
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/rl_notification"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rl_edit_profile"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:background="@color/transparent">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/notificationRv"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/notification_view_list_page" />
+
+
+                <TextView
+                    android:id="@+id/noNotificationMsgTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/quicksand_medium"
+                    android:gravity="center"
+                    android:paddingBottom="@dimen/_40sdp"
+                    android:text="@string/no_notification_found"
+                    android:textColor="@color/light_black"
+                    android:textSize="@dimen/_14ssp"
+                    android:visibility="gone"
+                    app:hideView="@{viewModel.noDataTextVisible}" />
+            </RelativeLayout>
+
+
+        </RelativeLayout>
+    </RelativeLayout>
+</layout>

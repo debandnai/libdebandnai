@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav_graph"
+    app:startDestination="@id/dashBoardFragment">
+
+    <fragment
+        android:id="@+id/dashBoardFragment"
+        android:name="ie.healthylunch.app.fragment.DashBoardFragment"
+        android:label="fragment_dash_board"
+        tools:layout="@layout/fragment_dash_board">
+    </fragment>
+
+    <fragment
+        android:id="@+id/viewaddedstudentprofilelistFragment"
+        android:name="ie.healthylunch.app.fragment.students.ViewAddedStudentProfileListFragment"
+        android:label="ViewAddedStudentProfileListFragment"
+        tools:layout="@layout/fragment_view_added_student_profile_list">
+        <action
+            android:id="@+id/action_viewaddedstudentprofilelistFragment_to_editStudentprofilefragment"
+            app:destination="@id/editStudentprofilefragment" />
+        <action
+            android:id="@+id/action_viewaddedstudentprofilelistFragment_to_viewallergenfragment"
+            app:destination="@id/editStudentAllergenFragment" />
+        <deepLink
+            android:id="@+id/deepLink"
+            app:mimeType="type/subtype"
+            app:uri="lunchbag://lunchbag.com/add_student" />
+    </fragment>
+    <fragment
+        android:id="@+id/editStudentAllergenFragment"
+        android:name="ie.healthylunch.app.fragment.students.EditStudentAllergenFragment"
+        android:label="EditStudentAllergenFragment"
+        tools:layout="@layout/fragment_edit_student_allergen">
+        <action
+            android:id="@+id/action_editStudentAllergenFragment_to_viewaddedstudentprofilelistFragment"
+            app:destination="@id/viewaddedstudentprofilelistFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editStudentprofilefragment"
+        android:name="ie.healthylunch.app.fragment.students.EditStudentProfileFragment"
+        android:label="EditStudentProfileFragment"
+        tools:layout="@layout/fragment_edit_student_profile">
+        <action
+            android:id="@+id/action_editStudentprofilefragment_to_viewaddedstudentprofilelistFragment"
+            app:destination="@id/viewaddedstudentprofilelistFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/aboutUsFragment"
+        android:name="ie.healthylunch.app.fragment.AboutUsFragment"
+        android:label="AboutUsFragment"
+        tools:layout="@layout/fragment_about_us" />
+
+</navigation>

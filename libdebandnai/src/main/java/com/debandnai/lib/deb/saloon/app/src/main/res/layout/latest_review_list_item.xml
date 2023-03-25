@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_6sdp"
+        app:cardElevation="@dimen/_6sdp"
+        app:cardCornerRadius="@dimen/_8sdp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingStart="@dimen/_12sdp"
+            android:paddingTop="@dimen/_10sdp"
+            android:paddingEnd="@dimen/_14sdp"
+            android:paddingBottom="@dimen/_10sdp">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/ivCustomer"
+                android:layout_width="@dimen/_44sdp"
+                android:layout_height="@dimen/_44sdp"
+                android:layout_marginTop="@dimen/_6sdp"
+                android:elevation="@dimen/_4sdp"
+                android:padding="@dimen/_4sdp"
+                android:src="@drawable/profile"
+                app:civ_border_color="@color/white"
+                app:civ_border_width="@dimen/_2sdp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_16sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:ellipsize="end"
+                android:fontFamily="@font/montserrat_semibold_600"
+                android:maxLines="1"
+                android:minLines="1"
+                android:textColor="@color/default_text_color"
+                android:textSize="@dimen/_12ssp"
+                app:layout_constraintStart_toEndOf="@+id/ivCustomer"
+                app:layout_constraintEnd_toStartOf="@id/tvRating"
+                app:layout_constraintTop_toTopOf="@+id/ivCustomer"
+                tools:text="Kellie Ross" />
+
+            <TextView
+                android:id="@+id/tvRating"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_16sdp"
+                android:ellipsize="end"
+                android:fontFamily="@font/montserrat_semibold_600"
+                android:maxLines="1"
+                android:minLines="1"
+                android:textColor="@color/default_text_color"
+                android:textSize="@dimen/_12ssp"
+              app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="5"
+                android:drawablePadding="@dimen/_4sdp"
+                app:drawableStartCompat="@drawable/star_fill" />
+
+            <TextView
+                android:id="@+id/tvDate"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_regular_400"
+                android:textColor="@color/default_text_color"
+                android:textSize="@dimen/_9ssp"
+                android:layout_marginTop="@dimen/_4sdp"
+                app:layout_constraintStart_toStartOf="@id/tvName"
+                app:layout_constraintEnd_toEndOf="@id/tvName"
+                app:layout_constraintTop_toBottomOf="@id/tvName"
+                tools:text="23 Nov, 2020" />
+
+            <ImageView
+                android:id="@+id/ivQuoteSymbol"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/quotes_symbol"
+                android:layout_marginTop="@dimen/_8sdp"
+                app:layout_constraintStart_toStartOf="@id/tvName"
+                app:layout_constraintTop_toBottomOf="@id/tvDate"
+                tools:ignore="ContentDescription" />
+
+
+
+            <TextView
+                android:id="@+id/tvReview"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginStart="@dimen/_2sdp"
+                android:fontFamily="@font/open_sans_regular_400"
+                android:textSize="@dimen/_10ssp"
+                android:textColor="@color/latest_review_text_color"
+                app:layout_constraintStart_toEndOf="@id/ivQuoteSymbol"
+                app:layout_constraintEnd_toEndOf="@id/tvRating"
+                app:layout_constraintTop_toBottomOf="@id/tvDate"
+                tools:text="I Love the service of Allie Thanks Lorem ipsum dolor sit amet, consectetur adipiscing elit." />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.cardview.widget.CardView>
+</layout>

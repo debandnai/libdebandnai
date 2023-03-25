@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.activity.NoInternetActivity">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/ivImage"
+            android:text="@string/no_wireless_connection"
+            android:textColor="@color/black"
+            android:fontFamily="@font/montserrat_medium_500"
+            android:textAllCaps="true"
+            android:textSize="@dimen/_16ssp"
+            />
+
+        <ImageView
+            android:id="@+id/ivImage"
+            android:layout_width="240dp"
+            android:layout_height="240dp"
+            android:src="@drawable/no_signal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.61"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_regular_400"
+            android:text="@string/check_to_see_if_you_have_wifi_or_data_enabled_on_your_phone"
+            android:textAlignment="center"
+            android:textColor="@color/default_text_color"
+            android:textSize="@dimen/_12ssp"
+            android:layout_marginStart="@dimen/_24sdp"
+            android:layout_marginEnd="@dimen/_24sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivImage"
+            app:layout_constraintVertical_bias="0.110000014" />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.fragment.SignupSuccessFragment">
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_270sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:scaleType="fitXY"
+            android:src="@drawable/choose_language_bg_top"
+            tools:ignore="ContentDescription" />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_80sdp"
+            android:scaleType="fitXY"
+            android:src="@drawable/choose_language_bg_bottom"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="ContentDescription,ImageContrastCheck" />
+
+        <ImageView
+            android:id="@+id/ivSuccess"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/succes_icon"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="@dimen/_100sdp"
+            tools:ignore="ContentDescription" />
+
+        <include
+            android:id="@+id/language"
+            layout="@layout/language_inflater" />
+
+        <TextView
+            android:id="@+id/tvWelcomeBack"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_32sdp"
+            android:fontFamily="@font/ebgaramond_regular_400"
+            android:text="@string/congratulations_exclamation_mark"
+            android:textAlignment="center"
+            android:textColor="@color/brand_color"
+            android:textSize="46sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivSuccess" />
+
+        <TextView
+            android:id="@+id/tvCreateYourNewAccount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:fontFamily="@font/montserrat_regular_400"
+            android:text="@string/your_account_has_been_created"
+            android:textAlignment="center"
+            android:textColor="@color/default_text_color"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvWelcomeBack" />
+
+        <TextView
+            android:id="@+id/tvThankYou"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_48sdp"
+            android:fontFamily="@font/montserrat_regular_400"
+            android:text="@string/thank_you_for_registering"
+            android:textColor="@color/brand_color"
+            android:textAlignment="center"
+            android:textSize="14sp"
+            android:textAllCaps="true"
+            android:background="@drawable/thank_you_text_bg"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvCreateYourNewAccount" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btGoToLogin"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_48sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:background="@drawable/login_button_bg"
+            android:fontFamily="@font/montserrat_semibold_600"
+            android:text="@string/go_to_login"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvThankYou" />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

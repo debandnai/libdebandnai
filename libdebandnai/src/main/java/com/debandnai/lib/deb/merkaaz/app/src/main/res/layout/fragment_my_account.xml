@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="viewModel"
+            type="com.merkaaz.app.data.viewModel.DashboardViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.activity.MyAccountActivity">
+
+        <ImageView
+            android:id="@+id/iv_water_mark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/ic_merkaaz_water_mark_light_sky_color"
+            tools:ignore="ContentDescription" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_top_layout"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_133sdp"
+            android:background="@color/teal_700"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/iv_user_img"
+                android:layout_width="@dimen/_56sdp"
+                android:layout_height="@dimen/_56sdp"
+                android:layout_marginStart="@dimen/_22sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                app:imageUrl="@{viewModel.image}"
+                android:background="@drawable/ic_no_user_image"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:roundAsCircle="true" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_centerInParent="true"
+                android:background="@drawable/dark_blue_circle_bg"
+                android:fontFamily="@font/open_sans_regular"
+                android:gravity="center"
+                android:text="@{viewModel.userNameFirstChar}"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_13ssp"
+                android:visibility="@{viewModel.image.isEmpty() ? View.VISIBLE:View.GONE}"
+                app:layout_constraintBottom_toBottomOf="@+id/iv_user_img"
+                app:layout_constraintEnd_toEndOf="@+id/iv_user_img"
+                app:layout_constraintStart_toStartOf="@+id/iv_user_img"
+                app:layout_constraintTop_toTopOf="@+id/iv_user_img" />
+
+            <TextView
+                android:id="@+id/tv_user_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_14sdp"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:fontFamily="@font/open_sans_bold"
+                tools:text="Adelina Manuel"
+                android:text="@{viewModel.userName}"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_14ssp"
+                app:layout_constraintStart_toEndOf="@+id/iv_user_img"
+                app:layout_constraintTop_toTopOf="@+id/iv_user_img" />
+
+            <TextView
+                android:id="@+id/tv_ph_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:drawableStart="@android:drawable/stat_sys_phone_call"
+                android:drawablePadding="@dimen/_4sdp"
+                android:fontFamily="@font/open_sans_medium"
+                android:gravity="center"
+                tools:text="+244 78954 32100"
+                android:text="@{viewModel.mobileNo}"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_11sdp"
+                app:layout_constraintEnd_toEndOf="@+id/tv_user_name"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/tv_user_name"
+                app:layout_constraintTop_toBottomOf="@+id/tv_user_name"
+                tools:ignore="UseCompatTextViewDrawableXml" />
+
+            <TextView
+                android:id="@+id/tv_profile_edit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_12sdp"
+                android:background="@drawable/bg_border"
+                android:fontFamily="@font/open_sans_medium"
+                android:padding="@dimen/_4sdp"
+                android:paddingStart="@dimen/_8sdp"
+                android:paddingEnd="@dimen/_8sdp"
+                android:text="@string/edit_without_underline"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_11sdp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_ph_number"
+                app:layout_constraintStart_toEndOf="@+id/tv_ph_number"
+                app:layout_constraintTop_toTopOf="@+id/tv_ph_number"
+                tools:ignore="AllCaps" />
+
+            <ImageView
+                android:id="@+id/iv_verified"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@+id/iv_user_img"
+                app:layout_constraintEnd_toEndOf="@+id/iv_user_img"
+                app:layout_constraintStart_toEndOf="@+id/iv_user_img"
+                app:layout_constraintTop_toTopOf="@+id/iv_user_img"
+                app:layout_constraintVertical_bias="0.81"
+                app:setApprovedUserStatus="@{viewModel.pendingapprovalStatForImageProfile}"
+
+                tools:ignore="ContentDescription" />
+            <!--app:srcCompat="@drawable/ic_verified_user"-->
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_location_layout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_marginEnd="@dimen/_12sdp"
+            android:background="@drawable/top_round_corner"
+            android:elevation="@dimen/_8sdp"
+            android:padding="@dimen/_4sdp"
+            app:layout_constraintBottom_toBottomOf="@+id/cl_top_layout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/cl_top_layout"
+            app:layout_constraintTop_toBottomOf="@+id/cl_top_layout">
+
+            <ImageView
+                android:id="@+id/iv_location_logo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_12sdp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_baseline_location_on_24"
+                app:tint="@color/teal_700"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/tv_shop_location_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/open_sans_bold"
+                android:text="@string/your_shop_location"
+                android:textColor="@color/teal_700"
+                android:textSize="@dimen/_14sdp"
+                app:layout_constraintBottom_toBottomOf="@+id/iv_location_logo"
+                app:layout_constraintStart_toEndOf="@+id/iv_location_logo"
+                app:layout_constraintTop_toTopOf="@+id/iv_location_logo" />
+
+            <TextView
+                android:id="@+id/tv_location_edit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/_12sdp"
+                android:background="@drawable/teal_bg_with_border"
+                android:fontFamily="@font/open_sans_bold"
+                android:padding="@dimen/_2sdp"
+                android:paddingStart="@dimen/_8sdp"
+                android:paddingEnd="@dimen/_8sdp"
+                android:text="@string/edit_without_underline"
+                android:textColor="@color/teal_700"
+                android:textSize="@dimen/_12sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_address"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_8sdp"
+                android:fontFamily="@font/open_sans_medium"
+                android:paddingStart="@dimen/_4sdp"
+                android:paddingEnd="@dimen/_4sdp"
+                android:text="@{viewModel.userLocation}"
+                tools:text="4th Floor, 6/31, Street No. 0362, DH Block(Newtown), Action Area 1D, Newtown, Kolkata, West Bengal 700160 "
+                android:textColor="@color/address_unselect_color"
+                android:textSize="@dimen/_11ssp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_shop_location_txt" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <RadioGroup
+            android:id="@+id/rg_options"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_marginEnd="@dimen/_12sdp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cl_location_layout"
+            app:layout_constraintVertical_bias="0.060000002">
+
+            <RadioButton
+                android:id="@+id/rb_my_order"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:background="@drawable/radio_check_background"
+                android:button="@null"
+                android:fontFamily="@font/open_sans_regular"
+                android:paddingStart="@dimen/_12sdp"
+                android:text="@string/my_order"
+                android:textColor="@drawable/radio_check_text"
+                android:textSize="@dimen/_14ssp"
+                tools:ignore="RtlSymmetry" />
+
+            <RadioButton
+                android:id="@+id/rb_notification"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:background="@drawable/radio_check_background"
+                android:button="@null"
+                android:fontFamily="@font/open_sans_regular"
+                android:paddingStart="@dimen/_12sdp"
+                android:text="@string/notifications"
+                android:textColor="@drawable/radio_check_text"
+                android:textSize="@dimen/_14ssp"
+                tools:ignore="RtlSymmetry" />
+
+            <RadioButton
+                android:id="@+id/rb_customer_service"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:background="@drawable/radio_check_background"
+                android:button="@null"
+                android:fontFamily="@font/open_sans_regular"
+                android:paddingStart="@dimen/_12sdp"
+                android:text="@string/customer_service"
+                android:textColor="@drawable/radio_check_text"
+                android:textSize="@dimen/_14ssp"
+                tools:ignore="RtlSymmetry" />
+
+            <RadioButton
+                android:id="@+id/rb_my_delivery_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:background="@drawable/radio_check_background"
+                android:button="@null"
+                android:fontFamily="@font/open_sans_regular"
+                android:paddingStart="@dimen/_12sdp"
+                android:text="@string/my_delivery_address"
+                android:textColor="@drawable/radio_check_text"
+                android:textSize="@dimen/_14ssp"
+                tools:ignore="RtlSymmetry" />
+
+            <RadioButton
+                android:id="@+id/rb_logout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:background="@drawable/radio_check_background"
+                android:button="@null"
+                android:drawablePadding="@dimen/_12sdp"
+                android:fontFamily="@font/open_sans_regular"
+                android:paddingStart="@dimen/_12sdp"
+                android:text="@string/sign_out"
+                android:textColor="@drawable/radio_check_text"
+                android:textSize="@dimen/_14ssp"
+                tools:ignore="RtlSymmetry" />
+        </RadioGroup>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

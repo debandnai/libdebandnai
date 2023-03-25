@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <data>
+
+        <variable
+            name="listItem"
+            type="com.merkaaz.app.data.model.ProductList" />
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout_product_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:paddingTop="@dimen/_12sdp"
+
+        android:layout_marginTop="@dimen/_12sdp"
+        android:layout_marginEnd="@dimen/_8sdp"
+        android:background="@drawable/gray_bg_round_corner"
+
+        android:paddingBottom="@dimen/_10sdp"
+        tools:layout_editor_absoluteX="10dp">
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/productImage"
+            android:layout_width="@dimen/_80sdp"
+            android:layout_height="@dimen/_80sdp"
+            android:adjustViewBounds="true"
+            android:padding="@dimen/_2sdp"
+            app:imageUrl="@{listItem.productImage}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.35000002"
+            app:placeholderImage="@drawable/no_image"
+            app:srcCompat="@drawable/featured_prod" />
+
+        <TextView
+            android:id="@+id/tv_category"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_4sdp"
+            android:ellipsize="end"
+            android:fontFamily="@font/open_sans_semi_bold"
+            android:maxLines="1"
+            android:text="@{listItem.brandName}"
+            android:textColor="@color/teal_700"
+            android:textSize="@dimen/_9ssp"
+            app:layout_constraintEnd_toEndOf="@+id/tv_product_details"
+            app:layout_constraintStart_toEndOf="@+id/productImage"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Fortune" />
+
+        <TextView
+            android:id="@+id/tv_product_details"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_4sdp"
+            android:layout_marginEnd="@dimen/_4sdp"
+            android:ellipsize="end"
+            android:fontFamily="@font/open_sans_bold"
+            android:maxLines="2"
+            android:text="@{listItem.productName}"
+            android:textColor="@color/address_unselect_color"
+            android:textSize="@dimen/_11ssp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/productImage"
+            app:layout_constraintTop_toBottomOf="@+id/tv_category"
+            tools:text="Fortune Kachi Ghani Mustard Oil Pouch" />
+
+        <TextView
+            android:id="@+id/tv_unit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginTop="@dimen/_1sdp"
+            android:fontFamily="@font/open_sans_medium"
+            tools:text="1 L - Pouch"
+            android:text="@{listItem.qtuSize}"
+            android:textColor="@color/bg_dialog"
+            android:textSize="@dimen/_10ssp"
+            app:layout_constraintStart_toEndOf="@+id/productImage"
+            app:layout_constraintTop_toBottomOf="@+id/tv_product_details" />
+
+        <TextView
+            android:id="@+id/tv_qty"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_16sdp"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:fontFamily="@font/open_sans_semi_bold"
+            android:text="@{@string/qty_with_colon+` `+listItem.quantity.toString()}"
+            android:textColor="@color/bg_dialog"
+            android:textSize="@dimen/_11ssp"
+            android:paddingEnd="@dimen/_4sdp"
+            app:autoSizeMaxTextSize="@dimen/_11ssp"
+            app:autoSizeMinTextSize="@dimen/_7ssp"
+            app:autoSizeStepGranularity="@dimen/_2ssp"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintEnd_toStartOf="@+id/view2"
+            app:layout_constraintStart_toEndOf="@+id/productImage"
+            app:layout_constraintTop_toBottomOf="@+id/tv_unit"
+            tools:text="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" />
+
+        <View
+            android:id="@+id/view2"
+            android:layout_width="@dimen/_1sdp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="@dimen/_8sdp"
+            android:background="@color/gray_bg_5"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.17"
+            app:layout_constraintStart_toEndOf="@+id/tv_unit"
+            app:layout_constraintTop_toTopOf="@+id/tv_unit" />
+        <!--android:text="@{listItem.sellPrice}"-->
+        <TextView
+            android:id="@+id/tv_sell_price_1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/open_sans_bold"
+            android:paddingStart="@dimen/_3sdp"
+            android:paddingEnd="@dimen/_2sdp"
+            tools:text="1,30000.00 AOA"
+            android:text="@{listItem.sellPrice}"
+            android:textColor="@color/address_unselect_color"
+            android:textSize="@dimen/_12ssp"
+            app:layout_constraintBottom_toBottomOf="@+id/view2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/view2"
+            app:layout_constraintTop_toTopOf="@+id/view2" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+</layout>

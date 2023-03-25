@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="ie.healthylunch.app.data.viewModel.NotificationOnOffViewModel" />
+
+        <variable
+            name="activity"
+            type="ie.healthylunch.app.ui.NotificationOnOffActivity" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:scrollbarSize="0dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@drawable/dashboard_new_bg"
+                tools:context=".ui.NotificationOnOffActivity">
+
+                <RelativeLayout
+                    android:id="@+id/rl_edit_profile"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/background_left_right_margin"
+                    android:layout_marginRight="@dimen/background_left_right_margin">
+
+                    <ImageView
+                        android:id="@+id/img_back"
+                        android:layout_width="@dimen/iv_top_left_arrow_30dp"
+                        android:layout_height="@dimen/iv_top_left_arrow_30dp"
+                        android:layout_centerVertical="true"
+                        android:onClick="@{()->activity.onBackPressed()}"
+                        android:src="@drawable/wiz_skip_left_arrow_active"
+                        tools:ignore="ContentDescription" />
+
+                    <TextView
+                        android:id="@+id/profile"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/img_back"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:fontFamily="@font/quicksand_bold"
+                        android:gravity="center"
+                        android:text="@string/alerts"
+                        android:textColor="@color/silver"
+                        android:textSize="@dimen/heading_text_size" />
+
+                    <TextView
+                        android:id="@+id/clear_all"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerInParent="true"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/clear_all_margin_top"
+                        android:layout_marginRight="@dimen/background_left_right_margin"
+                        android:background="@drawable/background_textview_red"
+                        android:paddingLeft="@dimen/clear_all_paddingLeftRight"
+                        android:paddingTop="@dimen/clear_all_padding_top"
+                        android:paddingRight="@dimen/clear_all_paddingLeftRight"
+                        android:paddingBottom="@dimen/clear_all_padding_Bottom"
+                        android:text="Clear All"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/clear_all_textSize"
+                        android:visibility="gone"
+                        tools:ignore="HardcodedText,RtlHardcoded" />
+                </RelativeLayout>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/rl_notification"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/tv_notification_not_enable_message"
+                    android:layout_below="@+id/rl_edit_profile"
+                    android:layout_marginStart="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:layout_marginEnd="@dimen/_12sdp"
+                    android:layout_marginBottom="@dimen/_20sdp"
+                    android:animateLayoutChanges="true"
+                    android:background="@color/transparent"
+
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="@dimen/_40sdp"
+                    app:cardElevation="0dp"
+                    app:contentPadding="@dimen/_6sdp"
+                    app:strokeColor="@color/yellow_2"
+                    app:strokeWidth="@dimen/_4sdp">
+                    <!--android:minHeight="@dimen/_352sdp"-->
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/notificationRv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:activity="@{activity}"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        app:setRecyclerView="@{viewModel}"
+                        tools:listitem="@layout/notification_view_on_off_list">
+
+                    </androidx.recyclerview.widget.RecyclerView>
+                </com.google.android.material.card.MaterialCardView>
+
+                <TextView
+                    android:id="@+id/tv_noAlert"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_centerVertical="true"
+                    android:gravity="center"
+                    android:text="@string/no_alert_found"
+                    android:textColor="@color/light_black"
+                    android:textSize="@dimen/no_notification_msg_18sp"
+                    android:visibility="invisible" />
+
+                <TextView
+                    android:id="@+id/tv_notification_not_enable_message"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/tv_tap_hare"
+                    android:layout_centerHorizontal="true"
+                    android:fontFamily="@font/quicksand_bold"
+                    android:text="@string/notification_is_disabled_from_settings"
+                    android:textColor="@color/red"
+                    android:textSize="@dimen/_13ssp" />
+
+                <TextView
+                    android:id="@+id/tv_tap_hare"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginBottom="@dimen/_40sdp"
+                    android:background="@drawable/background_relative_green"
+                    android:fontFamily="@font/quicksand_bold"
+                    android:padding="@dimen/_10sdp"
+                    android:paddingStart="@dimen/_12sdp"
+                    android:paddingEnd="@dimen/_12sdp"
+                    android:text="@string/tap_here"
+                    android:textAllCaps="true"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_13ssp" />
+
+
+            </RelativeLayout>
+
+        </androidx.core.widget.NestedScrollView>
+    </RelativeLayout>
+</layout>

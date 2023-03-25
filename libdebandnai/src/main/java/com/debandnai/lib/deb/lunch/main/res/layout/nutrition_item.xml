@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="dataItem"
+            type="ie.healthylunch.app.data.model.productInfoDetailsModel.NutritionValuesItem" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/_4sdp"
+        android:layout_marginBottom="@dimen/_4sdp"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/nutritionNameTv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/quicksand_bold"
+            tools:text="Carbs Sugar"
+            android:text="@{dataItem.nutrientName}"
+            android:textColor="@color/dark_gray2"
+            android:textSize="@dimen/_12ssp"
+            android:layout_marginEnd="@dimen/_5sdp"
+            app:layout_constraintEnd_toStartOf="@+id/nutritionValueTv"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/nutritionValueTv"
+            android:layout_width="@dimen/_78sdp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/quicksand_bold"
+            tools:text="50g"
+            android:text="@{dataItem.nutritionValue}"
+            android:paddingStart="@dimen/_5sdp"
+            android:textColor="@color/dark_gray2"
+            android:textSize="@dimen/_12ssp"
+            android:layout_marginBottom="@dimen/_8sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="RtlSymmetry" />
+
+       <!-- <View
+            app:layout_constraintTop_toBottomOf="@+id/nutritionValueTv"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:background="@color/dark_gray2" />-->
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="ie.healthylunch.app.data.viewModel.PrivacyPolicyViewModel" />
+
+        <variable
+            name="activity"
+            type="ie.healthylunch.app.ui.PrivacyPolicyActivity" />
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background_all"
+        tools:context=".ui.PrivacyPolicyActivity">
+
+
+        <RelativeLayout
+            android:id="@+id/rl_top_new"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_margin="@dimen/add_child_welcome_margin">
+
+            <ImageView
+                android:id="@+id/iv_arrow"
+                android:layout_width="@dimen/iv_top_left_arrow_30dp"
+                android:layout_height="@dimen/iv_top_left_arrow_30dp"
+                android:layout_centerVertical="true"
+                android:onClick="@{()->viewModel.back(activity)}"
+                android:src="@drawable/wiz_skip_left_arrow_active"
+                tools:ignore="ContentDescription" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_privacy_policy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rl_top_new"
+            android:layout_marginLeft="@dimen/background_left_right_margin"
+            android:layout_marginTop="-25dp"
+            android:layout_marginRight="@dimen/background_left_right_margin">
+
+            <TextView
+                android:id="@+id/tv_terms_of_use"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:fontFamily="@font/quicksand_bold"
+                android:text="Privacy Policy"
+                android:textColor="@color/light_black"
+                android:textSize="@dimen/profile_textSize"
+                tools:ignore="HardcodedText" />
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/rl_height_privacy_policy_420dp"
+            android:layout_above="@+id/tv_bottom_copyright"
+            android:layout_below="@+id/rl_privacy_policy"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="@dimen/margin_left_right_terms_condition_15dp"
+            android:layout_marginTop="@dimen/tv_about_marginTop"
+            android:layout_marginRight="@dimen/margin_left_right_terms_condition_15dp"
+            android:layout_marginBottom="@dimen/tv_about_marginTop"
+            android:background="@drawable/custom_calender_background_shadow_new">
+
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/tv_margin_about_10dp"
+                android:layout_marginTop="@dimen/tv_margin_about_10dp"
+                android:layout_marginEnd="@dimen/tv_margin_about_10dp"
+                android:layout_marginBottom="@dimen/tv_margin_about_10dp">
+                <TextView
+                    android:id="@+id/note_privacy"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="10dp"
+                    android:textColor="@color/add_children_editText_textColor"
+                    android:textSize="@dimen/tv_terms_of_use_textSize"
+                    app:activity="@{activity}"
+                    app:viewModel="@{viewModel}" />
+
+            </androidx.core.widget.NestedScrollView>
+
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_bottom_copyright"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@color/select_menu_for_child_colorGreen"
+            android:gravity="center"
+            android:paddingTop="@dimen/tv_bottom_copyright_PaddingTOPBOTTOM"
+            android:paddingBottom="@dimen/tv_bottom_copyright_PaddingTOPBOTTOM"
+            android:text="&#169; Copyright www.thelunchbag.ie. All Right Reserved."
+            android:textColor="@color/light_black"
+            android:textSize="@dimen/copyrightTextSize"
+            tools:ignore="HardcodedText" />
+
+
+    </RelativeLayout>
+</layout>

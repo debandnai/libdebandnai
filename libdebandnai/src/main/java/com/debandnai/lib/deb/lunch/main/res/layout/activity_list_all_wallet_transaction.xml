@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="ie.healthylunch.app.data.viewModel.TransactionListViewModel" />
+
+        <variable
+            name="activity"
+            type="ie.healthylunch.app.ui.ListAllWalletTransactionActivity" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background_all"
+        tools:context=".ui.ListAllWalletTransactionActivity">
+
+
+        <RelativeLayout
+            android:id="@+id/rl_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="@dimen/add_child_welcome_margin">
+
+            <ImageView
+                android:id="@+id/infoIv"
+                android:layout_width="@dimen/iv_top_left_arrow_30dp"
+                android:layout_height="@dimen/iv_top_left_arrow_30dp"
+                android:layout_centerVertical="true"
+                android:onClick="@{()->activity.onBackPressed()}"
+                android:src="@drawable/wiz_skip_left_arrow_active"
+                tools:ignore="ContentDescription" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_transaction"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="@dimen/rl_margin_left_transaction_list_left_right_10dp"
+            android:layout_marginTop="@dimen/rl_transaction_margin_top_20dp"
+            android:layout_marginRight="@dimen/rl_margin_left_transaction_list_left_right_10dp">
+
+            <TextView
+                android:id="@+id/transaction"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:fontFamily="@font/quicksand_bold"
+                android:text="@string/transactions_list"
+                android:textColor="@color/light_black"
+                android:textSize="@dimen/tv_header_text_view_transaction_list_20sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_transaction_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/rl_transaction"
+            android:layout_marginLeft="@dimen/rl_margin_left_right_recycler_transaction_list_10dp"
+            android:layout_marginTop="@dimen/rl_recycler_view_margin_top_transaction_list_30dp"
+            android:layout_marginRight="@dimen/rl_margin_left_right_recycler_transaction_list_10dp"
+            android:layout_marginBottom="@dimen/_100sdp"
+            android:background="@drawable/transaction_list_view_background_shadow">
+            <!--@dimen/rl_recycler_view_height_list_wallet_450dp-->
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/transactionListRv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:hideView="@{viewModel.recyclerViewVisible}"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/transaction_view_list" />
+
+            <TextView
+                android:id="@+id/noNotificationMsgTv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/quicksand_medium"
+                android:gravity="center"
+                app:hideView="@{viewModel.noDataTextVisible}"
+                tools:text="@string/no_data_found"
+                android:text="@{viewModel.noDataText}"
+                android:textColor="@color/red"
+                android:paddingBottom="@dimen/_40sdp"
+                android:textSize="@dimen/no_notification_msg_18sp"
+                android:visibility="gone" />
+        </RelativeLayout>
+
+    </RelativeLayout>
+</layout>

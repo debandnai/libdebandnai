@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="ie.healthylunch.app.data.viewModel.DeisStudentSchoolDetailsViewModel" />
+
+        <variable
+            name="context"
+            type="ie.healthylunch.app.fragment.registration.DeisStudentSchoolDetailsFragment" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background_all"
+        app:hideKeyboardByClickingOutside="@{context.requireActivity()}"
+        tools:context=".fragment.registration.DeisStudentSchoolDetailsFragment">
+
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/edit_scroll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_35sdp"
+            android:layout_marginBottom="@dimen/rl_registration_background_marginBottom">
+
+            <LinearLayout
+                android:id="@+id/rl_parent_profile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/background_left_right_margin"
+                android:layout_marginRight="@dimen/background_left_right_margin"
+                android:background="@drawable/custom_calender_background_shadow_new"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:paddingStart="@dimen/_16sdp"
+                android:paddingEnd="@dimen/_16sdp"
+                app:hideKeyboardByClickingOutside="@{context.requireActivity()}"
+                tools:ignore="UselessParent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:fontFamily="@font/quicksand_bold"
+                    android:gravity="center"
+                    android:text="@{viewModel.schoolName}"
+                    android:textColor="@color/dark_gray2"
+                    android:textSize="@dimen/_20ssp"
+                    tools:text="School Name" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:fontFamily="@font/quicksand_bold"
+                    android:gravity="center"
+                    android:text="@{viewModel.schoolAddress}"
+                    android:textColor="@color/dark_gray2"
+                    android:textSize="@dimen/_14ssp"
+                    tools:text="School Address" />
+
+                <TextView
+                    android:id="@+id/edtUniqueCode"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_17sdp"
+                    android:background="@drawable/rect_bg_light_green"
+                    android:elevation="1.5dp"
+                    android:gravity="center"
+                    android:paddingStart="@dimen/_12sdp"
+                    android:paddingTop="@dimen/_10sdp"
+                    android:paddingEnd="@dimen/_12sdp"
+                    android:paddingBottom="@dimen/_10sdp"
+                    android:text="@={viewModel.className}"
+                    android:textColor="@color/dark_gray2"
+                    android:textColorHint="@color/text_font_color"
+                    android:textSize="@dimen/_14ssp"
+                    tools:text="Class Name" />
+
+                <EditText
+                    android:id="@+id/studentFirstNameTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:background="@drawable/background_textview"
+                    android:elevation="1.5dp"
+                    android:gravity="center"
+                    android:hint="@string/student_first_name"
+                    android:importantForAutofill="no"
+                    android:inputType="textCapSentences"
+                    android:paddingStart="@dimen/_12sdp"
+                    android:paddingTop="@dimen/_10sdp"
+                    android:paddingEnd="@dimen/_12sdp"
+                    android:paddingBottom="@dimen/_10sdp"
+                    android:text="@={viewModel.studentFirstName}"
+                    android:textColor="@color/dark_gray2"
+                    android:textColorHint="@color/text_font_color"
+                    android:textSize="@dimen/_14ssp" />
+
+                <TextView
+                    android:id="@+id/first_name_error"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/ed_name_left_right_margin"
+                    android:layout_marginTop="@dimen/_1sdp"
+                    android:layout_marginRight="@dimen/ed_name_left_right_margin"
+                    android:gravity="center"
+                    android:text="@{viewModel.studentFirstNameError}"
+                    android:textColor="@color/font_red"
+                    android:textSize="@dimen/error_textSize"
+                    android:visibility="invisible"
+                    app:hideErrorTextView="@{viewModel.studentFirstNameErrorVisible}"
+                    tools:ignore="HardcodedText" />
+
+                <EditText
+                    android:id="@+id/studentLastNameTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/background_textview"
+                    android:elevation="1.5dp"
+                    android:gravity="center"
+                    android:hint="@string/student_surname"
+                    android:importantForAutofill="no"
+                    android:inputType="textCapSentences"
+                    android:paddingStart="@dimen/_12sdp"
+                    android:paddingTop="@dimen/_10sdp"
+                    android:paddingEnd="@dimen/_12sdp"
+                    android:paddingBottom="@dimen/_10sdp"
+                    android:text="@={viewModel.studentLastName}"
+                    android:textColor="@color/dark_gray2"
+                    android:textColorHint="@color/text_font_color"
+                    android:textSize="@dimen/_14ssp" />
+
+                <TextView
+                    android:id="@+id/last_name_error"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/ed_name_left_right_margin"
+                    android:layout_marginTop="@dimen/_1sdp"
+                    android:layout_marginRight="@dimen/ed_name_left_right_margin"
+                    android:gravity="center"
+                    android:text="@{viewModel.studentLastNameError}"
+                    android:textColor="@color/font_red"
+                    android:textSize="@dimen/error_textSize"
+                    android:visibility="invisible"
+                    app:hideErrorTextView="@{viewModel.studentLastNameErrorVisible}"
+                    tools:ignore="HardcodedText" />
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginBottom="@dimen/_4sdp"
+                    android:fontFamily="@font/quicksand_medium"
+                    android:gravity="center"
+                    android:text="@string/if_you_are_having_any_problems"
+                    android:textColor="@color/red2"
+                    android:textSize="@dimen/_13ssp" />
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/tv_call"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/_8sdp"
+                        android:fontFamily="@font/quicksand_medium"
+                        android:text="@string/call_with_colon"
+                        android:textColor="@color/deis_colorGray"
+                        android:textSize="@dimen/_13ssp" />
+
+                    <TextView
+                        android:id="@+id/tv_phn_number"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/quicksand_medium"
+                        android:gravity="center"
+                        android:text="@string/lunch_box_ph_number"
+                        android:textColor="@color/red2"
+                        android:textSize="@dimen/_13ssp" />
+
+
+                </LinearLayout>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/quicksand_medium"
+                    android:text="@string/or"
+                    android:textColor="@color/deis_colorGray"
+                    android:textSize="@dimen/_13ssp" />
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/quicksand_medium"
+                        android:gravity="center"
+                        android:text="@string/email_with_colon"
+                        android:textColor="@color/deis_colorGray"
+                        android:textSize="@dimen/_13ssp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_8sdp"
+                        android:fontFamily="@font/quicksand_medium"
+                        android:gravity="center"
+                        android:text="@string/lunch_box_email"
+                        android:textColor="@color/red2"
+                        android:textSize="@dimen/_13ssp" />
+
+
+                </LinearLayout>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/continue_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:layout_marginBottom="@dimen/_20sdp"
+                    android:background="@drawable/background_textview_deis_green"
+                    android:fontFamily="@font/quicksand_bold"
+                    android:text="@string/continue_"
+                    android:textAllCaps="false"
+                    app:setEnabledView="@{viewModel.isContinueEnabled}"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_17ssp" />
+
+            </LinearLayout>
+
+
+        </androidx.core.widget.NestedScrollView>
+
+
+    </RelativeLayout>
+</layout>

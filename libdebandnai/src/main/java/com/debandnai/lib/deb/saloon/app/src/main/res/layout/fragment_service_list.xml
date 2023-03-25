@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.salonsolution.app.data.viewModel.ServicesListViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/gradient_bg"
+        tools:context=".ui.fragment.ServiceListFragment">
+
+        <include
+            android:id="@+id/includeSearchLayout"
+            layout="@layout/search_layout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:layout_marginEnd="@dimen/_12sdp"
+            android:layout_marginBottom="@dimen/_8sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvSubCategoriesList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:orientation="horizontal"
+            android:scrollbars="none"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/includeSearchLayout"
+            tools:listitem="@layout/sub_categories_list_item" />
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:background="@drawable/categories_service_list_bg"
+            android:elevation="4dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rvSubCategoriesList">
+
+            <TextView
+                android:id="@+id/tvService"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_16sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:fontFamily="@font/montserrat_medium_500"
+                android:text="@string/services"
+                android:textColor="@color/default_text_color2"
+                android:textSize="@dimen/_13ssp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvServiceCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_6sdp"
+                android:background="@drawable/service_count_bg"
+                android:fontFamily="@font/montserrat_medium_500"
+                android:minWidth="@dimen/_18sdp"
+                android:paddingStart="@dimen/_7sdp"
+                android:paddingTop="@dimen/_4sdp"
+                android:paddingEnd="@dimen/_7sdp"
+                android:paddingBottom="@dimen/_4sdp"
+                android:text="@{viewModel.totalServicesCount}"
+                android:textAlignment="center"
+                android:textColor="@color/default_text_color2"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@id/tvService"
+                app:layout_constraintStart_toEndOf="@id/tvService"
+                app:layout_constraintTop_toTopOf="@id/tvService"
+                tools:text="15" />
+
+            <ImageView
+                android:id="@+id/ivSortBy"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:paddingStart="@dimen/_12sdp"
+                android:paddingTop="@dimen/_12sdp"
+                android:paddingEnd="@dimen/_6sdp"
+                android:paddingBottom="@dimen/_12sdp"
+                android:src="@drawable/sort_by_icon"
+                app:layout_constraintBottom_toBottomOf="@id/tvService"
+                app:layout_constraintEnd_toStartOf="@id/ivSearchOnList"
+                app:layout_constraintTop_toTopOf="@id/tvService"
+                app:tint="@color/default_text_color2"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:id="@+id/ivSearchOnList"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:paddingStart="0dp"
+                android:paddingTop="@dimen/_8sdp"
+                android:paddingEnd="@dimen/_8sdp"
+                android:paddingBottom="@dimen/_8sdp"
+                android:src="@drawable/ic_search"
+                app:layout_constraintBottom_toBottomOf="@id/tvService"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tvService"
+                app:tint="@color/default_text_color2"
+                tools:ignore="ContentDescription" />
+
+            <androidx.constraintlayout.widget.Barrier
+                android:id="@+id/barrier2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:barrierDirection="bottom"
+                app:constraint_referenced_ids="ivSearchOnList,tvService,ivSortBy,tvServiceCount"
+                tools:layout_editor_absoluteY="891dp" />
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvServiceList"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginEnd="@dimen/_5sdp"
+                android:paddingStart="@dimen/_8sdp"
+                android:paddingTop="@dimen/_8sdp"
+                android:paddingEnd="@dimen/_3sdp"
+                android:paddingBottom="@dimen/_8sdp"
+                android:scrollbarSize="4dp"
+                android:scrollbarStyle="outsideInset"
+                android:scrollbarThumbVertical="@color/default_text_color2"
+                android:scrollbars="vertical"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/barrier2"
+                tools:itemCount="5"
+                tools:listitem="@layout/service_list_item" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

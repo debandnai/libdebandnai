@@ -1,0 +1,52 @@
+## This file must *NOT* be checked into Version Control Systems,
+# as it contains information specific to your local configuration.
+#
+# Location of the SDK. This is only used by Gradle.
+# For customization when using a Version Control System, please read the
+# header note.
+#Mon Aug 30 11:01:58 IST 2021
+"Abcd3",=
+"Abcd2",=
+studentName.value="Test tt"
+private=var dialogPlus\: DialogPlus? \= null
+.setInAnimation(R.anim.slide_up)=
+"Abcd4",=
+import=ie.healthylunch.app.utils.AdapterItemOnclickListener
+studentNameList,=
+ViewAddedStudentProfileListViewModel()=
+"Abcd1",=
+activity,=
+if(tag=\="studentNameList"){
+sdk.dir=C\:\\Users\\91905\\AppData\\Local\\Android\\Sdk
+act=activity
+.setContentBackgroundResource(Color.TRANSPARENT)=
+lateinit=var act\:Activity
+println("hello=print position \: "+studentList[position].fName)
+3,=
+1,=
+override=fun onAdapterItemClick(arrayList\: List<Any>, position\: Int, tag\: String) {
+class=ViewAddedStudentProfileListViewModel \: ViewModel(), AdapterItemOnclickListener {
+val=studentList\: List<ie.healthylunch.app.data.model.student.DataItem> \= arrayList as List<ie.healthylunch.app.data.model.student.DataItem>
+//=studentName.value\=studentList[position].fName
+.setContentHolder(ViewHolder(R.layout.bottom_dialog_layout))=
+package=ie.healthylunch.app.data.viewModel
+var=studentName\: MutableLiveData<String> \= MutableLiveData("Student")
+.setContentHeight(ViewGroup.LayoutParams.WRAP_CONTENT)=
+.create()=
+.setMargin(0,=100, 0, 0)
+false=
+studentNameList.add(=
+)=
+.setGravity(Gravity.BOTTOM)=
+studentRv.isFocusable=false
+studentRv.adapter=studentNameListAdapter
+dialogPlus?.show()=
+.setOutAnimation(R.anim.slide_down)=
+dialogPlus=DialogPlus.newDialog(activity)
+activity.finish()=
+ie.healthylunch.app.data.model.student.DataItem(=
+2,=
+0,=
+}=
+fun=setStudent(activity\: Activity) {
+ie.healthylunch.app.adapter.StudentNameListAdapter2(=

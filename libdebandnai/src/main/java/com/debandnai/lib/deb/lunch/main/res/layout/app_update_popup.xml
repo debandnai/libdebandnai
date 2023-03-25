@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_all"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:paddingStart="@dimen/_8sdp"
+    android:paddingEnd="@dimen/_8sdp">
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:src="@drawable/ic_update_logo"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/versionNameTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_40sdp"
+        android:fontFamily="@font/quicksand_bold"
+        android:gravity="center"
+        android:textColor="@color/add_children_colorBlack"
+        android:textSize="@dimen/_14ssp"
+        tools:text="1.0.2" />
+
+    <TextView
+        android:id="@+id/versionMessageTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_40sdp"
+        android:fontFamily="@font/quicksand_bold"
+        android:gravity="center"
+        android:paddingStart="@dimen/_32sdp"
+        android:paddingEnd="@dimen/_32sdp"
+        android:text="@string/update_msg"
+        android:textColor="@color/text_font_color"
+        android:textSize="@dimen/_12ssp" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/updateBtn"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_44sdp"
+        android:layout_marginStart="@dimen/_16sdp"
+        android:layout_marginTop="@dimen/_40sdp"
+        android:layout_marginEnd="@dimen/_16sdp"
+        android:layout_marginBottom="@dimen/_5sdp"
+        android:background="@drawable/background_textview_green"
+        android:fontFamily="@font/quicksand_bold"
+        android:text="@string/update_now"
+        android:textColor="@color/add_children_colorWhite"
+        android:textSize="@dimen/_16ssp" />
+
+</LinearLayout>

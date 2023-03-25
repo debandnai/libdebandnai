@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="ie.healthylunch.app.data.viewModel.ParentViewWalletPageOneActivityViewModel" />
+
+        <variable
+            name="activity"
+            type="ie.healthylunch.app.ui.WalletViewActivity" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background_all"
+        tools:context=".ui.WalletViewActivity">
+
+        <RelativeLayout
+            android:id="@+id/rl_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_margin="@dimen/add_child_welcome_margin">
+
+            <ImageView
+                android:id="@+id/infoIv"
+                android:layout_width="@dimen/iv_top_left_arrow_30dp"
+                android:layout_height="@dimen/iv_top_left_arrow_30dp"
+                android:layout_centerVertical="true"
+                android:onClick="@{()->activity.onBackPressed()}"
+                android:src="@drawable/wiz_skip_left_arrow_active"
+                tools:ignore="ContentDescription" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/rl_height_change_pwd_500dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="@dimen/margin_top_wallet_layout_80dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/custom_calender_background_shadow_new">
+
+            <RelativeLayout
+                android:id="@+id/rl_wallet_heading"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:background="@drawable/add_children_its_time_to_background"
+                android:padding="@dimen/its_time_to_padding">
+
+                <LinearLayout
+                    android:id="@+id/rl_wallet"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="bottom"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight=".30"
+                    android:gravity="center"
+                    android:visibility="visible"
+                    tools:ignore="ObsoleteLayoutParam,RtlHardcoded,UselessParent">
+
+                    <ImageView
+                        android:id="@+id/img_wallet"
+                        android:layout_width="@dimen/iv_wallet_image_30dp"
+                        android:layout_height="@dimen/iv_wallet_image_30dp"
+                        android:layout_marginLeft="0dp"
+                        android:src="@drawable/footer_wallet_inactive"
+                        tools:ignore="ContentDescription,RtlHardcoded" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="@dimen/marginRight_wallet_balance"
+                        android:orientation="vertical"
+                        tools:ignore="RtlHardcoded">
+
+                        <TextView
+                            android:id="@+id/tv_wallet"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="-5dp"
+                            android:text="@string/current_wallet"
+                            android:textColor="@color/light_black"
+                            android:textSize="@dimen/current_wallet_text_size_18sp"
+                            tools:ignore="RelativeOverlap" />
+
+                        <TextView
+                            android:id="@+id/tv_balance"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/tv_wallet"
+                            android:layout_marginBottom="5dp"
+                            android:singleLine="true"
+                            android:text="Balance"
+                            android:textColor="@color/light_black"
+                            android:textSize="@dimen/current_wallet_text_size_18sp"
+                            tools:ignore="HardcodedText" />
+
+                        <TextView
+                            android:id="@+id/tv_wallet_currentAmount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:paddingRight="@dimen/tv_amount_padding_right_wallet_20dp"
+                            android:text="@{viewModel.walletBalance}"
+                            android:textColor="@color/light_black"
+                            android:textSize="@dimen/current_wallet_text_size_18sp"
+                            tools:ignore="HardcodedText,RelativeOverlap,RtlSymmetry"
+                            tools:text="€ 0.00" />
+                    </RelativeLayout>
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rl_wallet_heading"
+                android:layout_marginTop="@dimen/scroll_marginTop">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/editText_marginLeft"
+                    android:layout_marginRight="@dimen/editText_marginLeft">
+
+                    <RelativeLayout
+                        android:id="@+id/rl_view_transaction"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/editText_marginLeft"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginRight="@dimen/editText_marginLeft"
+                        android:layout_marginBottom="0dp"
+                        android:background="@drawable/background_textview_green"
+                        android:onClick="@{()->activity.transaction()}">
+
+                        <TextView
+                            android:id="@+id/tv_view_transaction"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginTop="@dimen/add_children_buttonText_marginTop"
+                            android:layout_marginBottom="@dimen/add_children_buttonText_marginTop"
+                            android:paddingLeft="@dimen/add_children_buttonText_paddingLeft"
+                            android:paddingTop="@dimen/add_children_buttonText_paddingBottom"
+                            android:paddingRight="@dimen/add_children_buttonText_paddingLeft"
+                            android:paddingBottom="@dimen/add_children_buttonText_paddingBottom"
+                            android:text="View Transactions"
+                            android:textAllCaps="false"
+                            android:textColor="@color/add_children_colorWhite"
+                            android:textSize="@dimen/tv_size_view_transaction_17sp"
+                            tools:ignore="HardcodedText" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/rl_button_wallet_addCard"
+                        android:layout_width="339dp"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/rl_view_transaction"
+                        android:layout_marginLeft="@dimen/editText_marginLeft"
+                        android:layout_marginTop="29dp"
+                        android:layout_marginRight="@dimen/editText_marginLeft"
+                        android:layout_marginBottom="0dp"
+                        android:background="@drawable/background_textview_green"
+                        android:onClick="@{()->activity.addCard()}"
+                        app:setCardAddedState="@{viewModel.isCardAdded}">
+
+                        <TextView
+                            android:id="@+id/tv_wallet_addCard"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:layout_marginTop="@dimen/margin_top_bottom_card_number_5dp"
+                            android:paddingLeft="@dimen/add_children_buttonText_paddingLeft"
+                            android:paddingTop="@dimen/add_children_buttonText_paddingBottom"
+                            android:paddingRight="@dimen/add_children_buttonText_paddingLeft"
+                            android:paddingBottom="@dimen/add_children_buttonText_paddingBottom"
+                            android:text="@string/add_card_text"
+                            android:textAllCaps="false"
+                            android:textColor="@color/add_children_colorWhite"
+                            android:textSize="@dimen/tv_size_view_transaction_17sp"
+                            app:setCardAddedState="@{viewModel.isCardAdded}" />
+
+                        <TextView
+                            android:id="@+id/tv_card_number"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginTop="@dimen/margin_top_bottom_card_number_5dp"
+                            android:layout_marginBottom="@dimen/margin_top_bottom_card_number_5dp"
+                            android:paddingStart="10dp"
+                            android:paddingTop="@dimen/padding_bottom_card_number_5dp"
+                            android:paddingEnd="@dimen/tv_card_number_20dp"
+                            android:layout_centerInParent="true"
+                            android:paddingBottom="@dimen/padding_bottom_card_number_5dp"
+                            android:text="@{viewModel.cardNumber}"
+                            android:textAllCaps="false"
+                            android:textColor="@color/text_color_transaction_history_light_black"
+                            android:textSize="@dimen/tv_size_card_nos_13sp"
+                            android:visibility="gone"
+                            app:setCardAddedState="@{viewModel.isCardAdded}"
+                            tools:text="xxxx xxxx xxxx 6924" />
+
+                        <ImageView
+                            android:id="@+id/card_brand_img"
+                            android:layout_width="@dimen/iv_width_card_brand_25dp"
+                            android:layout_height="@dimen/iv_height_card_brand_20dp"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="-10dp"
+                            android:layout_toRightOf="@+id/tv_card_number"
+                            app:brandName="@{viewModel.brandName}"
+                            app:isCardAdded="@{viewModel.isCardAdded}"
+                            tools:ignore="ContentDescription,RtlHardcoded" />
+
+                        <ImageView
+                            android:id="@+id/iv_red_cross"
+                            android:layout_width="@dimen/iv_cross_height_width_in_wallet_27dp"
+                            android:layout_height="@dimen/iv_cross_height_width_in_wallet_27dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:onClick="@{()->activity.deleteCardClick()}"
+                            android:paddingRight="@dimen/padding_right_imageView_red_cross_20dp"
+                            android:src="@drawable/wiz_close_icon"
+                            android:visibility="gone"
+                            app:setCardAddedState="@{viewModel.isCardAdded}"
+                            tools:ignore="ContentDescription,RtlHardcoded,RtlSymmetry" />
+                    </RelativeLayout>
+
+
+                    <RelativeLayout
+                        android:id="@+id/rl_top_up_voucher"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/rl_button_wallet_addCard"
+                        android:layout_marginLeft="@dimen/editText_marginLeft"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginRight="@dimen/editText_marginLeft"
+                        android:background="@drawable/background_textview_green"
+                        android:onClick="@{()->activity.topUpVoucher()}">
+
+                        <TextView
+                            android:id="@+id/tv_top_up_voucher"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:layout_marginTop="@dimen/add_children_buttonText_marginTop"
+                            android:layout_marginBottom="@dimen/add_children_buttonText_marginTop"
+                            android:paddingLeft="@dimen/add_children_buttonText_paddingLeft"
+                            android:paddingTop="@dimen/add_children_buttonText_paddingBottom"
+                            android:paddingRight="@dimen/add_children_buttonText_paddingLeft"
+                            android:paddingBottom="@dimen/add_children_buttonText_paddingBottom"
+                            android:text="Top up by Voucher"
+                            android:textAllCaps="false"
+                            android:textColor="@color/add_children_colorWhite"
+                            android:textSize="@dimen/tv_size_view_transaction_17sp"
+                            tools:ignore="HardcodedText" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/rl_top_up_later"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/rl_top_up_voucher"
+                        android:layout_marginLeft="@dimen/editText_marginLeft"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginRight="@dimen/editText_marginLeft"
+                        android:background="@drawable/background_textview_green"
+                        android:onClick="@{()->activity.topUpLater()}">
+
+                        <TextView
+                            android:id="@+id/tv_top_up_later"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:layout_marginTop="@dimen/add_children_buttonText_marginTop"
+                            android:layout_marginBottom="@dimen/add_children_buttonText_marginTop"
+                            android:paddingLeft="@dimen/add_children_buttonText_paddingLeft"
+                            android:paddingTop="@dimen/add_children_buttonText_paddingBottom"
+                            android:paddingRight="@dimen/add_children_buttonText_paddingLeft"
+                            android:paddingBottom="@dimen/add_children_buttonText_paddingBottom"
+                            android:text="Top up Later"
+                            android:textAllCaps="false"
+                            android:textColor="@color/add_children_colorWhite"
+                            android:textSize="@dimen/tv_size_view_transaction_17sp"
+                            app:setCardAddedState="@{viewModel.isCardAdded}"
+                            tools:ignore="HardcodedText" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/rl_top_up_now"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/rl_top_up_later"
+                        android:layout_marginLeft="@dimen/editText_marginLeft"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginRight="@dimen/editText_marginLeft"
+                        android:layout_marginBottom="@dimen/margin_bottom_top_voucher_70dp"
+                        android:background="@drawable/background_textview_green"
+                        android:visibility="gone">
+
+                        <TextView
+                            android:id="@+id/tv_top_up_now"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginTop="@dimen/add_children_buttonText_marginTop"
+                            android:layout_marginBottom="@dimen/add_children_buttonText_marginTop"
+                            android:paddingLeft="@dimen/add_children_buttonText_paddingLeft"
+                            android:paddingTop="@dimen/add_children_buttonText_paddingBottom"
+                            android:paddingRight="@dimen/add_children_buttonText_paddingLeft"
+                            android:paddingBottom="@dimen/add_children_buttonText_paddingBottom"
+                            android:text="Top up Now"
+                            android:textAllCaps="false"
+                            android:textColor="@color/add_children_colorWhite"
+                            android:textSize="@dimen/tv_size_view_transaction_17sp"
+                            tools:ignore="HardcodedText" />
+                    </RelativeLayout>
+
+                </RelativeLayout>
+            </ScrollView>
+        </RelativeLayout>
+    </RelativeLayout>
+</layout>

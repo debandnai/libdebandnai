@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="dataItem"
+            type="com.merkaaz.app.data.model.ProductAttrItem" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_6sdp"
+                android:layout_weight="1"
+                android:fontFamily="@font/open_sans_regular"
+                android:text="@{dataItem.attrName}"
+                android:textColor="@color/address_unselect_color"
+                android:textSize="@dimen/_11ssp"
+                tools:text="SKU ID" />
+
+            <TextView
+                android:id="@+id/tv_desc"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_6sdp"
+                android:layout_weight="1"
+                android:fontFamily="@font/open_sans_regular"
+                android:text="@{dataItem.attrVal}"
+                android:textColor="@color/address_unselect_color"
+                android:textSize="@dimen/_11ssp"
+                tools:text="UGG-BB-PUR-06" />
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/ll_underLine"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:background="@color/underline_color"
+            android:orientation="horizontal" />
+    </LinearLayout>
+</layout>

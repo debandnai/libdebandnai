@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:foreground="?attr/selectableItemBackgroundBorderless"
+        android:padding="@dimen/_4sdp">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardView"
+            android:layout_width="@dimen/_122sdp"
+            android:layout_height="@dimen/_100sdp"
+            android:layout_margin="@dimen/_4sdp"
+            app:cardCornerRadius="@dimen/_10sdp"
+            app:cardElevation="@dimen/_3sdp"
+            app:strokeColor="@color/white"
+            app:strokeWidth="@dimen/_4sdp">
+
+            <ImageView
+                android:id="@+id/ivOrders"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/food"
+                tools:ignore="ContentDescription" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/cardView"
+            android:layout_alignStart="@id/cardView"
+            android:layout_alignEnd="@id/cardView"
+            android:layout_marginTop="@dimen/_6sdp"
+            android:ellipsize="end"
+            android:fontFamily="@font/montserrat_medium_500"
+            android:maxLines="1"
+            android:textColor="@color/default_text_color"
+            android:textSize="@dimen/_13ssp"
+            tools:text="Strex Hair Color" />
+
+        <TextView
+            android:id="@+id/tvDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvName"
+            android:layout_alignStart="@id/tvName"
+            android:layout_alignEnd="@id/tvName"
+            android:layout_marginTop="@dimen/_6sdp"
+            android:drawablePadding="@dimen/_8sdp"
+            android:ellipsize="end"
+            android:fontFamily="@font/montserrat_medium_500"
+            android:maxLines="1"
+            android:textColor="@color/default_text_color"
+            android:textSize="@dimen/_9ssp"
+            app:drawableStartCompat="@drawable/ic_calender"
+            tools:text="08 Jan, 22"
+            app:drawableTint="@color/brand_color" />
+
+
+    </RelativeLayout>
+</layout>

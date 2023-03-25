@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <RelativeLayout
+        android:id="@+id/backLayout"
+        android:elevation="@dimen/_2sdp"
+        android:background="@drawable/weekdays_item_bg_normal"
+        android:layout_margin="@dimen/_3sdp"
+        android:layout_width="@dimen/_30sdp"
+        android:layout_height="@dimen/_30sdp">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            tools:ignore="UselessParent">
+
+            <TextView
+                android:id="@+id/tvDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_medium_500"
+                android:textColor="@color/brand_color"
+                android:textSize="@dimen/_13ssp"
+                android:layout_gravity="center"
+                tools:text="11" />
+
+            <TextView
+                android:id="@+id/tvName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_medium_500"
+                android:textColor="@color/default_text_color"
+                android:textSize="@dimen/_6ssp"
+                android:textAllCaps="true"
+                android:layout_gravity="center"
+                tools:text="FRI" />
+
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+    </LinearLayout>
+</layout>

@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="dataItem"
+            type="com.merkaaz.app.data.model.RelatedProductItem" />
+
+    </data>
+
+    <LinearLayout
+        android:id="@+id/lnr_rltd_product"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_11sdp"
+        android:layout_marginEnd="@dimen/_11sdp"
+        android:layout_marginBottom="@dimen/_11sdp"
+        android:orientation="vertical">
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/iv_product_img"
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="@dimen/_100sdp"
+            android:layout_margin="@dimen/_1sdp"
+            android:layout_marginBottom="@dimen/_1sdp"
+            android:background="@drawable/white_btn_bg"
+            android:elevation="0.5dp"
+            android:padding="@dimen/_8sdp"
+            app:imageUrl="@{dataItem.image}"
+            app:placeholderImage="@drawable/no_image"
+            tools:ignore="ContentDescription" />
+
+
+        <TextView
+            android:id="@+id/tv_sub_cat_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:ellipsize="end"
+            android:fontFamily="@font/open_sans_semi_bold"
+            android:singleLine="true"
+            android:text="@{dataItem.subCategoryName}"
+            android:textColor="@color/teal_700"
+            android:textSize="@dimen/_8ssp"
+            tools:text="Staples" />
+
+        <TextView
+            android:id="@+id/tv_product_name"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_33sdp"
+            android:layout_marginTop="@dimen/_3sdp"
+            android:ellipsize="end"
+            android:fontFamily="@font/open_sans_semi_bold"
+            android:maxLines="2"
+            android:text="@{dataItem.productName}"
+            android:textColor="@color/dark_blue"
+            android:textSize="@dimen/_11ssp"
+            tools:text="Tata Sampann Masoor Dal" />
+
+        <TextView
+            android:id="@+id/tv_size"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_25sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:background="@drawable/black_border_rect_bg"
+            android:drawablePadding="@dimen/_8sdp"
+            android:enabled="@{dataItem.variationDataList.size()>1 ?true:false}"
+            android:fontFamily="@font/open_sans_regular"
+            android:gravity="center_vertical"
+            android:paddingStart="@dimen/_4sdp"
+            android:paddingEnd="@dimen/_8sdp"
+            android:text="@{dataItem.selectedVariationDataItem.size +` `+dataItem.selectedVariationDataItem.unit}"
+            android:textColor="@color/dark_blue"
+            android:textSize="@dimen/_10ssp"
+            app:drawableEndCompat="@drawable/ic_drop_down"
+            app:setTextViewDropDownIcon="@{dataItem.variationDataList.size()}"
+            tools:ignore="RtlSymmetry"
+            tools:text="500 gm" />
+
+
+        <TextView
+            android:id="@+id/tv_offer_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:ellipsize="end"
+            android:fontFamily="@font/open_sans_bold"
+            android:textColor="@color/dark_blue"
+            android:textSize="@dimen/_12ssp"
+            app:discountedPrice="@{dataItem.selectedVariationDataItem.discountPrice}"
+            app:isDiscounted="@{dataItem.selectedVariationDataItem.isDiscounted}"
+            app:sellPrice="@{dataItem.selectedVariationDataItem.sellPrice}"
+            tools:text="1.99 AOA" />
+
+        <TextView
+            android:id="@+id/tv_sell_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            app:setStrikeThoughLine="@{true}"
+            android:fontFamily="@font/open_sans_semi_bold"
+            android:text="@{dataItem.selectedVariationDataItem.sellPrice}"
+            android:textColor="@color/sell_price_text_color"
+            android:textSize="@dimen/_9ssp"
+            app:isDiscounted="@{dataItem.selectedVariationDataItem.isDiscounted}"
+            app:quantity="@{dataItem.selectedVariationDataItem.quantity}"
+            tools:text="2.99 AOA" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_add"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/item_btn_height"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginBottom="@dimen/_2sdp"
+            android:background="@drawable/teal_button_bg2"
+            android:fontFamily="@font/open_sans_bold"
+            android:text="@string/add"
+            android:enabled="@{dataItem.selectedVariationDataItem.quantity>0 ? true : false }"
+            app:setAddBtnBg="@{dataItem.selectedVariationDataItem.quantity>0 ? false : true}"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_9ssp" />
+
+        <LinearLayout
+            android:id="@+id/qnt_lay"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/item_btn_height"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginBottom="@dimen/_2sdp"
+            android:background="@drawable/white_bg_round_corner"
+            android:fontFamily="@font/russo_one"
+            android:orientation="horizontal"
+            android:textColor="@color/white"
+            android:visibility="gone">
+
+            <ImageView
+                android:id="@+id/iv_remove"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:background="@drawable/view_btn_left_bg"
+                android:minWidth="@dimen/_24sdp"
+                android:padding="@dimen/_8sdp"
+                android:scaleType="centerInside"
+                android:src="@drawable/remove"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/tv_quantity"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/teal_007_border_white_bg"
+                android:gravity="center"
+                android:minWidth="@dimen/_30sdp"
+                android:paddingStart="@dimen/_3sdp"
+                android:paddingEnd="@dimen/_3sdp"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_9ssp"
+                android:textStyle="bold"
+                tools:text="1000" />
+
+            <ImageView
+                android:id="@+id/iv_add"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:adjustViewBounds="true"
+                android:background="@drawable/view_btn_right_bg"
+                android:padding="@dimen/_8sdp"
+                android:src="@drawable/ic_add"
+                tools:ignore="ContentDescription" />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

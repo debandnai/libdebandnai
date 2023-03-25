@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/add_child_allergen_rl_padding"
+        tools:ignore="UselessParent">
+
+        <ImageView
+            android:id="@+id/iv_allergens_checkUncheck"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/tv_allergensName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/add_child_allergen_text_marginLeft"
+            android:layout_toEndOf="@+id/iv_allergens_checkUncheck"
+            android:text="Eggs"
+            android:textColor="@color/add_children_colorBlack"
+            android:textSize="@dimen/add_child_allergen_textSize"
+            tools:ignore="HardcodedText" />
+    </RelativeLayout>
+</RelativeLayout>

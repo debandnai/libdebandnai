@@ -1,0 +1,442 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+            <variable
+                name="viewModel"
+                type="com.merkaaz.app.data.viewModel.PaymentViewModel" />
+
+        <variable
+            name="activity"
+            type="com.merkaaz.app.ui.activity.PaymentActivity" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.activity.DeliveryOptionsActivity">
+
+        <LinearLayout
+            android:id="@+id/ll_header"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_50sdp"
+            android:gravity="center_vertical"
+            android:background="@color/teal_700"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/img_back_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:padding="@dimen/_4sdp"
+                android:src="@drawable/ic_back_white"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:fontFamily="@font/russo_one"
+                android:padding="@dimen/_8sdp"
+                android:text="@string/payment"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_16ssp" />
+            <ImageView
+                android:id="@+id/img_help"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:adjustViewBounds="true"
+                android:padding="@dimen/_8sdp"
+                android:src="@drawable/ic_help"
+                tools:ignore="ContentDescription" />
+
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/rl_footer"
+            android:layout_below="@+id/ll_header">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:id="@+id/rl_header_details"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:layout_marginEnd="@dimen/_20sdp"
+                    android:layout_marginBottom="@dimen/_20sdp"
+                    android:background="@drawable/card_edge"
+                    tools:layout_editor_absoluteX="26dp">
+
+                    <TextView
+                        android:id="@+id/tv_total_items_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:layout_marginEnd="@dimen/_5sdp"
+                        android:fontFamily="@font/open_sans_regular"
+                        android:text="@string/total_items"
+                        android:textColor="@color/address_unselect_color"
+                        android:textSize="@dimen/_12ssp" />
+
+                    <TextView
+                        android:id="@+id/tv_edit_total_items"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@+id/tv_total_items_title"
+                        android:layout_alignBottom="@+id/tv_total_items_title"
+                        android:layout_marginStart="@dimen/_2sdp"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_toEndOf="@+id/tv_total_items_title"
+                        android:fontFamily="@font/open_sans_bold"
+                        android:gravity="bottom"
+                        android:text="@string/edit"
+                        android:textColor="@color/teal_700"
+                        android:textSize="@dimen/_10ssp" />
+
+                    <TextView
+                        android:id="@+id/tv_total_amt_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tv_total_items_title"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_2sdp"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:fontFamily="@font/open_sans_bold"
+                        android:gravity="start"
+                        android:text="@{viewModel.totalAmt}"
+                        android:textColor="@color/address_unselect_color"
+                        android:textSize="@dimen/_13ssp"
+                        tools:text="12,345.50 AOA" />
+
+
+                    <!--<TextView
+                        android:id="@+id/tv_total_amt_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@+id/tv_total_items_title"
+                        android:layout_alignBottom="@+id/tv_total_items_title"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginStart="@dimen/_20sdp"
+                        android:layout_marginTop="0dp"
+                        android:layout_marginEnd="@dimen/_12sdp"
+                        android:fontFamily="@font/open_sans_bold"
+                        android:gravity="center"
+                        android:paddingStart="@dimen/_1sdp"
+                        android:paddingEnd="@dimen/_8sdp"
+                        android:paddingBottom="@dimen/_1sdp"
+                        android:text="@{viewModel.totalAmt}"
+                        android:textColor="@color/text_color2"
+                        android:textSize="@dimen/_14ssp"
+                        tools:text="12,345.50 AOAaaaaaaaaaaaaaaaaaaaaaaa" />-->
+
+
+                    <TextView
+                        android:id="@+id/tv_delivery_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tv_total_items_title"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_30sdp"
+                        android:layout_marginEnd="@dimen/_5sdp"
+                        android:fontFamily="@font/open_sans_regular"
+                        android:text="@string/delivery_charge"
+                        android:textColor="@color/address_unselect_color"
+                        android:textSize="@dimen/_12ssp" />
+
+                    <TextView
+                        android:id="@+id/tv_edit_delivery_charge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@+id/tv_delivery_title"
+                        android:layout_alignBottom="@+id/tv_delivery_title"
+                        android:layout_marginStart="@dimen/_2sdp"
+                        android:layout_marginTop="@dimen/_2sdp"
+                        android:layout_marginBottom="@dimen/_1sdp"
+                        android:layout_toEndOf="@+id/tv_delivery_title"
+                        android:fontFamily="@font/open_sans_bold"
+                        android:text="@string/edit"
+                        android:textColor="@color/teal_700"
+                        android:textSize="@dimen/_10ssp" />
+
+                    <TextView
+                        android:id="@+id/tv_total_amt_dc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tv_delivery_title"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_2sdp"
+                        android:fontFamily="@font/open_sans_bold"
+                        android:gravity="start"
+                        android:text="@{viewModel.deliveryAmt}"
+                        android:textColor="@color/address_unselect_color"
+                        android:textSize="@dimen/_13ssp"
+                        app:autoSizeMaxTextSize="@dimen/_14ssp"
+                        app:autoSizeMinTextSize="@dimen/_10ssp"
+                        app:autoSizeStepGranularity="@dimen/_2ssp"
+                        app:autoSizeTextType="uniform"
+                        tools:text="12,345.50 AOA" />
+
+
+
+                    <!--<TextView
+                        android:id="@+id/tv_total_amt_dc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@+id/tv_delivery_title"
+                        android:layout_alignBottom="@+id/tv_delivery_title"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginStart="@dimen/_20sdp"
+                        android:layout_marginTop="0dp"
+                        android:layout_marginEnd="@dimen/_12sdp"
+                        android:layout_marginBottom="0dp"
+                        android:fontFamily="@font/open_sans_semi_bold"
+                        android:gravity="center"
+                        android:paddingEnd="@dimen/_8sdp"
+                        android:paddingBottom="@dimen/_1sdp"
+                        android:text="@{viewModel.deliveryAmt}"
+                        android:textColor="@color/text_color2"
+                        android:textSize="@dimen/_14ssp"
+                        tools:text="12,345.50 AOA" />-->
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tv_total_amt_dc"
+                        android:layout_marginStart="@dimen/_8sdp"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:layout_marginEnd="@dimen/_8sdp"
+                        android:background="@drawable/card_edge_payment"
+                        android:paddingStart="@dimen/_10sdp"
+                        android:layout_marginBottom="@dimen/_8sdp"
+                        android:paddingEnd="@dimen/_10sdp">
+
+                        <TextView
+                            android:id="@+id/tv_grand_total"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:fontFamily="@font/open_sans_regular"
+                            android:gravity="start"
+                            android:paddingEnd="@dimen/_8sdp"
+                            android:text="@string/grand_total"
+                            android:textColor="@color/address_unselect_color"
+                            android:textSize="@dimen/_12ssp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/tv_grand_total"
+                            android:layout_marginBottom="@dimen/_10sdp"
+                            android:fontFamily="@font/open_sans_bold"
+
+                            android:gravity="start"
+                            android:text="@{viewModel.grandTotal}"
+                            android:textColor="@color/address_unselect_color"
+                            android:textSize="@dimen/_14ssp"
+
+                            app:autoSizeMaxTextSize="@dimen/_14ssp"
+                            app:autoSizeMinTextSize="@dimen/_10ssp"
+                            app:autoSizeStepGranularity="@dimen/_2ssp"
+                            app:autoSizeTextType="uniform"
+                            tools:text="13,845.50 AOA " />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_30sdp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:layout_toEndOf="@+id/tv_grand_total"
+                            android:fontFamily="@font/open_sans_bold"
+                            android:gravity="end|center_vertical" />
+                    </RelativeLayout>
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/tv_select_payment_mode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_20sdp"
+                    android:layout_marginEnd="@dimen/_20sdp"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:text="@string/select_payment_method"
+                    android:textColor="@color/address_unselect_color"
+                    android:textSize="@dimen/_14ssp" />
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:layout_marginEnd="@dimen/_20sdp"
+                    android:layout_marginBottom="@dimen/_20sdp"
+                    android:elevation="@dimen/_5sdp"
+                    app:cardCornerRadius="@dimen/_7sdp"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_select_payment_mode"
+                    tools:layout_editor_absoluteX="26dp">
+
+                    <RadioGroup
+                        android:id="@+id/rg_payment_options"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_8sdp"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+
+                        <RadioButton
+                            android:id="@+id/rb_online_payment"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_50sdp"
+                            android:layout_marginTop="@dimen/_15sdp"
+                            android:layout_marginBottom="@dimen/_2sdp"
+                            android:background="@drawable/card_edge"
+                            android:button="@null"
+                            android:visibility="gone"
+                            android:drawableStart="@drawable/ic_online_pay_icon"
+                            android:drawableEnd="@drawable/radio_button"
+                            android:drawablePadding="@dimen/_8sdp"
+                            android:fontFamily="@font/open_sans_semi_bold"
+                            android:paddingLeft="@dimen/_8sdp"
+                            android:paddingTop="@dimen/_3sdp"
+                            android:paddingRight="@dimen/_8sdp"
+                            android:paddingBottom="@dimen/_3sdp"
+                            android:text="@string/online_payment"
+                            android:textColor="@color/address_unselect_color"
+                            android:textSize="@dimen/_12ssp">
+
+                        </RadioButton>
+
+                        <RadioButton
+                            android:id="@+id/rb_pay_by_card_machine"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_50sdp"
+                            android:layout_marginTop="@dimen/_20sdp"
+                            android:layout_marginBottom="@dimen/_20sdp"
+                            android:background="@drawable/card_edge"
+                            android:button="@android:color/transparent"
+                            android:drawableStart="@drawable/ic_card_machine_icon"
+                            android:drawableEnd="@drawable/radio_button"
+                            android:drawablePadding="@dimen/_15sdp"
+                            android:fontFamily="@font/open_sans_semi_bold"
+                            android:paddingLeft="@dimen/_8sdp"
+                            android:paddingTop="@dimen/_3sdp"
+                            android:paddingRight="@dimen/_8sdp"
+                            android:paddingBottom="@dimen/_3sdp"
+                            android:text="@string/pay_by_card_machine"
+                            android:textColor="@color/address_unselect_color"
+                            android:textSize="@dimen/_12ssp"/>
+                            <RadioButton
+                            android:id="@+id/rb_pay_by_cash"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_50sdp"
+                            android:layout_marginBottom="@dimen/_20sdp"
+                            android:background="@drawable/card_edge"
+                            android:button="@android:color/transparent"
+                            android:drawableStart="@drawable/cod"
+                            android:drawableEnd="@drawable/radio_button"
+                            android:drawablePadding="@dimen/_15sdp"
+                            android:fontFamily="@font/open_sans_semi_bold"
+                            android:paddingLeft="@dimen/_8sdp"
+                            android:paddingTop="@dimen/_3sdp"
+                            android:paddingRight="@dimen/_8sdp"
+                            android:paddingBottom="@dimen/_3sdp"
+                            android:text="@string/pay_by_cash"
+                            android:textColor="@color/address_unselect_color"
+                            android:textSize="@dimen/_12ssp">
+
+                        </RadioButton>
+
+                    </RadioGroup>
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+        </ScrollView>
+
+        <RelativeLayout
+            android:id="@+id/rl_footer"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_60sdp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/white"
+            android:paddingBottom="@dimen/_4sdp">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_4sdp"
+                android:background="@drawable/top_shadow_gradient" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_proceed_to_pay"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_alignTop="@+id/tv_total_amt"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="@dimen/_4sdp"
+                android:layout_marginTop="-21dp"
+                android:layout_marginEnd="@dimen/_18sdp"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/teal_button_bg"
+                android:fontFamily="@font/russo_one"
+                android:paddingStart="@dimen/_20sdp"
+                android:paddingTop="@dimen/_4sdp"
+                android:paddingEnd="@dimen/_20sdp"
+                android:paddingBottom="@dimen/_4sdp"
+                android:text="@string/finalize"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_12ssp"
+                tools:ignore="RelativeOverlap" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/tv_total_amt"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:fontFamily="@font/open_sans_regular"
+
+                android:text="@string/total"
+                android:textColor="@color/address_unselect_color"
+                android:textSize="@dimen/_16ssp" />
+
+            <TextView
+                android:id="@+id/tv_total_amt"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_toStartOf="@+id/btn_proceed_to_pay"
+                android:fontFamily="@font/open_sans_bold"
+                android:gravity="start"
+                android:padding="0dp"
+                android:text="@{viewModel.grandTotal}"
+                android:textColor="@color/teal_700"
+                android:textSize="@dimen/_16ssp"
+                app:autoSizeMaxTextSize="@dimen/_16ssp"
+                app:autoSizeMinTextSize="@dimen/_10ssp"
+                app:autoSizeStepGranularity="@dimen/_2ssp"
+                app:autoSizeTextType="uniform" />
+
+        </RelativeLayout>
+    </RelativeLayout>
+</layout>

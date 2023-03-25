@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="dataItem"
+            type="com.merkaaz.app.data.model.CategoryData" />
+
+    </data>
+
+    <LinearLayout
+        android:id="@+id/ll_item_Layout"
+        android:layout_width="@dimen/_70sdp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_11sdp"
+        android:gravity="center"
+        android:orientation="vertical"
+        tools:ignore="UseCompoundDrawables">
+
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/productImage"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_70sdp"
+            app:placeholderImage="@drawable/no_product_image"
+            app:imageUrl="@{dataItem.categoryImage}" />
+
+        <TextView
+            android:id="@+id/txt_cat_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:ellipsize="end"
+            android:fontFamily="@font/open_sans_regular"
+            android:maxLines="1"
+            android:text="@{dataItem.categoryName}"
+            android:textAlignment="center"
+            android:textColor="@color/dark_blue"
+            android:textSize="@dimen/_10ssp" />
+
+    </LinearLayout>
+</layout>

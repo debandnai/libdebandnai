@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="profitlossProduct"
+            type="com.merkaaz.app.data.model.ProfitlossProduct" />
+        <variable
+            name="viewmodel"
+            type="com.merkaaz.app.data.viewModel.CalculatorBottomSheetViewModel" />
+
+        <variable
+            name="context"
+            type="com.merkaaz.app.ui.dialogs.CalculateBottomSheet" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_header"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_200sdp"
+        app:hideKeyboardByClickingOutside="@{context.activity}"
+        android:background="@drawable/top_rounded_shape"
+        >
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/iv_product_img"
+            android:layout_width="@dimen/_60sdp"
+            android:layout_height="@dimen/_60sdp"
+            android:layout_gravity="center"
+            android:layout_marginStart="@dimen/_6sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_marginEnd="@dimen/_2sdp"
+            android:adjustViewBounds="true"
+            android:padding="@dimen/_4sdp"
+            app:imageUrl="@{profitlossProduct.productImage}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:placeholderImage="@drawable/no_image"
+            tools:src="@drawable/no_img" />
+
+        <TextView
+            android:id="@+id/tv_brand"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_2sdp"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:fontFamily="@font/open_sans_semi_bold"
+            android:text="@string/cost_price"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="@color/teal_700"
+            android:textSize="@dimen/_9ssp"
+            app:layout_constraintEnd_toStartOf="@+id/view7"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/iv_product_img"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@{profitlossProduct.brand}" />
+
+        <TextView
+            android:id="@+id/tv_product_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:fontFamily="@font/open_sans_semi_bold"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:text="@{profitlossProduct.productName}"
+            android:textColor="@color/dark_blue"
+            android:textSize="@dimen/_12ssp"
+            app:layout_constraintEnd_toStartOf="@+id/view7"
+            app:layout_constraintStart_toStartOf="@+id/tv_brand"
+            app:layout_constraintTop_toBottomOf="@+id/tv_brand"
+            tools:text="AASHIRVAAD Atta with Multigrains" />
+
+        <TextView
+            android:id="@+id/tv_product_size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/open_sans_semi_bold"
+            android:paddingEnd="@dimen/_2sdp"
+            android:text="@{profitlossProduct.size}"
+            android:textColor="@color/dark_blue"
+
+            android:textSize="@dimen/_10ssp"
+            app:layout_constraintStart_toStartOf="@+id/tv_brand"
+            app:layout_constraintTop_toBottomOf="@+id/tv_product_name"
+            tools:text="(5 kg) Pouch" />
+
+        <TextView
+            android:id="@+id/tv_product_qty_tag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawablePadding="@dimen/_2sdp"
+            android:fontFamily="@font/open_sans_semi_bold"
+            android:paddingStart="@dimen/_2sdp"
+            android:text="@string/qty"
+            android:textColor="@color/dark_blue"
+            android:textSize="@dimen/_10ssp"
+            app:layout_constraintStart_toEndOf="@+id/tv_product_size"
+            app:layout_constraintTop_toBottomOf="@+id/tv_product_name"
+            tools:text="Qty"
+            app:drawableStartCompat="@drawable/ic_hr_line_dark_blue" />
+
+        <TextView
+            android:id="@+id/tv_product_qty"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:drawablePadding="@dimen/_2sdp"
+            android:fontFamily="@font/open_sans_semi_bold"
+            android:paddingStart="@dimen/_2sdp"
+            android:text="@{profitlossProduct.quantity.toString()}"
+            android:textColor="@color/teal_700"
+            android:textSize="@dimen/_10ssp"
+            app:layout_constraintEnd_toEndOf="@+id/tv_product_name"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/tv_product_qty_tag"
+            app:layout_constraintTop_toBottomOf="@+id/tv_product_name"
+            tools:text="10" />
+
+        <TextView
+            android:id="@+id/tv_sp_l_cp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/open_sans_regular"
+            android:text="@string/selling_price_is_less_than_cost_price"
+            android:textColor="@color/red"
+            android:paddingTop="@dimen/_4sdp"
+            android:paddingBottom="@dimen/_6sdp"
+            android:textSize="@dimen/_9ssp"
+            android:gravity="center_horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/view6"
+            app:layout_constraintTop_toBottomOf="@+id/iv_product_img"
+            tools:text="@string/selling_price_is_less_than_cost_price" />
+        <View
+            android:id="@+id/view6"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_marginTop="@dimen/_14sdp"
+            app:layout_constraintTop_toBottomOf="@+id/iv_product_img" />
+
+        <View
+            android:id="@+id/view7"
+            android:layout_width="@dimen/_1sdp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/view6"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.63"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_net_profit"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_16sdp"
+            android:layout_marginStart="@dimen/_4sdp"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:fontFamily="@font/open_sans_semi_bold"
+            app:autoSizeMaxTextSize="@dimen/_11ssp"
+            app:autoSizeMinTextSize="@dimen/_7ssp"
+            app:autoSizeStepGranularity="@dimen/_2ssp"
+            app:autoSizeTextType="uniform"
+            android:textColor="@color/dark_blue"
+            android:textSize="@dimen/_11ssp"
+            app:layout_constraintBottom_toTopOf="@+id/view6"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/tv_product_name"
+            app:layout_constraintTop_toBottomOf="@+id/tv_brand"
+            app:setTextViewValueWithAOA="@{profitlossProduct.netProfit.replace(`AOA`,``)}"
+            tools:text="1,5023456.00" />
+
+
+
+        <TextView
+            android:id="@+id/tv_net_profit_tag"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_4sdp"
+            android:ellipsize="end"
+            android:layout_marginEnd="@dimen/_40sdp"
+            android:fontFamily="@font/open_sans_regular"
+            android:maxLines="1"
+            android:text="@string/net_profit"
+            android:textColor="@color/dark_blue"
+            android:textSize="@dimen/_12ssp"
+            app:layout_constraintBottom_toTopOf="@+id/tv_net_profit"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/tv_product_name"
+            app:layout_constraintTop_toBottomOf="@+id/tv_brand"
+            app:layout_constraintVertical_bias="1.0"
+            tools:text="@string/net_profit" />
+
+        <TextView
+            android:id="@+id/tv_sell_price_tag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_marginBottom="@dimen/_3sdp"
+            android:paddingBottom="@dimen/_2sdp"
+            android:fontFamily="@font/open_sans_regular"
+            android:text="@string/sell_price"
+            android:textSize="@dimen/_11ssp"
+            app:layout_constraintBottom_toTopOf="@+id/view_sell_price"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view6" />
+
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:layout_marginEnd="@dimen/_12sdp"
+            android:paddingBottom="@dimen/_6sdp"
+            android:fontFamily="@font/open_sans_regular"
+            android:text="@string/profit"
+            android:textSize="@dimen/_11ssp"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_sell_price_tag"
+            app:layout_constraintEnd_toEndOf="@+id/textView9"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/view_profit"
+            app:layout_constraintTop_toTopOf="@+id/tv_sell_price_tag" />
+
+        <View
+            android:id="@+id/view_sell_price"
+            android:layout_width="0dp"
+            android:layout_marginTop="@dimen/_14sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginEnd="@dimen/_2sdp"
+            android:background="@drawable/calculate_view_bg"
+            app:layout_constraintEnd_toStartOf="@+id/view_profit"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="@+id/btn_calculate_and_update"
+            app:layout_constraintTop_toBottomOf="@+id/view6" />
+
+        <TextView
+            android:id="@+id/tv_aoa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:fontFamily="@font/open_sans_bold"
+            android:text="@string/aoa"
+            android:paddingStart="@dimen/_12sdp"
+            android:layout_marginStart="@dimen/_4sdp"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_11ssp"
+            app:layout_constraintBottom_toBottomOf="@+id/view_sell_price"
+            app:layout_constraintEnd_toEndOf="@+id/view_sell_price"
+            app:layout_constraintTop_toTopOf="@+id/view_sell_price" />
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:fontFamily="@font/open_sans_bold"
+            android:gravity="center"
+            android:inputType="numberDecimal"
+            android:textColor="@color/dark_blue"
+            android:textSize="@dimen/_12ssp"
+            android:hint="@string/_0_00"
+            android:imeOptions="actionDone"
+            android:maxLength="15"
+            android:paddingStart="@dimen/_4sdp"
+            android:paddingEnd="@dimen/_2sdp"
+            android:id="@+id/et_sell_price"
+            android:text="@={viewmodel.sellPrice}"
+            android:background="@drawable/card_edge_slate_gray_border"
+            app:layout_constraintBottom_toBottomOf="@+id/view_sell_price"
+            app:layout_constraintEnd_toStartOf="@+id/tv_aoa"
+            app:layout_constraintStart_toStartOf="@+id/btn_calculate_and_update"
+            app:layout_constraintTop_toTopOf="@+id/view_sell_price" />
+
+
+        <View
+            android:id="@+id/view_profit"
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginStart="@dimen/_2sdp"
+            android:background="@drawable/calculate_view_bg"
+            android:layout_marginBottom="@dimen/_4sdp"
+            app:layout_constraintBottom_toBottomOf="@+id/view_sell_price"
+            app:layout_constraintEnd_toEndOf="@+id/btn_calculate_and_update"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/view_sell_price"
+            app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/open_sans_bold"
+            android:paddingStart="@dimen/_12sdp"
+            android:paddingEnd="@dimen/_12sdp"
+            android:text="@string/percent_text"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_12ssp"
+            app:layout_constraintBottom_toBottomOf="@+id/view_profit"
+            app:layout_constraintEnd_toEndOf="@+id/view_profit"
+            app:layout_constraintTop_toTopOf="@+id/view_profit" />
+
+        <EditText
+            android:id="@+id/et_profit"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/card_edge_slate_gray_border"
+            android:fontFamily="@font/open_sans_bold"
+            android:gravity="center"
+            android:hint="0.0"
+            android:imeOptions="actionDone"
+            android:layout_marginEnd="@dimen/_2sdp"
+            android:maxLength="10"
+            android:inputType="numberDecimal"
+            android:paddingStart="@dimen/_2sdp"
+            android:paddingEnd="@dimen/_2sdp"
+            android:text="@={viewmodel.profitProfitPercentage}"
+            android:textColor="@color/dark_blue"
+            android:textSize="@dimen/_12ssp"
+            app:layout_constraintBottom_toBottomOf="@+id/view_profit"
+            app:layout_constraintEnd_toStartOf="@+id/textView9"
+            app:layout_constraintStart_toStartOf="@+id/view_profit"
+            app:layout_constraintTop_toTopOf="@+id/view_profit" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_calculate_and_update"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:layout_marginBottom="@dimen/_12sdp"
+            android:background="@drawable/teal_button_bg"
+            android:fontFamily="@font/russo_one"
+            android:text="@string/calculate_amp_update"
+            android:textColor="@color/white"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_marginEnd="@dimen/_12sdp"
+            android:textSize="@dimen/_13ssp"
+            app:layout_constraintBottom_toBottomOf="parent"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view_sell_price" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

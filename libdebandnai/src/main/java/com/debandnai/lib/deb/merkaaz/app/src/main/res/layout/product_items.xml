@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_margin="@dimen/_8sdp"
+    android:padding="@dimen/_8sdp"
+    android:elevation="1dp"
+    android:background="@drawable/white_bg_round_corner">
+
+    <RelativeLayout
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:padding="4dp"
+        android:layout_margin="4dp"
+        android:elevation="2dp"
+        android:background="@drawable/white_bg_round_corner">
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:adjustViewBounds="true"
+            android:src="@drawable/img_product"
+            tools:ignore="ContentDescription" />
+
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_marginTop="4dp"
+            android:text="Staples"
+            android:id="@+id/tv_cat"
+            android:textColor="@color/teal_700"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_product_name"
+            android:textSize="14sp"
+            android:gravity="center_vertical"
+            android:text="Tata Sampann Masoor Dal"
+            android:textColor="@color/black"/>
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"
+            android:entries="@array/weight"
+            android:background="@drawable/rounded_corner_spinner_bg"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_marginLeft="2dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:text="\u20ac 200"
+                    android:textStyle="bold"
+                    android:gravity="bottom"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:id="@+id/tv_price"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:text="\u20ac 250"
+                    android:textStyle="bold"
+                    android:id="@+id/tv_strike_through_price"/>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_add"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="2dp"
+                android:background="@drawable/view_btn_left_bg"
+                android:text="Add"
+                android:textColor="@color/white"
+                android:visibility="visible" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:id="@+id/qnt_lay"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_centerVertical="true"
+                android:textColor="@color/white"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="2dp"
+                android:visibility="gone"
+                android:background="@drawable/white_bg_round_corner">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/iv_remove"
+                    android:padding="4dp"
+                    android:background="@drawable/view_btn_left_bg"
+                    app:tint="@color/white"
+                    android:src="@drawable/remove"
+                    android:layout_gravity="center"
+                    android:scaleType="centerInside"/>
+                <TextView
+                    android:layout_width="40dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/tv_quantity"
+                    android:text="1"
+                    android:paddingLeft="4dp"
+                    android:paddingRight="4dp"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:gravity="center"/>
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/iv_add"
+                    android:padding="4dp"
+                    android:background="@drawable/view_btn_left_bg"
+                    app:tint="@color/white"
+                    android:src="@drawable/ic_add"
+                    android:layout_gravity="center"
+                    android:scaleType="fitCenter"/>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.salonsolution.app.data.viewModel.DashboardViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_155sdp"
+        android:background="@drawable/gradient_bg">
+
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/ibBack"
+            android:layout_width="@dimen/_22sdp"
+            android:layout_height="@dimen/_22sdp"
+            android:layout_marginTop="@dimen/_34sdp"
+            android:background="@drawable/red_round_shape"
+            android:padding="@dimen/_5sdp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/keyboard_arrow_left"
+            android:tint="@color/white"
+            android:visibility="@{viewModel.isMainMenu? View.INVISIBLE : View.VISIBLE}"
+            app:layout_constraintStart_toEndOf="@id/guideline2"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck"
+            tools:visibility="invisible" />
+
+        <TextView
+            android:id="@+id/tvHey"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/default_text_color"
+            android:fontFamily="@font/ebgaramond_regular_400"
+            android:textSize="24sp"
+            android:text="@string/hey"
+            android:layout_marginTop="@dimen/_8sdp"
+            app:layout_constraintStart_toStartOf="@id/guideline2"
+            app:layout_constraintTop_toBottomOf="@id/ibBack" />
+
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/ebgaramond_regular_400"
+            android:text="@{viewModel.userProfileName}"
+            android:textColor="@color/default_text_color"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:paddingStart="@dimen/_4sdp"
+            android:paddingEnd="@dimen/_4sdp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvHey"
+            app:layout_constraintEnd_toStartOf="@+id/circleImageView"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/tvHey"
+            app:layout_constraintTop_toTopOf="@+id/tvHey"
+            tools:text="Lukeny" />
+
+        <TextView
+            android:id="@+id/tvWelcome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/default_text_color"
+            android:fontFamily="@font/montserrat_regular_400"
+            android:textSize="12sp"
+            android:text="@string/welcome"
+            app:layout_constraintStart_toStartOf="@id/guideline2"
+            app:layout_constraintTop_toBottomOf="@id/tvHey" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/circleImageView"
+            android:layout_width="@dimen/_48sdp"
+            android:layout_height="@dimen/_48sdp"
+            android:layout_marginEnd="@dimen/_12sdp"
+            android:src="@drawable/profile"
+            app:imageUrl="@{viewModel.userProfileImg}"
+            placeHolderText="@{viewModel.userFullName}"
+            app:civ_border_color="@color/circle_image_border"
+            app:civ_border_width="2dp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvWelcome"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tvHey" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:elevation="4dp"
+            android:layout_marginTop="@dimen/_24sdp"
+            android:background="@drawable/drawer_nav_background"
+            app:layout_constraintTop_toBottomOf="@id/tvWelcome"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

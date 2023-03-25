@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/registration_nav_view"
+    app:startDestination="@id/parentRegistrationStepOneFragment">
+
+    <fragment
+        android:id="@+id/parentRegistrationStepOneFragment"
+        android:name="ie.healthylunch.app.fragment.registration.ParentRegistrationStepOneFragment"
+        android:label="fragment_parent_registration_step_one"
+        tools:layout="@layout/fragment_parent_registration_step_one">
+        <action
+            android:id="@+id/action_parentRegistrationStepOneFragment_to_parentRegistrationStepTwoFragment"
+            app:destination="@id/parentRegistrationStepTwoFragment" />
+        <action
+            android:id="@+id/action_parentRegistrationStepOneFragment_self"
+            app:destination="@id/parentRegistrationStepOneFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/parentRegistrationStepTwoFragment"
+        android:name="ie.healthylunch.app.fragment.registration.ParentRegistrationStepTwoFragment"
+        android:label="ParentRegistrationStepTwoFragment"
+        tools:layout="@layout/fragment_parent_registration_step_two">
+        <action
+            android:id="@+id/action_parentRegistrationStepTwoFragment_to_registrationOtpFragment"
+            app:destination="@id/registrationOtpFragment" />
+        <action
+            android:id="@+id/action_parentRegistrationStepTwoFragment_to_parentRegistrationStepOneFragment"
+            app:destination="@id/parentRegistrationStepOneFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registrationOtpFragment"
+        android:name="ie.healthylunch.app.fragment.registration.RegistrationOtpFragment"
+        android:label="RegistrationOtpFragment"
+        tools:layout="@layout/fragment_registration_otp">
+        <action
+            android:id="@+id/action_registrationOtpFragment_to_addStudentNewStepOneFragment"
+            app:destination="@id/addStudentNewStepOneFragment" />
+        <action
+            android:id="@+id/action_registrationOtpFragment_self"
+            app:destination="@id/registrationOtpFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addStudentNewStepOneFragment"
+        android:name="ie.healthylunch.app.fragment.registration.AddStudentNewStepOneFragment"
+        android:label="AddStudentNewStepOneFragment"
+        tools:layout="@layout/fragment_add_student_new_step_one">
+        <action
+            android:id="@+id/action_addStudentNewStepOneFragment_to_addStudentNewStepTwoFragment"
+            app:destination="@id/addStudentNewStepTwoFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_addStudentNewStepOneFragment_to_addStudentSuccessFragment"
+            app:destination="@id/addStudentSuccessFragment" />
+        <action
+            android:id="@+id/action_addStudentNewStepOneFragment_to_deisStudentUniqueCodeFragment"
+            app:destination="@id/deisStudentUniqueCodeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addStudentNewStepTwoFragment"
+        android:name="ie.healthylunch.app.fragment.registration.AddStudentNewStepTwoFragment"
+        android:label="AddStudentNewStepTwoFragment"
+        tools:layout="@layout/fragment_add_student_new_step_two">
+        <action
+            android:id="@+id/action_addStudentNewStepTwoFragment_to_allergenFragment"
+            app:destination="@id/allergenFragment" />
+
+        <action
+            android:id="@+id/action_addStudentNewStepTwoFragment_to_addStudentNewStepOneFragment"
+            app:destination="@id/addStudentNewStepOneFragment" />
+        <action
+            android:id="@+id/action_addStudentNewStepTwoFragment_to_checkHasAllergenFragment"
+            app:destination="@id/checkHasAllergenFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/allergenFragment"
+        android:name="ie.healthylunch.app.fragment.registration.AllergenFragment"
+        android:label="AllergenFragment"
+        tools:layout="@layout/fragment_allergen">
+        <action
+            android:id="@+id/action_allergenFragment_to_addStudentSuccessFragment"
+            app:destination="@id/addStudentSuccessFragment" />
+        <action
+            android:id="@+id/action_allergenFragment_self"
+            app:destination="@id/allergenFragment" />
+        <action
+            android:id="@+id/action_allergenFragment_to_allergenProductRemoveConfirmation"
+            app:destination="@id/allergenProductRemoveConfirmation" />
+    </fragment>
+    <fragment
+        android:id="@+id/addStudentSuccessFragment"
+        android:name="ie.healthylunch.app.fragment.registration.AddStudentSuccessFragment"
+        android:label="AddStudentSuccessFragment"
+        tools:layout="@layout/fragment_add_student_success">
+        <action
+            android:id="@+id/action_addStudentSuccessFragment_to_addStudentNewStepOneFragment"
+            app:destination="@id/addStudentNewStepOneFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/checkHasAllergenFragment"
+        android:name="ie.healthylunch.app.fragment.registration.AllergenConfirmationFragment"
+        android:label="fragment_check_has_allergen"
+        tools:layout="@layout/fragment_check_has_allergen">
+        <action
+            android:id="@+id/action_checkHasAllergenFragment_to_allergenFragment"
+            app:destination="@id/allergenFragment" />
+        <action
+            android:id="@+id/action_checkHasAllergenFragment_to_addStudentNewStepTwoFragment"
+            app:destination="@id/addStudentNewStepTwoFragment" />
+        <action
+            android:id="@+id/action_checkHasAllergenFragment_to_addStudentSuccessFragment"
+            app:destination="@id/addStudentSuccessFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/allergenProductRemoveConfirmation"
+        android:name="ie.healthylunch.app.fragment.registration.AllergenProductRemoveConfirmationFragment"
+        android:label="fragment_allergen_product_remove_confirmation"
+        tools:layout="@layout/fragment_allergen_product_remove_confirmation">
+        <action
+            android:id="@+id/action_allergenProductRemoveConfirmation_to_addStudentSuccessFragment"
+            app:destination="@id/addStudentSuccessFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/deisStudentUniqueCodeFragment"
+        android:name="ie.healthylunch.app.fragment.registration.DeisStudentUniqueCodeFragment"
+        android:label="DeisStudentUniqueCodeFragment"
+        tools:layout="@layout/fragment_deis_student_unique_code">
+        <action
+            android:id="@+id/action_deisStudentUniqueCodeFragment_to_deisStudentSchoolDetailsFragment"
+            app:destination="@id/deisStudentSchoolDetailsFragment" />
+        <action
+            android:id="@+id/action_deisStudentUniqueCodeFragment_to_addStudentNewStepTwoFragment"
+            app:destination="@id/addStudentNewStepTwoFragment" />
+        <action
+            android:id="@+id/action_deisStudentUniqueCodeFragment_to_addStudentNewStepOneFragment"
+            app:destination="@id/addStudentNewStepOneFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/deisStudentSchoolDetailsFragment"
+        android:name="ie.healthylunch.app.fragment.registration.DeisStudentSchoolDetailsFragment"
+        android:label="DeisStudentSchoolDetailsFragment"
+        tools:layout="@layout/fragment_deis_student_school_details" >
+        <argument
+            android:name="StudentDetails"
+            app:argType="ie.healthylunch.app.data.model.deisStudentUniqueCodeModel.Data" />
+        <action
+            android:id="@+id/action_deisStudentSchoolDetailsFragment_to_checkHasAllergenFragment"
+            app:destination="@id/checkHasAllergenFragment" />
+    </fragment>
+</navigation>

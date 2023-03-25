@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_6sdp"
+        android:elevation="@dimen/_20sdp"
+        app:cardCornerRadius="@dimen/_8sdp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/topLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="@dimen/_8sdp"
+                app:cardElevation="@dimen/_4sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_66sdp"
+                    android:layout_margin="@dimen/_12sdp">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/orderIdLayout"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/my_order_stroke_bg"
+                        android:paddingStart="@dimen/_10sdp"
+                        android:paddingTop="@dimen/_20sdp"
+                        android:paddingEnd="0dp"
+                        android:paddingBottom="@dimen/_20sdp"
+                        app:layout_constraintEnd_toStartOf="@id/grandTotalLayout"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <TextView
+                            android:id="@+id/tvOrderIdText"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/montserrat_medium_500"
+                            android:text="@string/order_id"
+                            android:textColor="@color/edittext_text_color"
+                            android:textSize="@dimen/_9ssp"
+                            app:layout_constraintBottom_toTopOf="@id/guideline2"
+                            app:layout_constraintEnd_toStartOf="@id/guideline1"
+                            app:layout_constraintStart_toStartOf="parent" />
+
+                        <TextView
+                            android:id="@+id/tvOrderId"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/open_sans_bold_700"
+                            android:text="@string/order_id"
+                            android:textColor="@color/default_text_color"
+                            android:textSize="@dimen/_10ssp"
+                            app:layout_constraintEnd_toEndOf="@id/tvOrderIdText"
+                            app:layout_constraintStart_toStartOf="@id/tvOrderIdText"
+                            app:layout_constraintTop_toBottomOf="@id/tvOrderIdText"
+                            tools:text="156895892359" />
+
+                        <androidx.constraintlayout.widget.Guideline
+                            android:id="@+id/guideline1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            app:layout_constraintGuide_percent="0.5" />
+
+                        <TextView
+                            android:id="@+id/tvOrderDateText"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/montserrat_medium_500"
+                            android:text="@string/order_date"
+                            android:textColor="@color/edittext_text_color"
+                            android:textSize="@dimen/_9ssp"
+                            app:layout_constraintBottom_toTopOf="@id/guideline2"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/guideline1" />
+
+                        <TextView
+                            android:id="@+id/tvOrderDate"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/open_sans_bold_700"
+                            android:text="@string/order_id"
+                            android:textColor="@color/default_text_color"
+                            android:textSize="@dimen/_10ssp"
+                            app:layout_constraintEnd_toEndOf="@id/tvOrderDateText"
+                            app:layout_constraintStart_toStartOf="@id/tvOrderDateText"
+                            app:layout_constraintTop_toBottomOf="@id/tvOrderDateText"
+                            tools:text="26 Nov, 2022" />
+
+                        <androidx.constraintlayout.widget.Guideline
+                            android:id="@+id/guideline2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            app:layout_constraintGuide_percent="0.5" />
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/grandTotalLayout"
+                        android:layout_width="@dimen/_104sdp"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/right_top_bottom_round_red_bg"
+                        android:paddingStart="0dp"
+                        android:paddingEnd="@dimen/_10sdp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/orderIdLayout">
+
+                        <androidx.constraintlayout.widget.Guideline
+                            android:id="@+id/guideline3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/_10sdp"
+                            android:orientation="horizontal"
+                            app:layout_constraintGuide_percent="0.5" />
+
+                        <TextView
+                            android:id="@+id/tvGrandTotalText"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/montserrat_regular_400"
+                            android:text="@string/grand_total"
+                            android:textAlignment="textEnd"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_9ssp"
+                            app:layout_constraintBottom_toTopOf="@id/guideline3"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent" />
+
+                        <TextView
+                            android:id="@+id/tvGrandTotal"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/montserrat_bold_700"
+                            android:text="@string/order_id"
+                            android:textAlignment="textEnd"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_16ssp"
+                            app:layout_constraintEnd_toEndOf="@id/tvGrandTotalText"
+                            app:layout_constraintStart_toStartOf="@id/tvGrandTotalText"
+                            app:layout_constraintTop_toBottomOf="@id/tvGrandTotalText"
+                            tools:text="$1425" />
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <LinearLayout
+                android:id="@+id/llServiceList"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/topLayout" />
+            <!--  listItem = R.layout.my_order_service_list_item-->
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btViewDetails"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_14sdp"
+                android:layout_marginEnd="@dimen/_14sdp"
+                android:background="@drawable/red_button_bg"
+                android:fontFamily="@font/montserrat_semibold_600"
+                android:foreground="?attr/selectableItemBackgroundBorderless"
+                android:padding="@dimen/_14sdp"
+                android:text="@string/view_details"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/llServiceList" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btBugItAgain"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_14sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_14sdp"
+                android:layout_marginBottom="@dimen/_12sdp"
+                android:background="@drawable/gray_button_bg"
+                android:fontFamily="@font/montserrat_semibold_600"
+                android:foreground="?attr/selectableItemBackgroundBorderless"
+                android:padding="@dimen/_14sdp"
+                android:text="@string/buy_it_again"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btViewDetails" />
+
+            <TextView
+                android:id="@+id/btCancelOrder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_14sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_14sdp"
+                android:layout_marginBottom="@dimen/_4sdp"
+                android:fontFamily="@font/montserrat_medium_500"
+                android:foreground="?attr/selectableItemBackgroundBorderless"
+                android:padding="@dimen/_14sdp"
+                android:text="@string/cancel_order"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="@color/default_text_color"
+                android:textSize="@dimen/_11ssp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btBugItAgain" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </com.google.android.material.card.MaterialCardView>
+</layout>

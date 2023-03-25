@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.salonsolution.app.data.viewModel.SearchViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/toolbar_bg_color"
+        tools:context=".ui.fragment.SearchFragment">
+
+        <ImageButton
+            android:id="@+id/ivBackArrow"
+            android:layout_width="@dimen/_22sdp"
+            android:layout_height="@dimen/_22sdp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:background="@drawable/red_round_shape"
+            android:src="@drawable/ic_baseline_arrow_left"
+            app:layout_constraintBottom_toBottomOf="@id/includeSearchLayout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/includeSearchLayout"
+            app:tint="@color/white"
+            tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck"
+            tools:visibility="visible" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/includeSearchLayout"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_40sdp"
+            android:background="@drawable/search_bg"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:layout_marginEnd="@dimen/_12sdp"
+            android:layout_marginBottom="@dimen/_8sdp"
+            android:transitionName="@string/transition_name_to"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ivBackArrow"
+            app:layout_constraintTop_toTopOf="parent"
+            >
+
+            <EditText
+                android:id="@+id/edt_search"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="@dimen/_4sdp"
+                android:background="@null"
+                android:fontFamily="@font/montserrat_regular_400"
+                android:gravity="center_vertical"
+                android:hint="@string/search_here"
+                android:imeOptions="actionSearch"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                android:paddingStart="@dimen/_16sdp"
+                android:paddingTop="@dimen/_4sdp"
+                android:paddingEnd="@dimen/_4sdp"
+                android:paddingBottom="@dimen/_4sdp"
+                android:text="@={viewModel.searchData}"
+                android:textColor="@color/search_text_color"
+                android:textColorHint="@color/search_text_color"
+                android:textSize="@dimen/_12ssp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/img_search_icon"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="RtlSymmetry,TextContrastCheck" />
+
+            <ImageView
+                android:id="@+id/img_search_icon"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:padding="8dp"
+                android:src="@drawable/ic_search"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/search_text_color"
+                tools:ignore="ContentDescription,ImageContrastCheck" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:background="@drawable/categories_service_list_bg"
+            android:elevation="4dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/includeSearchLayout">
+
+            <TextView
+                android:id="@+id/tvService"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_16sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:fontFamily="@font/montserrat_medium_500"
+                android:text="@string/services"
+                android:textColor="@color/default_text_color"
+                android:textSize="@dimen/_13ssp"
+                android:visibility='@{viewModel.totalServicesCount.equals("0") ? View.GONE : View.VISIBLE}'
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvServiceCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_6sdp"
+                android:background="@drawable/service_count_bg"
+                android:fontFamily="@font/montserrat_medium_500"
+                android:paddingStart="@dimen/_7sdp"
+                android:paddingTop="@dimen/_5sdp"
+                android:paddingEnd="@dimen/_7sdp"
+                android:paddingBottom="@dimen/_5sdp"
+                android:text="@{viewModel.totalServicesCount}"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                android:visibility='@{viewModel.totalServicesCount.equals("0") ? View.GONE : View.VISIBLE}'
+                app:layout_constraintBottom_toBottomOf="@id/tvService"
+                app:layout_constraintStart_toEndOf="@id/tvService"
+                app:layout_constraintTop_toTopOf="@id/tvService"
+                tools:text="15" />
+
+
+            <androidx.constraintlayout.widget.Barrier
+                android:id="@+id/barrier2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:barrierDirection="bottom"
+                app:constraint_referenced_ids="tvService,tvServiceCount"
+                tools:layout_editor_absoluteY="891dp" />
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvServiceList"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginEnd="@dimen/_5sdp"
+                android:paddingStart="@dimen/_8sdp"
+                android:paddingTop="@dimen/_8sdp"
+                android:paddingEnd="@dimen/_3sdp"
+                android:paddingBottom="@dimen/_8sdp"
+                android:scrollbarSize="4dp"
+                android:scrollbarStyle="outsideInset"
+                android:scrollbarThumbVertical="@color/brand_color"
+                android:scrollbars="vertical"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/barrier2"
+                tools:itemCount="5"
+                tools:listitem="@layout/service_list_item" />
+
+            <ProgressBar
+                android:id="@+id/pbLoader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_bold_700"
+                android:text="@string/no_services_found"
+                android:textColor="@color/brand_color"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:id="@+id/tvNoService"
+                android:visibility="gone"
+                android:textSize="@dimen/_16ssp"/>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

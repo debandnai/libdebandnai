@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:layout_margin="@dimen/_6sdp"
+        app:cardElevation="@dimen/_6sdp"
+        app:cardCornerRadius="@dimen/_8sdp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/ivService"
+                android:layout_width="@dimen/_73sdp"
+                android:layout_height="@dimen/_73sdp"
+                android:layout_marginStart="@dimen/_16sdp"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:src="@drawable/profile"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_12sdp"
+                android:layout_marginTop="@dimen/_14sdp"
+                android:layout_marginEnd="@dimen/_6sdp"
+                android:ellipsize="end"
+                android:fontFamily="@font/montserrat_medium_500"
+                android:maxLines="2"
+                android:minLines="2"
+                android:textColor="@color/default_text_color"
+                android:textSize="@dimen/_13ssp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/ivService"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Hair Color -Roots Only Application" />
+
+            <TextView
+                android:id="@+id/tvServiceTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:background="@drawable/service_time_bg"
+                android:drawablePadding="@dimen/_6sdp"
+                android:fontFamily="@font/montserrat_medium_500"
+                android:paddingStart="@dimen/_4sdp"
+                android:paddingEnd="@dimen/_4sdp"
+                android:paddingTop="@dimen/_3sdp"
+                android:paddingBottom="@dimen/_3sdp"
+                android:gravity="center"
+                android:textAlignment="center"
+                android:textColor="@color/default_text_color"
+                android:textSize="@dimen/_10ssp"
+                app:drawableLeftCompat="@drawable/ic_round_time"
+                app:layout_constraintStart_toStartOf="@id/tvTitle"
+                app:layout_constraintTop_toBottomOf="@id/tvTitle"
+                tools:text="2:30Hr"
+                app:drawableTint="@color/brand_color" />
+
+            <TextView
+                android:id="@+id/tvPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:fontFamily="@font/montserrat_bold_700"
+                android:textColor="@color/brand_color"
+                android:textSize="@dimen/_13ssp"
+                app:layout_constraintStart_toStartOf="@id/tvTitle"
+                app:layout_constraintTop_toBottomOf="@id/tvServiceTime"
+                tools:text="$200" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_14sdp"
+                android:minWidth="@dimen/_48sdp"
+                android:minHeight="@dimen/_24sdp"
+                android:background="@drawable/red_button_bg"
+                android:text="@string/add"
+                android:paddingStart="@dimen/_6sdp"
+                android:paddingEnd="@dimen/_6sdp"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_12ssp"
+                android:id="@+id/btAdd"
+                app:layout_constraintBottom_toBottomOf="@+id/tvPrice"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toEndOf="@+id/tvServiceTime"
+                app:layout_constraintTop_toTopOf="@+id/tvServiceTime"
+                tools:ignore="TouchTargetSizeCheck" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/service_list_bottom_bg"
+                android:padding="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvPrice">
+
+                <View
+                    android:id="@+id/viewDot"
+                    android:layout_width="4dp"
+                    android:layout_height="4dp"
+                    android:layout_marginStart="@dimen/_16sdp"
+                    android:background="@drawable/red_round_shape"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvDetails"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginEnd="@dimen/_16sdp"
+                    android:fontFamily="@font/montserrat_regular_400"
+                    android:textColor="@color/default_text_color"
+                    android:textSize="11sp"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    app:layout_constraintBottom_toBottomOf="@id/viewDot"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/viewDot"
+                    app:layout_constraintTop_toTopOf="@id/viewDot"
+                    tools:text="Enjoy the L'Oreal Hair Color Majirel - Short Length" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.cardview.widget.CardView>
+</layout>

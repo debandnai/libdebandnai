@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="ie.healthylunch.app.data.viewModel.ViewAddedStudentProfileListViewModel" />
+
+        <variable
+            name="context"
+            type="ie.healthylunch.app.fragment.students.ViewAddedStudentProfileListFragment" />
+    </data>
+
+    <RelativeLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background_all">
+
+        <RelativeLayout
+            android:id="@+id/rl_top_new"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:onClick="@{(v)->context.activity.onBackPressed()}">
+
+            <ImageView
+                android:id="@+id/iv_arrow"
+                android:layout_width="@dimen/iv_top_left_arrow_30dp"
+                android:layout_height="@dimen/iv_top_left_arrow_30dp"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:src="@drawable/wiz_skip_left_arrow_active"
+                android:visibility="gone"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/student_profile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:fontFamily="@font/quicksand_bold"
+                android:text="Student Profile"
+                android:textColor="@color/light_black"
+                android:textSize="@dimen/profile_textSize"
+                tools:ignore="HardcodedText" />
+        </RelativeLayout>
+
+
+        <ScrollView
+            android:id="@+id/scroll_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rl_top_new">
+
+            <RelativeLayout
+                android:id="@+id/rl_student_profile"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/student_height_profile_550dp"
+                android:layout_marginLeft="@dimen/background_left_right_margin"
+                android:layout_marginTop="@dimen/margin_top_student_view_main_20dp"
+                android:layout_marginRight="@dimen/background_left_right_margin"
+                android:background="@drawable/custom_calender_background_shadow_new"
+                android:visibility="visible">
+
+                <RelativeLayout
+                    android:id="@+id/rl_student_exist"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <RelativeLayout
+                        android:id="@+id/rl_student"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/ed_name_left_right_margin"
+                        android:layout_marginTop="@dimen/rl_student_margintop"
+                        android:layout_marginRight="@dimen/ed_name_left_right_margin"
+                        android:background="@drawable/capsule_shaped_add_children_edittext_bg_light_green"
+                        android:elevation="1.5dp"
+                        android:onClick="@{()->viewModel.showStudentBottomDialog()}"
+                       >
+
+                        <TextView
+                            android:id="@+id/studentName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:gravity="center"
+                            android:textColor="@color/default_text_color"
+                            android:paddingTop="@dimen/first_name_paddingTopBottom"
+                            android:paddingBottom="@dimen/first_name_paddingTopBottom"
+                            android:text="@{viewModel.studentName}"
+                            android:textSize="@dimen/tv_1_text_size"
+                            tools:text="Student Name" />
+
+                        <ImageView
+                            android:id="@+id/img_studentName"
+                            android:layout_width="@dimen/add_child_dropdownSize"
+                            android:layout_height="@dimen/add_child_dropdownSize"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginEnd="@dimen/margin_right_down_arrow_view_student_15dp"
+                            android:src="@drawable/wiz_select_down"
+                            tools:ignore="ContentDescription" />
+                    </RelativeLayout>
+
+                    <TextView
+                        android:id="@+id/tv_country"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/rl_student"
+                        android:layout_marginLeft="@dimen/ed_name_left_right_margin"
+                        android:layout_marginTop="@dimen/tv_country_margintop"
+                        android:layout_marginRight="@dimen/ed_name_left_right_margin"
+                        android:text="Local Kitchen:"
+                        android:textColor="@color/light_black"
+                        android:textSize="@dimen/tv_email_profileview_textSize"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/tv_country_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:layout_below="@+id/tv_country"
+                        android:layout_marginLeft="@dimen/ed_name_left_right_margin"
+                        android:layout_marginRight="@dimen/ed_name_left_right_margin"
+                        android:text=""
+                        android:textColor="@color/font_green"
+                        android:textSize="@dimen/tv_parent_phone_number_textSize"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/tv_school"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tv_country_name"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginLeft="@dimen/ed_name_left_right_margin"
+                        android:layout_marginTop="@dimen/tv_country_margintop"
+                        android:layout_marginRight="@dimen/ed_name_left_right_margin"
+                        android:text="School:"
+                        android:textColor="@color/light_black"
+                        android:textSize="@dimen/tv_email_profileview_textSize" />
+
+                    <TextView
+                        android:id="@+id/tv_school_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:layout_below="@+id/tv_school"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginLeft="@dimen/ed_name_left_right_margin"
+                        android:layout_marginRight="@dimen/ed_name_left_right_margin"
+                        android:text="@{viewModel.schoolName}"
+                        android:textColor="@color/font_green"
+                        android:textSize="14sp" />
+
+
+                    <TextView
+                        android:id="@+id/tv_class"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tv_school_name"
+
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginLeft="@dimen/ed_name_left_right_margin"
+                        android:layout_marginTop="@dimen/tv_country_margintop"
+                        android:layout_marginRight="@dimen/ed_name_left_right_margin"
+                        android:text="Class"
+                        android:textColor="@color/light_black"
+                        android:textSize="@dimen/tv_email_profileview_textSize" />
+
+                    <TextView
+                        android:id="@+id/tv_class_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tv_class"
+                        android:layout_centerHorizontal="true"
+
+                        android:layout_marginLeft="@dimen/ed_name_left_right_margin"
+                        android:layout_marginRight="@dimen/ed_name_left_right_margin"
+                        android:text="@{viewModel.className}"
+                        android:textColor="@color/font_green"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/tv_dob"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tv_class_name"
+                        android:layout_marginLeft="@dimen/ed_name_left_right_margin"
+
+                        android:layout_marginTop="@dimen/tv_country_margintop"
+                        android:layout_marginRight="@dimen/ed_name_left_right_margin"
+                        android:text="Birthday:"
+                        android:textColor="@color/light_black"
+                        android:textSize="@dimen/tv_email_profileview_textSize"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/tv_date"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tv_dob"
+                        android:layout_marginLeft="@dimen/ed_name_left_right_margin"
+
+                        android:layout_marginRight="@dimen/ed_name_left_right_margin"
+                        android:layout_marginBottom="@dimen/tv_cuntry_padding_left_20unit"
+                        android:text=""
+                        android:textColor="@color/light_black"
+                        android:textSize="@dimen/tv_parent_phone_number_textSize"
+                        android:visibility="gone" />
+
+                    <RelativeLayout
+                        android:id="@+id/edit_student_profile"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tv_date"
+                        android:layout_marginLeft="@dimen/ed_name_left_right_margin"
+                        android:layout_marginTop="@dimen/margin_top_edit_button_18dp"
+                        android:layout_marginRight="@dimen/ed_name_left_right_margin"
+                        android:background="@drawable/background_textview_green"
+                        android:onClick="@{(v)->viewModel.editStudent(v,context.requireActivity())}">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="@dimen/submit_margin_top1"
+                            android:layout_marginBottom="@dimen/Submit_margin_top"
+                            android:gravity="center"
+                            android:paddingTop="@dimen/Submit_paddingTopBottom"
+                            android:paddingBottom="@dimen/Submit_paddingTopBottom"
+                            android:text="@string/edit"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/SubmitTextSize" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/rl_view_allergen"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/edit_student_profile"
+                        android:layout_marginLeft="@dimen/ed_name_left_right_margin"
+                        android:layout_marginTop="@dimen/margin_top_view_allergen_student_profile_30dp"
+                        android:layout_marginRight="@dimen/ed_name_left_right_margin"
+                        android:background="@drawable/background_textview_green"
+                        >
+                        <!--android:onClick="@{(v)->viewModel.viewAllergen(v)}"-->
+                        <TextView
+                            android:id="@+id/tv_view_allergen"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/submit_margin_top1"
+                            android:layout_marginBottom="@dimen/Submit_margin_top"
+                            android:gravity="center"
+                            android:paddingTop="@dimen/Submit_paddingTopBottom"
+                            android:paddingBottom="@dimen/Submit_paddingTopBottom"
+                            android:text="@string/view_allergen"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/SubmitTextSize" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/rl_deactive_student"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/rl_view_allergen"
+                        android:layout_marginLeft="@dimen/ed_name_left_right_margin"
+                        android:layout_marginTop="@dimen/margin_top_view_allergen_student_profile_30dp"
+                        android:layout_marginRight="@dimen/ed_name_left_right_margin"
+                        android:background="@drawable/background_textview_gray">
+
+                        <TextView
+                            android:id="@+id/tv_deactive_student"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/submit_margin_top1"
+                            android:layout_marginBottom="@dimen/Submit_margin_top"
+                            android:gravity="center"
+                            android:onClick="@{(v)->viewModel.deActivateStudent(context.requireActivity(),v)}"
+                            android:paddingTop="@dimen/Submit_paddingTopBottom"
+                            android:paddingBottom="@dimen/Submit_paddingTopBottom"
+                            android:text="@string/deactive"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/SubmitTextSize"
+                            tools:ignore="RtlSymmetry" />
+
+                    </RelativeLayout>
+
+
+                    <TextView
+                        android:id="@+id/tv_pleaseAdd_student"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+
+                        android:layout_marginLeft="@dimen/ed_name_left_right_margin"
+                        android:layout_marginRight="@dimen/ed_name_left_right_margin"
+                        android:gravity="center"
+                        android:text="Please Add Student"
+                        android:textColor="@color/light_black"
+                        android:textSize="@dimen/tv_parent_phone_number_textSize"
+                        android:visibility="gone" />
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/no_student"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:layout_centerInParent="true"
+                    android:layout_marginLeft="@dimen/ed_name_left_right_margin"
+                    android:layout_marginRight="@dimen/ed_name_left_right_margin"
+                    android:gravity="center"
+                    android:text="No student added yet. Please add student."
+                    android:textColor="@color/light_black"
+                    android:textSize="@dimen/tv_email_profileview_textSize"
+                    android:visibility="gone" />
+
+                <RelativeLayout
+                    android:id="@+id/rl_add_new_student"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:onClick="@{()->viewModel.newStudent(context.requireActivity())}"
+                    android:paddingTop="@dimen/rl_padding_top_add_new_student_15dp"
+                    android:paddingBottom="@dimen/rl_padding_top_add_new_student_15dp">
+
+                    <TextView
+                        android:id="@+id/bt_add_new_student"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:gravity="center"
+                        android:text="@string/add_new_student"
+                        android:textColor="@color/font_red"
+                        android:textSize="@dimen/tv_text_size_add_new_student_18sp" />
+                </RelativeLayout>
+            </RelativeLayout>
+        </ScrollView>
+
+
+    </RelativeLayout>
+</layout>

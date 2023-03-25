@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.firebase.inappmessaging.display.internal.layout.ModalLayoutPortrait xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fiam="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/modal_content_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_centerInParent="true"
+    android:theme="@style/FiamUI"
+    android:background="@drawable/rounded_layout"
+    fiam:maxHeightPct="@dimen/dialogHeightPct"
+    fiam:maxWidthPct="@dimen/dialogWidthPct">
+
+    <!--This is custom design for in app messaging, The id of the all views should not be changed, this layout will automatically be called by in app messaging library-->
+    <!--You can check this from this link: https://github.com/firebase/firebase-android-sdk/blob/master/firebase-inappmessaging-display/src/main/res/layout/modal_portrait_inner.xml-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:background="@drawable/offer_img2"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/message_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_70sdp"
+            android:fontFamily="@font/quicksand_bold"
+            android:textAlignment="center"
+            android:textColor="@color/light_black"
+            android:textSize="@dimen/_17ssp"
+            tools:text="HAPPY EASTER DAY OFFER" />
+
+        <ImageView
+            android:id="@+id/image_view"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_150sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/dish"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/message_body"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:layout_marginEnd="@dimen/_15sdp"
+            android:textAlignment="center"
+            android:textColor="@color/light_black"
+            android:textSize="@dimen/_28ssp"
+            android:textStyle="bold"
+            tools:text="Healthy Lunch Only €1" />
+
+        <ScrollView
+            android:id="@+id/body_scroll"
+            android:layout_width="match_parent"
+            android:visibility="gone"
+            android:layout_height="wrap_content"
+            >
+        </ScrollView>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginBottom="@dimen/_10sdp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="@dimen/_5sdp"
+                android:background="@drawable/inapp_btn_bg"
+                android:elevation="@dimen/_2sdp"
+                tools:ignore="UselessParent">
+
+                <Button
+                    android:id="@+id/button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_36sdp"
+                    android:background="@color/transparent"
+                    android:fontFamily="@font/quicksand_bold"
+                    android:paddingStart="@dimen/_25sdp"
+                    android:paddingEnd="@dimen/_25sdp"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_14ssp"
+                    tools:text="Book Now" />
+            </LinearLayout>
+
+        </RelativeLayout>
+    </LinearLayout>
+
+
+
+</com.google.firebase.inappmessaging.display.internal.layout.ModalLayoutPortrait>

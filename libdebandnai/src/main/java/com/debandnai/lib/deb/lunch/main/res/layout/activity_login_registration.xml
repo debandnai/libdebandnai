@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="ie.healthylunch.app.data.viewModel.LoginRegistrationViewModel" />
+    </data>
+
+    <!--<RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.LoginRegistrationActivity">
+
+        <RelativeLayout
+            android:id="@+id/rl_main"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/login_bg"
+            tools:ignore="UselessParent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="@dimen/margin_button_rl_50dp"
+                tools:ignore="UselessParent">
+
+                <RelativeLayout
+                    android:id="@+id/login_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/ed_name_left_right_margin"
+                    android:layout_marginRight="@dimen/ed_name_left_right_margin"
+                    android:layout_marginBottom="@dimen/Submit_paddingBottom"
+                    android:background="@drawable/background_textview_green"
+                    android:onClick="@{(v)->viewModel.loginClick(v)}">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/submit_text_margin_left"
+                        android:layout_marginTop="@dimen/submit_margin_top1"
+                        android:layout_marginBottom="@dimen/Submit_margin_top"
+                        android:fontFamily="@font/quicksand_bold"
+                        android:paddingTop="@dimen/Submit_paddingTopBottom"
+                        android:paddingBottom="@dimen/Submit_paddingTopBottom"
+                        android:text="@string/log_in_capital"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/SubmitTextSize" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/registration_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/login_btn"
+                    android:layout_marginLeft="@dimen/ed_name_left_right_margin"
+                    android:layout_marginRight="@dimen/ed_name_left_right_margin"
+                    android:layout_marginBottom="@dimen/Submit_paddingBottom"
+                    android:background="@drawable/background_textview_green"
+                    android:onClick="@{(v)->viewModel.registerClick(v)}">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_marginStart="@dimen/submit_text_margin_left"
+                        android:layout_marginTop="@dimen/submit_margin_top1"
+                        android:layout_marginBottom="@dimen/Submit_margin_top"
+                        android:fontFamily="@font/quicksand_bold"
+                        android:paddingTop="@dimen/Submit_paddingTopBottom"
+                        android:paddingBottom="@dimen/Submit_paddingTopBottom"
+                        android:text="@string/register_capital"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/SubmitTextSize" />
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+
+        </RelativeLayout>
+    </RelativeLayout>-->
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background_all"
+        tools:context=".ui.LoginRegistrationActivity">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="@dimen/_210sdp"
+            android:layout_height="@dimen/_210sdp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/transparent_app_logo"
+            app:layout_constraintBottom_toTopOf="@+id/login_btn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.62" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/login_btn"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginLeft="@dimen/ed_name_left_right_margin"
+            android:layout_marginRight="@dimen/ed_name_left_right_margin"
+            android:layout_marginBottom="@dimen/_30sdp"
+            android:background="@drawable/background_textview_green"
+            android:fontFamily="@font/quicksand_bold"
+            android:onClick="@{(v)->viewModel.loginClick(v)}"
+            android:text="@string/log_in_capital"
+            android:textColor="@color/white"
+            android:textSize="@dimen/SubmitTextSize"
+            app:layout_constraintBottom_toTopOf="@+id/registration_btn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/registration_btn"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginStart="@dimen/ed_name_left_right_margin"
+            android:layout_marginEnd="@dimen/ed_name_left_right_margin"
+            android:layout_marginBottom="@dimen/_75sdp"
+            android:background="@drawable/background_textview_green"
+            android:fontFamily="@font/quicksand_bold"
+            android:onClick="@{(v)->viewModel.registerClick(v)}"
+            android:text="@string/register_capital"
+            android:textColor="@color/white"
+            android:textSize="@dimen/SubmitTextSize"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

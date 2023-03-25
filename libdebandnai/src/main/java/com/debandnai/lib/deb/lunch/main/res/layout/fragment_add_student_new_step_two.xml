@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="ie.healthylunch.app.data.viewModel.AddNewStudentStepTwoViewModel" />
+
+        <variable
+            name="context"
+            type="ie.healthylunch.app.fragment.registration.AddStudentNewStepTwoFragment" />
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/rl_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background_all"
+        app:hideKeyboardByClickingOutside="@{context.requireActivity()}">
+
+        <TextView
+            android:id="@+id/space"
+            android:layout_width="@dimen/_8sdp"
+            android:layout_height="@dimen/iv_top_left_arrow_30dp" />
+
+        <RelativeLayout
+            android:id="@+id/rl_top_new"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_margin="@dimen/add_child_welcome_margin"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_toEndOf="@+id/space"
+            android:onClick="@{(v)->viewModel.back(v)}">
+
+            <ImageView
+                android:id="@+id/iv_arrow"
+                android:layout_width="@dimen/iv_top_left_arrow_30dp"
+                android:layout_height="@dimen/iv_top_left_arrow_30dp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/wiz_skip_left_arrow_active"
+                android:visibility="invisible"
+                tools:ignore="ContentDescription" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/add_child_rl_bottom_marginLeft"
+            android:layout_marginTop="@dimen/margin_top_new_add_student_120dp"
+            android:layout_marginRight="@dimen/add_child_rl_bottom_marginLeft"
+            android:layout_marginBottom="@dimen/add_child_rl_bottom_marginBottom"
+            android:background="@drawable/add_children_background">
+
+
+            <ScrollView
+                android:id="@+id/sv_main"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/scroll_marginTop"
+                tools:ignore="UselessParent">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/editText_marginLeft"
+                    android:layout_marginRight="@dimen/editText_marginLeft">
+
+                    <TextView
+                        android:id="@+id/tv_parent_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:fontFamily="@font/quicksand_bold"
+                        android:gravity="center"
+                        android:text="@{viewModel.schoolName}"
+                        android:textColor="@color/light_black"
+                        android:textSize="@dimen/text_size_parent_name_25dp"
+                        tools:text="Choosan NS" />
+
+                    <TextView
+                        android:id="@+id/tv_parent_address"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tv_parent_name"
+                        android:layout_centerHorizontal="true"
+                        android:fontFamily="@font/quicksand_bold"
+                        android:gravity="center"
+                        android:textColor="@color/light_black"
+                        android:textSize="@dimen/tv_size_parent_address_20sp"
+                        android:visibility="invisible"
+                        tools:text="Choosan road, Athloan" />
+
+
+                    <RelativeLayout
+                        android:id="@+id/rl_class"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tv_parent_address"
+                        android:layout_marginTop="@dimen/add_children_its_time_to_marginTop"
+                        android:background="@drawable/capsule_shaped_add_children_edittext_bg_light_green"
+                        android:onClick="@{()->viewModel.className()}"
+                        android:paddingLeft="@dimen/add_child_editText_paddingLeft"
+                        android:paddingTop="@dimen/add_child_editText_paddingTop"
+                        android:paddingRight="@dimen/add_child_editText_paddingLeft"
+                        android:paddingBottom="@dimen/add_child_editText_paddingTop">
+
+                        <TextView
+                            android:id="@+id/classTv"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_toStartOf="@+id/iv_class_dropdown"
+                            android:ellipsize="end"
+                            android:fontFamily="@font/quicksand_medium"
+                            android:gravity="center"
+                            android:hint="@string/which_class"
+                            android:paddingStart="@dimen/add_child_dropdownSize"
+                            android:singleLine="true"
+                            android:text="@{viewModel.className}"
+                            android:textColor="@color/add_children_editText_textColor"
+                            android:textColorHint="@color/add_children_editText_textColor"
+                            android:textSize="@dimen/add_child_editTextSize"
+                            tools:ignore="RtlSymmetry"
+                            tools:text="" />
+
+                        <ImageView
+                            android:id="@+id/iv_class_dropdown"
+                            android:layout_width="@dimen/add_child_dropdownSize"
+                            android:layout_height="@dimen/add_child_dropdownSize"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/wiz_select_down"
+                            tools:ignore="ContentDescription" />
+
+                    </RelativeLayout>
+
+                    <TextView
+                        android:id="@+id/error_class"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/rl_class"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginBottom="@dimen/add_child_error_marginBottom"
+                        android:fontFamily="@font/quicksand_medium"
+                        android:text="@{viewModel.classNameError}"
+                        android:textColor="@color/add_children_color_error"
+                        android:textSize="@dimen/error_textSize"
+                        android:visibility="invisible"
+                        app:hideErrorTextView="@{viewModel.classNameErrorVisible}"
+                        tools:text="Error Message" />
+
+                    <RelativeLayout
+                        android:id="@+id/rl_studentName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/error_class"
+                        android:layout_marginTop="@dimen/add_children_its_time_to_marginTop"
+                        android:background="@drawable/capsule_shaped_add_children_edittext_bg"
+                        android:paddingLeft="@dimen/add_child_editText_paddingLeft"
+                        android:paddingTop="@dimen/add_child_editText_paddingTop"
+                        android:paddingRight="@dimen/add_child_editText_paddingLeft"
+                        android:paddingBottom="@dimen/add_child_editText_paddingTop">
+
+                        <EditText
+                            android:id="@+id/edtStudentName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginEnd="@dimen/add_child_editText_marginRight"
+                            android:background="@null"
+                            android:focusable="true"
+                            android:focusableInTouchMode="true"
+                            android:fontFamily="@font/quicksand_medium"
+                            android:hint="@string/student_first_name"
+                            android:importantForAutofill="no"
+                            android:inputType="textCapSentences"
+                            android:maxLength="50"
+                            android:singleLine="true"
+                            android:text="@={viewModel.studentFirstName}"
+                            android:textAlignment="center"
+                            android:textColor="@color/text_color_transaction_history_light_black"
+                            android:textColorHint="@color/add_children_editText_textColor"
+                            android:textSize="@dimen/add_child_editTextSize"
+                            app:addTextChangeListener="@{viewModel}"
+                            app:requestFocus="@{viewModel.studentFirstNameErrorVisible}" />
+
+                    </RelativeLayout>
+
+                    <TextView
+                        android:id="@+id/error_studentName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/rl_studentName"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginBottom="@dimen/add_child_error_marginBottom"
+                        android:fontFamily="@font/quicksand_medium"
+                        android:text="@{viewModel.studentFirstNameError}"
+                        android:textColor="@color/add_children_color_error"
+                        android:textSize="@dimen/error_textSize"
+                        android:visibility="invisible"
+                        app:hideErrorTextView="@{viewModel.studentFirstNameErrorVisible}"
+                        tools:text="Error Message" />
+
+                    <RelativeLayout
+                        android:id="@+id/rl_studentSurName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/error_studentName"
+                        android:layout_marginTop="@dimen/add_children_its_time_to_marginTop"
+                        android:background="@drawable/capsule_shaped_add_children_edittext_bg"
+                        android:paddingLeft="@dimen/add_child_editText_paddingLeft"
+                        android:paddingTop="@dimen/add_child_editText_paddingTop"
+                        android:paddingRight="@dimen/add_child_editText_paddingLeft"
+                        android:paddingBottom="@dimen/add_child_editText_paddingTop"
+                        android:visibility="visible">
+
+                        <EditText
+                            android:id="@+id/edtStudentSurName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginEnd="@dimen/add_child_editText_marginRight"
+                            android:background="@null"
+                            android:focusable="true"
+                            android:focusableInTouchMode="true"
+                            android:fontFamily="@font/quicksand_medium"
+                            android:hint="@string/student_surname"
+                            android:importantForAutofill="no"
+                            android:inputType="textCapSentences"
+                            android:maxLength="50"
+                            android:singleLine="true"
+                            android:text="@={viewModel.studentSurName}"
+                            android:textAlignment="center"
+                            android:textColor="@color/text_color_transaction_history_light_black"
+                            android:textColorHint="@color/add_children_editText_textColor"
+                            android:textSize="@dimen/add_child_editTextSize"
+                            app:addTextChangeListener="@{viewModel}"
+                            app:requestFocus="@{viewModel.studentSurNameErrorVisible}" />
+
+                    </RelativeLayout>
+
+                    <TextView
+                        android:id="@+id/error_studentSurName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/rl_studentSurName"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginBottom="@dimen/add_child_error_marginBottom"
+                        android:fontFamily="@font/quicksand_medium"
+                        android:text="@{viewModel.studentSurNameError}"
+                        android:textColor="@color/add_children_color_error"
+                        android:textSize="@dimen/error_textSize"
+                        android:visibility="invisible"
+                        app:hideErrorTextView="@{viewModel.studentSurNameErrorVisible}"
+                        tools:text="Error Message" />
+
+                    <RelativeLayout
+                        android:id="@+id/continueLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/error_studentSurName"
+                        android:layout_marginLeft="@dimen/editText_marginLeft"
+                        android:layout_marginTop="@dimen/margin_top_rl_continue_add_student_100dp"
+                        android:layout_marginRight="@dimen/editText_marginLeft"
+                        android:layout_marginBottom="@dimen/add_children_button_marginBottom"
+                        android:alpha="0.9"
+                        android:background="@drawable/background_textview_green"
+                        app:setEnabledView="@{viewModel.isSubmitEnabled}">
+
+                        <TextView
+                            android:id="@+id/bt_add_child"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:layout_marginTop="@dimen/add_children_buttonText_marginTop"
+                            android:layout_marginBottom="@dimen/add_children_buttonText_marginTop"
+                            android:fontFamily="@font/quicksand_bold"
+                            android:paddingLeft="@dimen/add_children_buttonText_paddingLeft"
+                            android:paddingTop="@dimen/add_children_buttonText_paddingBottom"
+                            android:paddingRight="@dimen/add_children_buttonText_paddingLeft"
+                            android:paddingBottom="@dimen/add_children_buttonText_paddingBottom"
+                            android:text="@string/continue_"
+                            android:textAllCaps="false"
+                            android:textColor="@color/add_children_colorWhite"
+                            android:textSize="@dimen/add_children_buttonTextSize" />
+                    </RelativeLayout>
+                </RelativeLayout>
+            </ScrollView>
+        </RelativeLayout>
+    </RelativeLayout>
+</layout>

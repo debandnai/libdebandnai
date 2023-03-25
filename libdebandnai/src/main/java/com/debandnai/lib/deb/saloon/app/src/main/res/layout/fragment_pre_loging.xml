@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.fragment.PreLoginFragment">
+
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_290sdp"
+            android:scaleType="fitXY"
+            android:src="@drawable/pre_login_bg_top"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription" />
+
+        <ImageView
+            android:id="@+id/iv_logo"
+            android:layout_width="@dimen/_70sdp"
+            android:layout_height="@dimen/_61sdp"
+            android:layout_marginTop="@dimen/_110sdp"
+            android:src="@drawable/logo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription" />
+
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_80sdp"
+            android:scaleType="fitXY"
+            android:src="@drawable/pre_login_bg_bottom"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="ContentDescription,ImageContrastCheck" />
+
+        <include
+            android:id="@+id/language"
+            layout="@layout/language_inflater"/>
+
+
+        <TextView
+            android:id="@+id/tv_discover"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_80sdp"
+            android:fontFamily="@font/ebgaramond_regular_400"
+            android:text="@string/discover_your_favourite_glow"
+            android:textAlignment="center"
+            android:textColor="@color/default_text_color"
+            android:textSize="46sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_logo" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:fontFamily="@font/montserrat_regular_400"
+            android:text="@string/pre_login_description"
+            android:textAlignment="center"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toTopOf="@+id/bt_login"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_discover"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_40sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:text="@string/login"
+            android:fontFamily="@font/montserrat_semibold_600"
+            android:textColor="@color/white"
+            android:background="@drawable/login_button_bg"
+            app:layout_constraintBottom_toTopOf="@id/bt_signup"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:id="@+id/bt_login"
+            android:textAllCaps="false"
+            />
+        
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_40sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:text="@string/signup"
+            android:id="@+id/bt_signup"
+            android:fontFamily="@font/montserrat_semibold_600"
+            android:textColor="@color/white"
+            android:background="@drawable/signup_button_bg"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="@dimen/_20sdp"
+            android:textAllCaps="false"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

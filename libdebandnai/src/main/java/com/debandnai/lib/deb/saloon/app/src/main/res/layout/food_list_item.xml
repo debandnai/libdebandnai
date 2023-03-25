@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:layout_margin="@dimen/_6sdp"
+        app:cardCornerRadius="@dimen/_8sdp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/_10sdp">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/ivService"
+                android:layout_width="@dimen/_73sdp"
+                android:layout_height="@dimen/_73sdp"
+                android:elevation="@dimen/_4sdp"
+                android:padding="@dimen/_4sdp"
+                android:src="@drawable/food"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_12sdp"
+                android:layout_marginTop="@dimen/_14sdp"
+                android:ellipsize="end"
+                android:fontFamily="@font/montserrat_medium_500"
+                android:maxLines="2"
+                android:minLines="1"
+                android:textColor="@color/default_text_color"
+                android:textSize="@dimen/_13ssp"
+                app:layout_constraintEnd_toStartOf="@+id/barrier4"
+                app:layout_constraintStart_toEndOf="@+id/ivService"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Chocolate" />
+
+            <TextView
+                android:id="@+id/tvDesc"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_2sdp"
+                android:ellipsize="end"
+                android:fontFamily="@font/montserrat_medium_500"
+                android:maxLines="1"
+                android:minLines="1"
+                android:textColor="@color/default_text_color"
+                android:textSize="@dimen/_13ssp"
+                app:layout_constraintEnd_toEndOf="@+id/tvTitle"
+                app:layout_constraintStart_toStartOf="@+id/tvTitle"
+                app:layout_constraintTop_toBottomOf="@+id/tvTitle"
+                tools:text="Pestry" />
+
+            <TextView
+                android:id="@+id/tvPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:fontFamily="@font/montserrat_bold_700"
+                android:textColor="@color/brand_color"
+                android:textSize="@dimen/_13ssp"
+                app:layout_constraintStart_toStartOf="@id/tvDesc"
+                app:layout_constraintTop_toBottomOf="@+id/tvDesc"
+                tools:text="$200" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btAdd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_14sdp"
+                android:minHeight="@dimen/_24sdp"
+                android:minWidth="@dimen/_48sdp"
+                android:background="@drawable/red_button_bg"
+                android:paddingStart="@dimen/_6sdp"
+                android:paddingEnd="@dimen/_6sdp"
+                android:text="@string/add"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_12ssp"
+                app:layout_constraintBottom_toBottomOf="@+id/ivService"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/ivService"
+                tools:ignore="TouchTargetSizeCheck" />
+
+            <LinearLayout
+                app:layout_constraintBottom_toBottomOf="@+id/ivService"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/ivService"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:elevation="@dimen/_4sdp"
+                android:orientation="horizontal"
+                android:id="@+id/cartQuantity"
+                android:visibility="gone"
+                >
+
+                <ImageButton
+                    android:id="@+id/ivRemove"
+                    android:layout_width="@dimen/_24sdp"
+                    android:layout_height="match_parent"
+                    android:foreground="?attr/selectableItemBackgroundBorderless"
+                    android:background="@android:color/transparent"
+                    android:minWidth="@dimen/_24sdp"
+                    android:padding="@dimen/_3sdp"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/ic_baseline_remove"
+                    app:tint="@color/brand_color"
+                    tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+                <TextView
+                    android:id="@+id/tvQuantity"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:elevation="@dimen/_4sdp"
+                    android:gravity="center"
+                    android:minWidth="@dimen/_24sdp"
+                    android:paddingStart="@dimen/_3sdp"
+                    android:paddingEnd="@dimen/_3sdp"
+                    android:textColor="@color/default_text_color"
+                    android:textSize="@dimen/_10ssp"
+                    android:textStyle="bold"
+                    tools:text="12" />
+
+                <ImageButton
+                    android:id="@+id/ivAdd"
+                    android:layout_width="@dimen/_24sdp"
+                    android:foreground="?attr/selectableItemBackgroundBorderless"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:adjustViewBounds="true"
+                    android:background="@android:color/transparent"
+                    android:padding="@dimen/_3sdp"
+                    android:src="@drawable/ic_baseline_add"
+                    app:tint="@color/brand_color"
+                    tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+            </LinearLayout>
+
+            <androidx.constraintlayout.widget.Barrier
+                android:id="@+id/barrier4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:barrierDirection="left"
+                app:constraint_referenced_ids="btAdd,cartQuantity"
+                tools:layout_editor_absoluteX="383dp"
+                tools:layout_editor_absoluteY="13dp" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.cardview.widget.CardView>
+</layout>

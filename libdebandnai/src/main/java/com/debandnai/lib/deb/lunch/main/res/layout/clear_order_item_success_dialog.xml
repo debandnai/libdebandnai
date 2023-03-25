@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View" />
+        <variable
+            name="dashBoardViewModel"
+            type="ie.healthylunch.app.data.viewModel.DashBoardViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/light_dark"
+        android:gravity="center"
+        android:paddingStart="@dimen/_30sdp"
+        android:paddingEnd="@dimen/_30sdp">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardview_clear_order"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="@dimen/_28sdp"
+            app:cardElevation="0dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:background="@drawable/single_clear_order_bg">
+                <TextView
+                    android:id="@+id/titleText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:gravity="center"
+                    android:textColor="@color/red6"
+                    android:fontFamily="@font/quicksand_bold"
+                    android:textSize="@dimen/_15ssp"
+                    android:text="@{(dashBoardViewModel.schoolType!=2 &amp;&amp; dashBoardViewModel.isRepeatOrder==false &amp;&amp; dashBoardViewModel.orderStatus.equals(@string/GREEN))?@string/You_have_cleared_your_order_:@string/you_have_cleared_your_order}"
+                    />
+                <ImageView
+                    android:layout_below="@+id/titleText"
+                    android:id="@+id/img_cartoon"
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="@dimen/_160sdp"
+                    android:layout_height="@dimen/_90sdp"
+                    android:src="@drawable/ioc_cartoon_clear_order"
+                    />
+                <!--<TextView
+                    android:id="@+id/contentTv"
+                    android:layout_above="@+id/okBTN"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_28sdp"
+                    android:layout_marginEnd="@dimen/_28sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_36sdp"
+                    android:textColor="@color/clear_order_item_success_text_color"
+                    android:textSize="@dimen/_15ssp"
+                    android:gravity="center"
+                    android:text="@{dashBoardViewModel.clearOrderPopupMessage}"
+                    android:visibility="gone"
+                    android:fontFamily="@font/quicksand_bold" />-->
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/okBTN"
+                    android:layout_below="@+id/img_cartoon"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_40sdp"
+                    android:layout_marginEnd="@dimen/_40sdp"
+                    android:layout_marginBottom="@dimen/_20sdp"
+                    android:gravity="center"
+                    android:background="@drawable/order_status_button_bg"
+                    android:fontFamily="@font/quicksand_bold"
+                    android:text="@string/ok"
+                    android:paddingTop="@dimen/_4sdp"
+                    android:paddingBottom="@dimen/_7sdp"
+                    android:paddingStart="@dimen/_4sdp"
+                    android:paddingEnd="@dimen/_4sdp"
+                    android:textAllCaps="true"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_18ssp" />
+            </RelativeLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+</layout>

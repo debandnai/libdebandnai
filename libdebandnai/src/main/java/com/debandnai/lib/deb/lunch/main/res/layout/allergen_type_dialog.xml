@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="@color/allergen_dialog"
+        >
+    <LinearLayout
+        android:layout_width="@dimen/_215sdp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/_25sdp"
+        android:layout_marginBottom="@dimen/_16sdp"
+        android:background="@drawable/terms_pop_up_bg"
+        android:orientation="vertical"
+        android:padding="@dimen/_8sdp">
+
+        <ImageView
+            android:id="@+id/crossIv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:padding="@dimen/_4sdp"
+            android:src="@drawable/cancel"
+            tools:ignore="ContentDescription">
+
+        </ImageView>
+
+        <TextView
+            android:id="@+id/contentTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_4sdp"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:layout_marginBottom="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_4sdp"
+            android:text=""
+            android:fontFamily="@font/quicksand_bold"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:textColor="@color/light_black"
+            android:textSize="@dimen/_16ssp"
+            android:textStyle="bold"
+            tools:text="All chicken,turky\n  relevent products \nare Halal certified"
+            android:typeface="sans" />
+        <RelativeLayout
+            android:id="@+id/rl_ok"
+            android:visibility="gone"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="@dimen/ed_name_left_right_margin"
+            android:layout_marginRight="@dimen/ed_name_left_right_margin"
+
+            android:background="@drawable/background_textview_green"
+            android:paddingLeft="@dimen/rl_save_padding_left_right_popup_50dp"
+            android:paddingRight="@dimen/rl_save_padding_left_right_popup_50dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="@dimen/submit_text_margin_left"
+                android:background="@drawable/background_textview_green"
+                android:fontFamily="@font/quicksand_bold"
+                android:paddingTop="@dimen/tv_padding_top_bottom_save_7dp"
+                android:paddingBottom="@dimen/tv_padding_top_bottom_save_7dp"
+                android:text="@string/ok"
+                android:textColor="@color/white"
+                android:textSize="@dimen/tv_size_text_save_14sp" />
+
+        </RelativeLayout>
+    </LinearLayout>
+    </LinearLayout>
+</layout>

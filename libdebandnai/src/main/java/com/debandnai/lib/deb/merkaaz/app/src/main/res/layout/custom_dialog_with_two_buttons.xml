@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="@dimen/_10sdp"
+            app:cardCornerRadius="@dimen/_10sdp"
+            app:cardElevation="@dimen/_5sdp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/_15sdp">
+
+                <TextView
+                    android:id="@+id/tv_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:fontFamily="@font/russo_one"
+                    android:gravity="center"
+                    android:textAllCaps="true"
+                    android:textColor="@color/resend_otp_color"
+                    android:textSize="@dimen/_16ssp"
+                    tools:text="Title" />
+
+
+                <TextView
+                    android:id="@+id/tv_msg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_title"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:fontFamily="@font/open_sans_regular"
+                    android:gravity="center"
+                    android:textColor="@color/resend_otp_color"
+                    android:textSize="@dimen/_12ssp"
+                    tools:text="Description" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_42sdp"
+                    android:layout_below="@+id/tv_msg"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/_24sdp"
+                    android:orientation="horizontal">
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btn_no"
+                        android:layout_width="0dp"
+                        android:layout_marginEnd="@dimen/_4sdp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/button_ash"
+                        android:elevation="@dimen/_10sdp"
+                        android:fontFamily="@font/russo_one"
+                        android:text="@string/cancel"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_12ssp"
+                        app:autoSizeMaxTextSize="@dimen/_12ssp"
+                        app:autoSizeMinTextSize="@dimen/_6ssp"
+                        app:autoSizeStepGranularity="@dimen/_2ssp"
+                        app:autoSizeTextType="uniform"
+                        android:layout_marginBottom="@dimen/_2sdp"/>
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btn_yes"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:layout_marginStart="@dimen/_4sdp"
+                        android:elevation="@dimen/_10sdp"
+                        android:background="@drawable/button_green"
+                        android:fontFamily="@font/russo_one"
+                        android:text="@string/ok"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_12ssp"
+                        app:autoSizeMaxTextSize="@dimen/_12ssp"
+                        app:autoSizeMinTextSize="@dimen/_6ssp"
+                        app:autoSizeStepGranularity="@dimen/_2ssp"
+                        app:autoSizeTextType="uniform"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="@dimen/_2sdp"/>
+
+                </LinearLayout>
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+    </RelativeLayout>
+</layout>

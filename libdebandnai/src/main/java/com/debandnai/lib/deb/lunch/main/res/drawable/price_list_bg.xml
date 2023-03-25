@@ -1,0 +1,23 @@
+
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@android:color/white"/>
+            <!--<stroke android:width="2dp" android:color="#bababa"/>-->
+
+
+          <!-- <corners android:radius="@dimen/margin_top_get_started_15dp"/>-->
+            <!-- You can create different radius for different corners -->
+            <corners
+
+                android:bottomLeftRadius="25dp"
+                android:bottomRightRadius="25dp"
+
+            />
+
+
+
+
+        </shape>
+    </item>
+</selector>

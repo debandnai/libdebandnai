@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="@dimen/_10sdp"
+        app:cardCornerRadius="@dimen/_10sdp"
+        app:cardElevation="@dimen/_5sdp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/_18sdp">
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/img_drawee"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:background="@drawable/ic_warning" />
+            <TextView
+                android:padding="@dimen/_6sdp"
+                android:textSize="@dimen/_14ssp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/you_can_t_proceed_this_order_for_the_following_reasons"
+                android:textColor="@color/teal_700"
+                android:fontFamily="@font/open_sans_bold"
+                />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_1sdp"
+                android:background="@color/dark_blue"/>
+
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+                <TextView
+
+                android:id="@+id/tv_un_available_product"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/dark_blue"
+                android:paddingTop="@dimen/_4sdp"
+                android:fontFamily="@font/open_sans_bold"
+                android:textSize="@dimen/_12ssp"
+                android:text="@string/is_unavailable_and_your_minimum_order_value_should_be"/>
+        </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txt_msg"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_gravity="center_horizontal"
+                android:orientation="horizontal">
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_ash"
+                    android:layout_width="@dimen/_80sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_2sdp"
+                    android:alpha="0.8"
+                    android:background="@drawable/button_ash"
+                    android:elevation="@dimen/_10sdp"
+                    android:paddingTop="@dimen/_5sdp"
+                    android:paddingBottom="@dimen/_5sdp"
+                    android:text="@string/cancel"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_14ssp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:textStyle="bold"
+                    android:visibility="gone" />
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_green"
+                    android:layout_width="@dimen/_80sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_2sdp"
+                    android:alpha="0.6"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:background="@drawable/button_green"
+                    android:elevation="@dimen/_10sdp"
+                    android:paddingTop="@dimen/_5sdp"
+                    android:fontFamily="@font/russo_one"
+                    android:paddingBottom="@dimen/_5sdp"
+                    android:text="@string/ok"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_14ssp"
+                    android:textStyle="bold" />
+
+
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</layout>

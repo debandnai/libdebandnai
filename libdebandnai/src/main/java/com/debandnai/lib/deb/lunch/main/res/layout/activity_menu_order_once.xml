@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@drawable/background_all">
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rl_main"
+        android:layout_marginStart="@dimen/margin_left_right_repeat_order_15dp"
+        android:layout_marginEnd="@dimen/margin_left_right_repeat_order_15dp">
+
+        <RelativeLayout
+            android:id="@+id/rl_top"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/rl_top_select_menu_marginBottom"
+            android:layout_marginLeft="@dimen/rl_top_order_menu_marginLeft"
+            android:layout_marginRight="@dimen/rl_top_order_menu_marginLeft"
+            android:background="@drawable/custom_calender_background_shadow_new"
+            tools:ignore="UselessParent">
+
+
+            <RelativeLayout
+                android:paddingTop="@dimen/margin_20_unit"
+                android:paddingBottom="@dimen/margin_20_unit"
+                android:id="@+id/rl_popup_box"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/rl_height_popup_300dp"
+                android:layout_centerHorizontal="true">
+
+                <ImageView
+                    android:id="@+id/iv_cross"
+                    android:layout_width="@dimen/iv_cross_height_width_20dp"
+                    android:layout_height="@dimen/iv_cross_height_width_20dp"
+                    android:layout_marginStart="@dimen/iv_margin_left_cross_20dp"
+                    android:layout_marginTop="@dimen/iv_margin_top_cross_10dp"
+                    android:src="@drawable/calender_close_active"
+                    tools:ignore="ContentDescription" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true">
+
+                    <TextView
+                        android:id="@+id/tv_top_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="0dp"
+                        android:layout_marginBottom="0dp"
+                        android:gravity="center"
+                        android:layout_marginLeft="@dimen/tv_margin_left_top_text_25dp"
+                        android:layout_marginRight="@dimen/tv_margin_left_top_text_25dp"
+                        android:text="@string/your_lunch_is_ordered_correctly_if_your_day_turns_green"
+                        android:textColor="@color/light_black"
+                        android:textSize="@dimen/text_size_yes_22sp"
+                        />
+
+                    <TextView
+                        android:id="@+id/tv_below_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="0dp"
+                        android:gravity="center"
+                        android:layout_below="@+id/tv_top_text"
+                        android:layout_marginLeft="@dimen/tv_margin_left_top_text_25dp"
+                        android:layout_marginRight="@dimen/tv_margin_left_top_text_25dp"
+                        android:text="@string/money_will_not_deduct_from_your_wallet_until_12noon_the_day_before_lunch_is_due"
+                        android:textColor="@color/light_black"
+                        android:textSize="@dimen/text_size_yes_22sp"
+                        />
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/okLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/repeat_for_all_day_height_65dp"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/margin_top_repeat_order_every_day_25dp"
+        android:layout_marginBottom="@dimen/menuForChild_rl_menuForChild_marginTop"
+        android:paddingLeft="@dimen/padding_left_wallet_note_30dp"
+        android:paddingRight="@dimen/padding_left_wallet_note_30dp"
+        android:layout_marginLeft="@dimen/bt_order_done_margin"
+        android:layout_marginRight="@dimen/bt_order_done_margin"
+        android:background="@drawable/background_textview_green">
+
+        <TextView
+            android:id="@+id/tv_ok"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-10dp"
+            android:layout_marginBottom="0dp"
+            android:paddingTop="5dp"
+            android:gravity="center"
+            android:text="@string/ok"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/add_children_colorWhite"
+            android:textSize="18sp"
+         />
+
+        <TextView
+            android:id="@+id/tv_day_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-5dp"
+            android:layout_marginBottom="0dp"
+            android:gravity="center"
+            android:layout_below="@+id/tv_ok"
+            android:text="@string/do_not_show_this_message_again"
+            android:textColor="@color/add_children_colorWhite"
+            android:textSize="13sp"
+           />
+
+    </RelativeLayout>
+
+
+</LinearLayout>

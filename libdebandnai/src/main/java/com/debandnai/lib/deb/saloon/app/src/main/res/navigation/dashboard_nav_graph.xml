@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/dashboard_nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.salonsolution.app.ui.fragment.HomeFragment"
+        android:label="@string/home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_serviceDetailsFragment"
+            app:destination="@id/serviceDetailsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_orderDetailsFragment"
+            app:destination="@id/orderDetailsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_serviceListFragment"
+            app:destination="@id/serviceListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/categoriseFragment"
+        android:name="com.salonsolution.app.ui.fragment.CategoriesFragment"
+        android:label="@string/book_salon_services"
+        tools:layout="@layout/fragment_categorise">
+        <action
+            android:id="@+id/action_categoriseFragment_to_serviceListFragment"
+            app:destination="@id/serviceListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/orderFragment"
+        android:name="com.salonsolution.app.ui.fragment.MyOrderFragment"
+        android:label="@string/my_order"
+        tools:layout="@layout/fragment_my_order" >
+        <action
+            android:id="@+id/action_orderFragment_to_orderDetailsFragment"
+            app:destination="@id/orderDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/cartFragment"
+        android:name="com.salonsolution.app.ui.fragment.CartFragment"
+        android:label="@string/my_cart"
+        tools:layout="@layout/fragment_cart" >
+        <action
+            android:id="@+id/action_cartFragment_to_productListFragment"
+            app:destination="@id/productListFragment"
+            app:popUpToInclusive="false" />
+        <action
+            android:id="@+id/action_cartFragment_to_foodListFragment"
+            app:destination="@id/foodListFragment"
+            app:popUpToInclusive="false" />
+        <action
+            android:id="@+id/action_cartFragment_to_orderSummaryFragment"
+            app:destination="@id/orderSummaryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/changePasswordFragment"
+        android:name="com.salonsolution.app.ui.fragment.ChangePasswordFragment"
+        android:label="@string/change_password"
+        tools:layout="@layout/fragment_change_password" />
+    <fragment
+        android:id="@+id/myProfileFragment"
+        android:name="com.salonsolution.app.ui.fragment.MyProfileFragment"
+        android:label="@string/my_profile"
+        tools:layout="@layout/fragment_my_profile">
+        <action
+            android:id="@+id/action_myProfileFragment_to_uploadPhotoDialogFragment"
+            app:destination="@id/uploadPhotoDialogFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/termsAndConditionsFragment"
+        android:name="com.salonsolution.app.ui.fragment.TermsAndConditionsFragment"
+        android:label="@string/terms_and_conditions"
+        tools:layout="@layout/fragment_terms_and_conditions" />
+    <fragment
+        android:id="@+id/privacyPolicyFragment"
+        android:name="com.salonsolution.app.ui.fragment.PrivacyPolicyFragment"
+        android:label="@string/privacy_policy"
+        tools:layout="@layout/fragment_privacy_policy" />
+    <dialog
+        android:id="@+id/languageChangeDialogFragment"
+        android:name="com.salonsolution.app.ui.fragment.LanguageChangeDialogFragment"
+        android:label="LanguageChangeDialogFragment"
+        tools:layout="@layout/fragment_language_change" />
+    <action
+        android:id="@+id/action_global_languageChangeDialogFragment"
+        app:destination="@id/languageChangeDialogFragment" />
+    <fragment
+        android:id="@+id/serviceListFragment"
+        android:name="com.salonsolution.app.ui.fragment.ServiceListFragment"
+        android:label="@string/services"
+        tools:layout="@layout/fragment_service_list">
+        <action
+            android:id="@+id/action_serviceListFragment_to_serviceDetailsFragment"
+            app:destination="@id/serviceDetailsFragment" />
+        <argument
+            android:name="categoriesList"
+            app:argType="com.salonsolution.app.data.model.CategoriesModel"
+            app:nullable="true"
+            android:defaultValue="@null" />
+        <argument
+            android:name="categoryId"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/serviceDetailsFragment"
+        android:name="com.salonsolution.app.ui.fragment.ServiceDetailsFragment"
+        android:label="fragment_service_details"
+        tools:layout="@layout/fragment_service_details">
+        <argument
+            android:name="serviceId"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_serviceDetailsFragment_to_staffListFragment"
+            app:destination="@id/staffListFragment" />
+    </fragment>
+    <dialog
+        android:id="@+id/uploadPhotoDialogFragment"
+        android:name="com.salonsolution.app.ui.fragment.UploadPhotoDialogFragment"
+        android:label="UploadPhotoDialogFragment"
+        tools:layout="@layout/fragment_upload_photo_dialog" />
+    <dialog
+        android:id="@+id/serviceListSortDialogFragment"
+        android:name="com.salonsolution.app.ui.fragment.ListSortDialogFragment"
+        tools:layout="@layout/fragment_list_sort_dialog">
+        <argument
+            android:name="sortField"
+            app:argType="string" />
+        <argument
+            android:name="sortOrder"
+            app:argType="integer" />
+        <argument
+            android:name="isShowPrice"
+            app:argType="boolean"
+            android:defaultValue="true" />
+    </dialog>
+    <fragment
+        android:id="@+id/productListFragment"
+        android:name="com.salonsolution.app.ui.fragment.ProductListFragment"
+        android:label="@string/products"
+        tools:layout="@layout/fragment_product_list">
+        <action
+            android:id="@+id/action_productListFragment_to_productDetailsFragment"
+            app:destination="@id/productDetailsFragment" />
+        <argument
+            android:name="serviceId"
+            app:argType="integer" />
+        <argument
+            android:name="staffId"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_productListFragment_to_foodListFragment"
+            app:destination="@id/foodListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/productDetailsFragment"
+        android:name="com.salonsolution.app.ui.fragment.ProductDetailsFragment"
+        android:label="ProductDetailsFragment"
+        tools:layout="@layout/fragment_product_details">
+        <argument
+            android:name="productId"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_productDetailsFragment_to_foodListFragment"
+            app:destination="@id/foodListFragment" />
+        <argument
+            android:name="serviceId"
+            app:argType="integer" />
+        <argument
+            android:name="staffId"
+            app:argType="integer" />
+    </fragment>
+    <action
+        android:id="@+id/action_global_serviceListSortDialogFragment"
+        app:destination="@id/serviceListSortDialogFragment" />
+    <fragment
+        android:id="@+id/foodListFragment"
+        android:name="com.salonsolution.app.ui.fragment.FoodListFragment"
+        android:label="@string/foods"
+        tools:layout="@layout/fragment_food_list">
+        <action
+            android:id="@+id/action_foodListFragment_to_foodDetailsFragment"
+            app:destination="@id/foodDetailsFragment" />
+        <argument
+            android:name="serviceId"
+            app:argType="integer" />
+        <argument
+            android:name="staffId"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/foodDetailsFragment"
+        android:name="com.salonsolution.app.ui.fragment.FoodDetailsFragment"
+        android:label="FoodDetailsFragment"
+        tools:layout="@layout/fragment_food_details">
+        <argument
+            android:name="foodId"
+            app:argType="integer" />
+        <argument
+            android:name="serviceId"
+            app:argType="integer" />
+        <argument
+            android:name="staffId"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/staffListFragment"
+        android:name="com.salonsolution.app.ui.fragment.StaffListFragment"
+        android:label="@string/select_staff"
+        tools:layout="@layout/fragment_staff_list">
+        <action
+            android:id="@+id/action_staffListFragment_to_staffDetailsFragment"
+            app:destination="@id/staffDetailsFragment" />
+        <argument
+            android:name="serviceId"
+            app:argType="integer" />
+        <argument
+            android:name="serviceTime"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/staffDetailsFragment"
+        android:name="com.salonsolution.app.ui.fragment.StaffDetailsFragment"
+        android:label="StaffDetailsFragment"
+        tools:layout="@layout/fragment_staff_details">
+        <argument
+            android:name="staffId"
+            app:argType="integer" />
+        <argument
+            android:name="serviceId"
+            app:argType="integer" />
+        <argument
+            android:name="staffName"
+            app:argType="string" />
+        <argument
+            android:name="serviceTime"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_staffDetailsFragment_to_staffCalendarFragment"
+            app:destination="@id/staffCalendarFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/staffCalendarFragment"
+        android:name="com.salonsolution.app.ui.fragment.StaffCalendarFragment"
+        android:label="@string/book_schedule"
+        tools:layout="@layout/fragment_staff_calendar">
+        <action
+            android:id="@+id/action_staffCalendarFragment_to_productListFragment"
+            app:destination="@id/productListFragment" />
+        <argument
+            android:name="serviceId"
+            app:argType="integer" />
+        <argument
+            android:name="staffId"
+            app:argType="integer" />
+        <argument
+            android:name="serviceTime"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_staffCalendarFragment_to_datePickerFragment"
+            app:destination="@id/datePickerFragment" />
+    </fragment>
+    <dialog
+        android:id="@+id/datePickerFragment"
+        android:name="com.salonsolution.app.ui.fragment.DatePickerFragment"
+        android:label="DatePickerFragment" >
+        <argument
+            android:name="day"
+            app:argType="integer" />
+        <argument
+            android:name="month"
+            app:argType="integer" />
+        <argument
+            android:name="year"
+            app:argType="integer" />
+    </dialog>
+    <fragment
+        android:id="@+id/orderSummaryFragment"
+        android:name="com.salonsolution.app.ui.fragment.OrderSummaryFragment"
+        android:label="@string/order_summary"
+        tools:layout="@layout/fragment_order_summary">
+        <action
+            android:id="@+id/action_orderSummaryFragment_to_orderConfirmationFragment"
+            app:destination="@id/orderConfirmationFragment"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="false" />
+        <argument
+            android:name="cartData"
+            app:argType="com.salonsolution.app.data.model.CartListModel" />
+    </fragment>
+    <fragment
+        android:id="@+id/orderConfirmationFragment"
+        android:name="com.salonsolution.app.ui.fragment.OrderConfirmationFragment"
+        android:label="@string/congratulations_exclamation_mark"
+        tools:layout="@layout/fragment_order_confirmation">
+        <action
+            android:id="@+id/action_orderConfirmationFragment_to_orderDetailsFragment"
+            app:destination="@id/orderDetailsFragment" />
+        <argument
+            android:name="orderId"
+            app:argType="string" />
+        <argument
+            android:name="totalPrice"
+            app:argType="string" />
+        <argument
+            android:name="id"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/orderDetailsFragment"
+        android:name="com.salonsolution.app.ui.fragment.OrderDetailsFragment"
+        android:label="@string/order_details"
+        tools:layout="@layout/fragment_order_details" >
+        <argument
+            android:name="orderId"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchFragment"
+        tools:layout="@layout/fragment_search"
+        android:name="com.salonsolution.app.ui.fragment.SearchFragment"
+        android:label="SearchFragment" >
+        <action
+            android:id="@+id/action_searchFragment_to_serviceDetailsFragment"
+            app:destination="@id/serviceDetailsFragment" />
+    </fragment><action android:id="@+id/action_global_searchFragment" app:destination="@id/searchFragment"/>
+    <fragment
+        android:id="@+id/notificationListFragment"
+        tools:layout="@layout/fragment_notification_list"
+        android:name="com.salonsolution.app.ui.fragment.NotificationListFragment"
+        android:label="NotificationListFragment" /><action android:id="@+id/action_global_notificationListFragment" app:destination="@id/notificationListFragment"/>
+    <action android:id="@+id/action_global_cartFragment" app:destination="@id/cartFragment" />
+    <fragment
+        tools:layout="@layout/fragment_photo_viewer"
+        android:id="@+id/photoViewerFragment"
+        android:name="com.salonsolution.app.ui.fragment.PhotoViewerFragment"
+        android:label="PhotoViewerFragment" >
+        <argument
+            android:name="images"
+            app:argType="string[]" />
+        <argument
+            android:name="position"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </fragment>
+    <action android:id="@+id/action_global_photoViewerFragment" app:destination="@id/photoViewerFragment" />
+    <dialog
+        android:id="@+id/currencyDialogFragment"
+        tools:layout="@layout/fragment_currency_dialog"
+        android:name="com.salonsolution.app.ui.fragment.CurrencyDialogFragment"
+        android:label="CurrencyDialogFragment" /><action android:id="@+id/action_global_currencyDialogFragment" app:destination="@id/currencyDialogFragment"/>
+</navigation>

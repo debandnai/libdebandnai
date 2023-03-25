@@ -1,0 +1,656 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="ie.healthylunch.app.data.viewModel.AddNewCardViewModel" />
+
+        <variable
+            name="activity"
+            type="ie.healthylunch.app.ui.AddNewCardActivity" />
+
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/rl_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background_all"
+        app:hidePriceDropDownList="@{viewModel}">
+
+
+        <RelativeLayout
+            android:id="@+id/rl_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_margin="@dimen/add_child_welcome_margin">
+
+            <ImageView
+                android:id="@+id/iv_skip_wizard"
+                android:layout_width="@dimen/iv_top_left_arrow_30dp"
+                android:layout_height="@dimen/iv_top_left_arrow_30dp"
+                android:layout_centerVertical="true"
+                android:onClick="@{()->activity.onBackPressed()}"
+                android:src="@drawable/wiz_skip_left_arrow_active"
+                tools:ignore="ContentDescription" />
+
+        </RelativeLayout>
+
+
+        <ScrollView
+            android:id="@+id/payment_scroll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rl_top"
+            android:layout_marginLeft="@dimen/rl_main_layout_margin_left_right_10dp"
+            android:layout_marginRight="@dimen/rl_main_layout_margin_left_right_10dp"
+            android:layout_marginBottom="@dimen/margin_bottom_scrollview_add_card_15dp"
+            android:scrollbars="none">
+
+            <RelativeLayout
+                android:id="@+id/top_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <TextView
+                    android:id="@+id/tv_about_your_card"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/quicksand_bold"
+                    android:paddingStart="@dimen/padding_left_keep_my_card_35dp"
+                    android:text="@string/my_card_details"
+                    android:textColor="@color/light_black"
+                    android:textSize="@dimen/text_size_parent_name_25dp"
+                    tools:ignore="RtlSymmetry" />
+
+                <RelativeLayout
+                    android:id="@+id/rl_bottom"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_about_your_card"
+                    android:layout_marginTop="@dimen/margin_30_unit"
+                    android:background="@drawable/custom_calender_background_shadow_new">
+
+
+                    <RelativeLayout
+                        android:id="@+id/rl1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/margin_left_right_add_card_main_layout_10dp"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginRight="@dimen/margin_left_right_add_card_main_layout_10dp"
+                        tools:ignore="UselessParent">
+
+                        <RelativeLayout
+                            android:id="@+id/price_dropdown_layout"
+                            android:layout_width="160dp"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/price_dropdown"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginEnd="@dimen/img_height_width_30dp"
+                            android:background="@drawable/price_list_bg"
+                            android:elevation="@dimen/margin_20_unit"
+                            android:visibility="gone"
+                            app:hideView="@{viewModel.dropDownListVisible}">
+
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/price_drop_down_list"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="6dp"
+                                android:layout_marginRight="6dp"
+                                android:layout_marginBottom="@dimen/margin_10_unit"
+                                app:activity="@{activity}"
+                                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                                app:setRecyclerView="@{viewModel}" />
+
+
+                        </RelativeLayout>
+
+
+                        <RelativeLayout
+                            android:id="@+id/price_dropdown"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/rl_add_to_cart_margin_left_10dp"
+                            android:layout_marginRight="@dimen/rl_add_to_cart_margin_left_10dp"
+                            android:background="@drawable/capsule_shaped_add_children_edittext_bg_light_green"
+                            android:elevation="1.5dp"
+                            android:onClick="@{()->viewModel.dropDownShowClick()}">
+
+                            <TextView
+                                android:id="@+id/price_button_select"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_marginBottom="@dimen/tv_bt_add_new_card_margin_top_5dp"
+                                android:fontFamily="@font/quicksand_bold"
+                                android:gravity="center"
+                                android:paddingLeft="@dimen/bt_add_new_card_padding_left_right_add_new_card_20dp"
+                                android:paddingTop="@dimen/bt_add_new_card_padding_bottom_5dp"
+                                android:paddingRight="@dimen/bt_add_new_card_padding_left_right_add_new_card_20dp"
+                                android:paddingBottom="@dimen/bt_add_new_card_padding_bottom_5dp"
+                                android:text="@{viewModel.chooseAmountText}"
+                                android:textAllCaps="false"
+                                android:textColor="@color/text_font_color"
+                                android:textSize="@dimen/add_wallet_buttonTextSize"
+                                tools:text="@string/choose_top_up_amount" />
+
+                            <ImageView
+                                android:id="@+id/iv_class_dropdown_up"
+                                android:layout_width="@dimen/iv_drop_up_image_height_width_17dp"
+                                android:layout_height="@dimen/iv_drop_up_image_height_width_17dp"
+                                android:layout_alignParentEnd="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginEnd="14dp"
+                                android:src="@drawable/wiz_select_down"
+                                tools:ignore="ContentDescription" />
+
+                        </RelativeLayout>
+
+                        <TextView
+                            android:id="@+id/error_top_up"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/price_dropdown"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="0dp"
+                            android:fontFamily="@font/quicksand_medium"
+                            android:text="@{viewModel.topUpError}"
+                            android:textColor="@color/add_children_color_error"
+                            android:textSize="@dimen/tv_error_card_number"
+                            android:visibility="invisible"
+                            app:hideErrorTextView="@{viewModel.topUpErrorVisible}" />
+
+
+                        <com.stripe.android.view.CardInputWidget
+                            android:id="@+id/cardInputWidget"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/error_top_up"
+                            android:layout_marginBottom="10dp"
+                            android:importantForAutofill="noExcludeDescendants"
+                            android:theme="@style/StripeDefaultTheme"
+                            app:setCardInputWidget="@{viewModel}" />
+
+                        <TextView
+                            android:id="@+id/error_card"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/cardInputWidget"
+                            android:layout_centerHorizontal="true"
+                            android:fontFamily="@font/quicksand_medium"
+                            android:text="@{viewModel.cardError}"
+                            android:textColor="@color/add_children_color_error"
+                            android:textSize="@dimen/tv_error_card_number"
+                            android:visibility="invisible"
+                            app:hideErrorTextView="@{viewModel.cardErrorVisible}" />
+
+
+                        <RelativeLayout
+                            android:id="@+id/rl_card_number"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/price_dropdown"
+                            android:layout_marginTop="@dimen/margin_30_unit"
+                            android:background="@drawable/capsule_shaped_add_children_edittext_bg"
+                            android:elevation="1.5dp"
+                            android:paddingLeft="@dimen/rl_card_number_padding_left_right_15dp"
+                            android:paddingTop="@dimen/rl_card_number_padding_top_12dp"
+                            android:paddingRight="@dimen/rl_card_number_padding_left_right_15dp"
+                            android:paddingBottom="@dimen/rl_card_number_padding_top_12dp"
+                            android:visibility="gone">
+
+                            <EditText
+                                android:id="@+id/et_card_number"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginEnd="@dimen/add_child_editText_marginRight"
+                                android:layout_toStartOf="@+id/iv_county_dropdown"
+                                android:background="@null"
+                                android:focusable="true"
+                                android:focusableInTouchMode="true"
+                                android:fontFamily="@font/quicksand_medium"
+                                android:hint="@string/enter_card_number"
+                                android:importantForAutofill="no"
+                                android:inputType="phone"
+                                android:maxLength="19"
+                                android:singleLine="true"
+                                android:textColor="@color/text_color_transaction_history_light_black"
+                                android:textColorHint="@color/add_children_editText_textColor"
+                                android:textSize="@dimen/add_child_editTextSize" />
+
+                            <ImageView
+                                android:id="@+id/iv_county_dropdown"
+                                android:layout_width="@dimen/add_child_dropdownSize"
+                                android:layout_height="@dimen/add_child_dropdownSize"
+                                android:layout_alignParentEnd="true"
+                                android:layout_centerVertical="true"
+                                android:src="@drawable/wiz_select_down"
+                                android:visibility="gone"
+                                tools:ignore="ContentDescription" />
+
+                        </RelativeLayout>
+
+                        <TextView
+                            android:id="@+id/error_cardNumber"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/rl_card_number"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="0dp"
+                            android:fontFamily="@font/quicksand_medium"
+                            android:text="@string/please_enter_valid_card_number"
+                            android:textColor="@color/add_children_color_error"
+                            android:textSize="@dimen/tv_error_card_number"
+                            android:visibility="gone" />
+
+                        <RelativeLayout
+                            android:id="@+id/rl_name_as_on_card"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/error_cardNumber"
+                            android:layout_marginTop="@dimen/rl_card_number_margin_top_10dp"
+                            android:background="@drawable/capsule_shaped_add_children_edittext_bg"
+                            android:elevation="1.5dp"
+                            android:paddingLeft="@dimen/rl_card_number_padding_left_right_15dp"
+                            android:paddingTop="@dimen/rl_card_number_padding_top_12dp"
+                            android:paddingRight="@dimen/rl_card_number_padding_left_right_15dp"
+                            android:paddingBottom="@dimen/rl_card_number_padding_top_12dp"
+                            android:visibility="gone">
+
+                            <EditText
+                                android:id="@+id/et_name_as_on_card"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:background="@null"
+                                android:focusable="true"
+                                android:focusableInTouchMode="true"
+                                android:fontFamily="@font/quicksand_medium"
+                                android:gravity="center"
+                                android:hint="@string/name_as_on_card"
+                                android:importantForAutofill="no"
+                                android:inputType="textCapSentences"
+                                android:singleLine="true"
+                                android:textColor="@color/text_color_transaction_history_light_black"
+                                android:textColorHint="@color/add_children_editText_textColor"
+                                android:textSize="@dimen/add_child_editTextSize" />
+
+                            <ImageView
+                                android:id="@+id/iv_school_dropdown"
+                                android:layout_width="@dimen/add_child_dropdownSize"
+                                android:layout_height="@dimen/add_child_dropdownSize"
+                                android:layout_alignParentEnd="true"
+                                android:layout_centerVertical="true"
+                                android:src="@drawable/wiz_select_down"
+                                android:visibility="gone"
+                                tools:ignore="ContentDescription" />
+                        </RelativeLayout>
+
+
+                        <TextView
+                            android:id="@+id/error_cardName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/rl_name_as_on_card"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="0dp"
+                            android:fontFamily="@font/quicksand_medium"
+                            android:text="@string/please_enter_proper_name_as_on_card"
+                            android:textColor="@color/add_children_color_error"
+                            android:textSize="@dimen/tv_error_card_number"
+                            android:visibility="gone" />
+
+                        <TextView
+                            android:id="@+id/tv_expiry_date"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/rl_name_as_on_card"
+                            android:layout_marginTop="@dimen/tv_expiry_date_padding_top_25dp"
+                            android:fontFamily="@font/quicksand_medium"
+                            android:paddingStart="@dimen/padding_left_tv_expiry_date_13dp"
+                            android:text="@string/expiry_date"
+                            android:textColor="@color/tv_color_light_black_expiry_date"
+                            android:textSize="@dimen/add_child_editTextSize"
+                            android:visibility="gone"
+                            tools:ignore="RtlSymmetry" />
+
+                        <RelativeLayout
+                            android:id="@+id/rl_month"
+                            android:layout_width="@dimen/rl_month_year_width"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/tv_expiry_date"
+                            android:layout_alignParentStart="true"
+                            android:layout_marginTop="@dimen/rl_month_margin_top_add_new_card_7dp"
+                            android:background="@drawable/capsule_shaped_add_children_edittext_bg"
+                            android:elevation="1.5dp"
+                            android:paddingLeft="@dimen/add_child_editText_paddingLeft"
+                            android:paddingTop="@dimen/rl_month_padding_top_add_new_card_12dp"
+                            android:paddingRight="@dimen/add_child_editText_paddingLeft"
+                            android:paddingBottom="@dimen/rl_month_padding_top_add_new_card_12dp"
+                            android:visibility="gone">
+
+                            <TextView
+                                android:id="@+id/et_month"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="@dimen/add_child_editText_marginRight"
+                                android:layout_toStartOf="@+id/iv_class_dropdown"
+                                android:background="@null"
+                                android:focusable="true"
+                                android:focusableInTouchMode="true"
+                                android:fontFamily="@font/quicksand_medium"
+                                android:hint="@string/mm"
+                                android:singleLine="true"
+                                android:textColor="@color/text_color_transaction_history_light_black"
+                                android:textColorHint="@color/add_children_editText_textColor"
+                                android:textSize="@dimen/add_child_editTextSize" />
+
+                            <ImageView
+                                android:id="@+id/iv_class_dropdown"
+                                android:layout_width="@dimen/add_child_dropdownSize"
+                                android:layout_height="@dimen/add_child_dropdownSize"
+                                android:layout_alignParentEnd="true"
+                                android:layout_centerVertical="true"
+                                android:src="@drawable/wiz_select_down"
+                                tools:ignore="ContentDescription" />
+                        </RelativeLayout>
+
+                        <TextView
+                            android:id="@+id/error_month"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/rl_month"
+                            android:layout_alignParentStart="true"
+                            android:layout_marginTop="0dp"
+                            android:fontFamily="@font/quicksand_medium"
+                            android:paddingStart="20dp"
+                            android:text="@string/please_select_month"
+                            android:textColor="@color/add_children_color_error"
+                            android:textSize="@dimen/tv_error_card_number"
+                            android:visibility="gone"
+                            tools:ignore="RtlSymmetry" />
+
+                        <RelativeLayout
+                            android:id="@+id/rl_year"
+                            android:layout_width="@dimen/rl_month_year_width"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/tv_expiry_date"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginStart="@dimen/rl_margin_left_year_10dp"
+                            android:layout_marginTop="@dimen/rl_month_margin_top_add_new_card_7dp"
+                            android:background="@drawable/capsule_shaped_add_children_edittext_bg"
+                            android:elevation="1.5dp"
+                            android:paddingLeft="@dimen/add_child_editText_paddingLeft"
+                            android:paddingTop="@dimen/add_child_editText_paddingTop"
+                            android:paddingRight="@dimen/add_child_editText_paddingLeft"
+                            android:paddingBottom="@dimen/add_child_editText_paddingTop"
+                            android:visibility="gone">
+
+                            <TextView
+                                android:id="@+id/et_year"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="@dimen/add_child_editText_marginRight"
+                                android:layout_toStartOf="@+id/iv_studentName_dropdown"
+                                android:background="@null"
+                                android:focusable="true"
+                                android:focusableInTouchMode="true"
+                                android:fontFamily="@font/quicksand_medium"
+                                android:hint="@string/yy"
+                                android:singleLine="true"
+                                android:textColor="@color/text_color_transaction_history_light_black"
+                                android:textColorHint="@color/add_children_editText_textColor"
+                                android:textSize="@dimen/add_child_editTextSize" />
+
+                            <ImageView
+                                android:id="@+id/iv_studentName_dropdown"
+                                android:layout_width="@dimen/add_child_dropdownSize"
+                                android:layout_height="@dimen/add_child_dropdownSize"
+                                android:layout_alignParentEnd="true"
+                                android:layout_centerVertical="true"
+                                android:src="@drawable/wiz_select_down"
+                                tools:ignore="ContentDescription" />
+                        </RelativeLayout>
+
+                        <TextView
+                            android:id="@+id/error_year"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/rl_year"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginTop="0dp"
+                            android:fontFamily="@font/quicksand_medium"
+                            android:paddingEnd="10dp"
+                            android:text="@string/please_enter_year"
+                            android:textColor="@color/add_children_color_error"
+                            android:textSize="@dimen/tv_error_card_number"
+                            android:visibility="gone"
+                            tools:ignore="RtlSymmetry" />
+
+
+                        <RelativeLayout
+                            android:id="@+id/cvv_number"
+                            android:layout_width="@dimen/rl_cvv_number_layout_width_100dp"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/error_year"
+                            android:layout_alignParentStart="true"
+                            android:layout_marginTop="@dimen/rl_month_margin_top_add_new_card_7dp"
+                            android:background="@drawable/capsule_shaped_add_children_edittext_bg"
+                            android:elevation="1.5dp"
+                            android:paddingLeft="@dimen/add_child_editText_paddingLeft"
+                            android:paddingTop="@dimen/add_child_editText_paddingTop"
+                            android:paddingRight="@dimen/add_child_editText_paddingLeft"
+                            android:paddingBottom="@dimen/add_child_editText_paddingTop"
+                            android:visibility="gone">
+
+                            <EditText
+                                android:id="@+id/et_cvc_number"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginEnd="@dimen/add_child_editText_marginRight"
+                                android:background="@null"
+                                android:focusable="true"
+                                android:focusableInTouchMode="true"
+                                android:fontFamily="@font/quicksand_medium"
+                                android:gravity="center"
+                                android:hint="@string/cvv"
+                                android:importantForAutofill="no"
+                                android:inputType="numberPassword"
+                                android:singleLine="true"
+                                android:textColor="@color/text_color_transaction_history_light_black"
+                                android:textColorHint="@color/add_children_editText_textColor"
+                                android:textSize="@dimen/add_child_editTextSize" />
+
+
+                        </RelativeLayout>
+
+                        <ImageView
+                            android:id="@+id/iv_cvv_question"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/rl_year"
+                            android:layout_alignTop="@+id/cvv_number"
+                            android:layout_alignBottom="@+id/cvv_number"
+                            android:layout_centerVertical="true"
+                            android:layout_toEndOf="@+id/cvv_number"
+                            android:paddingStart="@dimen/padding_left_iv_cvv_question_10dp"
+                            android:src="@drawable/wiz_question_icon"
+                            android:visibility="gone"
+                            tools:ignore="ContentDescription,RtlSymmetry" />
+
+                        <ImageView
+                            android:id="@+id/iv_wiz_strip"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/rl_year"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginTop="@dimen/rl_month_margin_top_add_new_card_7dp"
+                            android:paddingTop="20dp"
+                            android:src="@drawable/wiz_strip"
+                            android:visibility="gone"
+                            tools:ignore="ContentDescription" />
+
+                        <TextView
+                            android:id="@+id/error_cvv_number"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/cvv_number"
+                            android:layout_alignParentStart="true"
+                            android:layout_marginTop="0dp"
+                            android:fontFamily="@font/quicksand_medium"
+                            android:paddingStart="@dimen/padding_left_error_cvv_number_20dp"
+                            android:text="@string/please_enter_cvv_number"
+                            android:textColor="@color/add_children_color_error"
+                            android:textSize="@dimen/tv_error_card_number"
+                            android:visibility="gone"
+                            tools:ignore="RtlSymmetry" />
+
+                        <RelativeLayout
+                            android:id="@+id/rl_add_card_to_wallet"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/error_card"
+                            android:layout_marginLeft="@dimen/rl_add_to_cart_margin_left_10dp"
+                            android:layout_marginTop="@dimen/rl_add_card_wallet_margin_top_10dp"
+                            android:layout_marginRight="@dimen/rl_add_to_cart_margin_left_10dp"
+                            android:layout_marginBottom="@dimen/rl_add_card_to_wallet_margin_bottom_20dp"
+                            android:background="@drawable/background_textview_green"
+                            android:visibility="gone">
+
+                            <TextView
+                                android:id="@+id/bt_add_new_card"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:layout_marginTop="@dimen/tv_bt_add_new_card_margin_top_5dp"
+                                android:layout_marginBottom="@dimen/tv_bt_add_new_card_margin_top_5dp"
+                                android:fontFamily="@font/quicksand_bold"
+                                android:paddingLeft="@dimen/bt_add_new_card_padding_left_right_add_new_card_20dp"
+                                android:paddingTop="@dimen/bt_add_new_card_padding_bottom_5dp"
+                                android:paddingRight="@dimen/bt_add_new_card_padding_left_right_add_new_card_20dp"
+                                android:paddingBottom="@dimen/bt_add_new_card_padding_bottom_5dp"
+                                android:text="@string/continue_"
+                                android:textAllCaps="false"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/add_wallet_buttonTextSize" />
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/error_card"
+                            android:layout_marginStart="@dimen/editText_marginLeft"
+                            android:layout_marginEnd="@dimen/editText_marginLeft">
+
+                            <RelativeLayout
+                                android:id="@+id/rl_save_Card"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/editText_marginLeft"
+                                android:layout_marginEnd="@dimen/editText_marginLeft"
+                                android:background="@drawable/background_textview_green"
+                                android:onClick="@{()->viewModel.automaticTopUpClick(activity)}">
+
+                                <TextView
+                                    android:id="@+id/bt_wallet_addCard"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_marginTop="@dimen/add_children_buttonText_marginTop"
+                                    android:layout_marginBottom="@dimen/add_children_buttonText_marginTop"
+                                    android:fontFamily="@font/quicksand_bold"
+                                    android:paddingLeft="@dimen/add_children_buttonText_paddingLeft"
+                                    android:paddingTop="@dimen/add_children_buttonText_paddingBottom"
+                                    android:paddingRight="@dimen/add_children_buttonText_paddingLeft"
+                                    android:paddingBottom="@dimen/add_children_buttonText_paddingBottom"
+                                    android:text="@string/automatic_top_up"
+                                    android:textAllCaps="false"
+                                    android:textColor="@color/add_children_colorWhite"
+                                    android:textSize="@dimen/add_children_buttonTextSize" />
+                            </RelativeLayout>
+
+
+                            <TextView
+                                android:id="@+id/tv_top_up_message"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/rl_save_Card"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginStart="@dimen/editText_marginLeft"
+                                android:layout_marginTop="0dp"
+                                android:layout_marginEnd="@dimen/editText_marginLeft"
+                                android:fontFamily="@font/quicksand_regular"
+                                android:paddingTop="@dimen/padding_top_top_up_message_keep_card_15dp"
+                                android:text="@string/we_will_auto_top_up_your_account_when_your_funds_are_low"
+                                android:textColor="@color/red"
+                                android:textSize="@dimen/add_card_view_textSize"
+                                tools:ignore="RtlSymmetry" />
+
+                            <RelativeLayout
+                                android:id="@+id/rl_dont_save_my_card"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/tv_top_up_message"
+                                android:layout_marginLeft="@dimen/editText_marginLeft"
+                                android:layout_marginTop="@dimen/margin_20_unit"
+                                android:layout_marginRight="@dimen/editText_marginLeft"
+                                android:background="@drawable/background_textview_green"
+                                android:onClick="@{()->viewModel.manualTopClick(activity)}">
+
+                                <TextView
+                                    android:id="@+id/tv_delete_card"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_marginTop="@dimen/add_children_buttonText_marginTop"
+                                    android:layout_marginBottom="@dimen/add_children_buttonText_marginTop"
+                                    android:fontFamily="@font/quicksand_bold"
+                                    android:paddingLeft="@dimen/add_children_buttonText_paddingLeft"
+                                    android:paddingTop="@dimen/add_children_buttonText_paddingBottom"
+                                    android:paddingRight="@dimen/add_children_buttonText_paddingLeft"
+                                    android:paddingBottom="@dimen/add_children_buttonText_paddingBottom"
+                                    android:text="@string/manual_top_up"
+                                    android:textAllCaps="false"
+                                    android:textColor="@color/add_children_colorWhite"
+                                    android:textSize="@dimen/add_children_buttonTextSize" />
+
+                            </RelativeLayout>
+
+                            <TextView
+                                android:id="@+id/tv_top_up_message_manually"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/rl_dont_save_my_card"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginStart="@dimen/editText_marginLeft"
+                                android:layout_marginTop="@dimen/margin_top_manually_wallet_save_card_15dp"
+                                android:layout_marginEnd="@dimen/editText_marginLeft"
+                                android:layout_marginBottom="@dimen/margin_20_unit"
+                                android:fontFamily="@font/quicksand_regular"
+                                android:text="@string/you_will_top_up_manually_each_time_funds_run_low"
+                                android:textColor="@color/red"
+                                android:textSize="@dimen/add_card_view_textSize"
+                                tools:ignore="RtlSymmetry" />
+
+
+                        </RelativeLayout>
+
+                    </RelativeLayout>
+
+
+                </RelativeLayout>
+            </RelativeLayout>
+        </ScrollView>
+    </RelativeLayout>
+</layout>

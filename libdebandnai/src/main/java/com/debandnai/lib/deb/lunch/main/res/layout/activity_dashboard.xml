@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+
+        android:id="@+id/swipe_refresh_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ie.healthylunch.app.utils.sideMenu.views.SlideMenuDrawerLayout
+            android:id="@+id/drawer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#50000000">
+
+            <ie.healthylunch.app.utils.sideMenu.views.SlideMenuMenuView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:tag="@string/tag_menu"
+                app:background="@drawable/dashboard_bg" />
+
+            <LinearLayout
+                android:id="@+id/rl_main_dashboard"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/dashboard_background_color"
+                android:elevation="@dimen/_8sdp"
+                android:orientation="vertical"
+                android:tag="@string/tag_content">
+
+                <include
+                    android:id="@+id/toolbar"
+                    layout="@layout/dashboard_toolbar" />
+
+
+                <androidx.fragment.app.FragmentContainerView
+                    android:id="@+id/nav_host_fragment"
+                    android:name="androidx.navigation.fragment.NavHostFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:defaultNavHost="true"
+                    app:navGraph="@navigation/main_nav_graph" />
+            </LinearLayout>
+
+
+        </ie.healthylunch.app.utils.sideMenu.views.SlideMenuDrawerLayout>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+</layout>

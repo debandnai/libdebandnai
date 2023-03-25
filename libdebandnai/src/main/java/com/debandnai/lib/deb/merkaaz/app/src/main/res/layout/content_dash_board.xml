@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="viewModel"
+            type="com.merkaaz.app.data.viewModel.DashboardViewModel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg_color"
+        android:orientation="vertical"
+        android:fitsSystemWindows="true"
+        tools:context=".ui.activity.DashBoardActivity">
+
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/app_bar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:visibility="@{viewModel.isShowToolbar ? View.VISIBLE : View.GONE}"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_scrollFlags="scroll|enterAlways">
+
+                <include
+                    android:id="@+id/incl_toolbar_layout"
+                    app:viewModel="@{viewModel}"
+                    layout="@layout/dash_board_tool_bar" />
+            </Toolbar>
+
+            <include
+                android:id="@+id/incl_search_layout"
+                app:viewModel="@{viewModel}"
+                layout="@layout/search_layout" />
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/nav_host_fragment"
+            android:name="androidx.navigation.fragment.NavHostFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            app:defaultNavHost="true"
+            app:navGraph="@navigation/bottom_navigation" />
+        <!--app:layout_behavior="com.google.android.material.behavior.HideBottomViewOnScrollBehavior"-->
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottom_navigation_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+
+            android:background="@color/white"
+            app:itemIconTint="@color/bottom_nav_color"
+            app:itemTextAppearanceActive="@style/BottomNavigation.ActiveItemTextAppearance"
+            app:itemTextAppearanceInactive="@style/BottomNavigation.ActiveItemTextAppearance"
+            app:itemTextColor="@color/bottom_nav_color"
+            app:labelVisibilityMode="labeled"
+            android:visibility="@{viewModel.isShowBottomNavigation ? View.VISIBLE : View.GONE}"
+            app:menu="@menu/bottom_nav_menu">
+
+        </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

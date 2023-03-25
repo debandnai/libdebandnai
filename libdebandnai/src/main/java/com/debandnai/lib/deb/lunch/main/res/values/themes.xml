@@ -1,0 +1,79 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="Theme.TheLunchBag" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimaryVariant">@color/top_bar_bg_color</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/light_black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">@color/white</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowDisablePreview">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="SplashTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimaryVariant">@color/top_bar_bg_color</item>
+        <item name="colorOnPrimary">@color/white</item>
+
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <!-- Starting activity theme -->
+        <item name="android:windowBackground">@drawable/splash_drawable</item>
+    </style>
+
+    <style name="StripeDefaultTheme" parent="StripeBaseTheme">
+        <!-- Applied to toolbar background -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+
+        <!-- Applied to status bar -->
+        <item name="colorPrimaryDark">@color/light_black</item>
+
+        <!-- Applied to inactive Shipping Method name and amount -->
+        <item name="android:textColorPrimary">@color/light_black</item>
+
+        <!-- Applied to inactive Shipping Method description -->
+        <item name="android:textColorSecondary">@color/light_black</item>
+
+        <!--
+            Applied to Shipping Information drop-down items;
+            add Payment Method footer text color
+        -->
+        <item name="android:textColor">@color/light_black</item>
+
+        <!-- Applied to toolbar foreground/text -->
+        <item name="titleTextColor">@color/light_black</item>
+
+        <!--
+            Applied to selected Payment Method; active field; links;
+            add new Payment Method call-to-action
+        -->
+        <item name="colorAccent">@color/light_black</item>
+
+        <!-- Applied to: Payment Method icon; inactive form field highlight -->
+        <item name="colorControlNormal">@color/light_black</item>
+
+        <!-- Applied to form field text -->
+        <item name="android:editTextColor">@color/light_black</item>
+
+        <item name="editTextColor">@color/light_black</item>
+        <item name="android:textColorHint">@color/gray</item>
+    </style>
+
+    <style name="OrderProcessFragmentDialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowBackground">@color/transparent</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowTitleStyle">@null</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+        <item name="android:windowSoftInputMode">stateUnspecified|adjustPan</item>
+    </style>
+</resources>

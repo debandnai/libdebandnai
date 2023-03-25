@@ -1,0 +1,1213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="dataItem"
+            type="ie.healthylunch.app.data.model.dashBoardViewResponseModel.DashboardListItem" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/statusIv"
+            android:layout_width="@dimen/_15sdp"
+            android:layout_height="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_2sdp"
+            app:isHoliday="@{dataItem.isHoliday}"
+            app:orderId="@{dataItem.dashboardId}"
+            app:orderStatusMsg="@{dataItem.orderStatusMsg}"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/orderStatusTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/quicksand_bold"
+            android:gravity="center"
+            android:paddingStart="@dimen/_4sdp"
+            android:paddingEnd="@dimen/_4sdp"
+            android:textColor="@color/font_green4"
+            android:textSize="@dimen/_11ssp"
+            app:isHoliday="@{dataItem.isHoliday}"
+            app:orderId="@{dataItem.dashboardId}"
+            app:orderStatusMsg="@{dataItem.orderStatusMsg}"
+            tools:text="@string/order_will_process_at_12_midnight" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginBottom="@dimen/_42sdp"
+            app:cardCornerRadius="@dimen/_24sdp"
+            app:cardElevation="@dimen/_2sdp"
+            app:cardMaxElevation="@dimen/_16sdp"
+            app:strokeWidth="@dimen/_4sdp"
+            app:setDashBoardDayOffBg="@{dataItem.dayOff}"
+            app:setDashBoardOrderMenuBg="@{dataItem.orderStatus}"
+            app:setOrderStatusBg="@{dataItem.dashboardId}"
+            app:setLateOrderBg="@{dataItem.ten_per_order}"
+            app:setIsHolidayBg="@{dataItem.isHoliday}">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:id="@+id/coverViewLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_230sdp"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:id="@+id/ll_ten_per_order_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_230sdp"
+                        android:layout_marginBottom="@dimen/_2sdp"
+
+                        android:visibility="gone">
+                        <!--android:background="@drawable/late_order_bg"-->
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_marginStart="@dimen/_12sdp"
+                            android:layout_marginTop="@dimen/_16sdp"
+                            android:fontFamily="@font/quicksand_bold"
+                            android:text="@{dataItem.orderDate}"
+                            android:textColor="@color/red_color_border"
+                            android:textSize="@dimen/_12ssp"
+                            tools:text="Fri 17th" />
+
+                        <ImageView
+                            android:id="@+id/img_late_order"
+                            android:layout_width="@dimen/_70sdp"
+                            android:layout_height="@dimen/_60sdp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginTop="@dimen/_6sdp"
+                            android:layout_marginEnd="@dimen/_16sdp"
+                            android:src="@drawable/icon_late_order2" />
+
+                        <TextView
+                            android:id="@+id/tv_late_order_tag"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/img_late_order"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="@dimen/_4sdp"
+                            android:fontFamily="@font/quicksand_bold"
+                            android:text="@string/late_order"
+                            android:textColor="@color/light_red_2"
+                            android:textSize="@dimen/_20sdp" />
+
+                        <TextView
+                            android:id="@+id/tv_late_order_desc"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_above="@+id/tv_order"
+                            android:layout_below="@+id/tv_late_order_tag"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginStart="@dimen/_7sdp"
+                            android:layout_marginEnd="@dimen/_7sdp"
+                            android:fontFamily="@font/quicksand_bold"
+                            android:gravity="center"
+                            android:text="@{String.format(@string/late_order_message, dataItem.late_order_percent,dataItem.late_order_time)}"
+                            android:textColor="@color/black_4"
+                            android:textSize="@dimen/_11ssp" />
+
+                        <TextView
+                            android:id="@+id/tv_order"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="@dimen/_4sdp"
+                            android:layout_marginBottom="@dimen/_10sdp"
+                            android:background="@drawable/order_bg_10_percent"
+                            android:fontFamily="@font/quicksand_bold"
+                            android:gravity="center"
+                            android:paddingStart="@dimen/_24sdp"
+                            android:paddingTop="@dimen/_3sdp"
+                            android:paddingEnd="@dimen/_24sdp"
+                            android:paddingBottom="@dimen/_5sdp"
+                            android:text="@string/order"
+                            android:textColor="@color/add_children_colorWhite"
+                            android:textSize="@dimen/_15ssp" />
+                    </RelativeLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_228sdp"
+                        android:layout_marginBottom="@dimen/_2sdp"
+                        android:orientation="vertical"
+                        android:visibility="visible">
+
+                        <RelativeLayout
+                            android:id="@+id/dayAmountLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_16sdp"
+                            android:layout_marginStart="@dimen/_4sdp"
+                            android:layout_marginTop="@dimen/_8sdp"
+                            android:layout_marginEnd="@dimen/_4sdp"
+                            android:visibility="visible">
+
+                            <TextView
+                                android:id="@+id/dayNameTv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentStart="true"
+                                android:layout_marginStart="@dimen/_12sdp"
+                                android:fontFamily="@font/quicksand_bold"
+                                android:text="@{dataItem.orderDate}"
+                                android:textColor="@color/font_green4"
+                                android:textSize="@dimen/_12ssp"
+                                app:setDashBoardDayOffTextColor="@{dataItem.dayOff}"
+                                app:setDashBoardOrderTextColor="@{dataItem.orderStatus}"
+                                app:setOrderStatusTextColor="@{dataItem.dashboardId}"
+                                tools:text="Mon 14th" />
+
+                            <TextView
+                                android:id="@+id/amountTv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:layout_alignParentEnd="true"
+                                android:layout_marginEnd="@dimen/_12sdp"
+                                android:fontFamily="@font/quicksand_bold"
+                                android:text="@{`€ `+ dataItem.orderPrice}"
+                                android:textSize="@dimen/_12ssp"
+                                app:setDashBoardDayOffTextColor="@{dataItem.dayOff}"
+                                app:setDashBoardOrderTextColor="@{dataItem.orderStatus}"
+                                app:setOrderStatusTextColor="@{dataItem.dashboardId}"
+                                tools:ignore="RelativeOverlap"
+                                tools:text="€ 0.00" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:id="@+id/llOrderDetailsLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_108sdp"
+                            android:layout_marginStart="@dimen/_10sdp"
+                            android:layout_marginEnd="@dimen/_10sdp"
+                            android:layout_marginBottom="@dimen/_2sdp"
+                            android:visibility="visible">
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:visibility="@{((dataItem.orderStatus.equals(@string/ORANGE) || dataItem.orderStatus.equals(@string/red)) &amp;&amp; dataItem.dashboardId!=0) ? View.VISIBLE : dataItem.isHoliday == true ? View.VISIBLE : View.GONE, default=visible}">
+
+                                <ImageView
+                                    android:id="@+id/img_order_logo"
+                                    android:layout_width="@dimen/_100sdp"
+                                    android:layout_height="@dimen/_60sdp"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_marginTop="@dimen/_8sdp"
+                                    android:layout_marginBottom="@dimen/_3sdp"
+                                    android:src="@{(dataItem.holidayStatus == 1 || dataItem.isHoliday == true) ? @drawable/order_logo_3 : dataItem.orderStatusMsg == 3 ? @drawable/order_logo_5 : dataItem.orderStatusMsg == 4 ? @drawable/order_logo_4 : @drawable/order_logo_2, default=@drawable/order_logo_2}" />
+
+                                <TextView
+                                    android:id="@+id/product_name_tv"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/img_order_logo"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_marginTop="@dimen/_3sdp"
+                                    android:layout_marginBottom="@dimen/_4sdp"
+                                    android:ellipsize="end"
+                                    android:fontFamily="@font/quicksand_bold"
+                                    android:gravity="center_horizontal"
+                                    android:lineSpacingExtra="@dimen/_minus2sdp"
+                                    android:maxLines="2"
+                                    android:singleLine="false"
+                                    android:text="@{dataItem.sublunchMenuName}"
+                                    android:textSize="@dimen/_11ssp"
+                                    app:setDashBoardDayOffTextColor="@{dataItem.dayOff}"
+                                    app:setDashBoardOrderTextColor="@{dataItem.orderStatus}"
+                                    app:setOrderStatusTextColor="@{dataItem.dashboardId}"
+                                    tools:text="product\nproduct" />
+
+                                <ImageView
+                                    android:id="@+id/iv_favorite_image"
+                                    android:layout_width="@dimen/_24sdp"
+                                    android:layout_height="@dimen/_24sdp"
+                                    android:layout_above="@+id/product_name_tv"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_marginEnd="@dimen/_8sdp"
+                                    android:layout_marginBottom="@dimen/_20sdp"
+                                    android:src="@{dataItem.favourite_order_id==0? @drawable/fav_ioc_3:@drawable/fav_ioc_4}"
+                                    tools:ignore="ContentDescription"
+                                    tools:src="@drawable/fav_ioc_1" />
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:visibility="@{(dataItem.orderStatus.equals(@string/GREEN) &amp;&amp; dataItem.dashboardId!=0 &amp;&amp; dataItem.isHoliday == false) ? View.VISIBLE:View.GONE,default=gone}">
+
+                                <TextView
+                                    android:id="@+id/tv_product_name2"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_above="@+id/iv_favorite_image2"
+                                    android:layout_alignParentTop="true"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_marginStart="@dimen/_12sdp"
+                                    android:layout_marginTop="@dimen/_4sdp"
+                                    android:layout_marginEnd="@dimen/_12sdp"
+                                    android:layout_marginBottom="@dimen/_4sdp"
+                                    android:ellipsize="end"
+                                    android:fontFamily="@font/quicksand_bold"
+                                    android:gravity="center"
+                                    android:lineSpacingExtra="@dimen/_minus2sdp"
+                                    android:maxLines="4"
+                                    android:singleLine="false"
+                                    android:text="@{dataItem.sublunchMenuName}"
+                                    android:textSize="@dimen/_12ssp"
+                                    app:setDashBoardDayOffTextColor="@{dataItem.dayOff}"
+                                    app:setDashBoardOrderTextColor="@{dataItem.orderStatus}"
+                                    app:setOrderStatusTextColor="@{dataItem.dashboardId}"
+                                    tools:text="product\nproduct\nproduct\nproduct" />
+
+                                <ImageView
+                                    android:id="@+id/iv_favorite_image2"
+                                    android:layout_width="@dimen/_24sdp"
+                                    android:layout_height="@dimen/_24sdp"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_alignParentBottom="true"
+                                    android:layout_marginEnd="@dimen/_8sdp"
+                                    android:layout_marginBottom="@dimen/_10sdp"
+                                    android:src="@{dataItem.favourite_order_id==0? @drawable/fav_ioc_3:@drawable/fav_ioc_4}"
+                                    tools:ignore="ContentDescription"
+                                    tools:src="@drawable/fav_ioc_1" />
+                            </RelativeLayout>
+                        </RelativeLayout>
+
+                        <LinearLayout
+                            android:id="@+id/bottomLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_94sdp"
+                            android:layout_marginBottom="@dimen/_2sdp"
+                            android:orientation="vertical"
+                            android:visibility="visible">
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="0.5dp"
+                                android:layout_marginStart="@dimen/_1sdp"
+                                android:layout_marginTop="@dimen/_1sdp"
+                                android:layout_marginEnd="@dimen/_1sdp"
+                                android:layout_marginBottom="@dimen/_1sdp"
+                                android:background="@{dataItem.orderStatus.equals(@string/GREEN)? @color/green_3:@color/repeat_order_hr_line_3}"
+                                android:visibility="@{dataItem.holidayStatus==1?dataItem.dashboardId!=0?View.VISIBLE:View.GONE:View.VISIBLE}"
+                                tools:background="@color/red2" />
+                            <!--android:background="@{dataItem.orderStatus.equals(@string/GREEN)? @color/green_3:dataItem.orderStatus.equals(@string/red)?@color/red5:@color/repeat_order_hr_line_3}"-->
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/repeatOrderTextTv"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_marginStart="@dimen/_4sdp"
+                                    android:layout_marginTop="@dimen/_2sdp"
+                                    android:layout_marginEnd="@dimen/_4sdp"
+                                    android:layout_marginBottom="@dimen/_3sdp"
+                                    android:drawablePadding="@dimen/_4sdp"
+                                    android:fontFamily="@font/quicksand_bold"
+                                    android:text="@string/repeat_order"
+                                    android:textColor="@color/light_black"
+                                    android:textSize="@dimen/_10ssp"
+                                    android:visibility="visible"
+                                    app:drawableEndCompat="@drawable/repeat_order_right_tick" />
+
+                                <LinearLayout
+                                    android:id="@+id/llSugarCalorie"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/_minus2sdp"
+                                    android:orientation="horizontal">
+
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:orientation="vertical"
+                                        android:paddingStart="@dimen/_8sdp"
+                                        android:paddingEnd="@dimen/_8sdp">
+
+                                        <TextView
+                                            android:id="@+id/countedCalorieTv"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="@dimen/_2sdp"
+                                            android:fontFamily="@font/quicksand_medium"
+                                            android:text="@{dataItem.totalCalories}"
+                                            android:textColor="@color/silver_font2"
+                                            android:textSize="@dimen/_9ssp"
+                                            tools:text="80/" />
+                                        <!--android:textColor="@{dataItem.repeatOrderAndHasOrder==true?@color/red7:@color/silver_font2}"-->
+                                        <TextView
+                                            android:id="@+id/calorieTextTv"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:fontFamily="@font/quicksand_medium"
+                                            android:text="@string/total_calorie"
+                                            android:textColor="@color/silver_font2"
+                                            android:textSize="@dimen/_9ssp" />
+
+                                        <ProgressBar
+                                            android:id="@+id/progressBarOne"
+                                            style="@android:style/Widget.ProgressBar.Horizontal"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="@dimen/_5sdp"
+                                            android:layout_marginTop="@dimen/_4sdp"
+                                            android:layout_marginBottom="@dimen/_4sdp"
+                                            android:progressDrawable="@drawable/progress_drawable"
+                                            app:setCalorieSugarMeter="@{dataItem.totalCalories}"
+                                            app:trackCornerRadius="@dimen/_12sdp"
+                                            tools:progress="50" />
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:orientation="vertical"
+                                        android:paddingStart="@dimen/_8sdp"
+                                        android:paddingEnd="@dimen/_8sdp">
+
+                                        <TextView
+                                            android:id="@+id/countedSugarTv"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="@dimen/_2sdp"
+                                            android:fontFamily="@font/quicksand_medium"
+                                            android:text="@{dataItem.totalSugar}"
+                                            android:textColor="@color/silver_font2"
+                                            android:textSize="@dimen/_9ssp"
+                                            tools:text="80/" />
+
+                                        <TextView
+                                            android:id="@+id/sugarTextTv"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:fontFamily="@font/quicksand_medium"
+                                            android:text="@string/sugar_content"
+                                            android:textColor="@color/silver_font2"
+                                            android:textSize="@dimen/_9ssp" />
+
+                                        <ProgressBar
+                                            android:id="@+id/progressBarTwo"
+                                            style="@android:style/Widget.ProgressBar.Horizontal"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="@dimen/_5sdp"
+                                            android:layout_marginTop="@dimen/_4sdp"
+                                            android:layout_marginBottom="@dimen/_4sdp"
+                                            android:progressDrawable="@drawable/progress_drawable"
+                                            app:setCalorieSugarMeter="@{dataItem.totalSugar}"
+                                            tools:progress="50" />
+                                    </LinearLayout>
+                                </LinearLayout>
+
+                                <TextView
+                                    android:id="@+id/clearOrderTv"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_marginStart="@dimen/_12sdp"
+                                    android:layout_marginTop="@dimen/_4sdp"
+                                    android:layout_marginEnd="@dimen/_12sdp"
+                                    android:layout_marginBottom="@dimen/_6sdp"
+                                    android:background="@drawable/clear_order_red_bg"
+                                    android:fontFamily="@font/quicksand_bold"
+                                    android:gravity="center"
+                                    android:paddingStart="@dimen/_12sdp"
+                                    android:paddingTop="@dimen/_2sdp"
+                                    android:paddingEnd="@dimen/_12sdp"
+                                    android:paddingBottom="@dimen/_3sdp"
+                                    android:text="@string/clear_order"
+                                    android:textAllCaps="true"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/_9ssp"
+                                    app:dayOff="@{dataItem.dayOff}"
+                                    app:orderStatus="@{dataItem.orderStatus}" />
+
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/llNoOrderPlacedLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="@dimen/_2sdp"
+                            android:orientation="vertical"
+                            android:visibility="visible">
+
+                            <RelativeLayout
+                                android:id="@+id/rl_create_new_order"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_106sdp"
+                                android:layout_marginStart="@dimen/_10sdp"
+                                android:layout_marginTop="@dimen/_10sdp"
+                                android:layout_marginEnd="@dimen/_10sdp"
+                                android:background="@color/light_blue_2"
+                                android:visibility="gone">
+                                <!--android:background="@drawable/no_order_item_background"-->
+                                <RelativeLayout
+                                    android:id="@+id/topRL"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_above="@+id/tv_new_create_tag"
+                                    android:layout_centerHorizontal="true">
+
+                                    <ImageView
+                                        android:id="@+id/img_create_order"
+                                        android:layout_width="@dimen/_52sdp"
+                                        android:layout_height="@dimen/_60sdp"
+                                        android:layout_marginTop="@dimen/_2sdp"
+                                        android:src="@drawable/no_order_icon" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignBottom="@+id/img_create_order"
+                                        android:layout_gravity="end"
+                                        android:layout_marginStart="@dimen/_4sdp"
+                                        android:layout_marginEnd="@dimen/_8sdp"
+                                        android:layout_toEndOf="@+id/img_create_order"
+                                        android:fontFamily="@font/quicksand_bold"
+                                        android:text="@string/create"
+                                        android:textAllCaps="true"
+                                        android:textColor="@color/deep_blue"
+                                        android:textSize="@dimen/_22ssp" />
+                                </RelativeLayout>
+
+                                <TextView
+                                    android:id="@+id/tv_new_create_tag"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentBottom="true"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_marginStart="@dimen/_8sdp"
+                                    android:layout_marginEnd="@dimen/_8sdp"
+                                    android:layout_marginBottom="@dimen/_8sdp"
+                                    android:fontFamily="@font/quicksand_bold"
+                                    android:gravity="bottom"
+                                    android:paddingStart="@dimen/_4sdp"
+                                    android:text="@string/new_tag"
+                                    android:textAllCaps="true"
+                                    android:textColor="@color/deep_blue"
+                                    android:textSize="@dimen/_22ssp" />
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:id="@+id/rl_favorites"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_68sdp"
+                                android:layout_marginStart="@dimen/_10sdp"
+                                android:layout_marginTop="@dimen/_8sdp"
+                                android:layout_marginEnd="@dimen/_10sdp"
+                                android:layout_marginBottom="@dimen/_12sdp"
+                                android:background="@color/light_blue_2"
+                                android:visibility="gone">
+                                <!--android:background="@drawable/order_item_no_order_bottom_bg"-->
+
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1.8dp"
+                                    android:layout_marginStart="@dimen/_4sdp"
+                                    android:layout_marginEnd="@dimen/_4sdp"
+                                    android:background="@color/deep_blue" />
+
+                                <ImageView
+                                    android:id="@+id/img_ioc_1"
+                                    android:layout_width="@dimen/_18sdp"
+                                    android:layout_height="@dimen/_18sdp"
+                                    android:layout_alignParentBottom="true"
+                                    android:layout_marginStart="@dimen/_8sdp"
+                                    android:layout_marginTop="@dimen/_6sdp"
+                                    android:layout_marginEnd="@dimen/_4sdp"
+                                    android:layout_marginBottom="@dimen/_8sdp"
+                                    android:src="@drawable/fav_1"
+                                    android:visibility="invisible" />
+
+                                <ImageView
+                                    android:id="@+id/img_ioc_2"
+                                    android:layout_width="@dimen/_20sdp"
+                                    android:layout_height="@dimen/_20sdp"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_marginStart="@dimen/_4sdp"
+                                    android:layout_marginTop="@dimen/_8sdp"
+                                    android:layout_marginEnd="@dimen/_8sdp"
+                                    android:layout_marginBottom="@dimen/_4sdp"
+                                    android:src="@drawable/fav_2"
+                                    app:tint="@color/red5" />
+
+                                <TextView
+                                    android:id="@+id/tv_order_tag"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/_12sdp"
+                                    android:layout_marginEnd="@dimen/_4sdp"
+                                    android:layout_toStartOf="@+id/img_ioc_2"
+                                    android:layout_toEndOf="@+id/img_ioc_1"
+                                    android:fontFamily="@font/quicksand_bold"
+                                    android:gravity="center"
+                                    android:text="@string/order_from"
+                                    android:textColor="@color/deep_blue"
+                                    android:textSize="@dimen/_13ssp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/tv_order_tag"
+                                    android:layout_marginTop="@dimen/_2sdp"
+                                    android:layout_marginEnd="@dimen/_4sdp"
+                                    android:layout_toStartOf="@+id/img_ioc_2"
+                                    android:layout_toEndOf="@+id/img_ioc_1"
+                                    android:fontFamily="@font/quicksand_bold"
+                                    android:gravity="center"
+                                    android:text="@string/favourites"
+                                    android:textColor="@color/deep_blue"
+                                    android:textSize="@dimen/_13ssp" />
+
+                            </RelativeLayout>
+
+                            <TextView
+                                android:id="@+id/tv_noOrder"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_30sdp"
+                                android:ellipsize="end"
+                                android:fontFamily="@font/quicksand_bold"
+                                android:gravity="center"
+                                android:maxLines="6"
+                                android:text="@string/no_order_placed"
+                                android:textColor="@color/gray_2"
+                                android:textSize="@dimen/_16ssp"
+                                android:visibility="gone"
+                                tools:text="@string/no_order_placed" />
+
+                            <ImageView
+                                android:id="@+id/img_noOrder"
+                                android:layout_width="@dimen/_120sdp"
+                                android:layout_height="@dimen/_80sdp"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="@dimen/_30sdp"
+                                android:src="@drawable/no_order_placed_img"
+                                android:visibility="gone" />
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <View
+                    android:id="@+id/calendarOffView"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_230sdp"
+                    android:background="@drawable/calender_off_bg"
+                    android:visibility="@{dataItem.isHoliday==true?View.VISIBLE:View.GONE,default=gone}" />
+            </RelativeLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+
+
+    <!--<RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <RelativeLayout
+            android:id="@+id/noLunchLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <ImageView
+                android:id="@+id/statusIv"
+                android:layout_width="@dimen/_15sdp"
+                android:layout_height="@dimen/_15sdp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/_2sdp"
+                app:isHoliday="@{dataItem.isHoliday}"
+                app:orderStatusMsg="@{dataItem.orderStatusMsg}"
+                app:orderId="@{dataItem.dashboardId}"
+                tools:ignore="ContentDescription" />
+
+
+            <TextView
+                android:id="@+id/orderStatusTv"
+                android:layout_width="@dimen/_300sdp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/statusIv"
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/quicksand_bold"
+                android:gravity="center_horizontal"
+                android:paddingStart="@dimen/_12sdp"
+                android:paddingEnd="@dimen/_12sdp"
+                android:textColor="@color/font_green4"
+                android:textSize="@dimen/_11ssp"
+                app:isHoliday="@{dataItem.isHoliday}"
+                app:orderId="@{dataItem.dashboardId}"
+                app:orderStatusMsg="@{dataItem.orderStatusMsg}"
+                tools:text="@string/order_will_process_at_12_midnight" />
+
+        </RelativeLayout>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView"
+            android:layout_width="@dimen/_300sdp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/noLunchLayout"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="@dimen/_3sdp"
+            app:setDashBoardOrderMenuBg="@{dataItem.orderStatus}"
+            app:setLateOrderBg="@{dataItem.ten_per_order}"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginRight="@dimen/_3sdp"
+            android:layout_marginBottom="@dimen/_42sdp"
+            android:overScrollMode="never"
+            app:cardCornerRadius="@dimen/_16sdp"
+            app:cardElevation="@dimen/_2sdp"
+            app:cardMaxElevation="@dimen/_16sdp">
+
+            <RelativeLayout
+                android:id="@+id/coverViewLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                tools:ignore="UselessParent">
+                &lt;!&ndash;10% order screen layout implemented&ndash;&gt;
+                <RelativeLayout
+                    android:id="@+id/ll_ten_per_order_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/late_order_bg"
+                    android:visibility="gone">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginStart="@dimen/_8sdp"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:fontFamily="@font/quicksand_bold"
+                        android:text="@{dataItem.orderDate}"
+                        android:textColor="@color/light_red"
+                        android:textSize="@dimen/_12ssp"
+                        tools:text="Fri 17th"
+                        />
+                    <ImageView
+                        android:id="@+id/img_late_order"
+                        android:layout_marginEnd="@dimen/_12sdp"
+                        android:layout_marginTop="@dimen/_6sdp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:src="@drawable/icon_late_order"/>
+                    <TextView
+                        android:id="@+id/tv_late_order_tag"
+                        android:layout_below="@+id/img_late_order"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/late_order"
+                        android:layout_marginTop="@dimen/_4sdp"
+                        android:textColor="@color/light_red_2"
+                        android:fontFamily="@font/quicksand_bold"
+                        android:textSize="@dimen/_18sdp"
+                        android:layout_centerHorizontal="true"/>
+
+                    <TextView
+                        android:id="@+id/tv_late_order_desc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_above="@+id/tv_order"
+                        android:layout_below="@+id/tv_late_order_tag"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginStart="@dimen/_7sdp"
+                        android:layout_marginEnd="@dimen/_7sdp"
+                        android:fontFamily="@font/quicksand_bold"
+                        android:gravity="center"
+                        android:text="@string/you_have_passed_the_midnight_deadline_to_order_for_a_surcharge_of_15_you_may_add_a_late_order_up_until_4pm"
+                        android:textColor="@color/black_4"
+                        android:textSize="@dimen/_12ssp" />
+                    <TextView
+                    android:id="@+id/tv_order"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/order_bg_10_percent"
+                    android:gravity="center"
+                    android:fontFamily="@font/quicksand_bold"
+                    android:text="@string/order"
+                    android:paddingStart="@dimen/_14sdp"
+                    android:paddingEnd="@dimen/_14sdp"
+                    android:paddingBottom="@dimen/_3sdp"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:layout_centerHorizontal="true"
+                    android:textColor="@color/add_children_colorWhite"
+                    android:textSize="@dimen/_15ssp"
+                    android:layout_alignParentBottom="true"/>
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/dayAmountLayout"
+                    android:layout_below="@+id/ll_ten_per_order_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_4sdp"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:layout_marginRight="@dimen/_4sdp"
+                    >
+
+                    <TextView
+                        android:id="@+id/amountTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="@dimen/_4sdp"
+                        android:layout_marginEnd="@dimen/margin_right_food_amount1_10dp"
+                        android:fontFamily="@font/quicksand_bold"
+                        app:setDashBoardOrderTextColor="@{dataItem.orderStatus}"
+                        android:textSize="@dimen/_13ssp"
+                        android:text="@{`€ `+ dataItem.orderPrice}"
+                        tools:ignore="RelativeOverlap"
+                        tools:text="€ 0.00" />
+                    &lt;!&ndash; app:setDashBoardOrderAmountPrice="@{dataItem.totalprice}"&ndash;&gt;
+                    <TextView
+                        android:id="@+id/dayNameTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginStart="@dimen/_8sdp"
+                        android:layout_marginTop="@dimen/_4sdp"
+                        android:fontFamily="@font/quicksand_bold"
+                        android:text="@{dataItem.orderDate}"
+                        app:setDashBoardOrderTextColor="@{dataItem.orderStatus}"
+                        android:textColor="@color/font_green4"
+                        android:textSize="@dimen/_13ssp"
+                        tools:text="Mon 14th" />
+                    &lt;!&ndash;android:text="@{dataItem.weekday+` `+dataItem.date}"&ndash;&gt;
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rlOrder"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_30sdp"
+                    >
+
+                    <RelativeLayout
+                        android:id="@+id/llOrderDetailsLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:orientation="horizontal"
+                        android:layout_centerVertical="true"
+                        tools:ignore="UseCompoundDrawables">
+                        <ImageView
+                            android:id="@+id/img_order_logo"
+                            android:layout_marginTop="@dimen/_3sdp"
+                            android:layout_centerHorizontal="true"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/order_logo"/>
+
+                        <ImageView
+                            android:id="@+id/iv_favorite_image"
+                            android:layout_width="@dimen/_24sdp"
+                            android:layout_height="@dimen/_24sdp"
+                            android:layout_above="@+id/product_name_tv"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginBottom="@dimen/_8sdp"
+                            android:src="@{dataItem.favourite_order_id==0? @drawable/fav_ioc_2:@drawable/fav_ioc_1}"
+                            tools:ignore="ContentDescription"
+                            tools:src="@drawable/fav_ioc_1" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/product_name_tv"
+                            android:layout_below="@+id/img_order_logo"
+                            android:layout_centerHorizontal="true"
+                            android:text="@{dataItem.sublunchMenuName}"
+                            android:ellipsize="end"
+                            android:fontFamily="@font/quicksand_bold"
+                            android:gravity="center_horizontal"
+                            android:layout_marginBottom="@dimen/_2sdp"
+                            tools:text="product"
+                            android:maxLines="1"
+                            app:setDashBoardOrderTextColor="@{dataItem.orderStatus}"
+                            android:textSize="@dimen/_11ssp"/>
+                    </RelativeLayout>
+
+                    <LinearLayout
+                        android:id="@+id/llCalendarOffLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="@dimen/_25sdp"
+                        android:layout_marginEnd="@dimen/_25sdp"
+                        android:layout_marginBottom="@dimen/_28sdp"
+                        android:alpha="0.6"
+                        android:gravity="center"
+                        android:visibility="gone"
+                        tools:ignore="UseCompoundDrawables">
+
+                        <ImageView
+                            android:layout_width="@dimen/_60sdp"
+                            android:layout_height="match_parent"
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/hungry_image_2"
+                            tools:ignore="ContentDescription" />
+
+                        <TextView
+                            android:id="@+id/templateNameTv2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="@dimen/_8sdp"
+                            android:fontFamily="@font/quicksand_bold"
+                            android:gravity="center_vertical"
+                            android:paddingBottom="@dimen/_10sdp"
+                            android:textColor="@color/red2"
+                            android:textSize="@dimen/_11ssp"
+                            tools:text="@string/grab_nbag_nplease" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/llNoOrderPlacedLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="@dimen/_2sdp"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+                        <RelativeLayout
+                            android:visibility="gone"
+                            android:id="@+id/rl_create_new_order"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:layout_marginEnd="@dimen/_10sdp"
+                            android:layout_marginStart="@dimen/_10sdp"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_100sdp"
+                            android:background="@drawable/no_order_item_background">
+                            <ImageView
+                                android:id="@+id/img_no_order"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:layout_marginStart="@dimen/_5sdp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/no_order_icon"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/create"
+                                android:layout_toEndOf="@+id/img_no_order"
+                                android:layout_above="@+id/tv_new_create_tag"
+                                android:layout_marginStart="@dimen/_4sdp"
+                                android:layout_gravity="end"
+                                android:textAllCaps="true"
+                                android:textColor="@color/red5"
+                                android:fontFamily="@font/quicksand_bold"
+                                android:textSize="@dimen/_23ssp"/>
+                            <TextView
+                                android:id="@+id/tv_new_create_tag"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/new_tag"
+                                android:textAllCaps="true"
+                                android:layout_marginBottom="@dimen/_3sdp"
+                                android:layout_marginStart="@dimen/_9sdp"
+                                android:layout_below="@+id/img_no_order"
+                                android:gravity="bottom"
+                                android:layout_centerHorizontal="true"
+                                android:textColor="@color/red5"
+                                android:fontFamily="@font/quicksand_bold"
+                                android:textSize="@dimen/_23ssp"/>
+
+                        </RelativeLayout>
+                        <RelativeLayout
+                            android:visibility="gone"
+                            android:id="@+id/rl_favorites"
+                            android:layout_marginTop="@dimen/_8sdp"
+                            android:layout_marginEnd="@dimen/_10sdp"
+                            android:layout_marginStart="@dimen/_10sdp"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_60sdp"
+                            android:background="@drawable/order_item_no_order_bottom_bg">
+
+                            <ImageView
+                                android:id="@+id/img_ioc_1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentBottom="true"
+                                android:layout_margin="@dimen/_6sdp"
+                                android:src="@drawable/fav_1" />
+
+                            <ImageView
+                                android:id="@+id/img_ioc_2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:layout_marginStart="@dimen/_2sdp"
+                                android:layout_marginTop="@dimen/_6sdp"
+                                android:layout_marginEnd="@dimen/_4sdp"
+                                android:layout_marginBottom="@dimen/_4sdp"
+                                android:src="@drawable/fav_2" />
+                            <TextView
+                                android:id="@+id/tv_order_tag"
+                                android:gravity="center"
+                                android:layout_marginTop="@dimen/_6sdp"
+                                android:layout_marginEnd="@dimen/_4sdp"
+                                android:fontFamily="@font/quicksand_bold"
+                                android:textColor="@color/red5"
+                                android:textSize="@dimen/_14ssp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/order_from"
+                                android:layout_toEndOf="@+id/img_ioc_1"
+                                android:layout_toStartOf="@+id/img_ioc_2"/>
+                                <TextView
+                                android:layout_below="@+id/tv_order_tag"
+                                android:gravity="center"
+                                android:layout_marginEnd="@dimen/_4sdp"
+                                android:layout_marginTop="@dimen/_2sdp"
+                                android:fontFamily="@font/quicksand_bold"
+                                android:textColor="@color/red5"
+                                android:textSize="@dimen/_14ssp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/favourites"
+                                android:layout_toEndOf="@+id/img_ioc_1"
+                                android:layout_toStartOf="@+id/img_ioc_2"/>
+
+                        </RelativeLayout>
+
+
+
+                        <TextView
+                            android:id="@+id/noOrderTv"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:ellipsize="end"
+                            android:fontFamily="@font/quicksand_medium"
+                            android:gravity="top|center"
+                            android:maxLines="6"
+                            android:paddingTop="@dimen/_20sdp"
+                            android:text="@string/no_order_placed"
+                            android:textColor="@color/light_black"
+                            android:textSize="@dimen/_11ssp"
+                            tools:text="@string/no_order_placed" />
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+
+
+                <LinearLayout
+                    android:id="@+id/bottomLayout"
+                    android:layout_below="@+id/rlOrder"
+                    android:layout_width="match_parent"
+                    android:orientation="vertical"
+                    android:layout_height="wrap_content">
+                    <View
+                        android:layout_marginTop="@dimen/_1sdp"
+                        android:layout_marginBottom="@dimen/_1sdp"
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:layout_marginEnd="@dimen/_1sdp"
+                        android:layout_marginStart="@dimen/_1sdp"
+                        android:visibility="@{dataItem.holidayStatus==1?dataItem.dashboardId!=0?View.VISIBLE:View.GONE:View.VISIBLE}"
+                        android:background="@{dataItem.orderStatus.equals(@string/GREEN)? @color/repeat_order_hr_line_1:dataItem.orderStatus.equals(@string/red)?@color/repeat_order_hr_line_2:@color/repeat_order_hr_line_3}"
+                        />
+
+                    <TextView
+                        android:id="@+id/repeatOrderTextTv"
+                        android:layout_width="wrap_content"
+                        android:drawableEnd="@drawable/repeat_order_right_tick"
+                        android:drawablePadding="@dimen/_4sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginStart="@dimen/_4sdp"
+                        android:layout_marginTop="@dimen/_2sdp"
+                        android:layout_marginEnd="@dimen/_4sdp"
+                        android:layout_marginBottom="@dimen/_3sdp"
+                        android:fontFamily="@font/quicksand_bold"
+                        android:text="@string/repeat_order"
+                        android:textColor="@color/light_black"
+                        android:visibility="visible" />
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/llSugarCalorie"
+                            android:layout_marginStart="@dimen/_3sdp"
+                            android:layout_marginEnd="@dimen/_3sdp"
+                            android:layout_marginBottom="@dimen/_4sdp"
+                            android:orientation="horizontal">
+                            <RelativeLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight=".1"
+                                android:paddingStart="@dimen/_8sdp"
+                                android:paddingEnd="@dimen/_8sdp"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/countedCalorieTv"
+                                    android:layout_width="wrap_content"
+                                    android:layout_marginTop="@dimen/_2sdp"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/quicksand_medium"
+                                    android:textColor="@{dataItem.repeatOrderAndHasOrder==true?@color/red7:@color/silver_font2}"
+                                    android:textSize="@dimen/_10ssp"
+                                    android:text="@{dataItem.totalCalories}"
+                                    tools:text="80/" />
+                                <TextView
+                                    android:id="@+id/totalCalorieTv"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_toEndOf="@+id/countedCalorieTv"
+                                    android:fontFamily="@font/quicksand_medium"
+                                    android:textColor="@color/light_gray2"
+                                    android:textSize="@dimen/_9ssp"
+                                    android:visibility="gone"
+                                    tools:text="100" />
+                                <TextView
+                                    android:id="@+id/calorieTextTv"
+                                    android:layout_below="@+id/countedCalorieTv"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/quicksand_medium"
+                                    android:text="@string/total_calorie"
+                                    android:textColor="@{dataItem.repeatOrderAndHasOrder==true?@color/red7:@color/silver_font2}"
+                                    android:textSize="@dimen/_9ssp" />
+                                &lt;!&ndash;android:textColor="@{dataItem.orderStatus.equals(@string/orange)?@color/yellow:@color/deis_colorGreen}"&ndash;&gt;
+
+                                <ProgressBar
+                                    android:id="@+id/progressBarOne"
+                                    android:layout_below="@+id/calorieTextTv"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/_5sdp"
+                                    android:layout_marginTop="4dp"
+                                    app:trackCornerRadius="@dimen/_12sdp"
+                                    style="@android:style/Widget.ProgressBar.Horizontal"
+                                    app:setCalorieSugarMeter="@{dataItem.totalCalories}"
+                                    android:progressDrawable="@drawable/progress_drawable"
+                                    tools:progress="50"
+                                    />
+
+                                &lt;!&ndash;android:progressDrawable="@{dataItem.orderStatus.equals(@string/orange)?@drawable/order_menu_vertical_progress_bar_orange:@drawable/order_menu_vertical_progress_bar}"&ndash;&gt;
+                            </RelativeLayout>
+                            <RelativeLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight=".1"
+                                android:paddingStart="@dimen/_8sdp"
+                                android:paddingEnd="@dimen/_8sdp"
+
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/countedSugarTv"
+                                    android:layout_width="wrap_content"
+                                    android:layout_marginTop="@dimen/_2sdp"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/quicksand_medium"
+                                    android:textSize="@dimen/_10ssp"
+                                    android:textColor="@{dataItem.repeatOrderAndHasOrder==true?@color/red7:@color/silver_font2}"
+                                    android:text="@{dataItem.totalSugar}"
+                                    tools:text="80/" />
+                                <TextView
+                                    android:id="@+id/totalSugarTv"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_toEndOf="@+id/countedSugarTv"
+                                    android:fontFamily="@font/quicksand_medium"
+                                    android:textColor="@color/silver_font2"
+                                    android:textSize="@dimen/_9ssp"
+                                    android:visibility="gone"
+                                    tools:text="100" />
+                                <TextView
+                                    android:id="@+id/sugarTextTv"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/quicksand_medium"
+                                    android:text="@string/sugar_content"
+                                    android:textColor="@{dataItem.repeatOrderAndHasOrder==true?@color/red7:@color/silver_font2}"
+                                    android:layout_below="@+id/countedSugarTv"
+                                    android:textSize="@dimen/_9ssp" />
+                                &lt;!&ndash;android:textColor="@{dataItem.orderStatus.equals(@string/orange)?@color/yellow:@color/deis_colorGreen}"&ndash;&gt;
+                                <ProgressBar
+                                    android:id="@+id/progressBarTwo"
+                                    android:layout_below="@+id/sugarTextTv"
+                                    style="@android:style/Widget.ProgressBar.Horizontal"
+                                    android:layout_width="match_parent"
+                                    android:layout_marginTop="4dp"
+                                    android:layout_height="@dimen/_5sdp"
+                                    android:layout_marginEnd="@dimen/_6sdp"
+                                    android:progressDrawable="@drawable/progress_drawable"
+                                    app:setCalorieSugarMeter="@{dataItem.totalSugar}"
+                                    tools:progress="50" />
+                                &lt;!&ndash;android:progressDrawable="@{dataItem.orderStatus.equals(@string/orange)?@drawable/order_menu_vertical_progress_bar_orange:@drawable/order_menu_vertical_progress_bar}"&ndash;&gt;
+                            </RelativeLayout>
+
+                        </LinearLayout>
+
+                </LinearLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:paddingBottom="@dimen/_8sdp">
+                    <TextView
+                        android:id="@+id/clearOrderTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginStart="@dimen/_12sdp"
+                        android:layout_marginTop="@dimen/_12sdp"
+                        android:layout_marginEnd="@dimen/_12sdp"
+                        android:layout_marginBottom="@dimen/_12sdp"
+                        android:background="@drawable/clear_order_red_bg"
+                        android:fontFamily="@font/quicksand_bold"
+                        android:gravity="center"
+                        android:paddingTop="@dimen/_2sdp"
+                        android:paddingBottom="@dimen/_3sdp"
+                        android:layout_alignParentBottom="true"
+                        android:paddingStart="@dimen/_12sdp"
+                        android:paddingEnd="@dimen/_12sdp"
+                        android:text="@string/clear_order"
+                        android:textAllCaps="true"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_10ssp"
+                        app:dayOff="@{dataItem.dayOff}"
+                        app:orderStatus="@{dataItem.orderStatus}" />
+                </RelativeLayout>
+
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+    </RelativeLayout>-->
+</layout>

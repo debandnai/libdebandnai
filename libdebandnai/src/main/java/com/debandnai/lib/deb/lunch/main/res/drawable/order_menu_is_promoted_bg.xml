@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- most important is order of layers -->
+
+    <!-- Bottom right side 2dp Shadow -->
+    <item >
+        <shape
+            android:shape="rectangle">
+            <solid
+                android:color="@color/color_is_promoted"/>
+            <corners
+                android:bottomRightRadius="@dimen/order_menu_selected_food_price_bg_radius"
+                android:bottomLeftRadius="@dimen/order_menu_selected_food_price_bg_radius"
+                android:topLeftRadius="@dimen/order_menu_selected_food_price_bg_radius"
+                android:topRightRadius="@dimen/order_menu_selected_food_price_bg_radius"/>
+            <padding
+                android:top="@dimen/order_menu_selected_food_price_background_paddingTop"
+                android:bottom="@dimen/order_menu_selected_food_price_background_paddingTop"
+                android:right="@dimen/order_menu_selected_food_price_bg_paddingRight"
+                android:left="@dimen/order_menu_selected_food_price_bg_paddingRight"/>
+        </shape>
+    </item>
+</layer-list>

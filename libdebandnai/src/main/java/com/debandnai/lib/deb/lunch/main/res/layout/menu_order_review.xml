@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/dialog_inset"
+        android:fillViewport="true">
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="@dimen/iv_top_left_arrow_30dp"
+            android:layout_height="@dimen/iv_top_left_arrow_30dp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:src="@drawable/wiz_skip_left_arrow_active"
+            tools:ignore="ContentDescription"
+            app:tint="@color/red_color_1" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:fontFamily="@font/quicksand_bold"
+            android:gravity="center"
+            android:text="@string/order_review"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/silver"
+            android:textSize="@dimen/_13ssp"
+            android:layout_marginStart="@dimen/_8sdp" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/textView2"
+            android:fillViewport="true"
+            android:scrollbarSize="0dp"
+            android:layout_marginTop="@dimen/_20sdp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:textColor="@color/dark_gray_2"
+                    android:textSize="@dimen/_16ssp"
+                    android:fontFamily="@font/quicksand_bold"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:ellipsize="end"
+                    android:gravity="center_horizontal"
+                    android:id="@+id/tv_product_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_14sdp"
+                    android:layout_marginEnd="@dimen/_14sdp" />
+
+                <ImageView
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:layout_gravity="center"
+                    android:layout_width="@dimen/_120sdp"
+                    android:layout_height="@dimen/_120sdp"
+                    android:src="@drawable/order_review_img"
+                    tools:ignore="ContentDescription" />
+                <!--android:src="@drawable/logo_1"-->
+                <TextView
+                    android:id="@+id/tv_day_name"
+                    android:layout_width="match_parent"
+                    android:layout_marginStart="@dimen/_20sdp"
+                    android:layout_marginEnd="@dimen/_20sdp"
+                    android:textAllCaps="true"
+                    android:fontFamily="@font/quicksand_bold"
+                    android:layout_height="@dimen/repeat_for_all_day_height_65dp"
+                    android:layout_marginLeft="@dimen/bt_order_done_margin"
+                    android:layout_marginTop="@dimen/margin_top_repeat_order_every_day_25dp"
+                    android:layout_marginRight="@dimen/bt_order_done_margin"
+                    android:layout_marginBottom="@dimen/_4sdp"
+                    android:paddingStart="@dimen/_3sdp"
+                    android:paddingEnd="@dimen/_3sdp"
+                    android:background="@drawable/background_textview_green"
+                    android:gravity="center"
+                    android:textColor="@color/add_children_colorWhite"
+                    android:textSize="@dimen/_12ssp"
+                    tools:text="Repeat Order Every Monday"
+                    />
+                <TextView
+                    android:id="@+id/tv_day_details"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:layout_marginBottom="0dp"
+                    android:gravity="center"
+                    android:fontFamily="@font/quicksand_bold"
+                    android:text="@string/we_will_remember_to_deliver_lunches_each_thursday_until_you_edit_canel_them"
+                    android:paddingLeft="@dimen/padding_left_right_order_type_18dp"
+                    android:paddingRight="@dimen/padding_left_right_order_type_18dp"
+                    android:paddingBottom="@dimen/_4sdp"
+                    android:textColor="@color/red5"
+                    android:textSize="@dimen/_13ssp"
+                    tools:text="@string/we_will_remember_to_deliver_lunches_each_thursday_until_you_edit_canel_them" />
+
+                <TextView
+                    android:id="@+id/tv_current_day_name"
+                    android:layout_width="match_parent"
+                    android:layout_marginStart="@dimen/_20sdp"
+                    android:layout_marginEnd="@dimen/_20sdp"
+                    android:layout_marginBottom="@dimen/_4sdp"
+                    android:background="@drawable/background_textview_green_yellow"
+                    android:gravity="center"
+                    android:textAllCaps="true"
+                    android:fontFamily="@font/quicksand_bold"
+                    android:textColor="@color/add_children_colorWhite"
+                    android:textSize="@dimen/_12ssp"
+                    android:layout_height="@dimen/repeat_for_all_day_height_65dp"
+                    android:layout_marginLeft="@dimen/bt_order_done_margin"
+                    android:layout_marginTop="@dimen/_30sdp"
+                    android:layout_marginRight="@dimen/bt_order_done_margin"
+                    android:paddingStart="@dimen/_3sdp"
+                    android:paddingEnd="@dimen/_3sdp"
+                    tools:text="Repeat Order Every Monday" />
+
+                <TextView
+                    android:id="@+id/tv_current_day_details"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:layout_marginBottom="0dp"
+                    android:gravity="center"
+                    android:textColor="@color/black_5"
+                    android:textSize="@dimen/_13ssp"
+                    android:text="@string/one_time_order_you_will_remember_to_re_order_lunches"
+                    android:fontFamily="@font/quicksand_bold"
+                    android:paddingLeft="@dimen/padding_left_right_order_type_18dp"
+                    android:paddingRight="@dimen/padding_left_right_order_type_18dp"
+                    android:paddingBottom="@dimen/_4sdp"
+                    tools:text="@string/one_time_order_you_will_remember_to_re_order_lunches" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_40sdp"
+                    android:layout_marginBottom="@dimen/_20sdp"
+                    android:gravity="center"
+                    android:textColor="@color/red_6"
+                    android:textSize="@dimen/_13ssp"
+                    android:text="@string/repeat_orders_will"
+                    android:fontFamily="@font/quicksand_bold"
+                    android:paddingLeft="@dimen/padding_left_right_order_type_18dp"
+                    android:paddingRight="@dimen/padding_left_right_order_type_18dp"
+                    android:paddingBottom="@dimen/_4sdp" />
+            </LinearLayout>
+        </ScrollView>
+    </RelativeLayout>
+</layout>

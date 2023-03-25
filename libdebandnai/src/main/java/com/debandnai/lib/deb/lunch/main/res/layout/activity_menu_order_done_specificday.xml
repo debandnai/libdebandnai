@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <include
+        android:id="@+id/topBar_selectMenu"
+        layout="@layout/top_bar_select_menu_for_child"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/select_menu_topBar_marginTop" />
+
+    <TextView
+        android:id="@+id/tv_order_done"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/order_done_tv_marginTop"
+        android:text="You are almost done!"
+        android:textColor="@color/add_children_colorBlack"
+        android:textSize="@dimen/tv_size_order_done_text_25sp"
+        android:visibility="gone"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/tv_lets_order_confirm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_order_done"
+        android:layout_centerHorizontal="true"
+        android:text="Let's confirm"
+        android:textColor="@color/add_children_colorBlack"
+        android:textSize="@dimen/tv_selectMenu_textSize"
+        android:visibility="invisible"
+        tools:ignore="HardcodedText" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:visibility="gone"
+        tools:ignore="ContentDescription" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_lets_order_confirm"
+        android:fillViewport="true"
+        android:scrollbars="none">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_left_right_repeat_order_15dp"
+            android:layout_marginTop="@dimen/margin_top_repeat_order_30dp"
+            android:layout_marginRight="@dimen/margin_left_right_repeat_order_15dp">
+
+            <RelativeLayout
+                android:id="@+id/rl_top"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/rl_top_order_menu_marginLeft"
+                android:layout_marginTop="@dimen/margin_20_unit"
+                android:layout_marginRight="@dimen/rl_top_order_menu_marginLeft"
+                android:layout_marginBottom="@dimen/rl_top_select_menu_marginBottom"
+                tools:ignore="UselessParent">
+
+                <RelativeLayout
+                    android:id="@+id/rl_wallet_heading"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/add_children_its_time_to_background"
+                    android:padding="@dimen/rl_padding_order_message_15dp"
+                    android:visibility="gone">
+
+                    <RelativeLayout
+                        android:id="@+id/rl_wallet_heading_secondary"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true">
+
+                        <TextView
+                            android:id="@+id/tv_wallet_current"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="8dp"
+                            android:gravity="center"
+                            android:text="Do you want to repeat \n your order for"
+                            android:textColor="@color/amount_text_color_green"
+                            android:textSize="@dimen/tv_size_uper_text_16sp"
+                            tools:ignore="HardcodedText,RtlHardcoded" />
+
+
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/rl_width_repeat_order_550dp"
+                    android:layout_below="@+id/rl_wallet_heading"
+                    android:layout_centerHorizontal="true"
+                    android:paddingTop="@dimen/margin_20_unit"
+                    android:paddingBottom="@dimen/margin_20_unit">
+
+
+                    <RelativeLayout
+                        android:id="@+id/rl_every_day"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/repeat_for_all_day_height_65dp"
+                        android:layout_marginLeft="@dimen/bt_order_done_margin"
+                        android:layout_marginTop="@dimen/margin_top_repeat_order_every_day_25dp"
+                        android:layout_marginRight="@dimen/bt_order_done_margin"
+                        android:layout_marginBottom="@dimen/menuForChild_rl_menuForChild_marginTop"
+                        android:background="@drawable/background_textview_green"
+                        android:gravity="center"
+                        android:paddingLeft="@dimen/padding_left_wallet_note_30dp"
+                        android:paddingRight="@dimen/padding_left_wallet_note_30dp">
+
+                        <TextView
+                            android:id="@+id/tv_day_name"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="0dp"
+                            android:layout_marginBottom="0dp"
+                            android:gravity="center"
+                            android:textColor="@color/add_children_colorWhite"
+                            android:textSize="@dimen/text_size_yes_22sp"
+                            tools:text="Repeat Order Every Monday" />
+
+                    </RelativeLayout>
+
+                    <TextView
+                        android:id="@+id/tv_day_details"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/rl_every_day"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginBottom="0dp"
+                        android:gravity="center"
+                        android:paddingLeft="@dimen/padding_left_right_order_type_18dp"
+                        android:paddingRight="@dimen/padding_left_right_order_type_18dp"
+                        android:paddingBottom="@dimen/menuForChild_bt_menuForChild_paddingBottom"
+                        android:textColor="@color/red_brown"
+                        android:textSize="@dimen/tv_size_repeat_red_text_size_16sp"
+                        tools:text="(We will remember to deliver lunches each Monday until you edit/cancel them)" />
+
+                    <RelativeLayout
+                        android:id="@+id/rl_current_day"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/repeat_for_all_day_height_65dp"
+                        android:layout_below="@+id/tv_day_details"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginLeft="@dimen/bt_order_done_margin"
+                        android:layout_marginTop="@dimen/margin_top_order_monday_only_50dp"
+                        android:layout_marginRight="@dimen/bt_order_done_margin"
+                        android:layout_marginBottom="@dimen/menuForChild_rl_menuForChild_marginTop"
+                        android:background="@drawable/background_textview_green"
+                        android:paddingLeft="@dimen/padding_left_wallet_note_30dp"
+                        android:paddingRight="@dimen/padding_left_wallet_note_30dp">
+
+                        <TextView
+                            android:id="@+id/tv_current_day_name"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginTop="0dp"
+                            android:layout_marginBottom="0dp"
+                            android:gravity="center"
+                            android:textColor="@color/add_children_colorWhite"
+                            android:textSize="@dimen/text_size_yes_22sp"
+                            tools:text="Order for Monday 15th ONLY" />
+
+                    </RelativeLayout>
+
+                    <TextView
+                        android:id="@+id/tv_current_day_details"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/rl_current_day"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginBottom="0dp"
+                        android:gravity="center"
+                        android:paddingLeft="@dimen/padding_left_right_order_type_18dp"
+                        android:paddingRight="@dimen/padding_left_right_order_type_18dp"
+                        android:paddingBottom="@dimen/_2sdp"
+                        android:textColor="@color/red_brown"
+                        android:textSize="@dimen/tv_size_repeat_red_text_size_16sp"
+                        tools:text="(One Time order. You will remember to re-order lunches Monday 21st yourself)" />
+
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+
+        </RelativeLayout>
+
+
+    </ScrollView>
+
+
+</RelativeLayout>

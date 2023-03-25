@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/order_menu_calorie_row_bg_shadow_color"/>
+            <corners android:radius="0dp" />
+        </shape>
+    </item>
+    <item
+        android:left="0dp"
+        android:right="0dp"
+        android:top="2dp"
+        android:bottom="2dp">
+        <shape
+            android:shape="rectangle">
+            <solid
+                android:color="@android:color/white" />
+            <corners
+                android:radius="0dp" />
+            <padding
+                android:bottom="0dp"
+                android:left="0dp"
+                android:right="0dp"
+                android:top="0dp" />
+        </shape>
+    </item>
+</layer-list>
+<!--
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="false">
+        <layer-list>
+            &lt;!&ndash; SHADOW &ndash;&gt;
+            <item>
+                <shape>
+                    <solid android:color="@color/order_menu_calorie_row_bg_shadow_color"/>
+                    &lt;!&ndash; alttan gölge &ndash;&gt;
+                    <corners android:radius="0dp"/>
+                </shape>
+            </item>
+            &lt;!&ndash; BUTTON alttan gölge
+              android:right="5px" to make it round&ndash;&gt;
+            <item
+                android:bottom="3px">
+                <shape>
+                    <padding android:bottom="5dp"/>
+                    <gradient
+                        android:startColor="@color/add_children_colorWhite"
+                        android:endColor="@color/add_children_colorWhite"
+                        android:angle="270" />
+                    <corners
+                        android:radius="0dp"/>
+                    <padding
+                        android:left="10dp"
+                        android:top="10dp"
+                        android:right="10dp"
+                        android:bottom="10dp"/>
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+
+    <item android:state_pressed="true">
+        <layer-list>
+            &lt;!&ndash; SHADOW &ndash;&gt;
+            <item>
+                <shape>
+                    <solid android:color="@color/add_children_colorWhite"/>
+                    <corners android:radius="0dp"/>
+                </shape>
+            </item>
+            &lt;!&ndash; BUTTON &ndash;&gt;
+            <item android:bottom="3px">
+                <shape>
+                    <padding android:bottom="5dp"/>
+                    <gradient
+                        android:startColor="@color/add_children_colorWhite"
+                        android:endColor="@color/add_children_colorWhite"
+                        android:angle="270" />
+                    <corners
+                        android:radius="0dp"/>
+                    <padding
+                        android:left="10dp"
+                        android:top="10dp"
+                        android:right="10dp"
+                        android:bottom="10dp"/>
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+</selector>-->

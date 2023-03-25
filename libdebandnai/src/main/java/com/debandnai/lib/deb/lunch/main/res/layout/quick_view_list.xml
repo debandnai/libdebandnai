@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="studentList"
+            type="ie.healthylunch.app.data.model.quickViewOrderDayModel.StudentListItem" />
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!--        <ImageView-->
+        <!--            android:id="@+id/icon_img"-->
+        <!--            android:layout_width="@dimen/_20sdp"-->
+        <!--            android:layout_height="@dimen/_20sdp"-->
+        <!--            android:src="@drawable/ic_warning"-->
+        <!--            android:layout_marginTop="@dimen/margin_top_buttom_quick_view_20dp"-->
+        <!--            android:layout_centerHorizontal="true"-->
+        <!--            app:setQuickViewStatusIcon="@{studentList.orderMsgIcon}"-->
+        <!--            android:adjustViewBounds="true"-->
+        <!--            tools:ignore="ContentDescription"-->
+        <!--            android:elevation="2dp"/>-->
+
+        <RelativeLayout
+            android:id="@+id/studentDetailsRl"
+
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_70sdp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="@dimen/_40sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_40sdp"
+            android:background="@drawable/quickview_background"
+            app:setQuickViewLayoutBackGround="@{studentList.orderMenu}"
+            tools:ignore="UselessParent">
+            <!--android:layout_marginTop="@dimen/_minus10sdp"-->
+            <!--android:layout_below="@+id/icon_img"-->
+
+            <ImageView
+                android:id="@+id/iv_tick_icon"
+                android:layout_width="@dimen/_16sdp"
+                android:layout_height="@dimen/_16sdp"
+                android:layout_alignBottom="@+id/tv_student_name"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="@dimen/_14sdp"
+                android:layout_marginEnd="@dimen/_2sdp"
+                android:adjustViewBounds="true"
+                android:src="@drawable/ic_warning"
+                app:setQuickViewStatusIcon="@{studentList.orderMsgIcon}"
+                tools:ignore="ContentDescription" />
+
+<!--            <RelativeLayout-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_alignBottom="@+id/tv_student_name"-->
+<!--                android:layout_alignParentStart="true"-->
+<!--                android:layout_toStartOf="@+id/tv_student_name">-->
+
+<!--                <ImageView-->
+<!--                    android:layout_width="@dimen/_16sdp"-->
+<!--                    android:layout_height="@dimen/_16sdp"-->
+<!--                    android:layout_alignParentStart="true"-->
+<!--                    android:layout_centerHorizontal="true"-->
+<!--                    android:layout_marginStart="@dimen/_16sdp"-->
+<!--                    android:layout_marginEnd="@dimen/_16sdp"-->
+<!--                    android:adjustViewBounds="true"-->
+<!--                    android:src="@drawable/ic_warning"-->
+<!--                    app:setQuickViewStatusIcon="@{studentList.orderMsgIcon}"-->
+<!--                    tools:ignore="ContentDescription" />-->
+<!--            </RelativeLayout>-->
+
+            <TextView
+                android:id="@+id/tv_student_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@+id/iv_tick_icon"
+                android:layout_centerHorizontal="true"
+                android:layout_marginEnd="@dimen/_32sdp"
+                android:layout_marginTop="@dimen/_6sdp"
+                android:fontFamily="@font/quicksand_bold"
+                android:gravity="center"
+                android:singleLine="true"
+                android:text="@{studentList.FName}"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_16ssp"
+                tools:text="Test student" />
+
+            <ImageView
+                android:id="@+id/showOrderIconImg"
+                android:layout_width="@dimen/img_width_height_15dp"
+                android:layout_height="@dimen/img_width_height_15dp"
+                android:layout_below="@+id/tv_student_name"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/margin_top_info_image_6dp"
+                android:layout_toLeftOf="@+id/tv_order_status"
+                android:src="@drawable/ic_info"
+                android:visibility="gone"
+
+                tools:ignore="ContentDescription,RtlHardcoded" />
+            <!--app:setQuickViewLayoutVisibilityWithOrder="@{studentList.orderMenu}"-->
+            <TextView
+                android:id="@+id/tv_order_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_student_name"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:fontFamily="@font/quicksand_bold"
+                android:gravity="center"
+                android:paddingLeft="@dimen/tv_notification_left_right_padding"
+                android:paddingRight="@dimen/tv_notification_left_right_padding"
+                android:text="@{studentList.orderMsgHeading}"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_10ssp"
+                tools:text="Ordered" />
+            <!--app:setQuickViewOrderMessageSetup="@{studentList.orderMenu}"-->
+            <RelativeLayout
+                android:id="@+id/rl_insufficient_fund"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_order_status"
+                android:layout_centerHorizontal="true">
+
+                <RelativeLayout
+                    android:id="@+id/rl_funds"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:paddingLeft="@dimen/pading_left_right__insufficient_15dp"
+                    android:paddingRight="@dimen/pading_left_right__insufficient_15dp">
+
+                    <ImageView
+                        android:id="@+id/iv_insufficient"
+                        android:layout_width="@dimen/iv_No_fund_15dp"
+                        android:layout_height="@dimen/iv_No_fund_15dp"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_warning"
+                        android:visibility="gone"
+
+                        tools:ignore="ContentDescription" />
+
+                    <TextView
+                        android:id="@+id/tv_insufficient_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="@dimen/_4sdp"
+                        android:layout_toRightOf="@+id/iv_insufficient"
+                        android:fontFamily="@font/quicksand_bold"
+                        android:text="@{studentList.orderMsgDescription}"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/tv_size_insufficient_balance_14sp"
+                        tools:ignore="RtlHardcoded"
+                        tools:text="No order in place" />
+                </RelativeLayout>
+
+                <!--app:setQuickViewLayoutVisibilityWithOutOrder="@{studentList.orderMenu}"-->
+            </RelativeLayout>
+
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+</layout>

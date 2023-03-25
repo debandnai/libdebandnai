@@ -1,0 +1,158 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'androidx.navigation.safeargs'
+    id("kotlin-parcelize")
+
+}
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-kapt'
+apply plugin: 'com.google.gms.google-services'  // Google Services plugin
+apply plugin: 'com.google.firebase.crashlytics'// Apply the Crashlytics Gradle plugin
+
+
+android {
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "ie.healthylunch.app"
+        minSdk 24
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+        /*versionCode 71
+        versionName "1.6.3"*/
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    lintOptions {
+        checkReleaseBuilds false // Add this
+        abortOnError false
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    dataBinding {
+        enabled true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    useLibrary 'org.apache.http.legacy'
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.core:core-ktx:1.9.0'
+    implementation 'androidx.appcompat:appcompat:1.6.0'
+    implementation 'com.google.android.material:material:1.7.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation project(path: ':library_calender')
+    implementation 'com.google.android.gms:play-services-base:18.1.0'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+    //Retrofit
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-scalars:2.9.0'
+    implementation("com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.7")
+
+    implementation 'com.google.code.gson:gson:2.10'
+
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    def nav_version = "2.5.3"
+
+    //The rest of the dependencies here
+
+    // Kotlin navigation
+    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+    androidTestImplementation "androidx.navigation:navigation-testing:$nav_version"
+
+
+    //viewModel and liveData
+    def lifecycle_version = "2.2.0"
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
+
+
+    // LiveData
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.5.1")
+    // Lifecycles only (without ViewModel or LiveData)
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.5.1")
+
+    //kotlin coroutine
+    implementation('org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4')
+
+
+    // glide library
+    implementation 'com.github.bumptech.glide:glide:4.14.2'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.14.2'
+
+
+    //Multidex
+    implementation 'androidx.multidex:multidex:2.0.1'
+
+    //ViewPager2
+    implementation 'androidx.viewpager2:viewpager2:1.1.0-beta01'
+
+    //Loader library
+    implementation 'com.github.ybq:Android-SpinKit:1.4.0'
+
+    //ssd and ssp unit for dimensions
+    implementation 'com.intuit.sdp:sdp-android:1.1.0'
+    implementation 'com.intuit.ssp:ssp-android:1.1.0'
+
+    //Bottom dialog
+    implementation 'com.orhanobut:dialogplus:1.11@aar'
+
+    // Import the BoM for the Firebase platform
+    implementation platform('com.google.firebase:firebase-bom:31.1.0')
+
+    // Declare the dependencies for the Firebase Cloud Messaging and Analytics libraries
+    // When using the BoM, you don't specify versions in Firebase library dependencies
+    implementation 'com.google.firebase:firebase-messaging-ktx'
+    implementation 'com.google.firebase:firebase-analytics-ktx'
+    // Declare the dependencies for the Crashlytics
+    implementation 'com.google.firebase:firebase-crashlytics-ktx'
+    implementation 'com.google.firebase:firebase-inappmessaging-display-ktx'
+    // Declare the dependencies for the Dynamic Links library
+    implementation 'com.google.firebase:firebase-dynamic-links-ktx'
+
+
+    // For Kotlin users also import the Kotlin extensions library for Play Core:
+    implementation("com.google.android.play:core-ktx:1.8.1")
+
+
+    //subsampling scale image view
+    implementation 'com.davemorrissey.labs:subsampling-scale-image-view-androidx:3.10.0'
+
+
+    //Stripe
+    implementation 'com.stripe:stripe-android:19.1.0'
+
+    //Tooltips
+    implementation 'com.tomergoldst.android:tooltips:1.1.1'
+
+    implementation "androidx.paging:paging-runtime-ktx:3.1.1"
+
+    //facebook sdk
+    implementation 'com.facebook.android:facebook-android-sdk:16.0.0'
+}
+kapt {
+    correctErrorTypes true
+}

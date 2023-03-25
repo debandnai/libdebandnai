@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.salonsolution.app.data.viewModel.StaffCalendarViewModel" />
+
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/gradient_bg"
+        tools:context=".ui.fragment.StaffCalendarFragment">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/bottomCard"
+            android:background="@drawable/shadow_bg">
+
+            <RelativeLayout
+                android:id="@+id/monthLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_32sdp">
+
+                <TextView
+                    android:id="@+id/tvMonth"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="@dimen/_20sdp"
+                    android:fontFamily="@font/montserrat_semibold_600"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:maxLines="1"
+                    android:text="@{viewModel.monthTitleWithYear}"
+                    android:textColor="@color/brand_color"
+                    android:textSize="@dimen/_16ssp"
+                    tools:text="November 2022" />
+
+
+                <ImageView
+                    android:id="@+id/ivNextMonth"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/tvMonth"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="@dimen/_20sdp"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:onClick="@{(v) -> viewModel.nextMonth(v)}"
+                    android:paddingStart="@dimen/_6sdp"
+                    android:paddingTop="@dimen/_10sdp"
+                    android:paddingEnd="@dimen/_10sdp"
+                    android:paddingBottom="@dimen/_10sdp"
+                    android:src="@drawable/right_arrow_month"
+                    app:tint="@color/brand_color"
+                    tools:ignore="ContentDescription" />
+
+                <ImageView
+                    android:id="@+id/ivPreviousMonth"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/ivNextMonth"
+                    android:layout_alignBottom="@id/ivNextMonth"
+                    android:layout_toStartOf="@id/ivNextMonth"
+                    android:alpha="@{viewModel.previousMonthVisible? 1f : 0.3f}"
+                    android:clickable="@{viewModel.previousMonthVisible}"
+                    android:focusable="@{viewModel.previousMonthVisible}"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:onClick="@{(v) -> viewModel.previousMonth(v)}"
+                    android:paddingStart="@dimen/_10sdp"
+                    android:paddingTop="@dimen/_10sdp"
+                    android:paddingEnd="@dimen/_6sdp"
+                    android:paddingBottom="@dimen/_10sdp"
+                    android:src="@drawable/left_arrow_month"
+                    app:tint="@color/brand_color"
+                    tools:ignore="ContentDescription" />
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/weekLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/monthLayout"
+                android:layout_marginTop="@dimen/_18sdp"
+                android:background="@color/white"
+                android:elevation="@dimen/_4sdp"
+                android:padding="@dimen/_10sdp">
+
+                <ImageButton
+                    android:id="@+id/ivPreviousWeek"
+                    android:layout_width="@dimen/_24sdp"
+                    android:layout_height="@dimen/_24sdp"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center_vertical"
+                    android:background="@{viewModel.previousWeekVisible? @drawable/red_round_shape : @drawable/round_shape_with_stroke}"
+                    android:clickable="@{viewModel.previousWeekVisible}"
+                    android:focusable="@{viewModel.previousWeekVisible}"
+                    android:onClick="@{(v) -> viewModel.previousWeek(v)}"
+                    android:src="@drawable/ic_baseline_keyboard_arrow_left"
+                    setTint="@{viewModel.previousWeekVisible? @color/white : @color/brand_color}"
+                    tools:background="@drawable/round_shape_with_stroke"
+                    tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck"
+                    tools:tint="@color/brand_color" />
+
+                <LinearLayout
+                    android:id="@+id/llWeekList"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:layout_toStartOf="@id/ivNextWeek"
+                    android:layout_toEndOf="@id/ivPreviousWeek"
+                    android:orientation="horizontal" />
+
+
+                <ImageButton
+                    android:id="@+id/ivNextWeek"
+                    android:layout_width="@dimen/_24sdp"
+                    android:layout_height="@dimen/_24sdp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/red_round_shape"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:onClick="@{(v) -> viewModel.nextWeek(v)}"
+                    android:src="@drawable/ic_baseline_keyboard_arrow_right"
+                    app:tint="@color/white"
+                    tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+
+            </RelativeLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvTimeSlotList"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/weekLayout"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:scrollbarSize="4dp"
+                android:scrollbarStyle="outsideInset"
+                android:scrollbarThumbVertical="@color/brand_color"
+                android:scrollbars="vertical"
+                android:splitMotionEvents="false"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:itemCount="5"
+                tools:listitem="@layout/staff_calendar_timeslot_list_item" />
+
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/bottomCard"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_80sdp"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/shadow_bg"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btAddToCart"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="@dimen/_12sdp"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:layout_marginEnd="@dimen/_12sdp"
+                android:layout_marginBottom="@dimen/_12sdp"
+                android:background="@drawable/red_button_bg"
+                android:fontFamily="@font/montserrat_semibold_600"
+                android:padding="@dimen/_14sdp"
+                android:text="@string/add_to_cart"
+                android:textAllCaps="false"
+                android:textColor="@color/white" />
+
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+</layout>

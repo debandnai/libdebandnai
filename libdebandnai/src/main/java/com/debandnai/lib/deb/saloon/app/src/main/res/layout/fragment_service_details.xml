@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.salonsolution.app.data.viewModel.ServicesDetailsViewModel" />
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.fragment.ServiceDetailsFragment">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/bottomCard"
+            android:background="@drawable/gradient_bg"
+            android:fillViewport="true">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="@dimen/_100sdp"
+                    android:background="@drawable/shadow_bg"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView"
+                    android:layout_width="@dimen/_180sdp"
+                    android:layout_height="@dimen/_180sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    app:cardCornerRadius="@dimen/_10sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.viewpager2.widget.ViewPager2
+                        android:id="@+id/viewPagerImage"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal" />
+
+
+                </androidx.cardview.widget.CardView>
+
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/tabIndicator"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="@+id/cardView"
+                    app:layout_constraintStart_toStartOf="@+id/cardView"
+                    app:layout_constraintTop_toBottomOf="@id/cardView"
+                    app:tabBackground="@drawable/tab_selector"
+                    app:tabGravity="fill"
+                    app:tabIndicatorHeight="0dp"
+                    tools:ignore="SpeakableTextPresentCheck" />
+
+                <TextView
+                    android:id="@+id/tvServiceName"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_medium_500"
+                    android:textAlignment="center"
+                    android:textColor="@color/default_text_color"
+                    android:textSize="@dimen/_17ssp"
+                    app:layout_constraintEnd_toEndOf="@+id/cardView"
+                    app:layout_constraintStart_toStartOf="@+id/cardView"
+                    app:layout_constraintTop_toBottomOf="@id/tabIndicator"
+                    tools:text="Hair Color -Roots Only Application" />
+
+                <TextView
+                    android:id="@+id/tvServiceTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:background="@drawable/service_time_bg"
+                    android:drawablePadding="@dimen/_6sdp"
+                    android:fontFamily="@font/montserrat_medium_500"
+                    android:gravity="center"
+                    android:paddingStart="@dimen/_4sdp"
+                    android:paddingTop="@dimen/_2sdp"
+                    android:paddingEnd="@dimen/_4sdp"
+                    android:paddingBottom="@dimen/_2sdp"
+                    android:textAlignment="center"
+                    android:textColor="@color/default_text_color"
+                    android:textSize="@dimen/_10ssp"
+                    app:drawableLeftCompat="@drawable/ic_round_time"
+                    app:drawableTint="@color/brand_color"
+                    app:layout_constraintEnd_toEndOf="@+id/tvServiceName"
+                    app:layout_constraintStart_toStartOf="@+id/tvServiceName"
+                    app:layout_constraintTop_toBottomOf="@+id/tvServiceName"
+                    tools:text="2:30Hr" />
+
+                <TextView
+                    android:id="@+id/tvPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_14sdp"
+                    android:fontFamily="@font/montserrat_semibold_600"
+                    android:textColor="@color/brand_color"
+                    android:textSize="@dimen/_18ssp"
+                    app:layout_constraintEnd_toEndOf="@+id/tvServiceTime"
+                    app:layout_constraintStart_toStartOf="@+id/tvServiceTime"
+                    app:layout_constraintTop_toBottomOf="@+id/tvServiceTime"
+                    tools:text="$200" />
+
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/tabDetails"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_24sdp"
+                    android:layout_marginEnd="@dimen/_20sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvPrice"
+                    app:tabGravity="start"
+                    app:tabIndicator="@drawable/tab_indicator"
+                    app:tabIndicatorColor="@color/brand_color"
+                    app:tabIndicatorFullWidth="false"
+                    app:tabMode="scrollable"
+                    app:tabSelectedTextColor="@color/brand_color"
+                    app:tabTextAppearance="@style/CustomTabText"
+                    app:tabTextColor="@color/default_text_color"
+                    tools:ignore="SpeakableTextPresentCheck" />
+
+                <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/viewPagerDetails"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_20sdp"
+                    android:layout_marginBottom="@dimen/_20sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tabDetails" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </ScrollView>
+
+
+        <RelativeLayout
+            android:id="@+id/bottomCard"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_80sdp"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/shadow_bg"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btAddToCart"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="@dimen/_12sdp"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:layout_marginEnd="@dimen/_12sdp"
+                android:layout_marginBottom="@dimen/_12sdp"
+                android:background="@drawable/red_button_bg"
+                android:fontFamily="@font/montserrat_semibold_600"
+                android:padding="@dimen/_14sdp"
+                android:text="@string/select_staff"
+                android:textAllCaps="false"
+                android:textColor="@color/white" />
+
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+</layout>

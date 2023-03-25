@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/dashboard_toolbar_color"
+    android:contentInsetStart="1dp"
+    android:contentInsetLeft="0dp"
+    android:contentInsetEnd="1dp"
+    android:contentInsetRight="0dp"
+    app:contentInsetEnd="0dp"
+    app:contentInsetLeft="0dp"
+    app:contentInsetRight="0dp"
+    app:contentInsetStart="0dp">
+
+    <LinearLayout
+        android:id="@+id/rl_top"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_44sdp"
+        android:gravity="center_vertical">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/headMenu"
+                android:layout_width="@dimen/_64sdp"
+                android:layout_height="match_parent"
+                android:padding="@dimen/_16sdp"
+                android:src="@drawable/ic_hamberger_new_icon"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:id="@+id/iv_arrow"
+                android:layout_width="@dimen/_24sdp"
+                android:layout_height="@dimen/_24sdp"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/margin_10_unit"
+                android:src="@drawable/wiz_skip_left_arrow_active"
+                android:visibility="gone"
+                tools:ignore="ContentDescription" />
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/rl_text_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_header_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/quicksand_medium"
+                android:text=""
+                android:textColor="@color/light_black"
+                android:textSize="@dimen/_16ssp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_help"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_4sdp"
+            android:padding="@dimen/_4sdp">
+
+            <ImageView
+                android:id="@+id/helpIv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingEnd="@dimen/_4sdp"
+                android:src="@drawable/ic_info_new_icon"
+                tools:ignore="ContentDescription,RtlSymmetry" />
+
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+
+            android:id="@+id/notificationLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_12sdp">
+
+            <ImageView
+                android:id="@+id/notification"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/_4sdp"
+                android:src="@drawable/ic_notification_bell_icon"
+                tools:ignore="ContentDescription,RtlSymmetry" />
+
+            <TextView
+                android:id="@+id/notificationCountTv"
+                android:layout_width="@dimen/_14sdp"
+                android:layout_height="@dimen/_14sdp"
+                android:layout_marginStart="@dimen/_16sdp"
+                android:layout_marginTop="@dimen/_1sdp"
+                android:background="@drawable/circle_background_play_pause_button"
+                android:fontFamily="@font/quicksand_regular"
+                android:gravity="center"
+                android:visibility="invisible"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_8ssp"
+                tools:text="0" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/rl_wallet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/img_wallet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_wallet_new_icon"
+                tools:ignore="ContentDescription" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/marginRight_wallet_balance"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_wallet"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="-5dp"
+                    android:fontFamily="@font/quicksand_medium"
+                    android:text="@string/wallet"
+                    android:textColor="@color/light_black"
+                    android:textSize="@dimen/Wallet_textsize" />
+
+                <TextView
+                    android:id="@+id/tv_balance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_wallet"
+                    android:layout_marginBottom="@dimen/_4sdp"
+                    android:fontFamily="@font/quicksand_medium"
+                    android:singleLine="true"
+                    android:text="@string/balance"
+                    android:textColor="@color/light_black"
+                    android:textSize="@dimen/Wallet_textsize" />
+
+                <TextView
+                    android:id="@+id/balance"
+                    android:layout_width="@dimen/balance_width"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_wallet"
+                    android:layout_marginStart="@dimen/_4sdp"
+                    android:layout_marginBottom="@dimen/_4sdp"
+                    android:layout_toEndOf="@+id/tv_balance"
+                    android:fontFamily="@font/quicksand_medium"
+                    android:singleLine="true"
+                    android:text=""
+                    android:textColor="@color/light_black"
+                    android:textSize="@dimen/Wallet_textsize" />
+            </RelativeLayout>
+        </LinearLayout>
+
+
+    </LinearLayout>
+</androidx.appcompat.widget.Toolbar>

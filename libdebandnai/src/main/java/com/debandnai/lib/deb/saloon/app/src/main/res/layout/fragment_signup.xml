@@ -1,0 +1,498 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.salonsolution.app.data.viewModel.SignUpViewModel" />
+
+
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        tools:context=".ui.fragment.SignupFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_180sdp"
+                android:scaleType="fitXY"
+                android:src="@drawable/login_signup_bg_top"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:id="@+id/ivLogo"
+                android:layout_width="@dimen/_45sdp"
+                android:layout_height="@dimen/_36sdp"
+                android:layout_marginTop="@dimen/_50sdp"
+                android:src="@drawable/logo"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_80sdp"
+                android:scaleType="fitXY"
+                android:src="@drawable/login_signup_bg_bottom"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:ignore="ContentDescription,ImageContrastCheck" />
+
+            <include
+                android:id="@+id/language"
+                layout="@layout/language_inflater" />
+
+            <TextView
+                android:id="@+id/tvWelcomeBack"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_32sdp"
+                android:fontFamily="@font/ebgaramond_regular_400"
+                android:text="@string/sign_up"
+                android:textAlignment="center"
+                android:textColor="@color/brand_color"
+                android:textSize="46sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ivLogo" />
+
+            <TextView
+                android:id="@+id/tvCreateYourNewAccount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:fontFamily="@font/montserrat_regular_400"
+                android:text="@string/create_your_new_account"
+                android:textAlignment="center"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvWelcomeBack" />
+
+
+            <!-- _______  First Name  _______ -->
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayoutFirstName"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_40sdp"
+                android:layout_marginEnd="@dimen/_20sdp"
+                app:boxBackgroundColor="@color/edittext_background"
+                app:boxStrokeColor="@color/text_input_layout_stroke_color"
+                app:endIconMode="clear_text"
+                app:endIconTint="@color/edittext_icon_color"
+                app:hintEnabled="false"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvCreateYourNewAccount"
+                app:startIconDrawable="@drawable/person"
+                app:startIconTint="@color/edittext_icon_color">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_regular_400"
+                    android:hint="@string/first_name_star"
+                    android:inputType="textPersonName|textCapSentences"
+                    android:onEditorAction="@{(view,actionId,event) -> viewModel.onEditorAction(view,actionId,event)}"
+                    android:text="@={viewModel.firstName}"
+                    android:textColorHint="@color/edittext_text_color"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:requestFocus="@{viewModel.firstNameError.component1()}"
+                    tools:ignore="TextContrastCheck" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/tvFirstNameError"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:fontFamily="@font/montserrat_medium_500"
+                android:textColor="@color/brand_color"
+                android:textSize="11sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textInputLayoutFirstName"
+                tools:text="@string/please_enter_email_address"
+                android:text="@{viewModel.firstNameError.component2()}"
+                android:visibility="@{viewModel.firstNameError.component1()? View.VISIBLE : View.GONE }"
+                tools:visibility="gone" />
+
+            <!-- _______  Last Name  _______ -->
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayoutLastName"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/_20sdp"
+                app:boxBackgroundColor="@color/edittext_background"
+                app:boxStrokeColor="@color/text_input_layout_stroke_color"
+                app:endIconMode="clear_text"
+                app:endIconTint="@color/edittext_icon_color"
+                app:hintEnabled="false"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvFirstNameError"
+                app:startIconDrawable="@drawable/person"
+                app:startIconTint="@color/edittext_icon_color">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_regular_400"
+                    android:hint="@string/last_name_star"
+                    android:inputType="textPersonName|textCapSentences"
+                    android:onEditorAction="@{(view,actionId,event) -> viewModel.onEditorAction(view,actionId,event)}"
+                    android:text="@={viewModel.lastName}"
+                    android:textColorHint="@color/edittext_text_color"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:requestFocus="@{viewModel.lastNameError.component1()}"
+                    tools:ignore="TextContrastCheck" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/tvLastNameError"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:fontFamily="@font/montserrat_medium_500"
+                android:textColor="@color/brand_color"
+                android:textSize="11sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textInputLayoutLastName"
+                tools:text="@string/please_enter_email_address"
+                android:text="@{viewModel.lastNameError.component2()}"
+                android:visibility="@{viewModel.lastNameError.component1()? View.VISIBLE : View.GONE }"
+                tools:visibility="gone" />
+
+            <!-- _______   Email Address  _______ -->
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayoutEmail"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                app:layout_goneMarginTop="@dimen/_12sdp"
+                android:layout_marginEnd="@dimen/_20sdp"
+                app:boxBackgroundColor="@color/edittext_background"
+                app:boxStrokeColor="@color/text_input_layout_stroke_color"
+                app:endIconTint="@color/edittext_icon_color"
+                app:hintEnabled="false"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvLastNameError"
+                app:startIconDrawable="@drawable/email_icon"
+                app:startIconTint="@color/edittext_icon_color">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_regular_400"
+                    android:hint="@string/email_address_star"
+                    android:inputType="textEmailAddress"
+                    android:onEditorAction="@{(view,actionId,event) -> viewModel.onEditorAction(view,actionId,event)}"
+                    android:text="@={viewModel.email}"
+                    android:textColorHint="@color/edittext_text_color"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:requestFocus="@{viewModel.emailError.component1()}"
+                    tools:ignore="TextContrastCheck" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/tvEmailError"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:fontFamily="@font/montserrat_medium_500"
+                android:textColor="@color/brand_color"
+                android:textSize="11sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textInputLayoutEmail"
+                tools:text="@string/please_enter_password"
+                android:text="@{viewModel.emailError.component2()}"
+                android:visibility="@{viewModel.emailError.component1()? View.VISIBLE : View.GONE }"
+                tools:visibility="gone" />
+
+            <!-- _______   Phone Number  _______ -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayoutCountryCode"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginStart="@dimen/_20sdp"
+                app:boxBackgroundColor="@color/edittext_background"
+                app:boxStrokeColor="@color/text_input_layout_stroke_color"
+                app:endIconTint="@color/edittext_icon_color"
+                app:hintEnabled="false"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/textInputLayoutPhone"
+                app:layout_constraintBottom_toBottomOf="@id/textInputLayoutPhone"
+                >
+
+                <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                    android:id="@+id/mySpinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:inputType="none"
+                    android:paddingStart="@dimen/_10sdp"
+                    android:paddingTop="@dimen/_10sdp"
+                    android:paddingEnd="0dp"
+                    android:paddingBottom="@dimen/_10sdp"
+                    android:drawablePadding="-10dp"
+                    android:textColor="@color/brand_color"
+                    tools:ignore="SpeakableTextPresentCheck,TextContrastCheck"
+                    tools:text="+91" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayoutPhone"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_20sdp"
+                app:boxBackgroundColor="@color/edittext_background"
+                app:boxStrokeColor="@color/text_input_layout_stroke_color"
+                app:endIconTint="@color/edittext_icon_color"
+                app:hintEnabled="false"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/textInputLayoutCountryCode"
+                app:layout_constraintTop_toBottomOf="@+id/tvEmailError"
+                app:startIconDrawable="@drawable/phone"
+                android:layout_marginTop="@dimen/_8sdp"
+                app:layout_goneMarginTop="@dimen/_12sdp"
+                app:startIconTint="@color/edittext_icon_color">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_regular_400"
+                    android:hint="@string/phone_number"
+                    android:inputType="phone"
+                    android:maxLength="20"
+                    android:onEditorAction="@{(view,actionId,event) -> viewModel.onEditorAction(view,actionId,event)}"
+                    android:text="@={viewModel.phone}"
+                    android:textColorHint="@color/edittext_text_color"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:requestFocus="@{viewModel.phoneError.component1()}"
+                    tools:ignore="TextContrastCheck" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/tvPhoneError"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_medium_500"
+                android:textColor="@color/brand_color"
+                android:textSize="11sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:text="@{viewModel.phoneError.component2()}"
+                android:visibility="@{viewModel.phoneError.component1()? View.VISIBLE : View.GONE }"
+                android:layout_marginTop="@dimen/_8sdp"
+                app:layout_goneMarginTop="@dimen/_12sdp"
+                app:layout_constraintTop_toBottomOf="@id/textInputLayoutPhone"
+                tools:text="@string/please_enter_password"
+                tools:visibility="gone" />
+
+            <!-- _______   Set Password  _______ -->
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayoutPassword"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginEnd="@dimen/_20sdp"
+                app:boxBackgroundColor="@color/edittext_background"
+                app:boxStrokeColor="@color/text_input_layout_stroke_color"
+                app:endIconTint="@color/edittext_icon_color"
+                app:hintEnabled="false"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvPhoneError"
+                app:passwordToggleEnabled="true"
+                app:passwordToggleTint="@color/edittext_icon_color"
+                app:startIconDrawable="@drawable/lock"
+                android:layout_marginTop="@dimen/_8sdp"
+                app:layout_goneMarginTop="@dimen/_12sdp"
+                app:startIconTint="@color/edittext_icon_color">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_regular_400"
+                    android:hint="@string/set_password_star"
+                    android:inputType="textPassword"
+                    android:onEditorAction="@{(view,actionId,event) -> viewModel.onEditorAction(view,actionId,event)}"
+                    android:text="@={viewModel.password}"
+                    android:textColorHint="@color/edittext_text_color"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:requestFocus="@{viewModel.passwordError.component1()}"
+                    tools:ignore="TextContrastCheck" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/tvPasswordError"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:fontFamily="@font/montserrat_medium_500"
+                android:textColor="@color/brand_color"
+                android:textSize="11sp"
+                android:text="@{viewModel.passwordError.component2()}"
+                android:visibility="@{viewModel.passwordError.component1()? View.VISIBLE : View.GONE }"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textInputLayoutPassword"
+                tools:text="@string/please_enter_password"
+                tools:visibility="gone" />
+
+            <!-- _______   Confirm Password  _______ -->
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayoutConfirmPassword"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginEnd="@dimen/_20sdp"
+                app:boxBackgroundColor="@color/edittext_background"
+                app:boxStrokeColor="@color/text_input_layout_stroke_color"
+                app:endIconTint="@color/edittext_icon_color"
+                app:hintEnabled="false"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvPasswordError"
+                app:passwordToggleEnabled="true"
+                android:layout_marginTop="@dimen/_8sdp"
+                app:layout_goneMarginTop="@dimen/_12sdp"
+                app:passwordToggleTint="@color/edittext_icon_color"
+                app:startIconDrawable="@drawable/lock"
+                app:startIconTint="@color/edittext_icon_color">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_regular_400"
+                    android:hint="@string/confirm_set_password_star"
+                    android:inputType="textPassword"
+                    android:onEditorAction="@{(view,actionId,event) -> viewModel.onEditorAction(view,actionId,event)}"
+                    android:text="@={viewModel.confirmPassword}"
+                    android:textColorHint="@color/edittext_text_color"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:requestFocus="@{viewModel.confirmPasswordError.component1()}"
+                    tools:ignore="TextContrastCheck" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/tvCondirmPasswordError"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:fontFamily="@font/montserrat_medium_500"
+                android:textColor="@color/brand_color"
+                android:textSize="11sp"
+                android:text="@{viewModel.confirmPasswordError.component2()}"
+                android:visibility="@{viewModel.confirmPasswordError.component1()? View.VISIBLE : View.GONE }"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textInputLayoutConfirmPassword"
+                tools:text="@string/please_enter_password"
+                tools:visibility="gone" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btSignIn"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_36sdp"
+                android:layout_marginEnd="@dimen/_20sdp"
+                android:background="@drawable/login_button_bg"
+                android:fontFamily="@font/montserrat_semibold_600"
+                android:onClick="@{(v)-> viewModel.signUpButtonClick(v)}"
+                android:text="@string/sign_up"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvCondirmPasswordError"
+                tools:ignore="DuplicateSpeakableTextCheck" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_14sdp"
+                android:paddingBottom="@dimen/_30sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btSignIn">
+
+                <TextView
+                    android:id="@+id/tvDoNotHaveAccount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_medium_500"
+                    android:text="@string/already_have_an_account"
+                    android:textColor="@color/default_text_color"
+                    app:layout_constraintEnd_toStartOf="@id/tvLogin"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvLogin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:fontFamily="@font/montserrat_semibold_600"
+                    android:text="@string/login"
+                    android:textColor="@color/brand_color"
+                    app:layout_constraintStart_toEndOf="@id/tvDoNotHaveAccount"
+                    app:layout_constraintTop_toTopOf="@id/tvDoNotHaveAccount" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+</layout>

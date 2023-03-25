@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="ie.healthylunch.app.data.viewModel.MenuTemplateViewModel" />
+
+        <variable
+            name="activity"
+            type="ie.healthylunch.app.ui.MenuTemplateActivity" />
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/rlMainLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        app:hideToolTipsByClickingOutside="@{viewModel}">
+
+
+        <ImageView
+            android:id="@+id/backIv"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:onClick="@{()->activity.onBackPressed()}"
+            android:paddingStart="@dimen/_12sdp"
+            android:paddingTop="@dimen/_12sdp"
+            android:paddingBottom="@dimen/_12sdp"
+            android:src="@drawable/wiz_skip_left_arrow_active"
+            tools:ignore="ContentDescription,RtlSymmetry" />
+
+
+        <TextView
+            android:id="@+id/titleTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/backIv"
+            android:fontFamily="@font/quicksand_bold"
+            android:paddingStart="@dimen/_16sdp"
+            android:paddingEnd="@dimen/_16sdp"
+            android:text="@{viewModel.title}"
+            android:textColor="@color/light_black"
+            android:textSize="@dimen/_15ssp"
+            tools:text="Select Menu For Monday" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/titleTv"
+            android:layout_marginTop="@dimen/margin_top_template_menu_student_list_15dp"
+            android:background="@drawable/dashboard_new_bg">
+
+            <ie.healthylunch.app.utils.coverflow.core.FinitePagerContainer
+                android:id="@+id/pagerContainerStudent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scaleType="centerCrop"
+                app:setStudentFinitePagerContainer="@{viewModel}">
+
+                <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/studentViewPager"
+                    android:layout_width="@dimen/_140sdp"
+                    android:layout_height="@dimen/_52sdp"
+                    android:layout_gravity="center"
+                    android:orientation="horizontal" />
+
+            </ie.healthylunch.app.utils.coverflow.core.FinitePagerContainer>
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvTempList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/pagerContainerStudent"
+                android:layout_marginStart="@dimen/_18sdp"
+                android:layout_marginEnd="@dimen/_18sdp"
+                android:layout_marginBottom="@dimen/_8sdp"
+                android:clipToPadding="false"
+                android:paddingBottom="@dimen/_110sdp"
+                app:hideView="@{viewModel.isDataVisible}"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                tools:listitem="@layout/menu_temp_list_recycler_row" />
+
+        </RelativeLayout>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/nextBtn"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_above="@+id/llFav"
+            android:layout_marginStart="@dimen/_50sdp"
+            android:layout_marginEnd="@dimen/_50sdp"
+            android:layout_marginBottom="@dimen/_16sdp"
+            android:background="@drawable/green_btn_bg"
+            android:fontFamily="@font/quicksand_bold"
+            android:text="@string/next"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_15ssp"
+            android:visibility="@{viewModel.isShowNextButton? View.VISIBLE:View.GONE}" />
+        <LinearLayout
+            android:id="@+id/llFav"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginStart="@dimen/_50sdp"
+            android:layout_marginEnd="@dimen/_50sdp"
+            android:layout_marginBottom="@dimen/_16sdp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:paddingBottom="@dimen/_6sdp"
+            android:paddingTop="@dimen/_6sdp"
+            android:orientation="horizontal"
+            android:gravity="center"
+
+            android:background="@drawable/red_btn_bg">
+            <ImageView
+                android:padding="@dimen/_6sdp"
+                android:layout_width="@dimen/_25sdp"
+                android:layout_height="@dimen/_25sdp"
+                android:src="@drawable/fav_image"
+                app:tint="@color/white"
+                android:layout_marginStart="@dimen/_12sdp"
+                android:adjustViewBounds="true"
+                tools:ignore="ContentDescription" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:fontFamily="@font/quicksand_bold"
+                android:text="@string/order_from_favourites"
+                android:layout_marginStart="@dimen/_2sdp"
+                android:layout_marginEnd="@dimen/_18sdp"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_13ssp"/>
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+</layout>

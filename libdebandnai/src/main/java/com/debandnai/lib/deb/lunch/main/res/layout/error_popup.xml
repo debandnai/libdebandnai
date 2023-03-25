@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/light_dark"
+        android:gravity="center"
+        android:paddingStart="@dimen/_30sdp"
+        android:paddingEnd="@dimen/_30sdp">
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            app:cardBackgroundColor="@color/first_dayorder_item_yes_no_dialog_background"
+            app:cardCornerRadius="@dimen/_30sdp"
+            app:cardElevation="0dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tv_popupTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:fontFamily="@font/quicksand_bold"
+                    android:text="@string/oops"
+                    android:textColor="@color/first_dayorder_item_yes_no_dialog_red"
+                    android:textSize="@dimen/_22ssp" />
+
+                <ImageView
+                    android:id="@+id/image1"
+                    android:layout_width="@dimen/_100sdp"
+                    android:layout_height="@dimen/_100sdp"
+                    android:src="@drawable/api_error_img"
+                    android:layout_below="@+id/tv_popupTitle"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    tools:ignore="ContentDescription" />
+
+                <TextView
+                    android:id="@+id/tv_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/image1"
+                    android:layout_marginStart="@dimen/_20sdp"
+                    android:layout_marginEnd="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:textColor="@color/order_status_dialog_black2"
+                    android:textSize="@dimen/_15ssp"
+                    android:gravity="center"
+                    android:text="@string/something_went_wrong_please"
+                    android:visibility="visible"
+                    android:fontFamily="@font/quicksand_bold" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:layout_below="@+id/tv_content"
+                    android:id="@+id/btn_ok"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:layout_marginBottom="@dimen/_20sdp"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/green_button_bg"
+                    android:fontFamily="@font/quicksand_bold"
+                    android:text="@string/ok"
+                    android:paddingTop="@dimen/_4sdp"
+                    android:paddingBottom="@dimen/_6sdp"
+                    android:paddingStart="@dimen/_40sdp"
+                    android:paddingEnd="@dimen/_40sdp"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_14ssp" />
+            </RelativeLayout>
+        </com.google.android.material.card.MaterialCardView>
+    </RelativeLayout>
+
+    <!--    <RelativeLayout-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_margin="@dimen/margin_20_unit"-->
+    <!--        android:background="@drawable/custom_pop_up_bg">-->
+
+    <!--        <RelativeLayout-->
+    <!--            android:id="@+id/upper"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_marginBottom="10dp"-->
+    <!--            android:padding="@dimen/margin_10_unit">-->
+
+    <!--            <TextView-->
+    <!--                android:id="@+id/popupTitle"-->
+    <!--                android:layout_width="wrap_content"-->
+    <!--                android:layout_height="wrap_content"-->
+    <!--                android:layout_centerHorizontal="true"-->
+    <!--                android:layout_marginTop="10dp"-->
+    <!--                android:gravity="center_horizontal"-->
+    <!--                android:text="@string/app_name"-->
+    <!--                android:textColor="@color/light_black"-->
+    <!--                android:textSize="@dimen/text_size_popup_dialog_18sp"-->
+    <!--                android:textStyle="bold"-->
+    <!--                android:typeface="sans" />-->
+
+    <!--            <TextView-->
+    <!--                android:id="@+id/contentTv"-->
+    <!--                android:layout_width="wrap_content"-->
+    <!--                android:layout_height="wrap_content"-->
+    <!--                android:layout_below="@+id/popupTitle"-->
+    <!--                android:layout_centerHorizontal="true"-->
+    <!--                android:layout_centerVertical="true"-->
+    <!--                android:layout_marginTop="@dimen/margin_10_unit"-->
+    <!--                android:gravity="center_horizontal"-->
+    <!--                tools:text="Student added successfully"-->
+    <!--                android:textColor="@color/light_black"-->
+    <!--                android:textSize="@dimen/tv_text_size_asking_question_14sp" />-->
+
+
+    <!--        </RelativeLayout>-->
+
+    <!--        <View-->
+    <!--            android:id="@+id/margin"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="1dp"-->
+    <!--            android:layout_below="@+id/upper"-->
+    <!--            android:background="@color/add_children_editText_stroke_color" />-->
+
+    <!--        <TextView-->
+    <!--            android:id="@+id/okTv"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="@dimen/iv_height_width_iv_back_quick_view_45dp"-->
+    <!--            android:layout_below="@+id/margin"-->
+    <!--            android:gravity="center"-->
+    <!--            android:text="@string/ok"-->
+    <!--            android:textColor="@color/blue"-->
+    <!--            android:textSize="@dimen/text_size_dialog_ok_16sp"-->
+    <!--            android:textStyle="normal"-->
+    <!--            android:typeface="sans" />-->
+
+
+    <!--    </RelativeLayout>-->
+</layout>

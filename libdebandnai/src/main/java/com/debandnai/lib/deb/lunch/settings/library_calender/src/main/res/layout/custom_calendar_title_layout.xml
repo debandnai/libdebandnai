@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="1dp"
+    android:clickable="true">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/calendar_top_bg"
+        android:paddingLeft="@dimen/calendarTitlePaddingTop"
+        android:paddingTop="@dimen/calendarTitlePaddingTop"
+        android:paddingRight="@dimen/calendarTitlePaddingTop"
+        android:paddingBottom="@dimen/calendarTitlePaddingBottom">
+
+        <TextView
+            android:id="@+id/dateTitle"
+            style="@style/CalendarView.MonthTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="false"
+            android:layout_centerVertical="true"
+            android:paddingLeft="@dimen/padding"
+            android:fontFamily="@font/quicksand_bold"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:textSize="20sp"
+            android:tag="dateTitle"
+            android:text="MONTH 2014"
+            android:textColor="@color/white" />
+
+        <ImageView
+            android:id="@+id/leftButton"
+            android:layout_width="22dp"
+            android:layout_height="36dp"
+            android:layout_marginEnd="20dp"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/rightButton"
+            android:background="@drawable/calender_prev" />
+
+        <ImageView
+            android:id="@+id/rightButton"
+            android:layout_width="22dp"
+            android:layout_height="36dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/calender_next" />
+    </RelativeLayout>
+</RelativeLayout>

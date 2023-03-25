@@ -1,0 +1,493 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.salonsolution.app.data.viewModel.OrderSummaryViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/gradient_bg"
+        android:orientation="vertical"
+        tools:context=".ui.fragment.OrderSummaryFragment">
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:background="@color/white"
+            app:cardCornerRadius="@dimen/_10sdp"
+            app:cardElevation="@dimen/_6sdp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <RelativeLayout
+                    android:id="@+id/rlItem"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/cvServicePic"
+                        android:layout_width="@dimen/_90sdp"
+                        android:layout_height="@dimen/_90sdp"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginBottom="@dimen/_4sdp"
+                        app:cardCornerRadius="@dimen/_10sdp"
+                        app:cardElevation="@dimen/_3sdp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:strokeColor="@color/white"
+                        app:strokeWidth="@dimen/_2sdp">
+
+                        <ImageView
+                            android:id="@+id/ivService"
+                            placeHolder="@drawable/placeholder_image"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/food"
+                            app:imageUrl="@{viewModel.cartServiceList.serviceImage}"
+                            tools:ignore="ContentDescription" />
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <TextView
+                        android:id="@+id/tvCategoryName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@id/cvServicePic"
+                        android:layout_marginStart="@dimen/_12sdp"
+                        android:layout_toEndOf="@id/cvServicePic"
+                        android:background="@drawable/red_button_bg"
+                        android:ellipsize="end"
+                        android:fontFamily="@font/montserrat_semibold_600"
+                        android:maxLines="1"
+                        android:paddingStart="@dimen/_6sdp"
+                        android:paddingTop="@dimen/_1sdp"
+                        android:paddingEnd="@dimen/_6sdp"
+                        android:paddingBottom="@dimen/_1sdp"
+                        android:text="@{viewModel.cartServiceList.categoryName}"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_8ssp"
+                        tools:text="Hair Color" />
+
+                    <TextView
+                        android:id="@+id/tvServiceName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tvCategoryName"
+                        android:layout_alignStart="@id/tvCategoryName"
+                        android:layout_marginTop="@dimen/_4sdp"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:ellipsize="end"
+                        android:fontFamily="@font/montserrat_semibold_600"
+                        android:maxLines="1"
+                        android:minLines="1"
+                        android:text="@{viewModel.cartServiceList.serviceName}"
+                        android:textColor="@color/default_text_color"
+                        android:textSize="@dimen/_12ssp"
+                        tools:text="Roots Only Application" />
+
+                    <TextView
+                        android:id="@+id/tvProductText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tvServiceName"
+                        android:layout_alignStart="@id/tvCategoryName"
+                        android:layout_marginTop="@dimen/_4sdp"
+                        android:fontFamily="@font/montserrat_semibold_600"
+                        android:text="@string/product"
+                        android:textColor="@color/brand_color"
+                        android:textSize="@dimen/_9ssp" />
+
+                    <TextView
+                        android:id="@+id/tvProductName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@id/tvProductText"
+                        android:layout_marginStart="@dimen/_4sdp"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:layout_toEndOf="@id/tvProductText"
+                        android:ellipsize="end"
+                        android:fontFamily="@font/montserrat_medium_500"
+                        android:maxLines="1"
+                        android:minLines="1"
+                        android:text="@{viewModel.product}"
+                        android:textColor="@color/default_text_color"
+                        android:textSize="@dimen/_9ssp"
+                        tools:text="Strex Hair Color" />
+
+                    <TextView
+                        android:id="@+id/tvFoodText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tvProductText"
+                        android:layout_alignStart="@id/tvCategoryName"
+                        android:layout_marginTop="@dimen/_4sdp"
+                        android:fontFamily="@font/montserrat_semibold_600"
+                        android:text="@string/food"
+                        android:textColor="@color/brand_color"
+                        android:textSize="@dimen/_9ssp" />
+
+                    <TextView
+                        android:id="@+id/tvFoodName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@id/tvFoodText"
+                        android:layout_marginStart="@dimen/_4sdp"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:layout_toEndOf="@id/tvFoodText"
+                        android:ellipsize="end"
+                        android:fontFamily="@font/montserrat_medium_500"
+                        android:maxLines="1"
+                        android:minLines="1"
+                        android:text="@{viewModel.food}"
+                        android:textColor="@color/default_text_color"
+                        android:textSize="@dimen/_9ssp"
+                        tools:text="Cheese Sandwich" />
+
+                    <TextView
+                        android:id="@+id/tvMoreText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tvFoodText"
+                        android:layout_alignStart="@id/tvCategoryName"
+                        android:layout_marginTop="@dimen/_12sdp"
+                        android:background="@drawable/more_text_bg"
+                        android:fontFamily="@font/montserrat_semibold_600"
+                        android:paddingStart="@dimen/_6sdp"
+                        android:paddingTop="@dimen/_3sdp"
+                        android:paddingEnd="@dimen/_6sdp"
+                        android:paddingBottom="@dimen/_3sdp"
+                        android:text="@{String.format(@string/more_item, viewModel.moreItem)}"
+                        android:textColor="@color/brand_color"
+                        android:textSize="@dimen/_9ssp"
+                        android:visibility="@{viewModel.moreItem==0? View.GONE : View.VISIBLE}"
+                        tools:text="+ 2 More" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rlDateTime"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/rlItem"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_8sdp">
+
+                    <View
+                        android:id="@+id/topBorder"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/oder_summary_border_color" />
+
+                    <LinearLayout
+                        android:id="@+id/llDateTime"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_5sdp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tvDate"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:drawablePadding="@dimen/_6sdp"
+                            android:ellipsize="end"
+                            android:fontFamily="@font/montserrat_medium_500"
+                            android:maxLines="1"
+                            android:text="@{viewModel.cartServiceList.bookingDate}"
+                            android:textColor="@color/default_text_color"
+                            android:textSize="@dimen/_9ssp"
+                            app:drawableStartCompat="@drawable/ic_calender"
+                            app:drawableTint="@color/brand_color"
+                            tools:text="14 Nov, 22" />
+
+                        <TextView
+                            android:id="@+id/tvStaff"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:drawablePadding="@dimen/_6sdp"
+                            android:ellipsize="end"
+                            android:fontFamily="@font/montserrat_medium_500"
+                            android:maxLines="1"
+                            android:text="@{viewModel.cartServiceList.staffName}"
+                            android:textColor="@color/default_text_color"
+                            android:textSize="@dimen/_9ssp"
+                            app:drawableStartCompat="@drawable/person_two"
+                            app:drawableTint="@color/brand_color"
+                            tools:text="Allie Grater" />
+
+                        <TextView
+                            android:id="@+id/tvTime"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:drawablePadding="@dimen/_6sdp"
+                            android:fontFamily="@font/montserrat_medium_500"
+                            android:maxLines="1"
+                            android:text="@{viewModel.cartServiceList.serviceTime}"
+                            android:textColor="@color/default_text_color"
+                            android:textSize="@dimen/_9ssp"
+                            app:drawableStartCompat="@drawable/clock_10dp"
+                            app:drawableTint="@color/brand_color"
+                            app:layout_constraintStart_toStartOf="@+id/tvDate"
+                            app:layout_constraintTop_toBottomOf="@+id/tvDate"
+                            tools:text="1:30 Hr (9:30AM - 11AM)" />
+
+
+                    </LinearLayout>
+
+                    <View
+                        android:id="@+id/bottomBorder"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_below="@id/llDateTime"
+                        android:background="@color/oder_summary_border_color" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rlPrice"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/rlDateTime"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_14sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:background="@drawable/total_cart_value_bg"
+                    android:paddingTop="@dimen/_20sdp"
+                    android:paddingBottom="@dimen/_20sdp">
+
+                    <TextView
+                        android:id="@+id/tvTotal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginStart="@dimen/_20sdp"
+                        android:fontFamily="@font/montserrat_medium_500"
+                        android:text="@string/total"
+                        android:textAlignment="textStart"
+                        android:textColor="@color/brand_color"
+                        android:textSize="@dimen/_11ssp" />
+
+                    <TextView
+                        android:id="@+id/tvTotalPrice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@id/tvTotal"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="@dimen/_20sdp"
+                        android:layout_toEndOf="@id/tvTotal"
+                        android:fontFamily="@font/montserrat_medium_500"
+                        android:text="@{viewModel.cartTotal}"
+                        android:textAlignment="textEnd"
+                        android:textColor="@color/brand_color"
+                        android:textSize="@dimen/_11ssp"
+                        tools:text="1700 KZ" />
+
+                    <RelativeLayout
+                        android:id="@+id/rlCouponCodeApplied"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tvTotalPrice"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:visibility="@{viewModel.isCouponApplied? View.VISIBLE : View.GONE}"
+                        tools:visibility="gone">
+
+                        <TextView
+                            android:id="@+id/tvCouponApplied"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_marginStart="@dimen/_20sdp"
+                            android:drawablePadding="@dimen/_6sdp"
+                            android:fontFamily="@font/montserrat_medium_500"
+                            android:text="@string/coupon_applied"
+                            android:textAlignment="textStart"
+                            android:textColor="@color/default_text_color"
+                            android:textSize="@dimen/_9ssp"
+                            app:drawableEndCompat="@drawable/ic_outline_info" />
+
+                        <TextView
+                            android:id="@+id/tvCouponPrice"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignTop="@id/tvCouponApplied"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginEnd="@dimen/_20sdp"
+                            android:layout_toEndOf="@id/tvCouponApplied"
+                            android:fontFamily="@font/montserrat_medium_500"
+                            android:text="@{String.format(@string/applied_coupon_price, viewModel.couponPrice)}"
+                            android:textAlignment="textEnd"
+                            android:textColor="@color/brand_color"
+                            android:textSize="@dimen/_11ssp"
+                            tools:text="(-) 20 KZ" />
+
+                        <View
+                            android:id="@+id/grandTotalBorder"
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_below="@id/tvCouponApplied"
+                            android:layout_marginStart="1dp"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:layout_marginEnd="1dp"
+                            android:background="@color/pin_view_border_normal" />
+
+                        <TextView
+                            android:id="@+id/tvGrandTotal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/grandTotalBorder"
+                            android:layout_alignParentStart="true"
+                            android:layout_marginStart="@dimen/_20sdp"
+                            android:layout_marginTop="@dimen/_8sdp"
+                            android:fontFamily="@font/montserrat_semibold_600"
+                            android:text="@string/grand_total"
+                            android:textAlignment="textStart"
+                            android:textColor="@color/brand_color"
+                            android:textSize="@dimen/_14ssp" />
+
+                        <TextView
+                            android:id="@+id/tvGrandTotalPrice"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignTop="@id/tvGrandTotal"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginEnd="@dimen/_20sdp"
+                            android:layout_toEndOf="@id/tvGrandTotal"
+                            android:fontFamily="@font/montserrat_semibold_600"
+                            android:text="@{viewModel.grandTotal}"
+                            android:textAlignment="textEnd"
+                            android:textColor="@color/brand_color"
+                            android:textSize="@dimen/_14ssp"
+                            tools:text="1680 KZ" />
+
+
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/rlPrice"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:visibility="@{viewModel.isCouponApplied? View.GONE : View.VISIBLE}">
+
+                    <TextView
+                        android:id="@+id/tvHaveCoupon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:fontFamily="@font/montserrat_medium_500"
+                        android:text="@string/have_a_coupon_code_question"
+                        android:textColor="@color/brand_color"
+                        android:textSize="@dimen/_12ssp" />
+
+                    <LinearLayout
+                        android:id="@+id/llCouponInput"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tvHaveCoupon"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:orientation="horizontal">
+
+                        <EditText
+                            android:id="@+id/edCoupon"
+                            android:layout_width="@dimen/_160sdp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/coupon_code_edittext_bg"
+                            android:fontFamily="@font/montserrat_medium_500"
+                            android:hint="@string/enter_a_coupon_code"
+                            android:imeActionId="666"
+                            android:imeActionLabel="@string/apply"
+                            android:importantForAutofill="no"
+                            android:inputType="text"
+                            android:onEditorAction="@{(view,actionId,event) -> viewModel.onEditorAction(view,actionId,event)}"
+                            android:padding="@dimen/_10sdp"
+                            android:text="@={viewModel.couponCode}"
+                            android:textAllCaps="true"
+                            android:textColor="@color/brand_color"
+                            android:textColorHint="@color/default_text_color"
+                            android:textSize="@dimen/_10ssp"
+                            app:requestFocus="@{viewModel.couponError.component1()}"
+                            tools:ignore="TouchTargetSizeCheck" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/right_top_bottom_round_red_bg"
+                            android:fontFamily="@font/montserrat_semibold_600"
+                            android:foreground="?attr/selectableItemBackgroundBorderless"
+                            android:onClick="@{(v)-> viewModel.applyButtonClick(v)}"
+                            android:padding="@dimen/_10sdp"
+                            android:text="@string/apply"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_10ssp" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tvCouponError"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/llCouponInput"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/_4sdp"
+                        android:fontFamily="@font/montserrat_medium_500"
+                        android:text="@{viewModel.couponError.component2()}"
+                        android:textColor="@color/brand_color"
+                        android:textSize="11sp"
+                        android:visibility="@{viewModel.couponError.component1()? View.VISIBLE : View.GONE }"
+                        tools:text="@string/please_enter_a_coupon_code"
+                        tools:visibility="visible" />
+
+
+                </RelativeLayout>
+
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btProceedToBuy"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginStart="@dimen/_12sdp"
+                    android:layout_marginEnd="@dimen/_12sdp"
+                    android:layout_marginBottom="@dimen/_12sdp"
+                    android:background="@drawable/red_button_bg"
+                    android:fontFamily="@font/montserrat_semibold_600"
+                    android:onClick="@{(v)-> viewModel.placeOrderButtonClick(v)}"
+                    android:padding="@dimen/_14sdp"
+                    android:text="@string/place_order"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:visibility="visible" />
+
+
+            </RelativeLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+</layout>

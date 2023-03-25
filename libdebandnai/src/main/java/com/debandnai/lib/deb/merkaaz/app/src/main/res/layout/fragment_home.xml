@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.merkaaz.app.data.viewModel.HomeViewModel" />
+
+        <variable
+            name="context"
+            type="com.merkaaz.app.ui.fragments.HomeFragment" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical"
+        app:hideKeyboardByClickingOutside="@{context.activity}">
+
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_category"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_6sdp"
+                    android:nestedScrollingEnabled="false"
+                    android:orientation="horizontal"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/home_top_products_item" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/light_sky_blue"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/_8sdp">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/_2sdp"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/russo_one"
+                            android:text="@string/featured_products"
+                            android:textAllCaps="true"
+                            android:textColor="@color/dark_blue"
+                            android:textSize="@dimen/_11ssp" />
+
+                        <TextView
+                            android:id="@+id/txt_featured_vw_more"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:background="@drawable/teal_button_bg2"
+                            android:elevation="@dimen/_2sdp"
+                            android:fontFamily="@font/open_sans_bold"
+                            android:paddingStart="@dimen/_8sdp"
+                            android:paddingTop="@dimen/_4sdp"
+                            android:paddingEnd="@dimen/_8sdp"
+                            android:paddingBottom="@dimen/_4sdp"
+                            android:text="@string/view_more"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_10ssp" />
+
+                    </LinearLayout>
+
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_feature"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:nestedScrollingEnabled="false"
+                        android:orientation="horizontal"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        tools:listitem="@layout/home_featured_products_item" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/home_banner_bg"
+                        android:orientation="vertical">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_132sdp"
+                            android:layout_marginStart="@dimen/_15sdp"
+                            android:layout_marginTop="@dimen/_15sdp"
+                            android:layout_marginEnd="@dimen/_15sdp"
+                            tools:ignore="UselessParent">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:adjustViewBounds="true"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/banner"
+                                tools:ignore="ContentDescription" />
+
+                            <TextView
+                                android:id="@+id/tv_retail"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_11sdp"
+                                android:layout_marginTop="@dimen/_11sdp"
+                                android:fontFamily="@font/russo_one"
+                                android:text="@string/retail_ncanteens_nbenefit"
+                                android:textAllCaps="true"
+                                android:textColor="@color/dark_blue"
+                                android:textSize="@dimen/_16ssp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_12sdp"
+                                android:layout_marginTop="@dimen/_18sdp"
+                                android:layout_toEndOf="@+id/tv_retail"
+                                android:background="@drawable/ic_discounted_bg"
+                                android:gravity="center_vertical"
+                                android:paddingStart="@dimen/_10sdp"
+                                android:paddingBottom="@dimen/_1sdp"
+                                android:text="@string/from_discounted_prices"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/_10ssp"
+                                tools:ignore="RtlSymmetry" />
+
+                            <Button
+                                android:id="@+id/btn_shop_now"
+                                android:layout_width="wrap_content"
+                                android:layout_height="@dimen/_28sdp"
+                                android:layout_alignParentBottom="true"
+                                android:layout_marginStart="@dimen/_11sdp"
+                                android:layout_marginBottom="@dimen/_13sdp"
+                                android:background="@drawable/teal_button_bg2"
+                                android:fontFamily="@font/open_sans_medium"
+                                android:paddingStart="@dimen/_6sdp"
+                                android:paddingTop="@dimen/_2sdp"
+                                android:paddingEnd="@dimen/_6sdp"
+                                android:paddingBottom="@dimen/_2sdp"
+                                android:text="@string/shop_now"
+                                android:textAllCaps="false"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/_9ssp" />
+                        </RelativeLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_35sdp"
+                            android:layout_marginTop="@dimen/_22sdp"
+                            android:layout_marginEnd="@dimen/_35sdp"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <View
+                                android:layout_width="0dp"
+                                android:layout_height="@dimen/_1sdp"
+                                android:layout_marginEnd="@dimen/_8sdp"
+                                android:layout_weight="1"
+                                android:background="@color/white" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/russo_one"
+                                android:text="@string/best_sellers"
+                                android:textAllCaps="true"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/_17ssp" />
+
+                            <View
+                                android:layout_width="0dp"
+                                android:layout_height="@dimen/_1sdp"
+                                android:layout_marginStart="@dimen/_8sdp"
+                                android:layout_weight="1"
+                                android:background="@color/white" />
+                        </LinearLayout>
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rv_best_seller"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:nestedScrollingEnabled="false"
+                            android:orientation="horizontal"
+                            android:paddingStart="@dimen/_4sdp"
+                            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                            tools:ignore="RtlSymmetry"
+                            tools:listitem="@layout/home_best_seller_item" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/_12sdp">
+
+                    <TextView
+                        android:id="@+id/txt_snack_brand"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_2sdp"
+                        android:layout_weight="1"
+                        android:ellipsize="end"
+                        android:fontFamily="@font/open_sans_bold"
+                        tools:text="@string/snacks_amp_branded_food"
+                        android:textAllCaps="true"
+                        android:textColor="@color/dark_blue"
+                        android:textSize="@dimen/_11ssp"
+                        tools:ignore="AllCaps" />
+
+                    <TextView
+                        android:id="@+id/txt_snacks_branded_vw_more"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:background="@drawable/teal_button_bg2"
+                        android:elevation="@dimen/_2sdp"
+                        android:fontFamily="@font/open_sans_bold"
+                        android:paddingStart="@dimen/_8sdp"
+                        android:paddingTop="@dimen/_4sdp"
+                        android:paddingEnd="@dimen/_8sdp"
+                        android:paddingBottom="@dimen/_4sdp"
+                        android:text="@string/view_more"
+                        android:visibility="gone"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_10ssp" />
+
+                </LinearLayout>
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_snacks"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:nestedScrollingEnabled="false"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="@dimen/_50sdp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/home_snacks_branded_item" />
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+
+    </LinearLayout>
+</layout>

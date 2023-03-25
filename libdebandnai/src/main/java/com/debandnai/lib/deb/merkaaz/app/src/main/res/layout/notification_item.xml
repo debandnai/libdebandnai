@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="dataItem"
+            type="com.merkaaz.app.data.model.NotificationItem" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_12sdp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_notification"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{dataItem.notificationContent}"
+                    android:textColor="@color/address_unselect_color"
+                    android:textSize="@dimen/_11ssp"
+                    tools:text="Lorem ipsum dolor sit amet, consectetur adipi" />
+
+                <TextView
+                    android:id="@+id/tv_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_6sdp"
+                    android:text="@{dataItem.notificationDate}"
+                    android:textColor="@color/address_unselect_color"
+                    android:textSize="@dimen/_10ssp"
+                    tools:text="15 May, 2022" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/iv_delete"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:padding="@dimen/_7sdp"
+                android:src="@drawable/ic_delete_red"
+                tools:ignore="ContentDescription" />
+        </LinearLayout>
+
+
+        <View
+            android:id="@+id/view_underline"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:background="@color/underline_color" />
+
+    </LinearLayout>
+</layout>

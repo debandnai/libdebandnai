@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="ie.healthylunch.app.data.viewModel.DeisStudentUniqueCodeViewModel" />
+
+        <variable
+            name="context"
+            type="ie.healthylunch.app.fragment.registration.DeisStudentUniqueCodeFragment" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background_all"
+        app:hideKeyboardByClickingOutside="@{context.requireActivity()}"
+        tools:context=".fragment.registration.DeisStudentUniqueCodeFragment">
+
+        <ImageView
+            android:id="@+id/backIv"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:paddingStart="@dimen/_12sdp"
+            android:paddingTop="@dimen/_12sdp"
+            android:paddingBottom="@dimen/_12sdp"
+            android:src="@drawable/wiz_skip_left_arrow_active"
+            app:setEnabledView="@{viewModel.isSubmitEnabled}"
+            tools:ignore="ContentDescription,RtlSymmetry" />
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/edit_scroll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/backIv"
+            android:layout_marginBottom="@dimen/rl_registration_background_marginBottom">
+
+            <LinearLayout
+                android:id="@+id/rl_parent_profile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/background_left_right_margin"
+                android:layout_marginRight="@dimen/background_left_right_margin"
+                android:background="@drawable/custom_calender_background_shadow_new"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:paddingStart="@dimen/_16sdp"
+                android:paddingEnd="@dimen/_16sdp"
+                app:hideKeyboardByClickingOutside="@{context.requireActivity()}"
+                tools:ignore="UselessParent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_18sdp"
+                    android:fontFamily="@font/quicksand_bold"
+                    android:gravity="center"
+                    android:text="@string/i_m_a_student"
+                    android:textColor="@color/deis_colorBlack"
+                    android:textSize="@dimen/_20ssp" />
+
+                <EditText
+                    android:id="@+id/edtUniqueCode"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_17sdp"
+                    android:background="@drawable/background_textview"
+                    android:elevation="1.5dp"
+                    android:gravity="center"
+                    android:hint="@string/enter_unique_passcode"
+                    android:paddingStart="@dimen/_12sdp"
+                    android:paddingTop="@dimen/_10sdp"
+                    android:paddingEnd="@dimen/_12sdp"
+                    android:paddingBottom="@dimen/_10sdp"
+                    android:text="@={viewModel.uniqueCode}"
+                    android:textColor="@color/dark_gray2"
+                    android:textColorHint="@color/text_font_color"
+                    android:textSize="@dimen/_14ssp"
+                    app:addTextChangeListener="@{viewModel}"
+                    app:requestFocus="@{viewModel.uniqueCodeErrorVisible}"
+                    tools:ignore="Autofill,TextFields" />
+
+                <TextView
+                    android:id="@+id/uniqueCodeErrorTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_1sdp"
+                    android:gravity="center"
+                    android:text="@{viewModel.uniqueCodeError}"
+                    android:textColor="@color/font_red"
+                    android:textSize="@dimen/error_textSize"
+                    android:visibility="invisible"
+                    app:hideErrorTextView="@{viewModel.uniqueCodeErrorVisible}"
+                    tools:text="Error" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/studentNextBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginTop="@dimen/_1sdp"
+                    android:layout_marginBottom="@dimen/_4sdp"
+                    android:background="@drawable/background_textview_deis_green"
+                    android:fontFamily="@font/quicksand_bold"
+                    android:text="@string/next"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_17ssp"
+                    app:setEnabledView="@{viewModel.isSubmitEnabled}" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:fontFamily="@font/quicksand_semi_bold"
+                    android:gravity="center"
+                    android:text="@string/or"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_17ssp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:fontFamily="@font/quicksand_bold"
+                    android:gravity="center"
+                    android:text="@string/i_m_a_staff_member"
+                    android:textColor="@color/deis_colorBlack"
+                    android:textSize="@dimen/_20ssp" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/staffNextBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:layout_marginBottom="@dimen/_2sdp"
+                    android:background="@drawable/background_textview_deis_green"
+                    android:fontFamily="@font/quicksand_bold"
+                    android:text="@string/next"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_17ssp"
+                    app:setEnabledView="@{viewModel.isSubmitEnabled}" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_30sdp"
+                    android:layout_marginBottom="@dimen/_4sdp"
+                    android:fontFamily="@font/quicksand_medium"
+                    android:gravity="center"
+                    android:text="@string/if_you_are_having_any_problems"
+                    android:textColor="@color/red2"
+                    android:textSize="@dimen/_13ssp" />
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/tv_call"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/_8sdp"
+                        android:fontFamily="@font/quicksand_medium"
+                        android:text="@string/call_with_colon"
+                        android:textColor="@color/deis_colorGray"
+                        android:textSize="@dimen/_13ssp" />
+
+                    <TextView
+                        android:id="@+id/tv_phn_number"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/quicksand_medium"
+                        android:gravity="center"
+                        android:text="@string/lunch_box_ph_number"
+                        android:textColor="@color/red2"
+                        android:textSize="@dimen/_13ssp" />
+
+
+                </LinearLayout>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/quicksand_medium"
+                    android:text="@string/or"
+                    android:textColor="@color/deis_colorGray"
+                    android:textSize="@dimen/_13ssp" />
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_25sdp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/quicksand_medium"
+                        android:gravity="center"
+                        android:text="@string/email_with_colon"
+                        android:textColor="@color/deis_colorGray"
+                        android:textSize="@dimen/_13ssp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_8sdp"
+                        android:fontFamily="@font/quicksand_medium"
+                        android:gravity="center"
+                        android:text="@string/lunch_box_email"
+                        android:textColor="@color/red2"
+                        android:textSize="@dimen/_13ssp" />
+
+
+                </LinearLayout>
+            </LinearLayout>
+
+
+        </androidx.core.widget.NestedScrollView>
+
+    </RelativeLayout>
+</layout>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/rl_main_food"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/order_menu_sub_menu_rl_main_food_marginLeft"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="@dimen/order_menu_sub_menu_rl_main_food_marginLeft"
+        android:background="@drawable/order_menu_sub_menu_deselected_bg"
+        android:gravity="center"
+        android:paddingLeft="@dimen/padding_left_right_rl_sub_menu_10dp"
+        android:paddingTop="@dimen/padding_top_bottom_rl_main_menu_sub_menu_8dp"
+        android:paddingRight="@dimen/padding_left_right_rl_sub_menu_10dp"
+        android:paddingBottom="@dimen/padding_top_bottom_rl_main_menu_sub_menu_8dp"
+        tools:ignore="UselessParent">
+
+        <TextView
+            android:id="@+id/tv_sub_food_item"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/tv_foodCost"
+            android:gravity="left"
+            android:maxLines="2"
+            android:paddingLeft="5dp"
+            android:text=""
+            android:textAllCaps="false"
+            android:textColor="@color/add_children_colorBlack"
+            android:textSize="@dimen/tv_size_food_name_menu_12sp"
+            tools:ignore="RtlHardcoded,RtlSymmetry" />
+
+        <TextView
+            android:id="@+id/tv_foodCost"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/order_menu_sub_menu_tv_foodCost_marginLeft"
+            android:layout_toLeftOf="@+id/img_promoted_star"
+            android:background="@drawable/order_menu_selected_food_price_bg"
+            android:paddingLeft="@dimen/order_menu_sub_menu_tv_foodCost_paddingRight"
+            android:paddingTop="@dimen/order_menu_sub_menu_tv_foodCost_paddingTop"
+            android:paddingRight="@dimen/order_menu_sub_menu_tv_foodCost_paddingRight"
+            android:paddingBottom="@dimen/order_menu_sub_menu_tv_foodCost_paddingTop"
+            android:text="Aaaaaaaaaa"
+            android:textAllCaps="false"
+            android:textColor="@color/add_children_colorWhite"
+            android:textSize="@dimen/tv_size_food_name_menu_12sp"
+            tools:ignore="HardcodedText,RtlHardcoded" />
+
+
+        <ImageView
+            android:id="@+id/img_promoted_star"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toLeftOf="@+id/iv_info"
+            android:background="@drawable/star_green"
+            android:visibility="visible"
+            tools:ignore="ContentDescription,RtlHardcoded" />
+
+        <ImageView
+            android:id="@+id/iv_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:layout_toLeftOf="@+id/iv_menu_checked"
+            android:src="@drawable/info_icon"
+            tools:ignore="ContentDescription,RtlHardcoded" />
+
+        <ImageView
+            android:id="@+id/iv_menu_checked"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/margin_10_unit"
+            android:paddingLeft="@dimen/order_menu_sub_menu_tv_foodCost_paddingRight"
+            android:paddingTop="@dimen/order_menu_sub_menu_tv_foodCost_paddingTop"
+            android:paddingRight="@dimen/order_menu_sub_menu_tv_foodCost_paddingRight"
+            android:paddingBottom="@dimen/order_menu_sub_menu_tv_foodCost_paddingTop"
+            android:src="@drawable/menu_checked"
+            tools:ignore="ContentDescription,RtlHardcoded" />
+    </RelativeLayout>
+</RelativeLayout>

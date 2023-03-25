@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="ie.healthylunch.app.data.viewModel.EditStudentProfileViewModel" />
+
+        <variable
+            name="context"
+            type="ie.healthylunch.app.fragment.students.EditStudentProfileFragment" />
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/rl_editprofile"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background_all"
+        app:hideKeyboardByClickingOutside="@{context.requireActivity()}"
+        tools:context=".fragment.students.EditStudentProfileFragment">
+
+        <RelativeLayout
+            android:id="@+id/rl_edit_profile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/background_left_right_margin"
+            android:layout_marginTop="@dimen/rl_profile_margintop"
+            android:layout_marginRight="@dimen/background_left_right_margin"
+            app:hideKeyboardByClickingOutside="@{context.requireActivity()}">
+
+            <RelativeLayout
+                android:id="@+id/rl_top_new"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:onClick="@{(v)->viewModel.back(v)}">
+
+                <ImageView
+                    android:id="@+id/iv_arrow"
+                    android:layout_width="@dimen/iv_top_left_arrow_30dp"
+                    android:layout_height="@dimen/iv_top_left_arrow_30dp"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/wiz_skip_left_arrow_active"
+                    tools:ignore="ContentDescription" />
+
+                <TextView
+                    android:id="@+id/student_profile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginTop="-15dp"
+                    android:fontFamily="@font/quicksand_bold"
+                    android:gravity="center"
+                    android:text="@string/edit_student_profile"
+                    android:textColor="@color/light_black"
+                    android:textSize="@dimen/profile_textSize" />
+            </RelativeLayout>
+
+
+        </RelativeLayout>
+
+        <ScrollView
+            android:id="@+id/edit_scroll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rl_edit_profile"
+            android:layout_marginTop="@dimen/edit_scroll_margin_top"
+            android:layout_marginBottom="@dimen/rl_registration_background_marginBottom">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="20dp"
+                app:hideKeyboardByClickingOutside="@{context.requireActivity()}"
+                tools:ignore="ScrollViewSize">
+
+                <RelativeLayout
+                    android:id="@+id/rl_parent_profile"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/background_left_right_margin"
+                    android:layout_marginRight="@dimen/background_left_right_margin"
+                    android:background="@drawable/custom_calender_background_shadow_new"
+                    app:hideKeyboardByClickingOutside="@{context.requireActivity()}"
+                    tools:ignore="UselessParent">
+
+                    <EditText
+                        android:id="@+id/first_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/ed_name_left_right_margin"
+                        android:layout_marginTop="@dimen/name_margintop"
+                        android:layout_marginRight="@dimen/ed_name_left_right_margin"
+                        android:background="@drawable/background_textview"
+                        android:elevation="1.5dp"
+                        android:gravity="center"
+                        android:hint="@string/first_name"
+                        android:paddingLeft="@dimen/add_child_editText_paddingLeft"
+                        android:paddingTop="@dimen/first_name_paddingTopBottom"
+                        android:paddingRight="@dimen/add_child_editText_paddingLeft"
+                        android:paddingBottom="@dimen/first_name_paddingTopBottom"
+                        android:singleLine="true"
+                        android:text="@={viewModel.studentFirstName}"
+                        android:textColor="@color/text_color_transaction_history_light_black"
+                        android:textColorHint="@color/text_font_color"
+                        android:textSize="@dimen/tv_1_text_size"
+                        app:addTextChangeListener="@{viewModel}"
+                        app:requestFocus="@{viewModel.studentFirstNameErrorVisible}"
+                        tools:ignore="Autofill,TextFields" />
+
+                    <TextView
+                        android:id="@+id/first_name_error"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/first_name"
+                        android:layout_marginLeft="@dimen/ed_name_left_right_margin"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginRight="@dimen/ed_name_left_right_margin"
+                        android:gravity="center"
+                        android:text="@{viewModel.studentFirstNameError}"
+                        android:textColor="@color/font_red"
+                        android:textSize="@dimen/error_textSize"
+                        android:visibility="invisible"
+                        app:hideErrorTextView="@{viewModel.studentFirstNameErrorVisible}"
+                        tools:ignore="HardcodedText" />
+
+                    <EditText
+                        android:id="@+id/Last_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/first_name_error"
+                        android:layout_marginLeft="@dimen/ed_name_left_right_margin"
+                        android:layout_marginTop="@dimen/edit_text_margintop"
+                        android:layout_marginRight="@dimen/ed_name_left_right_margin"
+                        android:background="@drawable/background_textview"
+                        android:elevation="1.5dp"
+                        android:gravity="center"
+                        android:hint="@string/last_name"
+                        android:paddingLeft="@dimen/add_child_editText_paddingLeft"
+                        android:paddingTop="@dimen/first_name_paddingTopBottom"
+                        android:paddingRight="@dimen/add_child_editText_paddingLeft"
+                        android:paddingBottom="@dimen/first_name_paddingTopBottom"
+                        android:singleLine="true"
+                        android:text="@={viewModel.studentLastName}"
+                        android:textColor="@color/text_color_transaction_history_light_black"
+                        android:textColorHint="@color/text_font_color"
+                        android:textSize="@dimen/tv_1_text_size"
+                        app:addTextChangeListener="@{viewModel}"
+                        app:requestFocus="@{viewModel.studentLastNameErrorVisible}"
+                        tools:ignore="Autofill,TextFields" />
+
+                    <TextView
+                        android:id="@+id/last_name_error"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/Last_name"
+                        android:layout_marginLeft="@dimen/ed_name_left_right_margin"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginRight="@dimen/ed_name_left_right_margin"
+                        android:gravity="center"
+                        android:text="@{viewModel.studentLastNameError}"
+                        android:textColor="@color/font_red"
+                        android:textSize="@dimen/error_textSize"
+                        android:visibility="invisible"
+                        app:hideErrorTextView="@{viewModel.studentLastNameErrorVisible}"
+                        />
+
+                    <EditText
+                        android:id="@+id/school"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/last_name_error"
+                        android:layout_marginLeft="@dimen/ed_name_left_right_margin"
+                        android:layout_marginTop="@dimen/edit_text_margintop"
+                        android:layout_marginRight="@dimen/ed_name_left_right_margin"
+                        android:background="@null"
+                        android:editable="false"
+                        android:elevation="1.5dp"
+                        android:ellipsize="end"
+                        android:gravity="center"
+                        android:hint="@string/school"
+                        android:maxLines="2"
+                        android:paddingLeft="@dimen/add_child_editText_paddingLeft"
+                        android:paddingTop="@dimen/first_name_paddingTopBottom"
+                        android:paddingRight="@dimen/add_child_editText_paddingLeft"
+                        android:paddingBottom="@dimen/first_name_paddingTopBottom"
+                        android:text="@={viewModel.studentSchoolName}"
+                        android:textColor="@color/text_color_transaction_history_light_black"
+                        android:textColorHint="@color/text_font_color"
+                        android:textSize="@dimen/tv_1_text_size"
+                        tools:ignore="Autofill,Deprecated,TextFields" />
+
+                    <TextView
+
+                        android:id="@+id/school_error"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/school"
+                        android:layout_marginLeft="@dimen/ed_name_left_right_margin"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginRight="@dimen/ed_name_left_right_margin"
+                        android:gravity="center"
+                        tools:text="Error Message"
+                        android:textColor="@color/font_red"
+                        android:textSize="@dimen/error_textSize"
+                        android:visibility="invisible"
+                        />
+
+                    <TextView
+                        android:id="@+id/classTv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/school_error"
+                        android:layout_marginLeft="@dimen/ed_name_left_right_margin"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:layout_marginRight="@dimen/ed_name_left_right_margin"
+                        android:background="@drawable/capsule_shaped_add_children_edittext_bg_light_green"
+                        android:editable="false"
+                        android:elevation="1.5dp"
+                        android:gravity="center"
+                        android:hint="@string/class_"
+                        android:onClick="@{(v)->viewModel.studentClass()}"
+                        android:paddingLeft="@dimen/add_child_editText_paddingLeft"
+                        android:paddingTop="@dimen/first_name_paddingTopBottom"
+                        android:paddingRight="@dimen/add_child_editText_paddingLeft"
+                        android:paddingBottom="@dimen/first_name_paddingTopBottom"
+                        android:singleLine="true"
+                        android:text="@={viewModel.className}"
+                        android:textColor="@color/text_color_transaction_history_light_black"
+                        android:textColorHint="@color/text_font_color"
+                        android:textSize="@dimen/tv_1_text_size"
+                        tools:ignore="Autofill,Deprecated,RtlHardcoded,TextFields"
+                        app:drawableTint="@color/green"
+                        app:drawableEndCompat="@drawable/down_arrow_new" />
+
+
+
+                    <TextView
+                        android:id="@+id/tv_class_error"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/classTv"
+                        android:layout_marginLeft="@dimen/ed_name_left_right_margin"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginRight="@dimen/ed_name_left_right_margin"
+                        android:gravity="center"
+                        android:text="Error Message"
+                        android:textColor="@color/font_red"
+                        android:textSize="@dimen/error_textSize"
+                        android:visibility="invisible"
+                        tools:ignore="HardcodedText" />
+
+
+                    <EditText
+                        android:id="@+id/edit_dob"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tv_class_error"
+                        android:layout_marginLeft="@dimen/ed_name_left_right_margin"
+                        android:layout_marginTop="@dimen/edit_text_margintop"
+                        android:layout_marginRight="@dimen/ed_name_left_right_margin"
+                        android:background="@drawable/background_textview"
+                        android:focusable="false"
+                        android:gravity="center"
+                        android:hint="Birthday"
+                        android:inputType="date"
+                        android:paddingLeft="@dimen/add_child_editText_paddingLeft"
+                        android:paddingTop="@dimen/first_name_paddingTopBottom"
+                        android:paddingRight="@dimen/add_child_editText_paddingLeft"
+                        android:paddingBottom="@dimen/first_name_paddingTopBottom"
+                        android:singleLine="true"
+                        android:textColor="@color/text_color_transaction_history_light_black"
+                        android:textColorHint="@color/text_font_color"
+                        android:textSize="@dimen/tv_1_text_size"
+                        android:visibility="gone"
+                        tools:ignore="Autofill,HardcodedText" />
+
+                    <TextView
+                        android:id="@+id/edit_edit_dob_error"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/edit_dob"
+                        android:layout_marginLeft="@dimen/ed_name_left_right_margin"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginRight="@dimen/ed_name_left_right_margin"
+                        android:gravity="center"
+                        android:text="Error Message"
+                        android:textColor="@color/font_red"
+                        android:textSize="@dimen/error_textSize"
+                        android:visibility="gone"
+                        tools:ignore="HardcodedText" />
+
+                    <RelativeLayout
+                        android:id="@+id/save_student"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/edit_edit_dob_error"
+                        android:layout_marginLeft="@dimen/ed_name_left_right_margin"
+                        android:layout_marginTop="@dimen/margin_top_edit_student_profile_button_60dp"
+                        android:layout_marginRight="@dimen/ed_name_left_right_margin"
+                        android:layout_marginBottom="@dimen/Submit_paddingBottom"
+                        android:background="@drawable/background_textview_green"
+                        android:onClick="@{()->viewModel.saveClick(context.requireActivity())}"
+                        app:setEnabledView="@{viewModel.isSaveEnabled}">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:layout_marginTop="@dimen/submit_margin_top1"
+                            android:layout_marginBottom="@dimen/Submit_margin_top"
+                            android:paddingTop="@dimen/Submit_paddingTopBottom"
+                            android:paddingBottom="@dimen/Submit_paddingTopBottom"
+                            android:text="@string/save"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/SubmitTextSize" />
+
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+
+            </RelativeLayout>
+
+
+        </ScrollView>
+
+
+    </RelativeLayout>
+</layout>

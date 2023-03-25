@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="listItem"
+            type="ie.healthylunch.app.data.model.dashboardBottomCalendarNewModel.CalendarItem" />
+    </data>
+
+    <LinearLayout
+        android:id="@+id/itemLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_27sdp"
+            tools:ignore="UselessParent">
+
+            <TextView
+                android:id="@+id/dateTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/quicksand_bold"
+                android:text="@{listItem.dayText}"
+                android:textColor="@color/bottom_calendar_delivered_text_color"
+                android:textSize="@dimen/_12ssp"
+                app:hideView="@{!listItem.isFree}"
+                app:isDelivered="@{listItem.isDelivered}"
+                app:isFree="@{listItem.isFree}"
+                app:isFutureDate="@{listItem.isFutureDate}"
+                app:isPending="@{listItem.isPending}"
+                tools:text="13" />
+
+            <ImageView
+                android:id="@+id/pendingIv"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_25sdp"
+                android:layout_marginStart="@dimen/_3sdp"
+                android:layout_marginBottom="@dimen/_2sdp"
+                android:src="@drawable/ic_pending"
+                android:visibility="gone"
+                app:visibleOrGone="@{listItem.isPending}"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:id="@+id/deliveredIv"
+                android:layout_width="@dimen/_22sdp"
+                android:layout_height="@dimen/_22sdp"
+                android:src="@drawable/ic_right_tick"
+                android:visibility="gone"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:layout_marginStart="@dimen/_4sdp"
+                app:visibleOrGone="@{listItem.isDelivered}"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:id="@+id/freeIv"
+                android:layout_width="@dimen/_22sdp"
+                android:layout_height="@dimen/_22sdp"
+                android:layout_centerInParent="true"
+                android:src="@drawable/ic_free"
+                android:visibility="gone"
+                app:visibleOrGone="@{listItem.isFree}"
+                tools:ignore="ContentDescription" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+</layout>

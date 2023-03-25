@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/top_rounded_shape"
+        android:gravity="center"
+        android:paddingTop="@dimen/_20sdp"
+        android:paddingBottom="@dimen/_10sdp"
+        app:behavior_hideable="true"
+        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
+        tools:context=".ui.fragment.LanguageChangeDialogFragment">
+
+        <RelativeLayout
+            android:id="@+id/rl_english_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginBottom="@dimen/_20sdp">
+
+            <RelativeLayout
+                android:id="@+id/rl_english_language"
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="@dimen/_97sdp"
+                android:background="@drawable/language_selector_bg">
+
+                <ImageView
+                    android:layout_width="@dimen/_40sdp"
+                    android:layout_height="@dimen/_25sdp"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/english_flag"
+                    tools:ignore="ContentDescription" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tv_english"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/rl_english_language"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/_18sdp"
+                android:fontFamily="@font/montserrat"
+                android:text="@string/english"
+                android:textAllCaps="true"
+                android:textColor="@color/default_text_color"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                tools:ignore="TextContrastCheck" />
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_portuguese_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_26sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginBottom="@dimen/_20sdp"
+            android:layout_toEndOf="@id/rl_english_layout">
+
+            <RelativeLayout
+                android:id="@+id/rl_portuguese_language"
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="@dimen/_97sdp"
+                android:background="@drawable/language_selector_bg">
+
+                <ImageView
+                    android:layout_width="@dimen/_40sdp"
+                    android:layout_height="@dimen/_25sdp"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/portuguese_flag"
+                    tools:ignore="ContentDescription,ImageContrastCheck" />
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tv_portuguese"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/rl_portuguese_language"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/_18sdp"
+                android:fontFamily="@font/montserrat"
+                android:text="@string/portuguese"
+                android:textAllCaps="true"
+                android:textColor="@color/default_text_color"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                tools:ignore="TextContrastCheck" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+</layout>

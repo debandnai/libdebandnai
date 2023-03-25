@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="ie.healthylunch.app.data.viewModel.HelpViewModel" />
+
+        <variable
+            name="activity"
+            type="ie.healthylunch.app.ui.HelpActivity" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#000"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/crossIv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:onClick="@{()->activity.onBackPressed()}"
+            android:padding="@dimen/padding_left_iv_cross_pdf_10dp"
+            android:src="@drawable/reg_close_icon"
+            tools:ignore="ContentDescription" />
+
+        <RelativeLayout
+            android:id="@+id/remote_pdf_root"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/crossIv">
+
+            <com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView
+                android:id="@+id/iv_app_explain"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:activity="@{activity}"
+                app:subsamplingScaleImageView="@{viewModel}" />
+        </RelativeLayout>
+    </RelativeLayout>
+</layout>

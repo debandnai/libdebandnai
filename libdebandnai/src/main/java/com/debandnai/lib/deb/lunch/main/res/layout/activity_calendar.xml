@@ -1,0 +1,497 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="ie.healthylunch.app.data.viewModel.CalenderViewModel" />
+
+        <variable
+            name="activity"
+            type="ie.healthylunch.app.ui.CalendarActivity" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/menu_bg_color">
+
+        <RelativeLayout
+            android:id="@+id/rl_topBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_margin="@dimen/add_child_welcome_margin"
+                android:onClick="@{()->activity.onBackPressed()}">
+
+                <ImageView
+                    android:id="@+id/infoIv"
+                    android:layout_width="@dimen/iv_top_left_arrow_30dp"
+                    android:layout_height="@dimen/iv_top_left_arrow_30dp"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/wiz_skip_left_arrow_active"
+                    tools:ignore="ContentDescription"
+                    app:tint="@color/red_color_1" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:fontFamily="@font/quicksand_bold"
+                    android:gravity="center"
+                    android:text="@string/calendar"
+                    android:textColor="@color/silver"
+                    android:textSize="@dimen/tv_header_text_view_transaction_list_20sp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_notification"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:padding="5dp"
+                android:visibility="gone"
+                tools:ignore="RtlHardcoded">
+
+                <ImageView
+                    android:id="@+id/notification"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/notification_count"
+                    android:src="@drawable/header_notification"
+                    tools:ignore="ContentDescription" />
+
+                <TextView
+                    android:id="@+id/notification_count"
+                    android:layout_width="@dimen/text_size_height_width_notification_count_20dp"
+                    android:layout_height="@dimen/text_size_height_width_notification_count_20dp"
+                    android:layout_marginRight="@dimen/notification_count_marginright"
+                    android:background="@drawable/circle_background_play_pause_button"
+                    android:gravity="center"
+                    android:text="0"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/notification_count_textSize"
+                    tools:ignore="HardcodedText" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+
+        <LinearLayout
+            android:id="@+id/ln_viewingCalendar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rl_topBar"
+            android:layout_marginTop="0dp"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            tools:ignore="DisableBaselineAlignment">
+
+            <LinearLayout
+                android:id="@+id/ll_viewing_cal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="-5dp"
+                android:layout_weight="0.5"
+                android:background="@drawable/relative_background_white_right"
+                tools:ignore="RtlHardcoded">
+
+                <TextView
+                    android:id="@+id/viewingCalendar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:textColor="@color/light_black"
+                    android:textSize="@dimen/textSize_studentName"
+                    tools:text="Lunch Days for" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_studentName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="-5dp"
+                android:layout_weight="0.5"
+                android:background="@drawable/relative_background_white_left"
+                tools:ignore="RtlHardcoded">
+
+                <TextView
+                    android:id="@+id/tv_studentName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="0.9"
+                    android:padding="10dp"
+                    android:singleLine="true"
+                    android:text=""
+                    android:textColor="@color/cal_add_std_color"
+                    android:textSize="@dimen/textSize_studentName"
+                    tools:ignore="InefficientWeight,NestedWeights" />
+
+                <ImageView
+                    android:id="@+id/iv_dropDown"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|end"
+                    android:padding="5dp"
+                    android:src="@drawable/wiz_select_down"
+                    tools:ignore="ContentDescription" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/ln_viewingCalendar"
+            android:background="@drawable/dashboard_new_bg">
+
+
+            <LinearLayout
+                android:id="@+id/rl_nameList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="visible">
+
+                <ie.healthylunch.app.utils.coverflow.core.FinitePagerContainer
+                    android:id="@+id/pagerContainerStudent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scaleType="centerCrop"
+                    app:setStudentFinitePagerContainer="@{viewModel}">
+
+                    <androidx.viewpager2.widget.ViewPager2
+                        android:id="@+id/studentViewPager"
+                        android:layout_width="@dimen/_140sdp"
+                        android:layout_height="@dimen/_52sdp"
+                        android:layout_gravity="center"
+                        android:orientation="horizontal"
+                        app:activity="@{activity}"
+                        app:viewModel="@{viewModel}" />
+                </ie.healthylunch.app.utils.coverflow.core.FinitePagerContainer>
+            </LinearLayout>
+
+            <ScrollView
+                android:id="@+id/scrollview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/rl_completed"
+                android:layout_below="@+id/rl_nameList"
+                android:layout_marginBottom="30dp"
+                android:scrollbarSize="0dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <RelativeLayout
+                        android:id="@+id/rl_calBottom"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_12sdp"
+                        android:layout_marginTop="@dimen/_12sdp"
+                        android:layout_marginEnd="@dimen/_12sdp"
+                        android:background="@drawable/calendar_background"
+                        android:paddingBottom="30dp"
+                        android:visibility="visible">
+
+                        <RelativeLayout
+                            android:id="@+id/rl_calendarView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="0dp"
+                            tools:ignore="UselessParent">
+
+                            <com.mass.library_calender.CustomCalendarView
+                                android:id="@+id/calendar_view"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@color/white"
+                                app:calendarBackgroundColor="@color/red"
+                                app:calendarBackgroundDrawable="@drawable/deselected_date_background"
+                                app:calendarTitleTextColor="@color/white"
+                                app:calender="@{viewModel}"
+                                app:currentDayOfMonthColor="@color/white"
+                                app:dayOfMonthTextColor="@color/white"
+                                app:dayOfWeekTextColor="@color/green_color2"
+                                app:disabledDayBackgroundColor="@color/off_white"
+                                app:disabledDayTextColor="@color/black_6"
+
+                                app:pastDaysBackDrawable="@drawable/past_days_background"
+                                app:schoolClassKitchenMarkedHolidayDateBackDrawable="@drawable/school_holiday_bg"
+                                app:orderProcessDateBackDrawable="@drawable/calendar_orange_bg"
+                                app:selectedDayBackgroundColor="@color/blue"
+                                app:selectedDayBackgroundDrawable="@drawable/selected_date_background"
+                                app:studentTeacherMarkedHolidayDateBackDrawable="@drawable/student_holiday_bg"
+                                app:titleLayoutBackgroundColor="@color/sky_color_bg"
+                                app:weekLayoutBackgroundColor="@color/green_color_bg" />
+                        </RelativeLayout>
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/rl_calendarBottom"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/rl_calBottom"
+                        android:layout_marginBottom="20dp"
+                        android:visibility="visible">
+
+                        <RelativeLayout
+                            android:id="@+id/rl_calander_status1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="@dimen/_20sdp"
+                            android:layout_marginBottom="@dimen/rl_calendarBottom_marginBottom"
+                            android:paddingTop="@dimen/rl_lunch_noLunch_PaddingTop"
+                            android:paddingBottom="@dimen/rl_lunch_noLunch_PaddingTop">
+
+<!--                            <ImageView-->
+<!--                                android:id="@+id/iv_dayoff"-->
+<!--                                android:layout_width="@dimen/img_size_black_13dp"-->
+<!--                                android:layout_height="@dimen/img_size_black_13dp"-->
+<!--                                android:layout_centerVertical="true"-->
+<!--                                android:layout_marginLeft="10dp"-->
+<!--                                android:layout_marginRight="10dp"-->
+<!--                                android:background="#32363F"-->
+<!--                                android:visibility="gone"-->
+<!--                                tools:ignore="ContentDescription" />-->
+
+                            <ImageView
+                                android:id="@+id/iv_menuRunning"
+                                android:layout_width="@dimen/_24sdp"
+                                android:layout_height="@dimen/_24sdp"
+                                android:layout_marginStart="@dimen/_40sdp"
+                                android:layout_marginEnd="@dimen/_8sdp"
+                                android:src="@drawable/selected_date_background"
+                                tools:ignore="ContentDescription,RtlHardcoded" />
+
+                            <TextView
+                                android:id="@+id/tv_menuRunning"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_toEndOf="@+id/iv_menuRunning"
+                                android:text="Lunch Please"
+                                android:textColor="@color/gray_2"
+                                android:textSize="@dimen/_12sdp"
+                                android:layout_marginTop="@dimen/_2sdp"
+                                android:fontFamily="@font/quicksand_bold"
+                                tools:ignore="HardcodedText,RtlHardcoded" />
+
+                            <ImageView
+                                android:id="@+id/iv_menuOff"
+                                android:layout_width="@dimen/_24sdp"
+                                android:layout_height="@dimen/_24sdp"
+                                android:layout_marginStart="@dimen/_40sdp"
+                                android:layout_marginEnd="@dimen/_8sdp"
+                                android:layout_marginTop="@dimen/_12sdp"
+                                android:layout_below="@+id/iv_menuRunning"
+                                android:src="@drawable/deselected_date_background"
+                                tools:ignore="ContentDescription,RtlHardcoded" />
+
+                            <TextView
+                                android:id="@+id/tv_menuOff"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/no_lunch_ordered"
+                                android:textColor="@color/gray_2"
+                                android:layout_marginTop="@dimen/_2sdp"
+                                android:layout_toEndOf="@+id/iv_menuOff"
+                                android:layout_alignTop="@+id/iv_menuOff"
+                                android:textSize="@dimen/_12sdp"
+                                android:fontFamily="@font/quicksand_bold" />
+
+                            <ImageView
+                                android:id="@+id/img_order_processing"
+                                android:layout_marginStart="@dimen/_40sdp"
+                                android:layout_marginTop="@dimen/_12sdp"
+                                android:layout_below="@+id/iv_menuOff"
+                                android:layout_width="@dimen/_24sdp"
+                                android:layout_height="@dimen/_24sdp"
+                                android:layout_marginEnd="@dimen/_8sdp"
+                                android:src="@drawable/calendar_orange_bg"
+                                tools:ignore="ContentDescription" />
+
+
+                            <TextView
+                                android:layout_marginTop="@dimen/_2sdp"
+                                android:layout_below="@+id/iv_menuRunning"
+                                android:layout_toEndOf="@+id/img_order_processing"
+                                android:layout_alignTop="@+id/img_order_processing"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/gray_2"
+                                android:textSize="@dimen/_12sdp"
+                                android:fontFamily="@font/quicksand_bold"
+                                android:text="@string/order_pending"
+                                />
+                            <ImageView
+                                android:id="@+id/img_school_holiday"
+                                android:layout_marginStart="@dimen/_40sdp"
+                                android:layout_marginTop="@dimen/_12sdp"
+                                android:layout_below="@+id/img_order_processing"
+                                android:layout_width="@dimen/_24sdp"
+                                android:layout_height="@dimen/_24sdp"
+                                android:layout_marginEnd="@dimen/_8sdp"
+                                android:src="@drawable/school_holiday_bg"
+                                tools:ignore="ContentDescription" />
+
+
+                            <TextView
+                                android:layout_marginTop="@dimen/_2sdp"
+                                android:layout_below="@+id/img_order_processing"
+                                android:layout_toEndOf="@+id/img_school_holiday"
+                                android:layout_alignTop="@+id/img_school_holiday"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/gray_2"
+                                android:textSize="@dimen/_12sdp"
+                                android:fontFamily="@font/quicksand_bold"
+                                android:text="@string/kitchen_school_class_holiday"
+                                />
+                            <ImageView
+                                android:id="@+id/img_student_holiday"
+                                android:layout_marginStart="@dimen/_40sdp"
+                                android:layout_marginTop="@dimen/_12sdp"
+                                android:layout_below="@+id/img_school_holiday"
+                                android:layout_width="@dimen/_24sdp"
+                                android:layout_height="@dimen/_24sdp"
+                                android:layout_marginEnd="@dimen/_8sdp"
+                                android:src="@drawable/student_holiday_bg"
+                                tools:ignore="ContentDescription" />
+                            <TextView
+                                android:layout_marginTop="@dimen/_2sdp"
+                                android:layout_below="@+id/img_school_holiday"
+                                android:layout_toEndOf="@+id/img_student_holiday"
+                                android:layout_alignTop="@+id/img_student_holiday"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/gray_2"
+                                android:textSize="@dimen/_12sdp"
+                                android:fontFamily="@font/quicksand_bold"
+                                android:text="@string/student_teacher_holiday"
+
+                                />
+                            <!--<TextView
+                                android:id="@+id/tv_menuDayOff"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_toRightOf="@+id/iv_dayoff"
+                                android:text="Days Passed"
+                                android:textColor="@color/calendar_menu_on_off_textColor"
+                                android:textSize="@dimen/tv_size_menu_off_lunch_14sp"
+                                android:visibility="gone"
+                                tools:ignore="HardcodedText,RtlHardcoded" />-->
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/rl_calander_status1"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginBottom="@dimen/rl_calendarBottom_marginTop"
+                            android:paddingTop="@dimen/rl_calendarBottom_PaddingTop"
+                            android:paddingBottom="@dimen/rl_calendarBottom_PaddingTop"
+                            android:visibility="gone">
+
+                            <ImageView
+                                android:id="@+id/iv_student_holiday"
+                                android:layout_width="@dimen/img_size_black_13dp"
+                                android:layout_height="@dimen/img_size_black_13dp"
+                                android:layout_centerVertical="true"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
+                                android:background="#B70002"
+                                tools:ignore="ContentDescription" />
+
+                            <TextView
+                                android:id="@+id/tv_student_holiday"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_toEndOf="@+id/iv_student_holiday"
+                                android:text="Student Holiday"
+                                android:textColor="@color/calendar_menu_on_off_textColor"
+                                android:textSize="@dimen/text_size_data_passed_12sp"
+                                tools:ignore="HardcodedText" />
+
+                            <TextView
+                                android:id="@+id/tv_kitchen_holiday"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_toRightOf="@+id/tv_student_holiday"
+                                android:text=" / Kitchen Holiday"
+                                android:textColor="@color/calendar_menu_on_off_textColor"
+                                android:textSize="@dimen/text_size_data_passed_12sp"
+                                tools:ignore="HardcodedText,RtlHardcoded" />
+
+                        </RelativeLayout>
+                    </RelativeLayout>
+                </RelativeLayout>
+            </ScrollView>
+
+
+            <RelativeLayout
+                android:id="@+id/rl_completed"
+                android:layout_width="@dimen/_180sdp"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="@dimen/_10ssp"
+                android:background="@drawable/calendar_complete_btn_bg"
+                android:onClick="@{()->activity.onBackPressed()}">
+                <!--android:background="@drawable/capsule_shaped_add_children_edittext_bg_light_green"-->
+
+                <TextView
+                    android:id="@+id/bt_add_new_card"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:paddingStart="@dimen/_20sdp"
+                    android:paddingTop="@dimen/_8sdp"
+                    android:paddingEnd="@dimen/_20sdp"
+                    android:paddingBottom="@dimen/_10sdp"
+                    android:text="Completed"
+                    android:textAllCaps="true"
+                    android:fontFamily="@font/quicksand_bold"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_14ssp"
+                    tools:ignore="HardcodedText" />
+
+                <ImageView
+                    android:id="@+id/img_right"
+                    android:layout_width="@dimen/iv_height_width_iv_back_quickView_45dp"
+                    android:layout_height="@dimen/iv_height_width_iv_back_quickView_45dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/margin_right_tv_back_quickView_10dp"
+                    android:padding="@dimen/padding_left_arrow_notificaton_list_10dp"
+                    android:src="@drawable/wiz_skip_right_arrow_active"
+                    tools:ignore="ContentDescription,RtlHardcoded"
+                    app:tint="@color/white" />
+
+            </RelativeLayout>
+
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+</layout>

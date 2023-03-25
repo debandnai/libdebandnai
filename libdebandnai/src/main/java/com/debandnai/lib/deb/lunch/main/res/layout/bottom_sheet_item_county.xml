@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:id="@+id/rl_countyName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/county_view_county_row_padding">
+
+        <TextView
+            android:id="@+id/tv_countyName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="left"
+            android:text="Aaaaaaa"
+            android:textColor="@color/add_children_colorBlack"
+            android:textSize="@dimen/county_view_tv_countyName_textSize"
+            tools:ignore="HardcodedText,RtlHardcoded" />
+
+        <ImageView
+            android:id="@+id/iv_county_checkUncheck"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/wiz_check_inactive"
+            tools:ignore="ContentDescription,RtlHardcoded" />
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/view_county"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_below="@+id/rl_countyName"
+        android:background="@color/bottom_sheet_separate_line_color" />
+</RelativeLayout>

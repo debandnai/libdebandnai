@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="horizontal"
+    android:paddingTop="@dimen/weekTitlePaddingTop"
+    android:paddingBottom="@dimen/weekTitlePaddingBottom"
+    android:weightSum="5">
+
+    <RelativeLayout
+        android:tag="dayOfWeekContainer1"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <ImageView
+            android:id="@+id/crossDayOfWeek1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/calender_close_active" />
+
+        <TextView
+            style="@style/CalendarView.DayOfTheWeek"
+            android:layout_below="@+id/crossDayOfWeek1"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:tag="dayOfWeek1"
+            android:text="SUN"
+            android:textSize="12sp"
+            android:textAllCaps="true"
+            android:fontFamily="@font/quicksand_bold"
+            android:textColor="@color/green_color2"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:tag="dayOfWeekContainer2"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <ImageView
+            android:id="@+id/crossDayOfWeek2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/calender_close_active" />
+
+        <TextView
+            style="@style/CalendarView.DayOfTheWeek"
+            android:layout_below="@+id/crossDayOfWeek2"
+            android:layout_centerHorizontal="true"
+            android:tag="dayOfWeek2"
+            android:layout_marginTop="5dp"
+            android:text="MON"
+            android:textSize="12sp"
+            android:textAllCaps="true"
+            android:fontFamily="@font/quicksand_bold"
+            android:textColor="@color/green_color2"/>
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:tag="dayOfWeekContainer3"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <ImageView
+            android:id="@+id/crossDayOfWeek3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/calender_close_active" />
+
+        <TextView
+            style="@style/CalendarView.DayOfTheWeek"
+            android:layout_below="@+id/crossDayOfWeek3"
+            android:layout_centerHorizontal="true"
+            android:tag="dayOfWeek3"
+            android:layout_marginTop="5dp"
+            android:text="TUE"
+            android:textSize="12sp"
+            android:textAllCaps="true"
+            android:fontFamily="@font/quicksand_bold"
+            android:textColor="@color/green_color2"/>
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:tag="dayOfWeekContainer4"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <ImageView
+            android:id="@+id/crossDayOfWeek4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/calender_close_active" />
+
+        <TextView
+            style="@style/CalendarView.DayOfTheWeek"
+            android:layout_below="@+id/crossDayOfWeek4"
+            android:layout_centerHorizontal="true"
+            android:tag="dayOfWeek4"
+            android:layout_marginTop="5dp"
+            android:text="WED"
+            android:textSize="12sp"
+            android:textAllCaps="true"
+            android:fontFamily="@font/quicksand_bold"
+            android:textColor="@color/green_color2"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:tag="dayOfWeekContainer5"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <ImageView
+            android:id="@+id/crossDayOfWeek5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/calender_close_active" />
+
+        <TextView
+            style="@style/CalendarView.DayOfTheWeek"
+            android:layout_below="@+id/crossDayOfWeek5"
+            android:layout_centerHorizontal="true"
+            android:tag="dayOfWeek5"
+            android:layout_marginTop="5dp"
+            android:text="THU"
+            android:textSize="12sp"
+            android:textAllCaps="true"
+            android:fontFamily="@font/quicksand_bold"
+            android:textColor="@color/green_color2"/>
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:tag="dayOfWeekContainer6"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/crossDayOfWeek6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/ic_arrow_up_blue" />
+
+        <TextView
+            style="@style/CalendarView.DayOfTheWeek"
+            android:layout_below="@+id/crossDayOfWeek6"
+            android:layout_centerHorizontal="true"
+            android:tag="dayOfWeek6"
+            android:layout_marginTop="5dp"
+            android:text="FRI" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:tag="dayOfWeekContainer7"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/crossDayOfWeek7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/ic_arrow_up_blue" />
+
+        <TextView
+            style="@style/CalendarView.DayOfTheWeek"
+            android:layout_below="@+id/crossDayOfWeek7"
+            android:layout_centerHorizontal="true"
+            android:tag="dayOfWeek7"
+            android:layout_marginTop="5dp"
+            android:text="SAT" />
+    </RelativeLayout>
+</LinearLayout>

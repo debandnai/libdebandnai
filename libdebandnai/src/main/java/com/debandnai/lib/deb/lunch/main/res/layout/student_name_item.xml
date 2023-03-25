@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/item_Layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/county_view_county_row_padding"
+        tools:ignore="UseCompoundDrawables">
+
+        <TextView
+            android:id="@+id/studentNameTv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginEnd="9dp"
+            android:layout_weight="1"
+            android:singleLine="true"
+            android:textColor="@color/add_children_colorBlack"
+            android:textSize="@dimen/county_view_tv_countyName_textSize"
+            tools:text="Test Name" />
+
+        <ImageView
+            android:id="@+id/studentNameCheckUncheckIv"
+            android:layout_width="@dimen/_18sdp"
+            android:layout_height="@dimen/_18sdp"
+            android:src="@drawable/wiz_check_inactive"
+            tools:ignore="ContentDescription" />
+    </LinearLayout>
+
+    <View
+        android:id="@+id/view_heading"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/bottom_sheet_separate_line_color"
+        android:layout_below="@+id/item_Layout"/>
+</RelativeLayout>

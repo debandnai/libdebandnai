@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/bottom_sheet"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/wizard_step_one_lnCounty_height"
+        android:background="@android:color/white"
+        android:fitsSystemWindows="true"
+        android:orientation="vertical"
+        android:padding="@dimen/county_view_linear_padding"
+        app:layout_behavior="@string/bottom_sheet_behavior"
+        tools:ignore="UselessParent">
+
+        <TextView
+            android:id="@+id/tagTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center_vertical"
+            android:text=""
+            android:textColor="@color/add_children_its_time_to_textColor"
+            android:textSize="@dimen/county_view_list_heading_textSize"
+            tools:ignore="RtlHardcoded" />
+
+        <View
+            android:id="@+id/view_heading"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:background="#458B42"
+            android:layout_marginTop="5dp"
+            />
+
+        <TextView
+            android:id="@+id/noDataFoundTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/no_data_found"
+            android:fontFamily="@font/quicksand_bold"
+            android:textColor="@color/red"
+            android:padding="@dimen/_5sdp"
+            android:visibility="gone"
+            android:textSize="@dimen/county_view_list_heading_textSize"
+            tools:ignore="RtlHardcoded"
+            />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="0dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/student_name_item"
+            />
+    </LinearLayout>
+</RelativeLayout>

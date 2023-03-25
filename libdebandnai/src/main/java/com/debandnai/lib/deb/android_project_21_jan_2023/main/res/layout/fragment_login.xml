@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.movie.myapplication.data.viewModel.AuthViewModel" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_marginEnd="@dimen/_12sdp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_marginTop="@dimen/_60sdp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/user_name"
+                android:textColor="@color/white"
+                android:fontFamily="@font/open_sans_light"
+                android:textSize="@dimen/_12ssp"/>
+            <EditText
+                android:id="@+id/et_user_name"
+                android:inputType="text"
+                android:textColor="@color/white"
+                android:fontFamily="@font/open_sans_light"
+                android:textSize="@dimen/_14ssp"
+                app:backgroundTint="@color/edit_text_color"
+                android:drawablePadding="@dimen/_12sdp"
+                android:drawableLeft="@drawable/profile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@={viewModel.userName}" />
+
+            <TextView
+                android:layout_marginTop="@dimen/_30sdp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/password"
+                android:textColor="@color/white"
+                android:fontFamily="@font/open_sans_light"
+                android:textSize="@dimen/_12ssp"/>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="@dimen/_12sdp">
+            <EditText
+                android:id="@+id/et_password"
+                android:inputType="textWebPassword"
+                android:textColor="@color/white"
+                android:fontFamily="@font/open_sans_light"
+                android:textSize="@dimen/_14ssp"
+                android:paddingEnd="@dimen/_40sdp"
+                app:backgroundTint="@color/edit_text_color"
+                android:drawableLeft="@android:drawable/ic_lock_lock"
+                app:drawableTint="@color/off_green"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@={viewModel.password}" />
+                <TextView
+                    android:textColor="@color/yellow"
+                    android:fontFamily="@font/open_sans_medium"
+                    android:textSize="@dimen/_11ssp"
+                    android:id="@+id/tv_show"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.showHideText}"/>
+            </RelativeLayout>
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_marginTop="@dimen/_30sdp"
+                android:id="@+id/login_btn"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginEnd="@dimen/_20sdp"
+                android:background="@drawable/button_shap"
+                android:text="@string/login"
+                android:textSize="@dimen/_18ssp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/_18sdp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/don_t_have_an_account" />
+
+                <TextView
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:id="@+id/sign_up_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/register_here" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</layout>

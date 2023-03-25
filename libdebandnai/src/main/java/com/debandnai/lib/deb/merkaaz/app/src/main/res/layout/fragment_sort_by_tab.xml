@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+
+    <TextView
+        android:id="@+id/txt_sort_by"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/sort_by"
+        android:fontFamily="@font/open_sans_bold"
+        android:textColor="@color/address_unselect_color"
+        android:textSize="@dimen/_14ssp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.14"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="@dimen/_20sdp"
+        app:layout_constraintVertical_bias="0.060000002" />
+
+    <RadioGroup
+        android:id="@+id/rg_sort_by"
+        android:layout_width="0dp"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/txt_sort_by"
+        app:layout_constraintTop_toBottomOf="@+id/txt_sort_by">
+
+        <androidx.appcompat.widget.AppCompatRadioButton
+            android:id="@+id/rd_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/open_sans_medium"
+            android:paddingStart="@dimen/_14ssp"
+            android:paddingBottom="@dimen/_4sdp"
+            android:button="@drawable/radio_button"
+            android:text="@string/price"
+            android:textSize="@dimen/_14ssp" />
+        <androidx.appcompat.widget.AppCompatRadioButton
+            android:id="@+id/rd_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/open_sans_medium"
+            android:paddingStart="@dimen/_14ssp"
+            android:button="@drawable/radio_button"
+            android:paddingBottom="@dimen/_4sdp"
+            android:text="@string/name_sort"
+            android:textSize="@dimen/_14ssp" />
+        <androidx.appcompat.widget.AppCompatRadioButton
+            android:id="@+id/rd_discount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/open_sans_medium"
+            android:paddingStart="@dimen/_14ssp"
+            android:button="@drawable/radio_button"
+            android:paddingBottom="@dimen/_4sdp"
+            android:text="@string/discount"
+            android:textSize="@dimen/_14ssp" />
+
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/txt_sort_order"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/sort_order"
+        android:fontFamily="@font/open_sans_bold"
+        android:textColor="@color/address_unselect_color"
+        android:textSize="@dimen/_14ssp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:button="@drawable/radio_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.14"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rg_sort_by"
+        app:layout_constraintVertical_bias="0.060000002" />
+
+    <RadioGroup
+        android:id="@+id/rg_sort_order"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_5sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/txt_sort_order"
+        app:layout_constraintTop_toBottomOf="@+id/txt_sort_order">
+
+        <androidx.appcompat.widget.AppCompatRadioButton
+            android:id="@+id/rd_asc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/open_sans_medium"
+            android:paddingStart="@dimen/_14ssp"
+            android:button="@drawable/radio_button"
+            android:paddingBottom="@dimen/_4sdp"
+            android:text="@string/ascending"
+            android:textSize="@dimen/_14ssp" />
+        <androidx.appcompat.widget.AppCompatRadioButton
+            android:id="@+id/rd_dsc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/open_sans_medium"
+            android:paddingStart="@dimen/_14ssp"
+            android:button="@drawable/radio_button"
+            android:paddingBottom="@dimen/_4sdp"
+            android:text="@string/descending"
+            android:textSize="@dimen/_14ssp" />
+
+    </RadioGroup>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

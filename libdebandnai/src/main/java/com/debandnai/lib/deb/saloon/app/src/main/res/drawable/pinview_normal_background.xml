@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape android:shape="rectangle" xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <stroke android:color="@color/pin_view_border_normal" android:width="2dp"/>
+    <solid android:color="@color/pin_view_background" />
+    <corners android:radius="10dp" />
+</shape>

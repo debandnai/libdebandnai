@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.merkaaz.app.data.viewModel.OtpViewModel" />
+
+        <variable
+            name="constants"
+            type="com.merkaaz.app.utils.Constants" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/bg_color"
+            tools:context=".ui.OtpActivity">
+
+            <ImageView
+                android:id="@+id/iv_app_logo"
+                android:layout_width="@dimen/_68sdp"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.110000014"
+                app:srcCompat="@drawable/ic_logo"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_18sdp"
+                android:fontFamily="@font/russo_one"
+                android:gravity="center"
+                android:text="@string/enter_one_time_password"
+                android:textColor="@color/dark_blue"
+                android:textSize="@dimen/_23ssp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/iv_app_logo" />
+
+            <TextView
+                android:id="@+id/tv_ph_no"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_16sdp"
+                android:layout_marginTop="@dimen/_22sdp"
+                android:layout_marginEnd="@dimen/_16sdp"
+                android:fontFamily="@font/open_sans_regular"
+                android:gravity="center"
+                android:paddingStart="@dimen/_26sdp"
+                android:paddingEnd="@dimen/_26sdp"
+                tools:text="tessssssssssss"
+                android:text="@{viewModel.phnlivedata}"
+                android:textColor="@color/inactive_tab_color"
+                android:textSize="@dimen/_12ssp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_title" />
+
+            <com.chaos.view.PinView
+                android:id="@+id/pin_view"
+                style="@style/PinWidget.PinView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:cursorVisible="true"
+                android:elevation="@dimen/_8sdp"
+                app:clearPinData="@{viewModel.isClearPinData}"
+                android:inputType="number"
+                android:itemBackground="@drawable/pinview_items_back"
+                android:padding="@dimen/_8sdp"
+                android:textColor="@color/dark_blue"
+                android:textSize="@dimen/_14ssp"
+                android:textStyle="bold"
+                app:addTextChangeListener="@{viewModel}"
+                app:cursorColor="@color/dark_blue"
+                app:cursorWidth="@dimen/_2sdp"
+                app:elevation="@dimen/_8sdp"
+                app:hideLineWhenFilled="true"
+                app:itemCount="4"
+                app:itemHeight="@dimen/_58sdp"
+                app:itemRadius="@dimen/_4sdp"
+                app:itemSpacing="0dp"
+                app:itemWidth="@dimen/_68sdp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_ph_no"
+                app:layout_constraintVertical_bias="0.060000002"
+                app:lineColor="@color/white"
+                app:lineWidth="@dimen/_2sdp"
+                app:viewType="rectangle" />
+
+            <TextView
+                android:id="@+id/txt_resend"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:alpha="@{viewModel.resendValidation ? 1f : 0.5f}"
+                android:enabled="@{viewModel.resendValidation}"
+                android:fontFamily="@font/open_sans_regular"
+                android:onClick="@{()->viewModel.resend()}"
+                android:text="@string/resend_otp"
+                android:textColor="@color/dark_blue"
+                android:textSize="@dimen/_14ssp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/pin_view" />
+
+            <ImageView
+                android:id="@+id/iv_reseend_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_14sdp"
+                app:layout_constraintBottom_toBottomOf="@+id/txt_resend"
+                app:layout_constraintStart_toEndOf="@+id/txt_resend"
+                app:layout_constraintTop_toBottomOf="@+id/pin_view"
+                app:layout_constraintVertical_bias="0.74"
+                app:srcCompat="@drawable/ic_u_turn_arrow"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/textView14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_6sdp"
+                android:fontFamily="@font/open_sans_medium"
+                android:text="@{viewModel.countdownTimer}"
+                android:textColor="@color/dark_blue"
+                android:textSize="@dimen/_11ssp"
+                android:visibility="@{viewModel.resendValidation ? View.GONE : View.VISIBLE}"
+                app:layout_constraintEnd_toEndOf="@+id/txt_resend"
+                app:layout_constraintStart_toStartOf="@+id/txt_resend"
+                app:layout_constraintTop_toBottomOf="@+id/txt_resend" />
+
+            <Button
+                android:id="@+id/btn_login"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/button_height"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@drawable/teal_button_bg"
+                android:fontFamily="@font/russo_one"
+                android:lines="1"
+                android:maxLines="1"
+                android:onClick="@{()->viewModel.verifyOtp()}"
+                android:text="@string/login"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_14ssp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/pin_view"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="@+id/pin_view"
+                app:layout_constraintTop_toBottomOf="@+id/textView14"
+                app:layout_constraintVertical_bias="0.0" />
+
+
+
+
+            <TextView
+                android:id="@+id/tv_have_any_ques"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:gravity="center"
+                android:fontFamily="@font/open_sans_regular"
+                android:paddingStart="@dimen/_10sdp"
+                android:paddingEnd="@dimen/_10sdp"
+                android:text="@string/have_any_questions_contact_our_customer_support_team_at"
+                android:textColor="@color/dark_blue"
+                android:textSize="@dimen/_12ssp"
+                app:layout_constraintEnd_toEndOf="@+id/btn_login"
+                app:layout_constraintStart_toStartOf="@+id/btn_login"
+                app:layout_constraintTop_toBottomOf="@+id/btn_login" />
+
+
+            <TextView
+                android:id="@+id/tv_service_no"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:drawablePadding="@dimen/_8sdp"
+                android:fontFamily="@font/open_sans_medium"
+                android:gravity="center"
+                android:text="@{constants.CUSTOMER_SERVICE_NUMBER}"
+                android:textColor="@color/teal_700"
+                android:textSize="@dimen/_14ssp"
+                app:drawableLeftCompat="@drawable/ic_mobile_icon"
+                app:layout_constraintEnd_toEndOf="@+id/tv_have_any_ques"
+                app:layout_constraintStart_toStartOf="@+id/tv_have_any_ques"
+                app:layout_constraintTop_toBottomOf="@+id/tv_have_any_ques"
+                app:openCallDialerOnClick="@{constants.CUSTOMER_SERVICE_NUMBER}"
+                tools:text="+244  900 000 000" />
+
+            <ImageView
+                android:id="@+id/iv_water_mark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.611"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_have_any_ques"
+                app:layout_constraintVertical_bias="1.0"
+                app:srcCompat="@drawable/ic_img_bottom_logo"
+                tools:ignore="ContentDescription" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/light_dark"
+        android:gravity="center"
+        android:paddingStart="@dimen/_30sdp"
+        android:paddingEnd="@dimen/_30sdp">
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_220sdp"
+            android:layout_centerInParent="true"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="@dimen/_30sdp"
+            app:cardElevation="0dp">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center|top"
+                android:orientation="vertical"
+                android:layout_marginEnd="-2dp"
+                android:background="@color/first_dayorder_item_yes_no_dialog_background">>
+                <!--android:background="@drawable/background_img_order_added_favourite"-->
+
+                <TextView
+                    android:id="@+id/tv_popupTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_14sdp"
+                    android:text="@string/mmm_delicious"
+                    android:layout_centerHorizontal="true"
+                    android:textColor="@color/red5"
+                    android:textSize="@dimen/_22ssp"
+                    android:fontFamily="@font/quicksand_bold" />
+
+                <TextView
+                    android:id="@+id/_tv_content"
+                    android:layout_below="@+id/tv_popupTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:textColor="@color/order_status_dialog_black2"
+                    android:textSize="@dimen/_14ssp"
+                    android:gravity="center"
+                    android:text="@string/order_added_to_your_favourite_list"
+                    android:visibility="visible"
+                    android:fontFamily="@font/quicksand_bold"/>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_ok"
+                    android:layout_below="@+id/_tv_content"
+                    android:layout_width="@dimen/_60sdp"
+                    android:layout_height="@dimen/_32sdp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/_18sdp"
+                    android:background="@drawable/order_status_button_bg"
+                    android:fontFamily="@font/quicksand_bold"
+                    android:paddingBottom="@dimen/_3sdp"
+                    android:text="@string/ok"
+                    android:textAllCaps="true"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_16ssp" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_100sdp"
+                    android:layout_marginStart="@dimen/_minus4sdp"
+                    android:background="@drawable/order_added_favourite_img"
+                    android:layout_alignParentBottom="true"/>
+            </RelativeLayout>
+        </com.google.android.material.card.MaterialCardView>
+    </RelativeLayout>
+</layout>

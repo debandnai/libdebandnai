@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "839167579161",
+    "project_id": "merkaaz-354308",
+    "storage_bucket": "merkaaz-354308.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:839167579161:android:63a93509b9a433cf70c688",
+        "android_client_info": {
+          "package_name": "com.merkaaz.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "839167579161-d8bacal23buec8j916ku6888ksdv8afu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDPWjdvz-zrqGeV-VB1wKiXHwaUS_droPA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "839167579161-d8bacal23buec8j916ku6888ksdv8afu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

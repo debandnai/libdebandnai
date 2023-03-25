@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.merkaaz.app.data.viewModel.ManageProfitLossDetailsViewModel" />
+
+        <variable
+            name="activity"
+            type="com.merkaaz.app.ui.activity.ManageProfitLossDetailsActivity" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:hideKeyboardByClickingOutside="@{activity}"
+        tools:context=".ui.activity.MyOrderActivity">
+
+        <RelativeLayout
+            android:id="@+id/ll_header"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_50sdp"
+            android:background="@color/teal_700"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/img_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:adjustViewBounds="true"
+                android:onClick="@{()->activity.onBackPressed()}"
+                android:padding="@dimen/_8sdp"
+                android:src="@drawable/ic_back_white"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:layout_toEndOf="@+id/img_back"
+                android:fontFamily="@font/russo_one"
+                android:padding="@dimen/_8sdp"
+                android:text="@{viewModel.orderId}"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_14ssp"
+                tools:text="@string/order_id"
+                tools:ignore="RelativeOverlap" />
+
+            <ImageView
+                android:id="@+id/img_help"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:adjustViewBounds="true"
+                android:padding="@dimen/_8sdp"
+                android:src="@drawable/ic_help"
+                tools:ignore="ContentDescription" />
+
+        </RelativeLayout>
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swipe_refresh_layout"
+
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ll_header"
+            app:layout_constraintVertical_bias="1.0"
+
+            >
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/tv_order_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:text="@{viewModel.orderDate}"
+                    android:textColor="@color/teal_700"
+                    android:textSize="@dimen/_16ssp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="12 Apr, 2022" />
+
+                <TextView
+                    android:id="@+id/tv_no_of_items"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_20sdp"
+                    android:background="@drawable/ic_items_background"
+                    android:fontFamily="@font/open_sans_semi_bold"
+                    android:gravity="center"
+                    android:padding="@dimen/_2sdp"
+                    android:text="@{viewModel.items}"
+                    android:textColor="@color/dark_blue"
+                    android:textSize="@dimen/_12ssp"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_order_date"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/tv_order_date"
+                    tools:text="20" />
+
+                <TextView
+                    android:id="@+id/tv_no_of_items_tag"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_12sdp"
+                    android:fontFamily="@font/open_sans_regular"
+                    android:gravity="center"
+                    android:padding="@dimen/_2sdp"
+                    android:text="@string/no_of_items"
+                    android:textColor="@color/dark_blue"
+                    android:textSize="@dimen/_12ssp"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_order_date"
+                    app:layout_constraintEnd_toStartOf="@+id/tv_no_of_items"
+                    app:layout_constraintTop_toTopOf="@+id/tv_order_date"
+                    tools:text="No. of Items" />
+
+                <View
+                    android:id="@+id/view5"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:background="@color/dark_blue"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_order_date" />
+
+
+                <TextView
+                    android:id="@+id/tv_cost_tag"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:fontFamily="@font/open_sans_regular"
+                    android:gravity="center"
+                    android:padding="@dimen/_2sdp"
+                    android:text="@string/cost_price"
+                    android:textColor="@color/dark_blue"
+                    android:textSize="@dimen/_12ssp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/view5"
+                    tools:text="Cost Price" />
+
+                <TextView
+                    android:id="@+id/tv_cost"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:fontFamily="@font/open_sans_semi_bold"
+                    android:gravity="center"
+                    android:padding="@dimen/_2sdp"
+                    android:text="@{viewModel.orderCostPrice}"
+                    android:textColor="@color/dark_blue"
+                    android:textSize="@dimen/_12ssp"
+                    app:layout_constraintStart_toEndOf="@+id/tv_cost_tag"
+                    app:layout_constraintTop_toBottomOf="@+id/view5"
+                    tools:text="1,000,000.00 AOA" />
+
+                <View
+                    android:id="@+id/view4"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_50sdp"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:background="@color/dark_blue"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_cost" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_12sdp"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="@+id/view4"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/view4">
+
+                    <TextView
+                        android:id="@+id/tv_profit_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/open_sans_semi_bold"
+                        android:text="@string/profit"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_11ssp" />
+
+                    <TextView
+                        android:id="@+id/tv_profit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="1dp"
+                        android:fontFamily="@font/open_sans_bold"
+                        android:text="@{viewModel.profit}"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_12ssp"
+                        tools:text="20%" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_12sdp"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="@+id/view4"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/view4">
+
+                    <TextView
+                        android:id="@+id/tv_gross_profit_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/open_sans_semi_bold"
+                        android:text="@string/gross_profit"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_11ssp"
+                        app:layout_constraintTop_toTopOf="@+id/tv_profit_title" />
+
+                    <TextView
+                        android:id="@+id/tv_gross_profit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="1dp"
+                        android:fontFamily="@font/open_sans_bold"
+                        android:text="@{viewModel.grossProfit}"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_12ssp"
+                        tools:text="40,000.00 AOA" />
+
+                </LinearLayout>
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvProfitLossProduct"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/view4"
+                    tools:listitem="@layout/profit_loss_details_items_layout" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

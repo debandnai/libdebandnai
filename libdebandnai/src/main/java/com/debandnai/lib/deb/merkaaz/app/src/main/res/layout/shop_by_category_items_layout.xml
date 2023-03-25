@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="shopByCategoryList"
+            type="com.merkaaz.app.data.model.ShopByCategoryList" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_item_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/img_product_icon"
+            android:layout_width="@dimen/_36sdp"
+            android:layout_height="@dimen/_36sdp"
+            app:roundedCornerRadius="@dimen/_16sdp"
+            android:layout_margin="@dimen/_12sdp"
+            app:placeholderImage="@drawable/no_image"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:imageUrl="@{shopByCategoryList.categoryImage}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_product_name"
+            android:layout_width="0dp"
+            android:paddingStart="@dimen/_8sdp"
+            android:paddingEnd="@dimen/_8sdp"
+            android:layout_height="wrap_content"
+            android:text="@{shopByCategoryList.categoryName}"
+            android:textSize="@dimen/_15ssp"
+            android:ellipsize="end"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:maxLines="2"
+            android:layout_marginEnd="@dimen/_12sdp"
+            android:textColor="@color/address_unselect_color"
+            android:fontFamily="@font/open_sans_regular"
+            app:layout_constraintBottom_toBottomOf="@+id/img_right_arrow"
+            app:layout_constraintEnd_toStartOf="@+id/img_right_arrow"
+            app:layout_constraintStart_toEndOf="@+id/img_product_icon"
+            app:layout_constraintTop_toTopOf="@+id/img_right_arrow"
+            tools:text="Personal Care" />
+
+        <ImageView
+            android:id="@+id/img_right_arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_12sdp"
+            android:src="@drawable/ic_right_arrow"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_marginEnd="@dimen/_12sdp"
+            android:layout_height="@dimen/_1sdp"
+            android:background="@color/gray_bg_3"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

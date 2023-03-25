@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+            <variable
+                name="viewModel"
+                type="ie.healthylunch.app.data.viewModel.CalenderViewModel" />
+        <import type="android.view.View" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/light_dark"
+        android:gravity="center"
+        android:paddingStart="@dimen/_26sdp"
+        android:paddingEnd="@dimen/_26sdp">
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            app:cardBackgroundColor="@color/first_dayorder_item_yes_no_dialog_background"
+            app:cardCornerRadius="@dimen/_30sdp"
+            app:cardElevation="0dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tv_popupTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:fontFamily="@font/quicksand_bold"
+                    android:text="@{viewModel.orderType.equals(@string/no_order_tag)?@string/add_order_warning:@string/warning}"
+                    android:textColor="@color/first_dayorder_item_yes_no_dialog_red"
+                    android:textSize="@dimen/_26ssp" />
+                <TextView
+                    android:id="@+id/tv_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_popupTitle"
+                    android:layout_marginStart="@dimen/_12sdp"
+                    android:layout_marginEnd="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:textColor="@color/order_status_dialog_black2"
+                    android:textSize="@dimen/_15ssp"
+                    android:gravity="center"
+                    android:text="@{viewModel.calendarWarningMessage}"
+                    android:visibility="visible"
+                    android:fontFamily="@font/quicksand_bold" />
+                <ImageView
+                    android:id="@+id/image1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@{viewModel.hasOrder==true?viewModel.orderType.equals(@string/order1)?@drawable/add_session_holiday_img:@drawable/add_holiday_calendar_img:viewModel.orderType.equals(@string/order2)?@drawable/remove_holiday_calendar_img:viewModel.orderType.equals(@string/no_order_tag)?@drawable/no_order_calendar_img:@drawable/remove_session_holiday_img}"
+                    android:layout_below="@+id/tv_title"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    tools:ignore="ContentDescription" />
+
+                <TextView
+                    android:id="@+id/tv_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/image1"
+                    android:layout_marginStart="@dimen/_12sdp"
+                    android:layout_marginEnd="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:textColor="@color/order_status_dialog_black2"
+                    android:textSize="@dimen/_15ssp"
+                    android:gravity="center"
+                    android:text="@{viewModel.calendarWarningDescription}"
+                    android:visibility="@{viewModel.calendarWarningDescription.isEmpty()?View.GONE:View.VISIBLE}"
+                    android:fontFamily="@font/quicksand_bold" />
+
+                <LinearLayout
+                    android:layout_below="@+id/tv_description"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btn_yes"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_marginStart="@dimen/_20sdp"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_12sdp"
+                        android:layout_marginBottom="@dimen/_20sdp"
+                        android:background="@drawable/green_button_bg"
+                        android:fontFamily="@font/quicksand_bold"
+                        android:text="@string/yes"
+                        android:paddingTop="@dimen/_4sdp"
+                        android:paddingBottom="@dimen/_6sdp"
+                        android:textAllCaps="true"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_14ssp" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btn_no"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginEnd="@dimen/_20sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_12sdp"
+                        android:layout_marginBottom="@dimen/_20sdp"
+                        android:background="@drawable/red_button_bg3"
+                        android:fontFamily="@font/quicksand_bold"
+                        android:text="@string/no"
+                        android:paddingTop="@dimen/_4sdp"
+                        android:paddingBottom="@dimen/_6sdp"
+                        android:textAllCaps="true"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_14ssp" />
+                </LinearLayout>
+            </RelativeLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+    </RelativeLayout>
+</layout>

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/margin_20_unit"
+    android:background="@drawable/custom_pop_up_bg">
+
+    <RelativeLayout
+        android:id="@+id/upper"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:padding="@dimen/margin_10_unit">
+
+        <ImageView
+            android:id="@+id/cancelIv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:padding="5dp"
+            android:src="@drawable/cancel"
+            tools:ignore="ContentDescription">
+
+        </ImageView>
+
+        <TextView
+            android:id="@+id/popupTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/cancelIv"
+            android:layout_centerHorizontal="true"
+            android:gravity="center_horizontal"
+            android:text="@string/warning"
+            android:textColor="@color/light_black"
+            android:textSize="@dimen/text_size_popup_dialog_18sp"
+            android:textStyle="bold"
+            android:typeface="sans"
+            />
+
+        <TextView
+            android:id="@+id/text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/popupTitle"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="10dp"
+            android:text="@string/do_you_want_to_repeat_this_order_"
+            android:gravity="center_horizontal"
+            android:textColor="@color/light_black"
+            android:textSize="@dimen/tv_text_size_asking_question_14sp"
+            />
+
+        <TextView
+            android:id="@+id/newOrderTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/text"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="7dp"
+            android:drawableEnd="@drawable/wiz_skip_right_arrow_active"
+            android:drawablePadding="20dp"
+            android:gravity="center_horizontal"
+            android:text="@string/new_order_here"
+            android:textColor="@color/add_children_its_time_to_textColor"
+            android:textSize="@dimen/tv_text_size_asking_question_14sp"
+            android:visibility="visible"
+            tools:ignore="UseCompatTextViewDrawableXml" />
+
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/lower"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_below="@+id/upper"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <TextView
+            android:id="@+id/confirmTv"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:background="@drawable/background_textview_deep_green"
+            android:gravity="center"
+            android:text="@string/confirm"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/off_white"
+            android:textSize="@dimen/text_size_dialog_ok_16sp"
+            android:textStyle="normal"
+            android:typeface="sans" />
+
+        <View
+            android:id="@+id/tvEventDetails"
+            android:layout_width="@dimen/_12sdp"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:id="@+id/cancelTv"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="@dimen/_1sdp"
+            android:layout_weight="1"
+            android:background="@drawable/background_textview_red"
+            android:gravity="center"
+            android:text="@string/cancel"
+            android:textColor="@color/off_white"
+            android:textSize="@dimen/text_size_dialog_ok_16sp"
+            android:textStyle="normal"
+            android:typeface="sans" />
+    </LinearLayout>
+
+</RelativeLayout>

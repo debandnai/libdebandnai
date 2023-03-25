@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="productList"
+            type="com.merkaaz.app.data.model.ProductList" />
+    </data>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingStart="@dimen/_2sdp"
+    android:paddingTop="@dimen/_6sdp"
+    android:paddingEnd="@dimen/_2sdp"
+    android:paddingBottom="@dimen/_6sdp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="0.5">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.4"
+                android:ellipsize="end"
+                android:fontFamily="@font/open_sans_regular"
+                android:maxLines="1"
+                android:gravity="start"
+                android:paddingStart="@dimen/_2sdp"
+                android:paddingEnd="@dimen/_2sdp"
+                tools:text="Fortune Kachi Ghani Mustard Oil"
+                android:text="@{productList.productName}"
+                android:textColor="@color/address_unselect_color"
+                android:textSize="@dimen/_11ssp"
+                tools:ignore="NestedWeights" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:fontFamily="@font/open_sans_regular"
+                android:maxLines="2"
+                android:gravity="start"
+                android:paddingStart="@dimen/_2sdp"
+                android:paddingEnd="@dimen/_2sdp"
+                tools:text="1 Kg"
+                android:text="@{`(`+productList.qtuSize.toString()+`)`}"
+                android:textColor="@color/address_unselect_color"
+                android:textSize="@dimen/_11ssp" />
+
+        </LinearLayout>
+
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.2"
+            android:ellipsize="end"
+            android:fontFamily="@font/open_sans_regular"
+            android:gravity="center_horizontal"
+            android:maxLines="1"
+            android:paddingStart="@dimen/_6sdp"
+            android:paddingEnd="@dimen/_2sdp"
+            tools:text="1"
+            android:text="@{productList.quantity.toString()}"
+            android:textColor="@color/address_unselect_color"
+            android:textSize="@dimen/_11ssp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.3"
+            android:ellipsize="end"
+            android:fontFamily="@font/open_sans_semi_bold"
+            android:maxLines="1"
+            android:gravity="right"
+            android:paddingStart="@dimen/_2sdp"
+            android:paddingEnd="@dimen/_2sdp"
+            tools:text="150.50 AOA "
+            android:text="@{productList.sellPrice}"
+            android:textColor="@color/address_unselect_color"
+            android:textSize="@dimen/_11ssp" />
+    </LinearLayout>
+
+    <View
+        android:id="@+id/view_dot_line"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_1sdp"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:background="@drawable/hr_line" />
+</LinearLayout>
+</layout>

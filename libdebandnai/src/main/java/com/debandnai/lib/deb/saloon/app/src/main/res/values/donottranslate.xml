@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="transition_name_from">search_from</string>
+    <string name="transition_name_to">search_to</string>
+    <string name="notification_channel_orders_group_id">orders</string>
+    <string name="notification_channel_promotion_group_id">promotions</string>
+    <string name="general_channel_id">general_channel</string>
+    <string name="order_updates_channel_id">order_updates</string>
+    <string name="product_promotion_channel_id">product_promotion</string>
+</resources>

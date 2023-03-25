@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <ImageView
+        android:id="@+id/ivIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/menu_margin_start"
+        android:layout_marginTop="@dimen/menu_icon_margin"
+        android:layout_marginEnd="@dimen/menu_icon_margin_end"
+        app:layout_constraintEnd_toStartOf="@+id/tvOptionText"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/icon_home"
+        tools:ignore="ContentDescription,RtlCompat" />
+
+    <RelativeLayout
+        android:id="@+id/rl_Name"
+        android:layout_width="@dimen/rl_Name_circle_size"
+        android:layout_height="@dimen/rl_Name_circle_size"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="@dimen/menu_icon_margin"
+        android:layout_marginEnd="@dimen/menu_icon_margin_end"
+        android:background="@drawable/circle_background_circle_green"
+        android:gravity="center"
+        app:layout_constraintEnd_toStartOf="@+id/tvOptionText"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="RtlCompat">
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="-3dp"
+            android:text=""
+            android:textColor="#FFFFFF"
+            android:textSize="@dimen/tv_name_textsize_circle" />
+    </RelativeLayout>
+
+
+    <TextView
+        android:id="@+id/tvOptionText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/optiontext_margin_bottom"
+        android:layout_marginEnd="@dimen/optntext_margin_end"
+        android:layout_marginBottom="@dimen/optiontext_margin_bottom"
+        android:paddingStart="@dimen/padding_login_btn_left"
+        android:textColor="#000000"
+        android:textSize="@dimen/option_text_size"
+        android:textStyle="normal"
+        app:layout_constraintBottom_toBottomOf="@+id/ivIcon"
+        app:layout_constraintEnd_toStartOf="@+id/profileTv"
+        app:layout_constraintStart_toEndOf="@+id/ivIcon"
+        app:layout_constraintTop_toTopOf="@+id/ivIcon"
+        app:layout_constraintWidth_default="wrap"
+        tools:ignore="RtlCompat,RtlSymmetry"
+        tools:text="Textview" />
+
+    <ImageView
+        android:id="@+id/iconUnderlinedView"
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:layout_marginStart="@dimen/menu_margin_start"
+        android:layout_marginTop="@dimen/menu_icon_margin"
+        android:layout_marginEnd="@dimen/iconUnderlinedView_marginRight"
+        android:layerType="software"
+        android:src="@drawable/dotted_line_background"
+        app:layout_constraintEnd_toEndOf="@+id/ivIcon"
+        app:layout_constraintStart_toStartOf="@+id/ivIcon"
+        app:layout_constraintTop_toBottomOf="@+id/ivIcon"
+        tools:ignore="ContentDescription,RtlCompat" />
+
+    <TextView
+        android:id="@+id/profileTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/optiontext_margin_bottom"
+        android:layout_marginEnd="@dimen/loginbutton_marginright"
+        android:layout_marginBottom="@dimen/optiontext_margin_bottom"
+        android:paddingLeft="@dimen/padding_login_btn_left"
+        android:paddingTop="@dimen/padding_profile"
+        android:paddingRight="@dimen/padding_login_btn_left"
+        android:paddingBottom="@dimen/padding_login_btn"
+        android:textColor="@color/font_green"
+        android:textSize="@dimen/profile_textSoze"
+        android:textStyle="normal"
+        app:layout_constraintBottom_toBottomOf="@+id/tvOptionText"
+        app:layout_constraintEnd_toEndOf="@+id/tvOptionText"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/tvOptionText"
+        app:layout_constraintTop_toBottomOf="@+id/tvOptionText"
+        tools:text="Profile" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

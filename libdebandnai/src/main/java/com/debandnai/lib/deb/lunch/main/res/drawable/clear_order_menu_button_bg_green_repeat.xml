@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- most important is order of layers -->
+
+    <!-- Bottom right side 2dp Shadow -->
+    <!--<item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/order_menu_calorie_row_bg_shadow_color"/>
+            <corners android:radius="@dimen/add_children_button_radius" />
+        </shape>
+    </item>-->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#E7E7E7" />
+            <corners android:radius="@dimen/add_children_button_radius" />
+        </shape>
+    </item>
+</layer-list>

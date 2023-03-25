@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewmodel"
+            type="com.merkaaz.app.data.ProductBottomSheetViewModel" />
+
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/_12sdp"
+            android:background="@drawable/top_rounded_shape"
+            android:paddingTop="@dimen/_15sdp"
+            android:paddingEnd="@dimen/_12sdp"
+            android:paddingBottom="@dimen/_15sdp"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/btn_close"
+                    android:layout_width="@dimen/_30sdp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:background="@color/transparent"
+                    android:padding="@dimen/_10sdp"
+                    android:src="@drawable/ic_close"
+                    android:textColor="@color/white"
+                    android:tint="@color/red"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.facebook.drawee.view.SimpleDraweeView
+                    android:id="@+id/iv_product_img"
+                    android:layout_width="@dimen/_90sdp"
+                    android:layout_height="@dimen/_90sdp"
+                    android:adjustViewBounds="true"
+                    app:placeholderImage="@drawable/no_image"
+                    android:src="@drawable/no_image"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/btn_close"
+                    tools:ignore="ContentDescription" />
+
+                <LinearLayout
+                    android:id="@+id/ll_products"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="@+id/iv_product_img"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/iv_product_img"
+                    app:layout_constraintTop_toTopOf="@+id/iv_product_img">
+
+                    <TextView
+                        android:id="@+id/tv_company_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/open_sans_medium"
+                        android:singleLine="true"
+                        android:textColor="@color/teal_700"
+                        android:textSize="@dimen/_10ssp"
+                        tools:text="Aashirvaad" />
+
+                    <TextView
+                        android:id="@+id/tv_product_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_6sdp"
+                        android:ellipsize="end"
+                        android:fontFamily="@font/open_sans_bold"
+                        android:maxLines="2"
+                        android:textColor="@color/address_unselect_color"
+                        android:textSize="@dimen/_14ssp"
+                        tools:text="product"
+                        tools:texte="Test sxdsds" />
+                </LinearLayout>
+
+
+                <TextView
+                    android:id="@+id/tv_pack_size"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:text="@string/choose_a_pack_sizes"
+                    android:textColor="@color/dark_blue"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:textSize="@dimen/_13ssp"
+                    app:layout_constraintEnd_toEndOf="@+id/ll_products"
+                    app:layout_constraintStart_toStartOf="@+id/iv_product_img"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_product_img" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_pack_size"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="@+id/tv_pack_size"
+                app:layout_constraintStart_toStartOf="@+id/tv_pack_size"
+                app:layout_constraintTop_toBottomOf="@+id/tv_pack_size"
+                tools:itemCount="2"
+                tools:listitem="@layout/choose_pack_size_item" />
+        </LinearLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+
+</layout>

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.movie.myapplication.data.viewModel.HomeViewModel" />
+        <import type="android.view.View"/>
+    </data>
+
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toTopOf="@+id/ll_bottom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout"
+        app:layout_constraintVertical_bias="0.0">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.denzcoskun.imageslider.ImageSlider
+                android:id="@+id/image_slider"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_200sdp"
+                app:iss_auto_cycle="true"
+                app:iss_period="1000"
+                app:iss_delay="100"
+                android:layout_margin="@dimen/_10sdp"
+                app:iss_text_align="CENTER"
+                tools:ignore="MissingClass" />
+
+            <RelativeLayout
+                android:visibility="@{viewModel.showHideTitle.booleanValue()==true?View.VISIBLE:View.INVISIBLE}"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_14sdp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:gravity="start"
+                    android:text="@string/now_playing_on_movies"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_12ssp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:gravity="end"
+                    android:text="@string/view_all"
+                    android:textColor="@color/yellow"
+                    android:textSize="@dimen/_12ssp" />
+
+            </RelativeLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_popular_movie"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false"
+                android:orientation="horizontal"
+                android:paddingStart="@dimen/_4sdp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:ignore="RtlSymmetry"
+                tools:listitem="@layout/popular_movie_list" />
+
+            <RelativeLayout
+                android:visibility="@{viewModel.showHideTitle.booleanValue()==true?View.VISIBLE:View.INVISIBLE}"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_14sdp"
+                android:layout_marginTop="@dimen/_18sdp"
+                android:layout_marginBottom="@dimen/_18sdp"
+                android:layout_marginEnd="@dimen/_14sdp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:gravity="start"
+                    android:text="@string/top_rated_on_movies"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_12ssp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:gravity="end"
+                    android:text="@string/view_all"
+                    android:textColor="@color/yellow"
+                    android:textSize="@dimen/_12ssp" />
+
+            </RelativeLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_tranding_movie"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false"
+                android:orientation="horizontal"
+                android:paddingStart="@dimen/_4sdp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:ignore="RtlSymmetry"
+                tools:listitem="@layout/popular_movie_list" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</layout>

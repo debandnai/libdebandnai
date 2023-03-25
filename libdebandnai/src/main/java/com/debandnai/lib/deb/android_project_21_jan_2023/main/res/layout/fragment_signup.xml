@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.movie.myapplication.data.viewModel.AuthViewModel" />
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <androidx.compose.ui.platform.ComposeView
+            android:id="@+id/compose_View"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    <ScrollView
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_marginEnd="@dimen/_12sdp"
+            android:orientation="vertical">
+
+
+            <EditText
+                android:inputType="textPersonName"
+                android:layout_marginTop="@dimen/_30sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/first_name"
+                app:backgroundTint="@color/edit_text_color"
+                android:text="@={viewModel.first_name}" />
+
+
+            <EditText
+                android:inputType="textPersonName"
+                android:layout_marginTop="@dimen/_30sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/last_name"
+                app:backgroundTint="@color/edit_text_color"
+                android:text="@={viewModel.last_name}" />
+
+
+            <EditText
+                android:inputType="number"
+                android:layout_marginTop="@dimen/_30sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/age"
+                app:backgroundTint="@color/edit_text_color"
+                android:text="@={viewModel.age}" />
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginEnd="3dp"
+                android:layout_weight=".28"
+                android:layout_marginTop="@dimen/_30sdp"
+                android:orientation="horizontal">
+
+                <Spinner
+                    android:id="@+id/atGender"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center"
+                    android:background="@android:color/transparent"
+                    android:gravity="center"
+                    android:layout_marginStart="5dp"
+                    android:spinnerMode="dropdown" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center"
+                    android:src="@android:drawable/arrow_down_float" />
+                <View
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="@color/edit_text_color"/>
+            </RelativeLayout>
+
+
+            <EditText
+                android:inputType="textEmailAddress"
+                android:layout_marginTop="@dimen/_30sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/email"
+                app:backgroundTint="@color/edit_text_color"
+                android:text="@={viewModel.email}" />
+
+
+            <EditText
+                android:inputType="phone"
+                android:layout_marginTop="@dimen/_30sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/phone_number"
+                app:backgroundTint="@color/edit_text_color"
+                android:text="@={viewModel.phone_number}" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="@dimen/_12sdp">
+                <EditText
+                    android:id="@+id/et_password"
+                    android:inputType="textWebPassword"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/open_sans_light"
+                    android:textSize="@dimen/_14ssp"
+                    android:paddingEnd="@dimen/_40sdp"
+                    app:backgroundTint="@color/edit_text_color"
+                    android:drawableLeft="@android:drawable/ic_lock_lock"
+                    app:drawableTint="@color/white"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@={viewModel.password_sign_up}"  />
+                <TextView
+                    android:textColor="@color/yellow"
+                    android:fontFamily="@font/open_sans_medium"
+                    android:textSize="@dimen/_11ssp"
+                    android:id="@+id/tv_show"
+                    app:backgroundTint="@color/edit_text_color"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.showHideText}"/>
+            </RelativeLayout>
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_marginTop="@dimen/_30sdp"
+                android:id="@+id/sign_up_btn"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginEnd="@dimen/_20sdp"
+                android:background="@drawable/button_shap"
+                android:text="@string/signup"
+                android:textSize="@dimen/_18ssp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/_18sdp"
+                android:layout_marginBottom="@dimen/_18sdp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/already_have_an_account" />
+
+                <TextView
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:id="@+id/tv_login"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/login_here" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+    </LinearLayout>
+</layout>

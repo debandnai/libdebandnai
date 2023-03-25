@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <RelativeLayout
+        android:foreground="?attr/selectableItemBackgroundBorderless"
+        android:layout_width="@dimen/_101sdp"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_4sdp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/ivService"
+            android:layout_width="@dimen/_70sdp"
+            android:layout_height="@dimen/_70sdp"
+            android:src="@drawable/profile"
+            app:civ_border_color="@color/service_list_image_border"
+            app:civ_border_width="@dimen/_2sdp"
+            android:layout_centerHorizontal="true"
+
+            />
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ivService"
+            android:layout_centerHorizontal="true"
+            android:fontFamily="@font/montserrat_medium_500"
+            android:letterSpacing="0.1"
+            android:textAllCaps="true"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:textColor="@color/default_text_color"
+            android:textSize="@dimen/_10ssp"
+            tools:text="Hair Color" />
+
+    </RelativeLayout>
+</layout>

@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="ie.healthylunch.app.data.viewModel.AddVoucherCodeViewModel" />
+
+        <variable
+            name="activity"
+            type="ie.healthylunch.app.ui.ParentTopUpByVoucherActivity" />
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/rl_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background_all"
+        app:hideKeyboardByClickingOutside="@{activity}"
+        tools:context=".ui.ParentTopUpByVoucherActivity">
+
+        <RelativeLayout
+            android:id="@+id/rl_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_margin="@dimen/add_child_welcome_margin">
+
+            <ImageView
+                android:id="@+id/infoIv"
+                android:layout_width="@dimen/iv_top_left_arrow_30dp"
+                android:layout_height="@dimen/iv_top_left_arrow_30dp"
+                android:layout_centerVertical="true"
+                android:onClick="@{()->activity.onBackPressed()}"
+                android:src="@drawable/wiz_skip_left_arrow_active"
+                tools:ignore="ContentDescription" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_about_your_card"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rl_top"
+            android:layout_marginTop="-10dp"
+            android:paddingLeft="@dimen/padding_left_keep_my_card_35dp"
+            android:text="Add voucher code"
+            android:textColor="@color/light_black"
+            android:textSize="@dimen/tv_size_add_voucher_code_22sp"
+            tools:ignore="HardcodedText,RtlHardcoded,RtlSymmetry" />
+
+        <RelativeLayout
+            android:id="@+id/rl_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/rl_height_change_pwd_500dp"
+            android:layout_below="@+id/tv_about_your_card"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/custom_calender_background_shadow_new">
+
+
+            <RelativeLayout
+                android:id="@+id/rl_wallet_heading"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:background="@drawable/add_children_its_time_to_background"
+                android:padding="@dimen/its_time_to_padding">
+
+                <LinearLayout
+                    android:id="@+id/rl_wallet"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="bottom"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight=".30"
+                    android:gravity="center"
+                    android:visibility="visible"
+                    tools:ignore="ObsoleteLayoutParam,RtlHardcoded,UselessParent">
+
+                    <ImageView
+                        android:id="@+id/img_wallet"
+                        android:layout_width="@dimen/iv_wallet_image_30dp"
+                        android:layout_height="@dimen/iv_wallet_image_30dp"
+                        android:layout_marginLeft="0dp"
+                        android:src="@drawable/footer_wallet_inactive"
+                        tools:ignore="ContentDescription" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="@dimen/marginRight_wallet_balance"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tv_wallet"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="-5dp"
+                            android:text="Current Wallet"
+                            android:textColor="@color/light_black"
+                            android:textSize="@dimen/current_wallet_text_size_18sp"
+                            tools:ignore="HardcodedText" />
+
+                        <TextView
+                            android:id="@+id/tv_balance"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/tv_wallet"
+                            android:layout_marginBottom="5dp"
+                            android:singleLine="true"
+                            android:text="Balance"
+                            android:textColor="@color/light_black"
+                            android:textSize="@dimen/current_wallet_text_size_18sp"
+                            tools:ignore="HardcodedText" />
+
+                        <TextView
+                            android:id="@+id/tv_wallet_currentAmount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:paddingRight="@dimen/tv_amount_padding_right_wallet_20dp"
+                            android:text="@{viewModel.walletBalance}"
+                            android:textColor="@color/light_black"
+                            android:textSize="@dimen/current_wallet_text_size_18sp"
+                            tools:ignore="HardcodedText,RtlSymmetry"
+                            tools:text="€ 0.00" />
+                    </RelativeLayout>
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rl_wallet_heading"
+                android:layout_marginTop="@dimen/scroll_marginTop">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/editText_marginLeft"
+                    android:layout_marginRight="@dimen/editText_marginLeft">
+
+                    <EditText
+                        android:id="@+id/et_voucher"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/ed_name_left_right_margin"
+                        android:layout_marginTop="@dimen/margin_top_et_voucher_20dp"
+                        android:layout_marginRight="@dimen/ed_name_left_right_margin"
+                        android:background="@drawable/background_textview"
+                        android:elevation="1.5dp"
+                        android:gravity="center"
+                        android:hint="Voucher Code"
+                        android:paddingLeft="@dimen/add_child_editText_paddingLeft"
+                        app:addTextChangeListener="@{viewModel}"
+                        app:requestFocus="@{viewModel.couponCodeErrorVisible}"
+                        android:paddingTop="@dimen/first_name_paddingTopBottom"
+                        android:paddingRight="@dimen/add_child_editText_paddingLeft"
+                        android:paddingBottom="@dimen/first_name_paddingTopBottom"
+                        android:singleLine="true"
+                        android:text="@={viewModel.couponCode}"
+                        android:textColor="@color/text_color_transaction_history_light_black"
+                        android:textColorHint="@color/text_font_color"
+                        android:textSize="@dimen/tv_1_text_size"
+                        tools:ignore="Autofill,HardcodedText,TextFields" />
+
+                    <TextView
+                        android:id="@+id/error_voucher"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/et_voucher"
+                        android:layout_marginLeft="@dimen/ed_name_left_right_margin"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginRight="@dimen/ed_name_left_right_margin"
+                        android:gravity="center"
+                        android:text="@{viewModel.couponCodeError}"
+                        android:textColor="@color/font_red"
+                        android:textSize="@dimen/error_textSize"
+                        android:visibility="invisible"
+                        app:hideErrorTextView="@{viewModel.couponCodeErrorVisible}"
+                        tools:ignore="HardcodedText"
+                        tools:text="Error Message" />
+
+                    <RelativeLayout
+                        android:id="@+id/rl_top_up_voucher_continue"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/error_voucher"
+                        android:layout_marginLeft="@dimen/ed_name_left_right_margin"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginRight="@dimen/ed_name_left_right_margin"
+                        android:layout_marginBottom="@dimen/margin_bottom_top_voucher_70dp"
+                        android:background="@drawable/background_textview_green"
+                        android:onClick="@{()->viewModel.continueClick(activity)}">
+
+                        <TextView
+                            android:id="@+id/tv_top_up_voucher"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginTop="@dimen/add_children_buttonText_marginTop"
+                            android:layout_marginBottom="@dimen/add_children_buttonText_marginTop"
+                            android:paddingLeft="@dimen/add_children_buttonText_paddingLeft"
+                            android:paddingTop="@dimen/add_children_buttonText_paddingBottom"
+                            android:paddingRight="@dimen/add_children_buttonText_paddingLeft"
+                            android:paddingBottom="@dimen/add_children_buttonText_paddingBottom"
+                            android:text="Continue"
+                            android:textAllCaps="false"
+                            android:textColor="@color/add_children_colorWhite"
+                            android:textSize="@dimen/tv_size_view_transaction_17sp"
+                            tools:ignore="HardcodedText" />
+                    </RelativeLayout>
+
+                </RelativeLayout>
+            </ScrollView>
+        </RelativeLayout>
+    </RelativeLayout>
+</layout>
